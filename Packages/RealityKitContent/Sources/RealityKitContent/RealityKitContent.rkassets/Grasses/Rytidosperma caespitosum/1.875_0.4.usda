@@ -1,0 +1,604 @@
+#usda 1.0
+
+def Xform "World" (
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
+{
+    rel material:binding = </World/Rytidosperma_caespitosum_Mat> (
+        bindMaterialAs = "strongerThanDescendants"
+    )
+
+    def Xform "Assets" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+
+        def Xform "Rytidosperma_caespitosum_4_LOD0" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD0/Rytidosperma_caespitosum_4_LOD0.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Rytidosperma_caespitosum_1_LOD0" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD0/Rytidosperma_caespitosum_1_LOD0.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Rytidosperma_caespitosum_2_LOD0" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD0/Rytidosperma_caespitosum_2_LOD0.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Rytidosperma_caespitosum_3_LOD0" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD0/Rytidosperma_caespitosum_3_LOD0.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Xform "Instance_0_0_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.053001, 1.053001, 1.053001)
+        double3 xformOp:translate = (-0.9398462176322937, 0, -0.9398462176322937)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_1_Rytidosperma_caespitosum_3_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0264833, 1.0264833, 1.0264833)
+        double3 xformOp:translate = (-0.7902365922927856, 0, -0.39023661613464355)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_2_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.82294106, 0.82294106, 0.82294106)
+        double3 xformOp:translate = (-0.6946394443511963, 0, 0.10536056011915207)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_2_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1115919, 1.1115919, 1.1115919)
+        double3 xformOp:translate = (-0.5276265144348145, 0, -0.12762649357318878)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_3_Rytidosperma_caespitosum_2_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.88971955, 0.88971955, 0.88971955)
+        double3 xformOp:translate = (-0.3750336170196533, 0, 0.42496639490127563)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_0_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9606407, 0.9606407, 0.9606407)
+        double3 xformOp:translate = (0.09688135236501694, 0, -0.703118622303009)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_1_Rytidosperma_caespitosum_1_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1204064, 1.1204064, 1.1204064)
+        double3 xformOp:translate = (0.04726232960820198, 0, -0.3527376651763916)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_3_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1303424, 1.1303424, 1.1303424)
+        double3 xformOp:translate = (-0.11049918830394745, 0, 0.28950080275535583)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_0_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9512993, 0.9512993, 0.9512993)
+        double3 xformOp:translate = (0.3393433392047882, 0, -0.8606566786766052)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_1_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.096076, 1.096076, 1.096076)
+        double3 xformOp:translate = (0.29299524426460266, 0, -0.5070047974586487)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_2_Rytidosperma_caespitosum_2_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8381576, 0.8381576, 0.8381576)
+        double3 xformOp:translate = (0.5730318427085876, 0, 0.17303185164928436)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_3_Rytidosperma_caespitosum_4_LOD0" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD0>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8621596, 0.8621596, 0.8621596)
+        double3 xformOp:translate = (0.3924972712993622, 0, 0.3924972712993622)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Material "Rytidosperma_caespitosum_Mat"
+    {
+        reorder nameChildren = ["PBRSurface", "Dot", "Dot_2", "Image2D", "Dot_1", "Image2D_1", "Separate4", "Grass_Animation"]
+        token cullMode = "none" (
+            allowedTokens = ["unspecified", "none", "front", "back"]
+        )
+        asset inputs:AlphaMap = @models/Rytidosperma caespitosum/LOD0/textures/Rytidosperma caespitosum-alpha.png@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-684.1396, -150.91136)
+                    int stackingOrderInSubgraph = 1095
+                }
+            }
+        )
+        float inputs:Amplitude = 0.4 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-41.54184, 248.66017)
+                    int stackingOrderInSubgraph = 1173
+                }
+            }
+        )
+        asset inputs:ColorMap = @models/Rytidosperma caespitosum/LOD0/textures/Rytidosperma caespitosum.png@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-524.8635, -483.09747)
+                    int stackingOrderInSubgraph = 427
+                }
+            }
+        )
+        float inputs:Speed = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-45.503746, 317.8309)
+                    int stackingOrderInSubgraph = 1173
+                }
+            }
+        )
+        float3 inputs:WindDirection = (1, 0, 0) (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-67.44906, 396.8387)
+                    int stackingOrderInSubgraph = 1175
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </World/Rytidosperma_caespitosum_Mat/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation.outputs:Displace>
+        float2 ui:nodegraph:node:pos = (55.550888, -66.630264)
+        int ui:nodegraph:node:stackingOrder = 6
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (430.98355, 118.836945)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 677
+
+        def Shader "PBRSurface"
+        {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            float inputs:ambientOcclusion
+            color3f inputs:baseColor.connect = </World/Rytidosperma_caespitosum_Mat/Dot_2.outputs:out>
+            float inputs:clearcoat
+            float3 inputs:clearcoatNormal
+            float inputs:clearcoatRoughness
+            color3f inputs:emissiveColor
+            bool inputs:hasPremultipliedAlpha
+            float inputs:metallic
+            float3 inputs:normal.connect = </World/Rytidosperma_caespitosum_Mat/Dot_1.outputs:out>
+            float inputs:opacity.connect = </World/Rytidosperma_caespitosum_Mat/Dot.outputs:out>
+            float inputs:opacityThreshold = 0.1
+            float inputs:roughness = 0.5
+            float inputs:specular
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
+            int ui:nodegraph:node:stackingOrder = 1171
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
+        }
+
+        def Shader "Dot"
+        {
+            uniform token info:id = "ND_dot_float"
+            float inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Separate4.outputs:outx>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-68.41439, 114.68096)
+            int ui:nodegraph:node:stackingOrder = 1089
+        }
+
+        def Shader "Dot_2"
+        {
+            uniform token info:id = "ND_dot_color3"
+            color3f inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Image2D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-74.97684, -99.29204)
+            int ui:nodegraph:node:stackingOrder = 504
+        }
+
+        def Shader "Image2D"
+        {
+            uniform token info:id = "ND_RealityKitTexture2D_color3"
+            float inputs:bias
+            string inputs:border_color = "transparent_black"
+            color3f inputs:default
+            float inputs:dynamic_min_lod_clamp
+            asset inputs:file.connect = </World/Rytidosperma_caespitosum_Mat.inputs:ColorMap>
+            string inputs:mag_filter
+            int inputs:max_anisotropy
+            float inputs:max_lod_clamp = 65504
+            string inputs:min_filter
+            float inputs:min_lod_clamp
+            string inputs:mip_filter
+            bool inputs:no_flip_v = 1
+            int2 inputs:offset
+            float2 inputs:texcoord
+            string inputs:u_wrap_mode
+            string inputs:v_wrap_mode
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
+            int ui:nodegraph:node:stackingOrder = 1107
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
+        }
+
+        def Shader "Dot_1"
+        {
+            uniform token info:id = "ND_dot_vector3"
+            float3 inputs:in.connect = None
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-76.61219, -64.75849)
+            int ui:nodegraph:node:stackingOrder = 718
+        }
+
+        def Shader "Image2D_1"
+        {
+            uniform token info:id = "ND_RealityKitTexture2D_vector4"
+            float inputs:bias
+            string inputs:border_color
+            float4 inputs:default
+            float inputs:dynamic_min_lod_clamp
+            asset inputs:file.connect = </World/Rytidosperma_caespitosum_Mat.inputs:AlphaMap>
+            string inputs:mag_filter
+            int inputs:max_anisotropy
+            float inputs:max_lod_clamp
+            float inputs:min_lod_clamp
+            bool inputs:no_flip_v = 1
+            int2 inputs:offset
+            float2 inputs:texcoord
+            string inputs:u_wrap_mode
+            string inputs:v_wrap_mode
+            float4 outputs:out
+            float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
+            int ui:nodegraph:node:stackingOrder = 1100
+        }
+
+        def Shader "Separate4"
+        {
+            uniform token info:id = "ND_separate4_vector4"
+            float4 inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Image2D_1.outputs:out>
+            float outputs:outw
+            float outputs:outx
+            float outputs:outy
+            float outputs:outz
+            float2 ui:nodegraph:node:pos = (-219.18825, 142.97026)
+            int ui:nodegraph:node:stackingOrder = 1086
+        }
+
+        def NodeGraph "Grass_Animation"
+        {
+            float inputs:Amplitude = 0.7 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-859.66864, 88.08858)
+                        int stackingOrderInSubgraph = 1577
+                    }
+                }
+            )
+            float inputs:Amplitude.connect = </World/Rytidosperma_caespitosum_Mat.inputs:Amplitude>
+            float inputs:Speed = 0.7 (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-1377.7136, 42.31363)
+                        int stackingOrderInSubgraph = 1997
+                    }
+                }
+            )
+            float inputs:Speed.connect = </World/Rytidosperma_caespitosum_Mat.inputs:Speed>
+            float3 inputs:Wind_Direction = (1, 0, 0) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-1247.8134, 327.76813)
+                        int stackingOrderInSubgraph = 2183
+                    }
+                }
+            )
+            float3 inputs:Wind_Direction.connect = </World/Rytidosperma_caespitosum_Mat.inputs:WindDirection>
+            token outputs:Displace (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-16, 71.5)
+                        int stackingOrderInSubgraph = 2
+                    }
+                }
+            )
+            token outputs:Displace.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/GeometryModifier.outputs:out>
+            float2 ui:nodegraph:node:pos = (188.25552, 252.4837)
+            int ui:nodegraph:node:stackingOrder = 1172
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (80.23828, 130.08203)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 15
+
+            def Shader "GeometryModifier"
+            {
+                uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+                float3 inputs:bitangent
+                color4f inputs:color
+                float3 inputs:modelPositionOffset.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_4.outputs:out>
+                float3 inputs:normal
+                float2 inputs:uv0
+                float2 inputs:uv1
+                float4 inputs:uv5
+                float4 inputs:uv6
+                float4 inputs:uv7
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (-187.85938, 25.742188)
+                int ui:nodegraph:node:stackingOrder = 2034
+            }
+
+            def Shader "Multiply_1"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Add.outputs:out>
+                float inputs:in2.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation.inputs:Speed>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1256.8992, -8.679611)
+                int ui:nodegraph:node:stackingOrder = 1049
+            }
+
+            def Shader "Position"
+            {
+                uniform token info:id = "ND_position_vector3"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-1470.9783, 131.75777)
+                int ui:nodegraph:node:stackingOrder = 1939
+            }
+
+            def Shader "Multiply_2"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1 = 1
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Sin.outputs:out>
+                float inputs:in2 = 4
+                float inputs:in2.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-900.7302, 0.046179295)
+                int ui:nodegraph:node:stackingOrder = 920
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+            }
+
+            def Shader "Separate3"
+            {
+                uniform token info:id = "ND_separate3_vector3"
+                float3 inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Position.outputs:out>
+                float outputs:outx
+                float outputs:outy
+                float outputs:outz
+                float2 ui:nodegraph:node:pos = (-1290.1428, 131.73871)
+                int ui:nodegraph:node:stackingOrder = 1939
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:outy"]
+            }
+
+            def Shader "Time"
+            {
+                uniform token info:id = "ND_time_float"
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1479.3828, -27.816406)
+                int ui:nodegraph:node:stackingOrder = 2191
+            }
+
+            def Shader "Divide_1"
+            {
+                uniform token info:id = "ND_divide_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation.inputs:Amplitude>
+                float inputs:in2 = 10
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-745.96576, 96.82498)
+                int ui:nodegraph:node:stackingOrder = 1577
+            }
+
+            def Shader "Multiply_3"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_2.outputs:out>
+                float inputs:in2 = 1
+                float inputs:in2.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Divide_1.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-679.14453, 7.131611)
+                int ui:nodegraph:node:stackingOrder = 1498
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
+            }
+
+            def Shader "Sin"
+            {
+                uniform token info:id = "ND_sin_float"
+                float inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_1.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1098.6484, -9.0234375)
+                int ui:nodegraph:node:stackingOrder = 1993
+            }
+
+            def Shader "Power"
+            {
+                uniform token info:id = "ND_power_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Separate3.outputs:outy>
+                float inputs:in2 = 2
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1120.1147, 140.62814)
+                int ui:nodegraph:node:stackingOrder = 1939
+            }
+
+            def Shader "Multiply"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Power.outputs:out>
+                float inputs:in2 = 0.01
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1004.11847, 149.43727)
+                int ui:nodegraph:node:stackingOrder = 1939
+            }
+
+            def Shader "Multiply_4"
+            {
+                uniform token info:id = "ND_multiply_vector3"
+                float3 inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Combine3.outputs:out>
+                float3 inputs:in2.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Normalize.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-388.16406, -54.472656)
+                int ui:nodegraph:node:stackingOrder = 1996
+            }
+
+            def Shader "Combine3"
+            {
+                uniform token info:id = "ND_combine3_vector3"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_3.outputs:out>
+                float inputs:in2.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_3.outputs:out>
+                float inputs:in3.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_3.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-532.01953, -57.277344)
+                int ui:nodegraph:node:stackingOrder = 2014
+            }
+
+            def Shader "ConstantFloat3"
+            {
+                uniform token info:id = "ND_constant_vector3"
+                float3 inputs:value = (1, 0, 0)
+                float3 inputs:value.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation.inputs:Wind_Direction>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-994.9196, 329.34637)
+                int ui:nodegraph:node:stackingOrder = 2181
+            }
+
+            def Shader "TransformVector"
+            {
+                uniform token info:id = "ND_transformvector_vector3"
+                string inputs:fromspace = "world"
+                float3 inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/ConstantFloat3.outputs:out>
+                string inputs:tospace = "object"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-749.53485, 346.72104)
+                int ui:nodegraph:node:stackingOrder = 2176
+            }
+
+            def Shader "Normalize"
+            {
+                uniform token info:id = "ND_normalize_vector3"
+                float3 inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/TransformVector.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-535.3722, 347.17853)
+                int ui:nodegraph:node:stackingOrder = 2176
+            }
+
+            def Shader "Add"
+            {
+                uniform token info:id = "ND_add_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Multiply_5.outputs:out>
+                float inputs:in2.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Time.outputs:out>
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1314.9492, -93.921875)
+                int ui:nodegraph:node:stackingOrder = 2197
+            }
+
+            def Shader "Multiply_5"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Separate3_1.outputs:outz>
+                float inputs:in2 = 0.1
+                float outputs:out
+                float2 ui:nodegraph:node:pos = (-1396.8281, -120.96094)
+                int ui:nodegraph:node:stackingOrder = 2280
+                string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+            }
+
+            def Shader "Position_1"
+            {
+                uniform token info:id = "ND_position_vector3"
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (-1748.9883, -130.07422)
+                int ui:nodegraph:node:stackingOrder = 2223
+            }
+
+            def Shader "Separate3_1"
+            {
+                uniform token info:id = "ND_separate3_vector3"
+                float3 inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Grass_Animation/Position_1.outputs:out>
+                float outputs:outx
+                float outputs:outy
+                float outputs:outz
+                float2 ui:nodegraph:node:pos = (-1564.457, -130.6914)
+                int ui:nodegraph:node:stackingOrder = 2225
+            }
+        }
+    }
+}
+

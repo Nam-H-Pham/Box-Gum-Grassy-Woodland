@@ -11,13 +11,16 @@ import RealityKit
 struct ContentView: View {
 
     var body: some View {
+        
+        Text("AR Reconstruction of the Box Gum Grassy Woodland")
+        
         VStack {
             ToggleImmersiveSpaceButton()
         }
     }
 }
 
-#Preview(windowStyle: .automatic) {
+#Preview(windowStyle: .plain) {
     ContentView()
         .environment(AppModel())
 }

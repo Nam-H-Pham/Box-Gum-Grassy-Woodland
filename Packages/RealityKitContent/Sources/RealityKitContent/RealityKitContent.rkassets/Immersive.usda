@@ -1,50 +1,36 @@
 #usda 1.0
 (
-    defaultPrim = "Root"
+    defaultPrim = "Cube"
     metersPerUnit = 1
     upAxis = "Y"
 )
 
-def Xform "Root"
-{
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def "SkyDome" (
-        active = true
-        prepend references = @SkyDome.usdz@
-    )
-    {
-        float3 xformOp:scale = (0.01, 0.01, 0.01)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+def Cube "Cube" (
+    active = true
+    prepend apiSchemas = ["MaterialBindingAPI"]
+    customData = {
+        float3 rotationEulerHint = (0, 0.29747924, 0)
     }
+)
+{
+    rel material:binding = </Cube/DefaultMaterial>
+    double size = 0.2
+    quatf xformOp:orient = (0.98895866, 0, 0.14819178, 0)
+    float3 xformOp:translate = (0, 0, -0.5309851)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
-    def Xform "Video_Dock" (
-        references = None
-    )
+    def Material "DefaultMaterial"
     {
-        double3 xformOp:translate = (0, 0.8, -3)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        prepend token outputs:surface.connect = </Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
 
-        def Xform "Player"
+        def Shader "DefaultSurfaceShader"
         {
-            double3 xformOp:translate = (0, 0.6, 0)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-            def RealityKitComponent "CustomDockingRegion"
-            {
-                token info:id = "RealityKit.CustomDockingRegion"
-
-                def RealityKitStruct "m_bounds"
-                {
-                    float3 max = (1.2, 0.5, 0)
-                    float3 min = (-1.2, -0.5, -0)
-                }
-            }
-        }
-
-        def "Ground" (
-            prepend references = @Ground/Ground.usda@
-        )
-        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (1, 1, 1)
+            float inputs:roughness = 0.75
+            token outputs:surface
         }
     }
 }

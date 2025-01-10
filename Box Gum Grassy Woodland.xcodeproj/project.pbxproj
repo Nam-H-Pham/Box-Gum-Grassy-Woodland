@@ -45,9 +45,9 @@
 			path = "Box Gum Grassy Woodland";
 			sourceTree = "<group>";
 		};
-		C9DC18612D30BA3200C169B6 /* Box Gum Grassy WoodlandTests */ = {
+		C9DC188C2D30E7E600C169B6 /* Resources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Box Gum Grassy WoodlandTests";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,8 +76,8 @@
 			children = (
 				C9DC18412D30BA3100C169B6 /* Box Gum Grassy Woodland */,
 				C9DC18422D30BA3100C169B6 /* Packages */,
-				C9DC18612D30BA3200C169B6 /* Box Gum Grassy WoodlandTests */,
 				C9DC18402D30BA3100C169B6 /* Products */,
+				C9DC188C2D30E7E600C169B6 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +115,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C9DC18412D30BA3100C169B6 /* Box Gum Grassy Woodland */,
+				C9DC188C2D30E7E600C169B6 /* Resources */,
 			);
 			name = "Box Gum Grassy Woodland";
 			packageProductDependencies = (
@@ -136,9 +137,6 @@
 			);
 			dependencies = (
 				C9DC18602D30BA3200C169B6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				C9DC18612D30BA3200C169B6 /* Box Gum Grassy WoodlandTests */,
 			);
 			name = "Box Gum Grassy WoodlandTests";
 			packageProductDependencies = (

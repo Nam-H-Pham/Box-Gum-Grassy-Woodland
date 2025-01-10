@@ -9,6 +9,8 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+import Foundation
+
 struct ImmersiveView: View {
     @Environment(AppModel.self) var appModel
 
@@ -18,6 +20,8 @@ struct ImmersiveView: View {
             if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
             }
+        
+            let PS = PatchSpawner(jsonPath: "subsquare_coordinates", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
         }
     }
 }

@@ -1,4 +1,103 @@
 {
+  "20C21902-0179-4281-AE51-64D0A5A9CC4C" : {
+    "objectMetadataList" : [
+      [
+        "20C21902-0179-4281-AE51-64D0A5A9CC4C",
+        "Root",
+        "Rytidosperma_caespitosum_Mat",
+        "Grass_Animation"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "20C21902-0179-4281-AE51-64D0A5A9CC4C",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "2AF3A919-C66B-4C7C-A870-F6D30FF215B9" : {
+    "objectMetadataList" : [
+      [
+        "2AF3A919-C66B-4C7C-A870-F6D30FF215B9",
+        "World",
+        "Rytidosperma_caespitosum_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "44D2335E-13CC-49E3-9E19-979D011AA283" : {
+    "objectMetadataList" : [
+
+    ]
+  },
+  "843DE857-CE6C-4CD9-A795-580A03DB0CFB" : {
+    "objectMetadataList" : [
+      [
+        "843DE857-CE6C-4CD9-A795-580A03DB0CFB",
+        "World",
+        "Rytidosperma_caespitosum_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "843DE857-CE6C-4CD9-A795-580A03DB0CFB",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3" : {
+    "objectMetadataList" : [
+      [
+        "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "91AC0ED2-2691-49CD-92C7-081AF0522880" : {
+    "objectMetadataList" : [
+      [
+        "91AC0ED2-2691-49CD-92C7-081AF0522880",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "91AC0ED2-2691-49CD-92C7-081AF0522880",
+        "World",
+        "Rytidosperma_caespitosum_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "934D1AA2-187A-456A-B33A-409B43C3F2C2" : {
+    "objectMetadataList" : [
+
+    ]
+  },
   "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD" : {
     "objectMetadataList" : [
       [
@@ -7,17 +106,15 @@
       ],
       {
         "disallowsFraming" : false,
-        "isExpanded" : true,
+        "isExpanded" : false,
         "isLocked" : false
       },
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Video_Dock"
+        "Cube"
       ],
       {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
+        "isExpanded" : true,
         "isLocked" : false
       },
       [
@@ -28,6 +125,16 @@
       {
         "disallowsFraming" : true,
         "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Video_Dock"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : true,
         "isLocked" : false
       }
     ]
