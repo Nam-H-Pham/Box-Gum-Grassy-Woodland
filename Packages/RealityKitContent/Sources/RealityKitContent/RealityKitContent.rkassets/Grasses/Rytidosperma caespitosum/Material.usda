@@ -16,7 +16,7 @@ def Xform "Root"
         token cullMode = "none" (
             allowedTokens = ["unspecified", "none", "front", "back"]
         )
-        asset inputs:AlphaMap = @models/Rytidosperma caespitosum/LOD0/textures/Rytidosperma caespitosum-alpha.png@ (
+        asset inputs:AlphaMap = @Rytidosperma caespitosum-alpha.png@ (
             customData = {
                 dictionary realitykit = {
                     float2 positionInSubgraph = (-684.1396, -150.91136)
@@ -424,19 +424,6 @@ def Xform "Root"
                 int ui:nodegraph:node:stackingOrder = 2225
             }
         }
-    }
-
-    def "grass_patch_1_875_0_4" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-        prepend references = @grass_patch_1.875_0.4.usda@</World>
-    )
-    {
-        rel material:binding = </Root/Rytidosperma_caespitosum_Mat> (
-            bindMaterialAs = "strongerThanDescendants"
-        )
-        float3 xformOp:translate = (-0.00022451353, -7.450581e-9, 0.007769741)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 

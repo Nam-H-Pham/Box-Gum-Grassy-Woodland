@@ -47,39 +47,6 @@ class PatchSpawner {
         print(self.models.keys)
     }
     
-    func loopAndPrintPatchDetails(jsonData: [String: Any]) {
-        print("Printing Patch Details")
-        
-        for (patchName, patchData) in jsonData {
-            print("Patch Name: \(patchName)")
-            
-            guard let patchDict = patchData as? [String: Any] else {
-                print("Invalid patch data format for \(patchName)")
-                continue // Skip to the next patch if the format is incorrect
-            }
-            
-            if let topLeft = patchDict["top_left"] as? [Double],
-               let bottomRight = patchDict["bottom_right"] as? [Double],
-               let origin = patchDict["origin"] as? [Double],
-               let size = patchDict["size"] as? Double,
-               let spacing = patchDict["spacing"] as? Double {
-                
-                print("  Top Left: \(topLeft)")
-                print("  Bottom Right: \(bottomRight)")
-                print("  Origin: \(origin)")
-                print("  Size: \(size)")
-                print("  Spacing: \(spacing)")
-                
-                // Example of creating a vector from the data
-                let originVector = SIMD3<Float>(Float(origin[0]), 0, Float(origin[1]))
-                print("  Origin Vector: \(originVector)")
-                
-            } else {
-                print("Missing or incorrect data types for patch \(patchName)")
-            }
-        }
-    }
-
     
     func LoadModels(jsonData: [String: Any]) {
         print("Loading Models")
@@ -91,9 +58,7 @@ class PatchSpawner {
                 continue // Skip to the next patch if the format is incorrect
             }
             
-            if let _ = patchDict["top_left"] as? [Double],
-               let _ = patchDict["bottom_right"] as? [Double],
-               let origin = patchDict["origin"] as? [Double],
+            if let origin = patchDict["origin"] as? [Double],
                let size = patchDict["size"] as? Double,
                let spacing = patchDict["spacing"] as? Double {
                 

@@ -1,7 +1,15 @@
 {
   "pathsToIds" : {
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/15.0_1.6.usda" : "4623FFAD-0964-4DB9-A580-F1BABC27B7BF",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/15.0_2.4.usda" : "ED577AC1-E01B-408C-8829-F09D12C81FF3",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/15.0_3.2.usda" : "DFA3A091-E58A-44CB-9FAF-7B96AAC3B307",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/3.75_0.4.usda" : "09F43387-7A3D-41FE-B7FE-C6B17EBFDF66",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/3.75_0.6.usda" : "16EA7BD5-6EA9-4CB6-A24E-333D8B8FB767",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/3.75_0.8.usda" : "843DE857-CE6C-4CD9-A795-580A03DB0CFB",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/7.5_0.8.usda" : "446F2E5B-31AF-49E6-9998-FABAE93114D1",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/7.5_1.2.usda" : "CF5CA3BB-CE1B-40A9-B822-FE6979A1A32C",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/7.5_1.6.usda" : "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/Material.usda" : "A36EA911-7AD8-41FC-B0C0-409D09609D65",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/grass_patch_1.875_0.4.usda" : "934D1AA2-187A-456A-B33A-409B43C3F2C2",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/grass_patch_15.0_3.2.usda" : "91AC0ED2-2691-49CD-92C7-081AF0522880",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Grasses\/Rytidosperma caespitosum\/grass_patch_3.75_0.8.usda" : "44D2335E-13CC-49E3-9E19-979D011AA283",
