@@ -1,37 +1,17 @@
 #usda 1.0
 (
-    defaultPrim = "Cube"
+    defaultPrim = "Eucalyptus_Albens_1_LOD0"
     metersPerUnit = 1
     upAxis = "Y"
 )
 
-def Cube "Cube" (
+def "Eucalyptus_Albens_1_LOD0" (
     active = true
-    prepend apiSchemas = ["MaterialBindingAPI"]
-    customData = {
-        float3 rotationEulerHint = (0, 0.29747924, 0)
-    }
+    prepend references = @Trees/Eucalyptus Albens/Eucalyptus_Albens_1_LOD0.usdc@
 )
 {
-    rel material:binding = </Cube/DefaultMaterial>
-    double size = 0.2
-    quatf xformOp:orient = (0.98895866, 0, 0.14819178, 0)
-    float3 xformOp:translate = (0, 0, -0.5309851)
-    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-    def Material "DefaultMaterial"
-    {
-        token outputs:mtlx:surface
-        token outputs:realitykit:vertex
-        prepend token outputs:surface.connect = </Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
-
-        def Shader "DefaultSurfaceShader"
-        {
-            uniform token info:id = "UsdPreviewSurface"
-            color3f inputs:diffuseColor = (1, 1, 1)
-            float inputs:roughness = 0.75
-            token outputs:surface
-        }
-    }
+    quatf xformOp:orient = (1, 0, 0, 0)
+    float3 xformOp:scale = (0.008, 0.008, 0.008)
+    double3 xformOp:translate = (-2.9495480060577393, 0, 0)
 }
 

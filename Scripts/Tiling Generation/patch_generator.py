@@ -35,6 +35,8 @@ def create_tile_patch(output_usd_path, patch_dimension=10, patch_spacing=0.5, ra
                                     0.0, 0.0, 0.0, 1.0)
             grass_model.AddTransformOp().Set(rotation_90)
 
+        UsdGeom.Imageable(grass_model.GetPrim()).MakeInvisible()
+
     # Define the grass models
     for name, path in model_names_paths.items():
         define_grass_model(stage, path, name)
@@ -70,6 +72,9 @@ def create_tile_patch(output_usd_path, patch_dimension=10, patch_spacing=0.5, ra
                 "xformOp:rotateXYZ",
                 "xformOp:scale"
             ])
+
+            # Explicitly set the instance's visibility to "inherited"
+            UsdGeom.Imageable(instance.GetPrim()).MakeVisible()
 
     # Save the stage
     stage.GetRootLayer().Save()

@@ -16,7 +16,14 @@ struct ImmersiveView: View {
 
     var body: some View {
         RealityView { content in
-            let PS = PatchSpawner(jsonPath: "tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
+            
+            if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
+                content.add(scene)
+            }
+            
+            let Grass = PatchSpawner(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
+            
+            let Leaves = PatchSpawner(jsonPath: "Leaves - tile_data", modelsPath: "Leaves/", content: content)
         }
     }
 }

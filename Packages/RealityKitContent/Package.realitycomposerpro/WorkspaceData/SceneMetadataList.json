@@ -1,4 +1,25 @@
 {
+  "022D3D06-238A-432C-AF72-7B7C2A8FEFA6" : {
+    "objectMetadataList" : [
+      [
+        "022D3D06-238A-432C-AF72-7B7C2A8FEFA6",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "022D3D06-238A-432C-AF72-7B7C2A8FEFA6",
+        "World",
+        "Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "09F43387-7A3D-41FE-B7FE-C6B17EBFDF66" : {
     "objectMetadataList" : [
 
@@ -6,7 +27,14 @@
   },
   "16EA7BD5-6EA9-4CB6-A24E-333D8B8FB767" : {
     "objectMetadataList" : [
-
+      [
+        "16EA7BD5-6EA9-4CB6-A24E-333D8B8FB767",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
     ]
   },
   "20C21902-0179-4281-AE51-64D0A5A9CC4C" : {
@@ -31,12 +59,57 @@
       }
     ]
   },
+  "292DC280-B700-4314-9B0A-9033BCBA08E7" : {
+    "objectMetadataList" : [
+      [
+        "292DC280-B700-4314-9B0A-9033BCBA08E7",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "2AF3A919-C66B-4C7C-A870-F6D30FF215B9" : {
     "objectMetadataList" : [
       [
         "2AF3A919-C66B-4C7C-A870-F6D30FF215B9",
         "World",
         "Rytidosperma_caespitosum_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "385DBD83-F2A4-44CF-AEAD-A7D115E5435C" : {
+    "objectMetadataList" : [
+      [
+        "385DBD83-F2A4-44CF-AEAD-A7D115E5435C",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "385DBD83-F2A4-44CF-AEAD-A7D115E5435C",
+        "World",
+        "Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "421985F8-628B-4418-9531-19D16C3538BE" : {
+    "objectMetadataList" : [
+      [
+        "421985F8-628B-4418-9531-19D16C3538BE",
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -70,12 +143,57 @@
 
     ]
   },
+  "44EA9F97-DFB3-4020-9ABF-C5391888B29E" : {
+    "objectMetadataList" : [
+      [
+        "44EA9F97-DFB3-4020-9ABF-C5391888B29E",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "4623FFAD-0964-4DB9-A580-F1BABC27B7BF" : {
     "objectMetadataList" : [
       [
         "4623FFAD-0964-4DB9-A580-F1BABC27B7BF",
         "World",
         "Rytidosperma_caespitosum_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "5FBBAB14-99C6-4A7D-BB2B-82DDF9F34197" : {
+    "objectMetadataList" : [
+      [
+        "5FBBAB14-99C6-4A7D-BB2B-82DDF9F34197",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "73D36C43-612F-47A6-BA5D-1FA6287758BB" : {
+    "objectMetadataList" : [
+      [
+        "73D36C43-612F-47A6-BA5D-1FA6287758BB",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "73D36C43-612F-47A6-BA5D-1FA6287758BB",
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -97,6 +215,27 @@
       [
         "843DE857-CE6C-4CD9-A795-580A03DB0CFB",
         "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "84585AB8-3ED0-4956-A553-73043BA17A52" : {
+    "objectMetadataList" : [
+      [
+        "84585AB8-3ED0-4956-A553-73043BA17A52",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "84585AB8-3ED0-4956-A553-73043BA17A52",
+        "Root",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -146,16 +285,70 @@
       }
     ]
   },
+  "92BB395B-9DD7-47D9-B684-CC35F919F5E4" : {
+    "objectMetadataList" : [
+      [
+        "92BB395B-9DD7-47D9-B684-CC35F919F5E4",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "934D1AA2-187A-456A-B33A-409B43C3F2C2" : {
     "objectMetadataList" : [
 
+    ]
+  },
+  "984E0C43-CD31-45CE-9CE4-5EA1A7C7C6DC" : {
+    "objectMetadataList" : [
+      [
+        "984E0C43-CD31-45CE-9CE4-5EA1A7C7C6DC",
+        "World",
+        "Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "984E0C43-CD31-45CE-9CE4-5EA1A7C7C6DC",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "A1C3CBB6-C698-4E71-A962-A11A1E93A31C" : {
+    "objectMetadataList" : [
+      [
+        "A1C3CBB6-C698-4E71-A962-A11A1E93A31C",
+        "World",
+        "Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "A1C3CBB6-C698-4E71-A962-A11A1E93A31C",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
     ]
   },
   "A36EA911-7AD8-41FC-B0C0-409D09609D65" : {
     "objectMetadataList" : [
       [
         "A36EA911-7AD8-41FC-B0C0-409D09609D65",
-        "Root"
+        "Rytidosperma_caespitosum_Mat"
       ],
       {
         "isExpanded" : true,
@@ -163,8 +356,32 @@
       },
       [
         "A36EA911-7AD8-41FC-B0C0-409D09609D65",
-        "Root",
-        "Rytidosperma_caespitosum_Mat"
+        "Rytidosperma_caespitosum_Mat",
+        "Grass_Animation"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "A9FCB870-C293-45C5-9F22-030B106C1CB3" : {
+    "objectMetadataList" : [
+      [
+        "A9FCB870-C293-45C5-9F22-030B106C1CB3",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "BF60FB3B-2173-4872-9582-E235744241D6" : {
+    "objectMetadataList" : [
+      [
+        "BF60FB3B-2173-4872-9582-E235744241D6",
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -174,15 +391,6 @@
   },
   "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD" : {
     "objectMetadataList" : [
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
@@ -195,19 +403,20 @@
       },
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Cube"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
         "SkyDome"
       ],
       {
         "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root"
+      ],
+      {
+        "disallowsFraming" : false,
         "isExpanded" : false,
         "isLocked" : false
       }
@@ -234,6 +443,27 @@
       }
     ]
   },
+  "DD4C1693-C5B7-4958-A65E-C504F1CEC451" : {
+    "objectMetadataList" : [
+      [
+        "DD4C1693-C5B7-4958-A65E-C504F1CEC451",
+        "World",
+        "Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "DD4C1693-C5B7-4958-A65E-C504F1CEC451",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "DFA3A091-E58A-44CB-9FAF-7B96AAC3B307" : {
     "objectMetadataList" : [
       [
@@ -250,7 +480,8 @@
     "objectMetadataList" : [
       [
         "ED577AC1-E01B-408C-8829-F09D12C81FF3",
-        "World"
+        "World",
+        "Rytidosperma_caespitosum_Mat"
       ],
       {
         "isExpanded" : true,
@@ -258,8 +489,67 @@
       },
       [
         "ED577AC1-E01B-408C-8829-F09D12C81FF3",
-        "World",
-        "Rytidosperma_caespitosum_Mat"
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E" : {
+    "objectMetadataList" : [
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens",
+        "Materials",
+        "Bark_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens",
+        "LOD0",
+        "LOD0_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens",
+        "LOD0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens",
+        "Materials",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,

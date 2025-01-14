@@ -2,6 +2,7 @@ import Foundation
 import _RealityKit_SwiftUI
 import RealityKit
 import RealityKitContent
+import simd
 
 class PatchSpawner {
     
@@ -83,12 +84,16 @@ class PatchSpawner {
                 let uniformScale = Float(1)
                 clone.scale = SIMD3<Float>(uniformScale, uniformScale, uniformScale)
                 
+                let angle = [0, 90, 180, 270].randomElement()! * Float.pi / 180
+                clone.transform.rotation = simd_quatf(angle: angle, axis: [0, 1, 0])
+                
                 anchor.addChild(clone)
-                content.add(clone)                
+                content.entities.append(clone)
             }
         }
         print("Loaded Models")
     }
+    
     
     
     func loadCube() -> Entity {

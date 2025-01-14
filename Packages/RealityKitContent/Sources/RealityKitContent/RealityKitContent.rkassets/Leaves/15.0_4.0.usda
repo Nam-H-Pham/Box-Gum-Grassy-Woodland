@@ -1,0 +1,274 @@
+#usda 1.0
+
+def Xform "World" (
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
+{
+    rel material:binding = </World/Leaves_Mat> (
+        bindMaterialAs = "strongerThanDescendants"
+    )
+
+    def Xform "Assets"
+    {
+        def Xform "leaf_litter" (
+            kind = "component"
+            prepend references = @models/Leaves/LOD0/leaf_litter.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "leaves" (
+            kind = "component"
+            prepend references = @models/Leaves/LOD0/leaves.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Xform "Instance_0_0_leaf_litter" (
+        instanceable = true
+        prepend references = </World/Assets/leaf_litter>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.2752755, 0.2752755, 0.2752755)
+        double3 xformOp:translate = (-5.104438304901123, 0, -5.104438304901123)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_1_leaves" (
+        instanceable = true
+        prepend references = </World/Assets/leaves>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.25326586, 0.25326586, 0.25326586)
+        double3 xformOp:translate = (-6.744284629821777, 0, -2.7442848682403564)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_2_leaf_litter" (
+        instanceable = true
+        prepend references = </World/Assets/leaf_litter>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.27866238, 0.27866238, 0.27866238)
+        double3 xformOp:translate = (-5.736974716186523, 0, 2.2630252838134766)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_0_leaves" (
+        instanceable = true
+        prepend references = </World/Assets/leaves>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.26478451, 0.26478451, 0.26478451)
+        double3 xformOp:translate = (-0.8341261148452759, 0, -4.834125995635986)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_1_leaf_litter" (
+        instanceable = true
+        prepend references = </World/Assets/leaf_litter>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.27754712, 0.27754712, 0.27754712)
+        double3 xformOp:translate = (-1.1588433980941772, 0, -1.1588433980941772)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_2_leaves" (
+        instanceable = true
+        prepend references = </World/Assets/leaves>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.26052094, 0.26052094, 0.26052094)
+        double3 xformOp:translate = (-3.5560081005096436, 0, 0.4439919888973236)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_0_leaves" (
+        instanceable = true
+        prepend references = </World/Assets/leaves>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.26791406, 0.26791406, 0.26791406)
+        double3 xformOp:translate = (3.6697428226470947, 0, -4.330256938934326)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_1_leaf_litter" (
+        instanceable = true
+        prepend references = </World/Assets/leaf_litter>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.2569231, 0.2569231, 0.2569231)
+        double3 xformOp:translate = (1.8777865171432495, 0, -2.122213363647461)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_2_leaves" (
+        instanceable = true
+        prepend references = </World/Assets/leaves>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.26488477, 0.26488477, 0.26488477)
+        double3 xformOp:translate = (3.581787109375, 0, 3.581787109375)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Material "Leaves_Mat"
+    {
+        reorder nameChildren = ["PBRSurface", "Dot", "Dot_2", "Image2D", "Dot_1", "Image2D_1", "Separate4", "Grass_Animation"]
+        token cullMode = "none" (
+            allowedTokens = ["unspecified", "none", "front", "back"]
+        )
+        asset inputs:AlphaMap = @Eucalyptus_Ground_Leaves_Colour-alpha.png@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-684.1396, -150.91136)
+                    int stackingOrderInSubgraph = 1095
+                }
+            }
+        )
+        asset inputs:ColorMap = @models/Leaves/LOD0/textures/Eucalyptus_Ground_Leaves_Colour.png@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-524.8635, -483.09747)
+                    int stackingOrderInSubgraph = 427
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </World/Leaves_Mat/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = None
+        float2 ui:nodegraph:node:pos = (115.55089, -6.6302643)
+        int ui:nodegraph:node:stackingOrder = 9
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (430.98355, 118.836945)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 677
+
+        def Shader "PBRSurface"
+        {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            float inputs:ambientOcclusion
+            color3f inputs:baseColor = (1, 1, 1) (
+                colorSpace = "lin_srgb"
+            )
+            color3f inputs:baseColor.connect = </World/Leaves_Mat/Dot_2.outputs:out>
+            float inputs:clearcoat
+            float3 inputs:clearcoatNormal
+            float inputs:clearcoatRoughness
+            color3f inputs:emissiveColor
+            bool inputs:hasPremultipliedAlpha
+            float inputs:metallic
+            float3 inputs:normal.connect = None
+            float inputs:opacity.connect = </World/Leaves_Mat/Dot.outputs:out>
+            float inputs:opacityThreshold = 0.8
+            float inputs:roughness = 0.5
+            float inputs:specular
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
+            int ui:nodegraph:node:stackingOrder = 1180
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
+        }
+
+        def Shader "Dot"
+        {
+            uniform token info:id = "ND_dot_float"
+            float inputs:in.connect = </World/Leaves_Mat/Separate4.outputs:outx>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-68.41439, 114.68096)
+            int ui:nodegraph:node:stackingOrder = 1089
+        }
+
+        def Shader "Dot_2"
+        {
+            uniform token info:id = "ND_dot_color3"
+            color3f inputs:in.connect = </World/Leaves_Mat/Image2D.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-74.97684, -99.29204)
+            int ui:nodegraph:node:stackingOrder = 504
+        }
+
+        def Shader "Image2D"
+        {
+            uniform token info:id = "ND_RealityKitTexture2D_color3"
+            float inputs:bias
+            string inputs:border_color = "transparent_black"
+            color3f inputs:default
+            float inputs:dynamic_min_lod_clamp
+            asset inputs:file.connect = </World/Leaves_Mat.inputs:ColorMap>
+            string inputs:mag_filter
+            int inputs:max_anisotropy
+            float inputs:max_lod_clamp = 65504
+            string inputs:min_filter
+            float inputs:min_lod_clamp
+            string inputs:mip_filter
+            bool inputs:no_flip_v = 1
+            int2 inputs:offset
+            float2 inputs:texcoord
+            string inputs:u_wrap_mode
+            string inputs:v_wrap_mode
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
+            int ui:nodegraph:node:stackingOrder = 1107
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
+        }
+
+        def Shader "Image2D_1"
+        {
+            uniform token info:id = "ND_RealityKitTexture2D_vector4"
+            float inputs:bias
+            string inputs:border_color
+            float4 inputs:default
+            float inputs:dynamic_min_lod_clamp
+            asset inputs:file.connect = </World/Leaves_Mat.inputs:AlphaMap>
+            string inputs:mag_filter
+            int inputs:max_anisotropy
+            float inputs:max_lod_clamp
+            float inputs:min_lod_clamp
+            bool inputs:no_flip_v = 1
+            int2 inputs:offset
+            float2 inputs:texcoord
+            string inputs:u_wrap_mode
+            string inputs:v_wrap_mode
+            float4 outputs:out
+            float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
+            int ui:nodegraph:node:stackingOrder = 1100
+        }
+
+        def Shader "Separate4"
+        {
+            uniform token info:id = "ND_separate4_vector4"
+            float4 inputs:in.connect = </World/Leaves_Mat/Image2D_1.outputs:out>
+            float outputs:outw
+            float outputs:outx
+            float outputs:outy
+            float outputs:outz
+            float2 ui:nodegraph:node:pos = (-219.18825, 142.97026)
+            int ui:nodegraph:node:stackingOrder = 1086
+        }
+    }
+}
+

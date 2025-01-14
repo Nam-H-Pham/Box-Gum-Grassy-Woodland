@@ -3,7 +3,7 @@ import json
 
 import json
 
-def draw_subdivided_squares(canvas, canvas_width, canvas_height, num_subdivisions, output_file):
+def draw_subdivided_squares(canvas, canvas_width, canvas_height, num_subdivisions, spacing_factor, output_file):
     """Draw square rings with smaller red subsquares and export their coordinates."""
     # Center of the canvas
     center_x = canvas_width / 2
@@ -94,7 +94,7 @@ def draw_subdivided_squares(canvas, canvas_width, canvas_height, num_subdivision
     # Determine spacings based on the smallest subsquare size
     sizes = set([subsquare['size'] for subsquare in subsquares.values()])
 
-    multiply_factor = 0.6 / min(sizes)
+    multiply_factor = spacing_factor / min(sizes)
     spacings = {}
     for size in sizes:
         spacings[size] = size * multiply_factor
@@ -130,13 +130,13 @@ def create_tile_json(name="tile_data", spacing_factor=0.6, num_subdivisions=3, l
         canvas.pack()
 
         # Draw the subdivided squares and export the data
-        subsquares = draw_subdivided_squares(canvas, canvas_width, canvas_height, num_subdivisions, output_file)
+        subsquares = draw_subdivided_squares(canvas, canvas_width, canvas_height, num_subdivisions, spacing_factor, output_file)
 
         # Start the Tkinter event loop
         root.mainloop()
     else:
         # Export the data without visualising
-        subsquares = draw_subdivided_squares(None, canvas_width, canvas_height, num_subdivisions, output_file)
+        subsquares = draw_subdivided_squares(None, canvas_width, canvas_height, num_subdivisions, spacing_factor, output_file)
 
     print(f"Data exported to {output_file}")
 
