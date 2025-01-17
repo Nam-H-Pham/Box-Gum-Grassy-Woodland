@@ -1,17 +1,130 @@
 #usda 1.0
 (
-    defaultPrim = "Eucalyptus_Albens_1_LOD0"
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Root"
     metersPerUnit = 1
     upAxis = "Y"
 )
 
-def "Eucalyptus_Albens_1_LOD0" (
-    active = true
-    prepend references = @Trees/Eucalyptus Albens/Eucalyptus_Albens_1_LOD0.usdc@
-)
+def Xform "Root"
 {
-    quatf xformOp:orient = (1, 0, 0, 0)
-    float3 xformOp:scale = (0.008, 0.008, 0.008)
-    double3 xformOp:translate = (-2.9495480060577393, 0, 0)
+    reorder nameChildren = ["SkyDome", "Eucalyptus_Albens_1_LOD0", "Ground", "Redgum_3_LOD0"]
+    def "Eucalyptus_Albens_1_LOD0" (
+        active = false
+        references = @Trees/Eucalyptus Albens/Eucalyptus_Albens_1_LOD0.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        double3 xformOp:translate = (-2.9495480060577393, 0, 0)
+    }
+
+    def "Ground" (
+        active = true
+        references = @Ground Textures/Ground.usda@
+    )
+    {
+        float3 xformOp:scale = (400, 400, 400)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_LOD0" (
+        active = true
+        references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-2.9271507, 0, 0.027032852)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "SkyDome" (
+        active = true
+        prepend references = @SkyDome.usdz@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, -0.5, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Ground_01" (
+            active = false
+        )
+        {
+        }
+
+        over "Grid" (
+            active = false
+        )
+        {
+        }
+
+        over "Looks"
+        {
+            over "GroundMATSG"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "GridMATSG"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "DomeMATSG"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                over "DomeMAT"
+                {
+                    color3f inputs:diffuseColor = (0, 0, 0) (
+                        colorSpace = "lin_srgb"
+                    )
+                }
+            }
+        }
+
+        over "Dome_01"
+        {
+            float3 xformOp:scale = (0.03, 0.03, 0.03)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def "Redgum_4_LOD0" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Trees/Red Gum/Redgum_4_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (10.180155, 0, -7.4673977)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_LOD0" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Trees/Red Gum/Redgum_2_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (8.962485, 0, 3.3865347)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 }
 

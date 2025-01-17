@@ -4,7 +4,7 @@ def Xform "World" (
     prepend apiSchemas = ["MaterialBindingAPI"]
 )
 {
-    rel material:binding = </World/Rytidosperma_caespitosum_Mat> (
+    rel material:binding = </World/Material> (
         bindMaterialAs = "strongerThanDescendants"
     )
 
@@ -471,165 +471,15 @@ def Xform "World" (
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
     }
 
-    def Material "Rytidosperma_caespitosum_Mat"
+    def "Material" (
+        active = true
+        prepend references = @Material.usda@
+    )
     {
-        reorder nameChildren = ["PBRSurface", "Dot", "Dot_2", "Image2D", "Dot_1", "Image2D_1", "Separate4", "Grass_Animation"]
-        token cullMode = "none" (
-            allowedTokens = ["unspecified", "none", "front", "back"]
+        over "Grass_Animation" (
+            active = false
         )
-        asset inputs:AlphaMap = @Rytidosperma caespitosum-alpha.png@ (
-            customData = {
-                dictionary realitykit = {
-                    float2 positionInSubgraph = (-684.1396, -150.91136)
-                    int stackingOrderInSubgraph = 1095
-                }
-            }
-        )
-        float inputs:Amplitude = 0.4 (
-            customData = {
-                dictionary realitykit = {
-                    float2 positionInSubgraph = (-41.54184, 248.66017)
-                    int stackingOrderInSubgraph = 1173
-                }
-            }
-        )
-        asset inputs:ColorMap = @models/Rytidosperma caespitosum/LOD0/textures/Rytidosperma caespitosum.png@ (
-            customData = {
-                dictionary realitykit = {
-                    float2 positionInSubgraph = (-524.8635, -483.09747)
-                    int stackingOrderInSubgraph = 427
-                }
-            }
-        )
-        float inputs:Speed = 1 (
-            customData = {
-                dictionary realitykit = {
-                    float2 positionInSubgraph = (-45.503746, 317.8309)
-                    int stackingOrderInSubgraph = 1173
-                }
-            }
-        )
-        float3 inputs:WindDirection = (1, 0, 0) (
-            customData = {
-                dictionary realitykit = {
-                    float2 positionInSubgraph = (-67.44906, 396.8387)
-                    int stackingOrderInSubgraph = 1175
-                }
-            }
-        )
-        token outputs:mtlx:surface.connect = </World/Rytidosperma_caespitosum_Mat/PBRSurface.outputs:out>
-        token outputs:realitykit:vertex.connect = None
-        float2 ui:nodegraph:node:pos = (75.55089, -46.630264)
-        int ui:nodegraph:node:stackingOrder = 7
-        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (430.98355, 118.836945)
-        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 677
-
-        def Shader "PBRSurface"
         {
-            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
-            float inputs:ambientOcclusion
-            color3f inputs:baseColor.connect = </World/Rytidosperma_caespitosum_Mat/Dot_2.outputs:out>
-            float inputs:clearcoat
-            float3 inputs:clearcoatNormal
-            float inputs:clearcoatRoughness
-            color3f inputs:emissiveColor
-            bool inputs:hasPremultipliedAlpha
-            float inputs:metallic
-            float3 inputs:normal.connect = </World/Rytidosperma_caespitosum_Mat/Dot_1.outputs:out>
-            float inputs:opacity.connect = </World/Rytidosperma_caespitosum_Mat/Dot.outputs:out>
-            float inputs:opacityThreshold = 0.1
-            float inputs:roughness = 0.5
-            float inputs:specular
-            token outputs:out
-            float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
-            int ui:nodegraph:node:stackingOrder = 1171
-            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
-        }
-
-        def Shader "Dot"
-        {
-            uniform token info:id = "ND_dot_float"
-            float inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Separate4.outputs:outx>
-            float outputs:out
-            float2 ui:nodegraph:node:pos = (-68.41439, 114.68096)
-            int ui:nodegraph:node:stackingOrder = 1089
-        }
-
-        def Shader "Dot_2"
-        {
-            uniform token info:id = "ND_dot_color3"
-            color3f inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Image2D.outputs:out>
-            color3f outputs:out
-            float2 ui:nodegraph:node:pos = (-74.97684, -99.29204)
-            int ui:nodegraph:node:stackingOrder = 504
-        }
-
-        def Shader "Image2D"
-        {
-            uniform token info:id = "ND_RealityKitTexture2D_color3"
-            float inputs:bias
-            string inputs:border_color = "transparent_black"
-            color3f inputs:default
-            float inputs:dynamic_min_lod_clamp
-            asset inputs:file.connect = </World/Rytidosperma_caespitosum_Mat.inputs:ColorMap>
-            string inputs:mag_filter
-            int inputs:max_anisotropy
-            float inputs:max_lod_clamp = 65504
-            string inputs:min_filter
-            float inputs:min_lod_clamp
-            string inputs:mip_filter
-            bool inputs:no_flip_v = 1
-            int2 inputs:offset
-            float2 inputs:texcoord
-            string inputs:u_wrap_mode
-            string inputs:v_wrap_mode
-            color3f outputs:out
-            float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
-            int ui:nodegraph:node:stackingOrder = 1107
-            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
-        }
-
-        def Shader "Dot_1"
-        {
-            uniform token info:id = "ND_dot_vector3"
-            float3 inputs:in.connect = None
-            float3 outputs:out
-            float2 ui:nodegraph:node:pos = (-76.61219, -64.75849)
-            int ui:nodegraph:node:stackingOrder = 718
-        }
-
-        def Shader "Image2D_1"
-        {
-            uniform token info:id = "ND_RealityKitTexture2D_vector4"
-            float inputs:bias
-            string inputs:border_color
-            float4 inputs:default
-            float inputs:dynamic_min_lod_clamp
-            asset inputs:file.connect = </World/Rytidosperma_caespitosum_Mat.inputs:AlphaMap>
-            string inputs:mag_filter
-            int inputs:max_anisotropy
-            float inputs:max_lod_clamp
-            float inputs:min_lod_clamp
-            bool inputs:no_flip_v = 1
-            int2 inputs:offset
-            float2 inputs:texcoord
-            string inputs:u_wrap_mode
-            string inputs:v_wrap_mode
-            float4 outputs:out
-            float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
-            int ui:nodegraph:node:stackingOrder = 1100
-        }
-
-        def Shader "Separate4"
-        {
-            uniform token info:id = "ND_separate4_vector4"
-            float4 inputs:in.connect = </World/Rytidosperma_caespitosum_Mat/Image2D_1.outputs:out>
-            float outputs:outw
-            float outputs:outx
-            float outputs:outy
-            float outputs:outz
-            float2 ui:nodegraph:node:pos = (-219.18825, 142.97026)
-            int ui:nodegraph:node:stackingOrder = 1086
         }
     }
 }

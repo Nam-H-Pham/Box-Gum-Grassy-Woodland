@@ -1,0 +1,228 @@
+#usda 1.0
+
+def Xform "World"
+{
+    def Xform "Assets"
+    {
+        def Xform "Themeda_triandra_1_LOD2" (
+            kind = "component"
+            prepend references = @models/Themeda Triandra/LOD2/Themeda_triandra_1_LOD2.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Themeda_triandra_2_LOD2" (
+            kind = "component"
+            prepend references = @models/Themeda Triandra/LOD2/Themeda_triandra_2_LOD2.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Themeda_triandra_4_LOD2" (
+            kind = "component"
+            prepend references = @models/Themeda Triandra/LOD2/Themeda_triandra_4_LOD2.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Themeda_triandra_3_LOD2" (
+            kind = "component"
+            prepend references = @models/Themeda Triandra/LOD2/Themeda_triandra_3_LOD2.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Xform "Instance_0_0_Themeda_triandra_3_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_3_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9597342, 0.9597342, 0.9597342)
+        double3 xformOp:translate = (-4.957091331481934, 0, -4.957091331481934)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_1_Themeda_triandra_2_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_2_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.98844373, 0.98844373, 0.98844373)
+        double3 xformOp:translate = (-7.319467067718506, 0, -4.119466781616211)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_2_Themeda_triandra_3_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_3_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0054101, 1.0054101, 1.0054101)
+        double3 xformOp:translate = (-6.272334575653076, 0, 0.12766554951667786)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_3_Themeda_triandra_1_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_1_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0588392, 1.0588392, 1.0588392)
+        double3 xformOp:translate = (-6.315756320953369, 0, 3.284243583679199)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_0_Themeda_triandra_4_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_4_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0723374, 1.0723374, 1.0723374)
+        double3 xformOp:translate = (-3.83608341217041, 0, -7.036083698272705)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_1_Themeda_triandra_1_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_1_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1312895, 1.1312895, 1.1312895)
+        double3 xformOp:translate = (-3.366054058074951, 0, -3.366054058074951)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_2_Themeda_triandra_1_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_1_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1566615, 1.1566615, 1.1566615)
+        double3 xformOp:translate = (-3.9494259357452393, 0, -0.7494259476661682)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_3_Themeda_triandra_1_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_1_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8809541, 0.8809541, 0.8809541)
+        double3 xformOp:translate = (-4.076637268066406, 0, 2.3233625888824463)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_0_Themeda_triandra_1_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_1_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.90480644, 0.90480644, 0.90480644)
+        double3 xformOp:translate = (0.3926616311073303, 0, -6.007338523864746)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_1_Themeda_triandra_2_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_2_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.95258296, 0.95258296, 0.95258296)
+        double3 xformOp:translate = (0.6469561457633972, 0, -2.553043842315674)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_2_Themeda_triandra_2_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_2_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0079721, 1.0079721, 1.0079721)
+        double3 xformOp:translate = (0.8219387531280518, 0, 0.8219387531280518)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_3_Themeda_triandra_3_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_3_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0512623, 1.0512623, 1.0512623)
+        double3 xformOp:translate = (1.3877267837524414, 0, 4.587726593017578)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_1_Themeda_triandra_4_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_4_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1201037, 1.1201037, 1.1201037)
+        double3 xformOp:translate = (2.1336147785186768, 0, -4.266385078430176)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_2_Themeda_triandra_3_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_3_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.18154, 1.18154, 1.18154)
+        double3 xformOp:translate = (2.792754650115967, 0, -0.40724536776542664)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_3_Themeda_triandra_4_LOD2" (
+        instanceable = true
+        prepend references = </World/Assets/Themeda_triandra_4_LOD2>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9449134, 0.9449134, 0.9449134)
+        double3 xformOp:translate = (3.2850749492645264, 0, 3.2850749492645264)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+

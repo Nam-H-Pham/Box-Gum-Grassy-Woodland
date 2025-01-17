@@ -1,0 +1,104 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:scale = (1, 2.220446e-16, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+    }
+
+    def Material "Material"
+    {
+        float inputs:TileSize = 30 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-610.175, 81.11476)
+                    int stackingOrderInSubgraph = 96
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/Material/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+        def Shader "PBRSurface"
+        {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            float inputs:ambientOcclusion
+            color3f inputs:baseColor.connect = </Root/Material/TiledImage.outputs:out>
+            float inputs:clearcoat
+            float3 inputs:clearcoatNormal
+            float inputs:clearcoatRoughness
+            color3f inputs:emissiveColor
+            bool inputs:hasPremultipliedAlpha
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity = 0.6
+            float inputs:opacityThreshold
+            float inputs:roughness = 0.99
+            float inputs:roughness.connect = None
+            float inputs:specular = 0.2
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (78.46175, 202.12402)
+            int ui:nodegraph:node:stackingOrder = 114
+        }
+
+        def Shader "TiledImage"
+        {
+            uniform token info:id = "ND_tiledimage_color3"
+            color3f inputs:default
+            asset inputs:file = @Textures/KangarooGrass2_BaseColour.png@
+            string inputs:filtertype = "cubic"
+            float2 inputs:realworldimagesize = (1, 1)
+            float2 inputs:realworldimagesize.connect = None
+            float2 inputs:realworldtilesize = (40, 40)
+            float2 inputs:realworldtilesize.connect = </Root/Material/Combine2.outputs:out>
+            float2 inputs:texcoord
+            float2 inputs:uvoffset
+            float2 inputs:uvtiling
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-211.87283, -86.052925)
+            int ui:nodegraph:node:stackingOrder = 99
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Root/Material.inputs:TileSize>
+            float inputs:in2.connect = </Root/Material.inputs:TileSize>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-452.4611, 82.76246)
+            int ui:nodegraph:node:stackingOrder = 96
+        }
+    }
+}
+

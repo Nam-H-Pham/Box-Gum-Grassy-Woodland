@@ -21,9 +21,35 @@ struct ImmersiveView: View {
                 content.add(scene)
             }
             
-            let Grass = PatchSpawner(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
+            let Rytidosperma = PatchSpawner(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
             
-            let Leaves = PatchSpawner(jsonPath: "Leaves - tile_data", modelsPath: "Leaves/", content: content)
+            let Themeda = PatchSpawner(jsonPath: "Themeda Triandra - tile_data", modelsPath: "Grasses/Themeda Triandra/", content: content)
+            
+//            let Leaves = PatchSpawner(jsonPath: "Leaves - tile_data", modelsPath: "Leaves/", content: content)
+            
+            
+            class EnvironmentSoundManager: SpatialSoundManager {
+                init() {
+                    super.init(soundFiles:[
+                        "Fan_Tailed_Cuckoo",
+                        "Flies",
+                        "Gang_Gang_Cockatoo",
+                        "Rainbow Bee Eater",
+                        "Red Wattlebird"
+                    ])
+                }
+            }
+            let anchor = AnchorEntity(world: [0, 0, 0])
+            anchor.addChild(AnchorEntity(plane: .horizontal))
+            let environmentSoundManager = EnvironmentSoundManager()
+            let spatialSoundEntities = environmentSoundManager.spawnAll()
+            spatialSoundEntities.forEach { anchor.addChild($0) }
+            content.add(anchor)
+            
+            print("Environment Loaded")
+            
+            
+        
         }
     }
 }

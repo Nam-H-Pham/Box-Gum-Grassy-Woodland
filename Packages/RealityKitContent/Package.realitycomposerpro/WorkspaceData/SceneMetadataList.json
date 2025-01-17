@@ -1,9 +1,22 @@
 {
+  "00A0751F-9604-4664-B13A-926521D2E136" : {
+    "objectMetadataList" : [
+      [
+        "00A0751F-9604-4664-B13A-926521D2E136",
+        "Bark_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "022D3D06-238A-432C-AF72-7B7C2A8FEFA6" : {
     "objectMetadataList" : [
       [
         "022D3D06-238A-432C-AF72-7B7C2A8FEFA6",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -11,8 +24,7 @@
       },
       [
         "022D3D06-238A-432C-AF72-7B7C2A8FEFA6",
-        "World",
-        "Leaves_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -30,6 +42,15 @@
       [
         "16EA7BD5-6EA9-4CB6-A24E-333D8B8FB767",
         "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "16EA7BD5-6EA9-4CB6-A24E-333D8B8FB767",
+        "World",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -88,7 +109,8 @@
     "objectMetadataList" : [
       [
         "385DBD83-F2A4-44CF-AEAD-A7D115E5435C",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -96,8 +118,19 @@
       },
       [
         "385DBD83-F2A4-44CF-AEAD-A7D115E5435C",
-        "World",
-        "Leaves_Mat"
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "3A8D3956-CCCB-46DA-AEF8-D3E0DEE0A4E1" : {
+    "objectMetadataList" : [
+      [
+        "3A8D3956-CCCB-46DA-AEF8-D3E0DEE0A4E1",
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -180,11 +213,24 @@
       }
     ]
   },
+  "712A1FB7-07DC-4487-8403-262CCFBA7B77" : {
+    "objectMetadataList" : [
+      [
+        "712A1FB7-07DC-4487-8403-262CCFBA7B77",
+        "Rytidosperma_caespitosum_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "73D36C43-612F-47A6-BA5D-1FA6287758BB" : {
     "objectMetadataList" : [
       [
         "73D36C43-612F-47A6-BA5D-1FA6287758BB",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -192,8 +238,113 @@
       },
       [
         "73D36C43-612F-47A6-BA5D-1FA6287758BB",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626" : {
+    "objectMetadataList" : [
+      [
+        "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626",
+        "Root",
+        "New_Audio_File_Group"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/New_Audio_File_Group"
+        }
+      }
+    ]
+  },
+  "78E4848F-DB49-472B-BB86-996A959A464D" : {
+    "objectMetadataList" : [
+      [
+        "78E4848F-DB49-472B-BB86-996A959A464D",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "78E4848F-DB49-472B-BB86-996A959A464D",
         "World",
-        "Leaves_Mat"
+        "Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "8158ECFE-DEF7-451F-928F-31A3EA9509E5" : {
+    "objectMetadataList" : [
+      [
+        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
+        "Root",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/New_Audio_File_Group"
+        }
+      },
+      [
+        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
+        "Root",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
+        "Root",
+        "Timeline"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
+        "Root",
+        "Timeline",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -243,8 +394,56 @@
       }
     ]
   },
+  "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B" : {
+    "objectMetadataList" : [
+      [
+        "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
+        "root",
+        "Redgum_4_LOD0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
+        "root",
+        "Redgum_4_LOD0",
+        "LOD0_007"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3" : {
     "objectMetadataList" : [
+      [
+        "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
         "World",
@@ -253,10 +452,28 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      }
+    ]
+  },
+  "8AC9EDC3-EF5C-4FEA-8E24-A6AFE6CD98ED" : {
+    "objectMetadataList" : [
+
+    ]
+  },
+  "8ADE97B2-DC83-42F9-8F6C-872D6211ECDB" : {
+    "objectMetadataList" : [
+      [
+        "8ADE97B2-DC83-42F9-8F6C-872D6211ECDB",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       },
       [
-        "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
-        "World"
+        "8ADE97B2-DC83-42F9-8F6C-872D6211ECDB",
+        "Root",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -302,6 +519,46 @@
 
     ]
   },
+  "9362F25B-5B63-4970-AF9F-5AD6D8AE9798" : {
+    "objectMetadataList" : [
+      [
+        "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
+        "root",
+        "Redgum_3_LOD0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
+        "root",
+        "Redgum_3_LOD0",
+        "LOD0_008"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "984E0C43-CD31-45CE-9CE4-5EA1A7C7C6DC" : {
     "objectMetadataList" : [
       [
@@ -321,6 +578,11 @@
         "isExpanded" : true,
         "isLocked" : false
       }
+    ]
+  },
+  "9FACD3B0-7F68-41D3-AAA5-5F7A088EBE71" : {
+    "objectMetadataList" : [
+
     ]
   },
   "A1C3CBB6-C698-4E71-A962-A11A1E93A31C" : {
@@ -348,7 +610,8 @@
     "objectMetadataList" : [
       [
         "A36EA911-7AD8-41FC-B0C0-409D09609D65",
-        "Rytidosperma_caespitosum_Mat"
+        "Rytidosperma_caespitosum_Mat",
+        "Grass_Animation"
       ],
       {
         "isExpanded" : true,
@@ -356,8 +619,7 @@
       },
       [
         "A36EA911-7AD8-41FC-B0C0-409D09609D65",
-        "Rytidosperma_caespitosum_Mat",
-        "Grass_Animation"
+        "Rytidosperma_caespitosum_Mat"
       ],
       {
         "isExpanded" : true,
@@ -365,10 +627,90 @@
       }
     ]
   },
+  "A7241193-02B6-4243-82A0-565544EAC993" : {
+    "objectMetadataList" : [
+
+    ]
+  },
   "A9FCB870-C293-45C5-9F22-030B106C1CB3" : {
     "objectMetadataList" : [
       [
         "A9FCB870-C293-45C5-9F22-030B106C1CB3",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "AD7B7D2B-5603-4324-A71E-4E942CE8AD9B" : {
+    "objectMetadataList" : [
+      [
+        "AD7B7D2B-5603-4324-A71E-4E942CE8AD9B",
+        "Root",
+        "New_Audio_File_Group"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AD7B7D2B-5603-4324-A71E-4E942CE8AD9B",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "AE0C1ED5-4713-4F23-AF89-55C916621D23" : {
+    "objectMetadataList" : [
+      [
+        "AE0C1ED5-4713-4F23-AF89-55C916621D23",
+        "Red_Gum_Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "AEECF129-78CA-4AF6-BF38-8430E45AF2EB" : {
+    "objectMetadataList" : [
+      [
+        "AEECF129-78CA-4AF6-BF38-8430E45AF2EB",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AEECF129-78CA-4AF6-BF38-8430E45AF2EB",
+        "Root",
+        "Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "BD0DB696-57D1-4296-83E1-95C5493984E8" : {
+    "objectMetadataList" : [
+      [
+        "BD0DB696-57D1-4296-83E1-95C5493984E8",
+        "Root",
+        "Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "BD0DB696-57D1-4296-83E1-95C5493984E8",
         "Root"
       ],
       {
@@ -394,6 +736,122 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
+        "SkyDome",
+        "Looks"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/New_Audio_File_Group"
+        }
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome",
+        "Looks",
+        "GroundMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sphere",
+        "SkyBox"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkySphere"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Eucalyptus_Albens_1_LOD0",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Audio",
+        "AmbientAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Scope\/Fan_Tailed_Cuckoo_mp3"
+        }
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome",
+        "Dome_01"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome",
+        "Ground_01"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
         "Video_Dock"
       ],
       {
@@ -404,16 +862,8 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "SkyDome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root"
+        "SkyDome",
+        "Grid"
       ],
       {
         "disallowsFraming" : false,
@@ -426,7 +876,8 @@
     "objectMetadataList" : [
       [
         "CF5CA3BB-CE1B-40A9-B822-FE6979A1A32C",
-        "World"
+        "World",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -434,8 +885,7 @@
       },
       [
         "CF5CA3BB-CE1B-40A9-B822-FE6979A1A32C",
-        "World",
-        "Rytidosperma_caespitosum_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -476,12 +926,33 @@
       }
     ]
   },
+  "E40B2B15-778A-4F48-B6DA-7F08D4A812BB" : {
+    "objectMetadataList" : [
+      [
+        "E40B2B15-778A-4F48-B6DA-7F08D4A812BB",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E40B2B15-778A-4F48-B6DA-7F08D4A812BB",
+        "World",
+        "Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "ED577AC1-E01B-408C-8829-F09D12C81FF3" : {
     "objectMetadataList" : [
       [
         "ED577AC1-E01B-408C-8829-F09D12C81FF3",
         "World",
-        "Rytidosperma_caespitosum_Mat"
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -501,7 +972,9 @@
     "objectMetadataList" : [
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
-        "Eucalyptus_Albens"
+        "Eucalyptus_Albens",
+        "Materials",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -529,16 +1002,6 @@
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
         "Eucalyptus_Albens",
-        "LOD0",
-        "LOD0_001"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
-        "Eucalyptus_Albens",
         "LOD0"
       ],
       {
@@ -548,8 +1011,56 @@
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
         "Eucalyptus_Albens",
-        "Materials",
-        "Leaves_Mat"
+        "LOD0",
+        "LOD0_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "FE04C384-9C98-4052-A50B-968F29D01068" : {
+    "objectMetadataList" : [
+      [
+        "FE04C384-9C98-4052-A50B-968F29D01068",
+        "root",
+        "Redgum_2_LOD0",
+        "LOD0_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE04C384-9C98-4052-A50B-968F29D01068",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE04C384-9C98-4052-A50B-968F29D01068",
+        "root",
+        "Redgum_2_LOD0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE04C384-9C98-4052-A50B-968F29D01068",
+        "root"
       ],
       {
         "isExpanded" : true,

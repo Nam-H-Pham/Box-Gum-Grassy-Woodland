@@ -45,12 +45,12 @@ class PatchSpawner {
             print("Resource file not found!")
         }
         
-        print(self.models.keys)
+//        print(self.models.keys)
     }
     
     
     func LoadModels(jsonData: [String: Any]) {
-        print("Loading Models")
+//        print("Loading Models")
         
         for (patchName, patchData) in jsonData {
             
@@ -91,7 +91,7 @@ class PatchSpawner {
                 content.entities.append(clone)
             }
         }
-        print("Loaded Models")
+//        print("Loaded Models")
     }
     
     
