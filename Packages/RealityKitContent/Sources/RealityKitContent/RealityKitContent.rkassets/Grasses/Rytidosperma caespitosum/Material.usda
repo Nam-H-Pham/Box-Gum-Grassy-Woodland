@@ -11,7 +11,7 @@
 def Material "Rytidosperma_caespitosum_Mat"
 {
     reorder nameChildren = ["PBRSurface", "Dot", "Dot_2", "Image2D", "Dot_1", "Image2D_1", "Separate4", "Grass_Animation"]
-    token cullMode = "none" (
+    token cullMode = "back" (
         allowedTokens = ["unspecified", "none", "front", "back"]
     )
     asset inputs:AlphaMap = @Rytidosperma caespitosum-alpha.png@ (

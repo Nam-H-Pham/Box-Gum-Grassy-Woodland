@@ -62,14 +62,14 @@ def Xform "Root"
             bool inputs:hasPremultipliedAlpha
             float inputs:metallic
             float3 inputs:normal
-            float inputs:opacity = 0.6
+            float inputs:opacity = 0.7
             float inputs:opacityThreshold
             float inputs:roughness = 0.99
             float inputs:roughness.connect = None
             float inputs:specular = 0.2
             token outputs:out
             float2 ui:nodegraph:node:pos = (78.46175, 202.12402)
-            int ui:nodegraph:node:stackingOrder = 114
+            int ui:nodegraph:node:stackingOrder = 118
         }
 
         def Shader "TiledImage"

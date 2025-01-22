@@ -1,0 +1,63 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Material"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Material "Material"
+{
+    token outputs:mtlx:surface
+    token outputs:realitykit:vertex
+    token outputs:surface.connect = </Material/Principled_BSDF.outputs:surface>
+    float2 ui:nodegraph:node:pos = (40, 40)
+    int ui:nodegraph:node:stackingOrder = 2
+    custom string userProperties:blender:data_name = "Bark"
+
+    def Shader "Principled_BSDF"
+    {
+        uniform token info:id = "UsdPreviewSurface"
+        float inputs:clearcoat = 0
+        float inputs:clearcoatRoughness = 0.03
+        color3f inputs:diffuseColor.connect = </Material/Image_Texture.outputs:rgb>
+        float inputs:ior = 1.5
+        float inputs:metallic = 0
+        float inputs:opacity.connect = </Material/Image_Texture_001.outputs:a>
+        float inputs:roughness = 0.6900348
+        float inputs:specular = 0
+        token outputs:surface
+    }
+
+    def Shader "Image_Texture"
+    {
+        uniform token info:id = "UsdUVTexture"
+        asset inputs:file = @./textures/Eucalyptus_Bark_3.png@
+        token inputs:sourceColorSpace = "sRGB"
+        float2 inputs:st.connect = </Material/uvmap.outputs:result>
+        token inputs:wrapS = "repeat"
+        token inputs:wrapT = "repeat"
+        float3 outputs:rgb
+    }
+
+    def Shader "uvmap"
+    {
+        uniform token info:id = "UsdPrimvarReader_float2"
+        string inputs:varname = "st"
+        float2 outputs:result
+    }
+
+    def Shader "Image_Texture_001"
+    {
+        uniform token info:id = "UsdUVTexture"
+        asset inputs:file = @./textures/Eucalyptus_Bark_3.png@
+        token inputs:sourceColorSpace = "raw"
+        float2 inputs:st.connect = </Material/uvmap.outputs:result>
+        token inputs:wrapS = "repeat"
+        token inputs:wrapT = "repeat"
+        float outputs:a
+    }
+}
+
