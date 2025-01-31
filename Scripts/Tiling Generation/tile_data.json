@@ -5,7 +5,7 @@
             -22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square2": {
         "origin": [
@@ -13,7 +13,7 @@
             -22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square3": {
         "origin": [
@@ -21,7 +21,7 @@
             -22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square4": {
         "origin": [
@@ -29,7 +29,7 @@
             -22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square5": {
         "origin": [
@@ -37,7 +37,7 @@
             -7.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square6": {
         "origin": [
@@ -45,7 +45,7 @@
             -7.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square7": {
         "origin": [
@@ -53,7 +53,7 @@
             7.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square8": {
         "origin": [
@@ -61,7 +61,7 @@
             7.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square9": {
         "origin": [
@@ -69,7 +69,7 @@
             22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square10": {
         "origin": [
@@ -77,7 +77,7 @@
             22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square11": {
         "origin": [
@@ -85,7 +85,7 @@
             22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square12": {
         "origin": [
@@ -93,7 +93,7 @@
             22.5
         ],
         "size": 15.0,
-        "spacing": 3.2
+        "spacing": 2.4
     },
     "square13": {
         "origin": [
@@ -101,7 +101,7 @@
             -11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square14": {
         "origin": [
@@ -109,7 +109,7 @@
             -11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square15": {
         "origin": [
@@ -117,7 +117,7 @@
             -11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square16": {
         "origin": [
@@ -125,7 +125,7 @@
             -11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square17": {
         "origin": [
@@ -133,7 +133,7 @@
             -3.75
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square18": {
         "origin": [
@@ -141,7 +141,7 @@
             -3.75
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square19": {
         "origin": [
@@ -149,7 +149,7 @@
             3.75
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square20": {
         "origin": [
@@ -157,7 +157,7 @@
             3.75
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square21": {
         "origin": [
@@ -165,7 +165,7 @@
             11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square22": {
         "origin": [
@@ -173,7 +173,7 @@
             11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square23": {
         "origin": [
@@ -181,7 +181,7 @@
             11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square24": {
         "origin": [
@@ -189,7 +189,7 @@
             11.25
         ],
         "size": 7.5,
-        "spacing": 1.6
+        "spacing": 1.2
     },
     "square25": {
         "origin": [
@@ -197,7 +197,7 @@
             -5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square26": {
         "origin": [
@@ -205,7 +205,7 @@
             -5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square27": {
         "origin": [
@@ -213,7 +213,7 @@
             -5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square28": {
         "origin": [
@@ -221,7 +221,7 @@
             -5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square29": {
         "origin": [
@@ -229,7 +229,7 @@
             -1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square30": {
         "origin": [
@@ -237,7 +237,7 @@
             -1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square31": {
         "origin": [
@@ -245,7 +245,7 @@
             1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square32": {
         "origin": [
@@ -253,7 +253,7 @@
             1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square33": {
         "origin": [
@@ -261,7 +261,7 @@
             5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square34": {
         "origin": [
@@ -269,7 +269,7 @@
             5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square35": {
         "origin": [
@@ -277,7 +277,7 @@
             5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square36": {
         "origin": [
@@ -285,7 +285,7 @@
             5.625
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square37": {
         "origin": [
@@ -293,7 +293,7 @@
             -1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square38": {
         "origin": [
@@ -301,7 +301,7 @@
             -1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square39": {
         "origin": [
@@ -309,7 +309,7 @@
             1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     },
     "square40": {
         "origin": [
@@ -317,6 +317,6 @@
             1.875
         ],
         "size": 3.75,
-        "spacing": 0.8
+        "spacing": 0.6
     }
 }

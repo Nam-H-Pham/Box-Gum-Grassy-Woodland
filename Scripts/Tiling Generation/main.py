@@ -19,6 +19,8 @@ model_subfolder = config['Settings']['Model Subfolder']
 random_scale = tuple(map(float, config['Settings']['Random Scale'].split(',')))
 spawn_chance = float(config['Settings']['Spawn Chance'])
 
+lod_range = tuple(map(int, config['Settings']['LOD Range'].split(',')))
+
 # Print the values
 print(f"Name: {name}")
 print(f"Spacing Factor: {spacing_factor}")
@@ -34,7 +36,7 @@ print("Creating tile JSON file...")
 create_tile_json(name, spacing_factor, 
                  num_subdivisions, 
                  length_width_coverage, 
-                 visualise=False
+                 visualise=True
                  )
 
 print("Generating tiles...")
@@ -43,5 +45,6 @@ generate_tiles(json_file=f"{name}.json",
                model_folder_name=model_subfolder,
                output_folder="output",
                random_scale=random_scale,
-               spawn_chance=spawn_chance
+               spawn_chance=spawn_chance,
+               lod_range=lod_range
                )

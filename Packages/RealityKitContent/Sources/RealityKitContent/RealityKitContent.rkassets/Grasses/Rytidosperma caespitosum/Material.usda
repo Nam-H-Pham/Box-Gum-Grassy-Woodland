@@ -79,7 +79,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:specular
         token outputs:out
         float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
-        int ui:nodegraph:node:stackingOrder = 1171
+        int ui:nodegraph:node:stackingOrder = 1179
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
     }
 
@@ -111,7 +111,6 @@ def Material "Rytidosperma_caespitosum_Mat"
         asset inputs:file.connect = </Rytidosperma_caespitosum_Mat.inputs:ColorMap>
         string inputs:mag_filter
         int inputs:max_anisotropy
-        float inputs:max_lod_clamp = 65504
         string inputs:min_filter
         float inputs:min_lod_clamp
         string inputs:mip_filter
@@ -122,8 +121,8 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
-        int ui:nodegraph:node:stackingOrder = 1107
-        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
+        int ui:nodegraph:node:stackingOrder = 1182
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp", "inputs:no_flip_v"]
     }
 
     def Shader "Dot_1"
@@ -145,7 +144,6 @@ def Material "Rytidosperma_caespitosum_Mat"
         asset inputs:file.connect = </Rytidosperma_caespitosum_Mat.inputs:AlphaMap>
         string inputs:mag_filter
         int inputs:max_anisotropy
-        float inputs:max_lod_clamp
         float inputs:min_lod_clamp
         bool inputs:no_flip_v = 1
         int2 inputs:offset
@@ -154,7 +152,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         float4 outputs:out
         float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
-        int ui:nodegraph:node:stackingOrder = 1100
+        int ui:nodegraph:node:stackingOrder = 1180
     }
 
     def Shader "Separate4"

@@ -1,0 +1,180 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    quatf xformOp:orient = (1, 0, 0, 0)
+    float3 xformOp:scale = (1, 1, 1)
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def "Redgum_2_Billboard_LOD3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_2_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.010116458, 0.0000011324883, -8.402401)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_Billboard_LOD3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_3_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (5.886866, 0, 9.578788)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_4_Billboard_LOD3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_4_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-14.644196, 0, 1.2625065)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_Billboard_LOD3_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_2_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-16.308643, 0, 22.56805)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_Billboard_LOD3_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_3_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-12.813541, 0, -25.191454)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_4_Billboard_LOD3_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_4_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (10.865962, 0, 32.661926)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_Billboard_LOD3_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Redgum_2_Billboard_LOD3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (12.377677, 0, -26.989592)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_Billboard_LOD3_3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0.3404916, 4.7426198e-8)
+        }
+        prepend references = @Redgum_2_Billboard_LOD3.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.6968842, -0.69688416, 0.119801275, 0.11980129)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (8.588039, 0.000008106232, 59.905678)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_Billboard_LOD3_4" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0.3404916, 4.7426198e-8)
+        }
+        prepend references = @Redgum_2_Billboard_LOD3.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.6968842, -0.69688416, 0.119801275, 0.11980129)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-11.745946, 0, -15.21929)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_Billboard_LOD3_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0.3404916, 4.7426198e-8)
+        }
+        prepend references = @Redgum_3_Billboard_LOD3.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.6968842, -0.69688416, 0.119801275, 0.11980129)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-7.27557, 0.000002503395, 70.30028)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_4_Billboard_LOD3_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0.3404916, 4.7426198e-8)
+        }
+        prepend references = @Redgum_4_Billboard_LOD3.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.6968842, -0.69688416, 0.119801275, 0.11980129)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-13.25766, 0, 44.432228)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

@@ -90,4 +90,4 @@ def create_tile_patch(output_usd_path, patch_dimension=10, patch_spacing=0.5, ra
 
 # Example usage
 if __name__ == "__main__":
-    create_grass_patch("grass_patch.usda", patch_dimension=60, patch_spacing=0.5, random_scale=(0.8, 1.2), spawn_chance=0.88)
+    create_tile_patch("grass_patch.usda", patch_dimension=60, patch_spacing=0.5, random_scale=(0.8, 1.2), spawn_chance=0.88)

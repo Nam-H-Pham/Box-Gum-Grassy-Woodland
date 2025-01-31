@@ -19,13 +19,14 @@ struct ImmersiveView: View {
             
             if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(scene)
-            }
+            }	
             
             let Rytidosperma = PatchSpawner(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
+//            let Rytidosperma = PatchSpawner(jsonPath: "Rytidosperma caespitosum Dense - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
             
             let Themeda = PatchSpawner(jsonPath: "Themeda Triandra - tile_data", modelsPath: "Grasses/Themeda Triandra/", content: content)
+//            let Themeda = PatchSpawner(jsonPath: "Themeda Triandra Dense - tile_data", modelsPath: "Grasses/Themeda Triandra/", content: content)
             
-//            let Leaves = PatchSpawner(jsonPath: "Leaves - tile_data", modelsPath: "Leaves/", content: content)
             
             
             class EnvironmentSoundManager: SpatialSoundManager {

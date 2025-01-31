@@ -111,7 +111,6 @@ def Material "Rytidosperma_caespitosum_Mat"
         asset inputs:file.connect = </Rytidosperma_caespitosum_Mat.inputs:ColorMap>
         string inputs:mag_filter
         int inputs:max_anisotropy
-        float inputs:max_lod_clamp = 65504
         string inputs:min_filter
         float inputs:min_lod_clamp
         string inputs:mip_filter
@@ -122,7 +121,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
-        int ui:nodegraph:node:stackingOrder = 1107
+        int ui:nodegraph:node:stackingOrder = 1180
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
     }
 
@@ -145,7 +144,6 @@ def Material "Rytidosperma_caespitosum_Mat"
         asset inputs:file.connect = </Rytidosperma_caespitosum_Mat.inputs:AlphaMap>
         string inputs:mag_filter
         int inputs:max_anisotropy
-        float inputs:max_lod_clamp
         float inputs:min_lod_clamp
         bool inputs:no_flip_v = 1
         int2 inputs:offset
@@ -154,7 +152,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         float4 outputs:out
         float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
-        int ui:nodegraph:node:stackingOrder = 1100
+        int ui:nodegraph:node:stackingOrder = 1181
     }
 
     def Shader "Separate4"
@@ -179,7 +177,7 @@ def Material "Rytidosperma_caespitosum_Mat"
                 }
             }
         )
-        float inputs:Amplitude.connect = None
+        float inputs:Amplitude.connect = </Rytidosperma_caespitosum_Mat.inputs:Amplitude>
         float inputs:Speed = 0.7 (
             customData = {
                 dictionary realitykit = {
@@ -188,7 +186,7 @@ def Material "Rytidosperma_caespitosum_Mat"
                 }
             }
         )
-        float inputs:Speed.connect = None
+        float inputs:Speed.connect = </Rytidosperma_caespitosum_Mat.inputs:Speed>
         float3 inputs:Wind_Direction = (1, 0, 0) (
             customData = {
                 dictionary realitykit = {
@@ -197,7 +195,7 @@ def Material "Rytidosperma_caespitosum_Mat"
                 }
             }
         )
-        float3 inputs:Wind_Direction.connect = None
+        float3 inputs:Wind_Direction.connect = </Rytidosperma_caespitosum_Mat.inputs:WindDirection>
         token outputs:Displace (
             customData = {
                 dictionary realitykit = {

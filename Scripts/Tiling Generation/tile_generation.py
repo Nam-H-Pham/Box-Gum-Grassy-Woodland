@@ -10,7 +10,8 @@ def generate_tiles(
     model_folder_name='Rytidosperma caespitosum',
     output_folder='output',
     random_scale=(0.8, 1.2),
-    spawn_chance=0.88
+    spawn_chance=0.88,
+    lod_range=(0, 0),
 ):
     """
     Generates tile patches based on subsquare coordinates and model configurations.
@@ -54,9 +55,9 @@ def generate_tiles(
     lod_folders = [f for f in os.listdir(model_folder_path) if f.startswith("LOD")]
 
     # Generate tile patches
-    lod_level = 0
+    lod_level = lod_range[0]
     for size, spacing in sizes_and_spacings.items():
-        lod_level = min(lod_level, len(lod_folders) - 1)
+        lod_level = min(lod_level, lod_range[1])
         model_names_paths = get_model_names_paths(os.path.join(model_folder_path, f"LOD{lod_level}"))
         lod_level += 1
 
