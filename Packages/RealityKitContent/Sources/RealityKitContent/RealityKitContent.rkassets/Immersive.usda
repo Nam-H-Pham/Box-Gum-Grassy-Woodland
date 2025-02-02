@@ -12,7 +12,7 @@ def Xform "Root"
 {
     reorder nameChildren = ["SkyDome", "Ground", "Trees", "Branches", "Tree_Billboard_Set", "Tree_Billboards"]
     def "SkyDome" (
-        references = @SkyDome.usdz@
+        references = @SkyDome/SkyDome.usdz@
     )
     {
         float3 xformOp:scale = (10, 10, 10)
@@ -58,11 +58,19 @@ def Xform "Root"
                         }
                     }
                 )
-                asset inputs:image = @autumn_field_4k.hdr@ (
+                asset inputs:image = @SkyDome/autumn_field_4k.hdr@ (
                     customData = {
                         dictionary realitykit = {
                             float2 positionInSubgraph = (-809.14417, 22.825876)
                             int stackingOrderInSubgraph = 15
+                        }
+                    }
+                )
+                asset inputs:mask = @SkyDome/mask2.png@ (
+                    customData = {
+                        dictionary realitykit = {
+                            float2 positionInSubgraph = (-806.48236, 316.80115)
+                            int stackingOrderInSubgraph = 33
                         }
                     }
                 )
@@ -108,7 +116,7 @@ def Xform "Root"
                     string inputs:v_wrap_mode
                     color3f outputs:out
                     float2 ui:nodegraph:node:pos = (-612.54767, 89.80469)
-                    int ui:nodegraph:node:stackingOrder = 12
+                    int ui:nodegraph:node:stackingOrder = 34
                 }
 
                 def Shader "PreviewSurface"
@@ -118,10 +126,38 @@ def Xform "Root"
                     float inputs:metallic
                     float3 inputs:normal
                     float inputs:opacity = 0.9
+                    float inputs:opacity.connect = </Root/SkyDome/Looks/DomeMATSG/Separate4.outputs:outr>
                     float inputs:roughness = 1
                     token outputs:out
                     float2 ui:nodegraph:node:pos = (-252.74019, 66.42131)
                     int ui:nodegraph:node:stackingOrder = 31
+                }
+
+                def Shader "Separate4"
+                {
+                    uniform token info:id = "ND_separate4_color4"
+                    color4f inputs:in.connect = </Root/SkyDome/Looks/DomeMATSG/Image2D_1.outputs:out>
+                    float outputs:outr
+                    float2 ui:nodegraph:node:pos = (-324.95145, 415.19543)
+                    int ui:nodegraph:node:stackingOrder = 38
+                }
+
+                def Shader "Image2D_1"
+                {
+                    uniform token info:id = "ND_RealityKitTexture2D_color4"
+                    float inputs:bias
+                    string inputs:border_color
+                    float inputs:dynamic_min_lod_clamp
+                    prepend asset inputs:file.connect = </Root/SkyDome/Looks/DomeMATSG.inputs:mask>
+                    float inputs:min_lod_clamp
+                    bool inputs:no_flip_v = 1
+                    int2 inputs:offset
+                    float2 inputs:texcoord
+                    string inputs:u_wrap_mode
+                    string inputs:v_wrap_mode
+                    color4f outputs:out
+                    float2 ui:nodegraph:node:pos = (-583.3488, 478.73224)
+                    int ui:nodegraph:node:stackingOrder = 37
                 }
             }
         }
@@ -170,7 +206,7 @@ def Xform "Root"
             references = @Ground Textures/Material.usda@
         )
         {
-            float inputs:TileSize = 140
+            float inputs:TileSize = 200
         }
     }
 
@@ -264,67 +300,66 @@ def Xform "Root"
         }
     }
 
-    def Scope "Tree_Billboards" (
+    def "Redgum_2_LOD0" (
         active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Trees/Red Gum/Redgum_2_LOD0.usdc@
     )
     {
-        def "Billboard_Forest" (
-            active = true
-            customData = {
-                float3 rotationEulerHint = (0, 0, 0)
-            }
-            references = @Trees/Red Gum/Billboard Forest.usda@
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (-117.34795, -0.000015258789, -8.328278)
-        }
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (37.534973, 0.0000059604645, -38.470085)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 
-        def "Billboard_Forest_1" (
-            active = true
-            customData = {
-                float3 rotationEulerHint = (0, 1.0377971, 0)
-            }
-            references = @Trees/Red Gum/Billboard Forest.usda@
-        )
-        {
-            float2 ui:nodegraph:node:pos = (382.44357, -59.497917)
-            int ui:nodegraph:node:stackingOrder = 1
-            quatf xformOp:orient = (0.8683659, 0, 0.49592394, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (-81.977745, -0.000015258789, 92.32922)
-        }
+    def "Redgum_3_LOD0" (
+        active = true
+        prepend references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (52.231117, 0, 54.15513)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 
-        def "Billboard_Forest_2" (
-            active = true
-            customData = {
-                float3 rotationEulerHint = (0, -1.731848, 0)
-            }
-            references = @Trees/Red Gum/Billboard Forest.usda@
-        )
-        {
-            float2 ui:nodegraph:node:pos = (402.44357, -39.497917)
-            int ui:nodegraph:node:stackingOrder = 2
-            quatf xformOp:orient = (0.6479364, 0, -0.76169425, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (43.996017, -0.000015258789, -110.32396)
+    def "Redgum_4_LOD0" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
         }
+        prepend references = @Trees/Red Gum/Redgum_4_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-77.65844, -5.9604645e-7, 44.919872)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 
-        def "Billboard_Forest_3" (
-            active = true
-            customData = {
-                float3 rotationEulerHint = (0, -2.401273, 0)
-            }
-            references = @Trees/Red Gum/Billboard Forest.usda@
-        )
-        {
-            float2 ui:nodegraph:node:pos = (422.44357, -19.497917)
-            int ui:nodegraph:node:stackingOrder = 3
-            quatf xformOp:orient = (0.36176428, 0, -0.93226963, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (116.813644, -0.000015258789, -103.01264)
+    def "Redgum_2_LOD0_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
         }
+        prepend references = @Trees/Red Gum/Redgum_2_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-43.610306, 0.000008106232, -68.02272)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_LOD0_1" (
+        active = true
+        prepend references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-91.133484, 0, -21.038292)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 

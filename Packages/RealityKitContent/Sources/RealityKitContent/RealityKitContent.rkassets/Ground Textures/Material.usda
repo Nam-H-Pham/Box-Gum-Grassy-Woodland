@@ -10,7 +10,7 @@
 
 def Material "Material"
 {
-    float inputs:TileSize = 30 (
+    float inputs:TileSize = 40 (
         customData = {
             dictionary realitykit = {
                 float2 positionInSubgraph = (-610.175, 81.11476)

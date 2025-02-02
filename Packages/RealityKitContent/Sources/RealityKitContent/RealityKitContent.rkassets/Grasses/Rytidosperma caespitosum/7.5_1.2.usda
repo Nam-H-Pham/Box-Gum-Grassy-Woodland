@@ -476,6 +476,9 @@ def Xform "World" (
         prepend references = @Material.usda@
     )
     {
+        asset inputs:AlphaMap = @Rytidosperma caespitosum-alpha.png@
+        asset inputs:ColorMap = @models/Rytidosperma caespitosum/LOD0/textures/Rytidosperma caespitosum.png@
+
         over "Grass_Animation" (
             active = false
         )

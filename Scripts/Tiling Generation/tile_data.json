@@ -1,322 +1,610 @@
 {
     "square1": {
         "origin": [
-            -22.5,
-            -22.5
+            -75.0,
+            -75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square2": {
         "origin": [
-            -7.5,
-            -22.5
+            -25.0,
+            -75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square3": {
         "origin": [
-            7.5,
-            -22.5
+            25.0,
+            -75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square4": {
         "origin": [
-            22.5,
-            -22.5
+            75.0,
+            -75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square5": {
         "origin": [
-            -22.5,
-            -7.5
+            -75.0,
+            -25.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square6": {
         "origin": [
-            22.5,
-            -7.5
+            75.0,
+            -25.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square7": {
         "origin": [
-            -22.5,
-            7.5
+            -75.0,
+            25.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square8": {
         "origin": [
-            22.5,
-            7.5
+            75.0,
+            25.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square9": {
         "origin": [
-            -22.5,
-            22.5
+            -75.0,
+            75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square10": {
         "origin": [
-            -7.5,
-            22.5
+            -25.0,
+            75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square11": {
         "origin": [
-            7.5,
-            22.5
+            25.0,
+            75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square12": {
         "origin": [
-            22.5,
-            22.5
+            75.0,
+            75.0
         ],
-        "size": 15.0,
-        "spacing": 2.4
+        "size": 50.0,
+        "spacing": 4.8
     },
     "square13": {
         "origin": [
-            -11.25,
-            -11.25
+            -37.5,
+            -37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square14": {
         "origin": [
-            -3.75,
-            -11.25
+            -12.5,
+            -37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square15": {
         "origin": [
-            3.75,
-            -11.25
+            12.5,
+            -37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square16": {
         "origin": [
-            11.25,
-            -11.25
+            37.5,
+            -37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square17": {
         "origin": [
-            -11.25,
-            -3.75
+            -37.5,
+            -12.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square18": {
         "origin": [
-            11.25,
-            -3.75
+            37.5,
+            -12.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square19": {
         "origin": [
-            -11.25,
-            3.75
+            -37.5,
+            12.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square20": {
         "origin": [
-            11.25,
-            3.75
+            37.5,
+            12.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square21": {
         "origin": [
-            -11.25,
-            11.25
+            -37.5,
+            37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square22": {
         "origin": [
-            -3.75,
-            11.25
+            -12.5,
+            37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square23": {
         "origin": [
-            3.75,
-            11.25
+            12.5,
+            37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square24": {
         "origin": [
-            11.25,
-            11.25
+            37.5,
+            37.5
         ],
-        "size": 7.5,
-        "spacing": 1.2
+        "size": 25.0,
+        "spacing": 2.4
     },
     "square25": {
         "origin": [
-            -5.625,
-            -5.625
+            -18.75,
+            -18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square26": {
         "origin": [
-            -1.875,
-            -5.625
+            -6.25,
+            -18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square27": {
         "origin": [
-            1.875,
-            -5.625
+            6.25,
+            -18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square28": {
         "origin": [
-            5.625,
-            -5.625
+            18.75,
+            -18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square29": {
         "origin": [
-            -5.625,
-            -1.875
+            -18.75,
+            -6.25
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square30": {
         "origin": [
-            5.625,
-            -1.875
+            18.75,
+            -6.25
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square31": {
         "origin": [
-            -5.625,
-            1.875
+            -18.75,
+            6.25
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square32": {
         "origin": [
-            5.625,
-            1.875
+            18.75,
+            6.25
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square33": {
         "origin": [
-            -5.625,
-            5.625
+            -18.75,
+            18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square34": {
         "origin": [
-            -1.875,
-            5.625
+            -6.25,
+            18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square35": {
         "origin": [
-            1.875,
-            5.625
+            6.25,
+            18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square36": {
         "origin": [
-            5.625,
-            5.625
+            18.75,
+            18.75
         ],
-        "size": 3.75,
-        "spacing": 0.6
+        "size": 12.5,
+        "spacing": 1.2
     },
     "square37": {
         "origin": [
-            -1.875,
-            -1.875
+            -9.375,
+            -9.375
         ],
-        "size": 3.75,
+        "size": 6.25,
         "spacing": 0.6
     },
     "square38": {
         "origin": [
-            1.875,
-            -1.875
+            -3.125,
+            -9.375
         ],
-        "size": 3.75,
+        "size": 6.25,
         "spacing": 0.6
     },
     "square39": {
         "origin": [
-            -1.875,
-            1.875
+            3.125,
+            -9.375
         ],
-        "size": 3.75,
+        "size": 6.25,
         "spacing": 0.6
     },
     "square40": {
         "origin": [
-            1.875,
-            1.875
+            9.375,
+            -9.375
         ],
-        "size": 3.75,
+        "size": 6.25,
         "spacing": 0.6
+    },
+    "square41": {
+        "origin": [
+            -9.375,
+            -3.125
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square42": {
+        "origin": [
+            9.375,
+            -3.125
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square43": {
+        "origin": [
+            -9.375,
+            3.125
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square44": {
+        "origin": [
+            9.375,
+            3.125
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square45": {
+        "origin": [
+            -9.375,
+            9.375
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square46": {
+        "origin": [
+            -3.125,
+            9.375
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square47": {
+        "origin": [
+            3.125,
+            9.375
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square48": {
+        "origin": [
+            9.375,
+            9.375
+        ],
+        "size": 6.25,
+        "spacing": 0.6
+    },
+    "square49": {
+        "origin": [
+            -4.6875,
+            -4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square50": {
+        "origin": [
+            -1.5625,
+            -4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square51": {
+        "origin": [
+            1.5625,
+            -4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square52": {
+        "origin": [
+            4.6875,
+            -4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square53": {
+        "origin": [
+            -4.6875,
+            -1.5625
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square54": {
+        "origin": [
+            4.6875,
+            -1.5625
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square55": {
+        "origin": [
+            -4.6875,
+            1.5625
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square56": {
+        "origin": [
+            4.6875,
+            1.5625
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square57": {
+        "origin": [
+            -4.6875,
+            4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square58": {
+        "origin": [
+            -1.5625,
+            4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square59": {
+        "origin": [
+            1.5625,
+            4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square60": {
+        "origin": [
+            4.6875,
+            4.6875
+        ],
+        "size": 3.125,
+        "spacing": 0.3
+    },
+    "square61": {
+        "origin": [
+            -2.34375,
+            -2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square62": {
+        "origin": [
+            -0.78125,
+            -2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square63": {
+        "origin": [
+            0.78125,
+            -2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square64": {
+        "origin": [
+            2.34375,
+            -2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square65": {
+        "origin": [
+            -2.34375,
+            -0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square66": {
+        "origin": [
+            2.34375,
+            -0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square67": {
+        "origin": [
+            -2.34375,
+            0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square68": {
+        "origin": [
+            2.34375,
+            0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square69": {
+        "origin": [
+            -2.34375,
+            2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square70": {
+        "origin": [
+            -0.78125,
+            2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square71": {
+        "origin": [
+            0.78125,
+            2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square72": {
+        "origin": [
+            2.34375,
+            2.34375
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square73": {
+        "origin": [
+            -0.78125,
+            -0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square74": {
+        "origin": [
+            0.78125,
+            -0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square75": {
+        "origin": [
+            -0.78125,
+            0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
+    },
+    "square76": {
+        "origin": [
+            0.78125,
+            0.78125
+        ],
+        "size": 1.5625,
+        "spacing": 0.15
     }
 }

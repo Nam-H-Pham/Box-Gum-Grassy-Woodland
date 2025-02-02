@@ -1,0 +1,1218 @@
+#usda 1.0
+
+def Xform "World"
+{
+    def Xform "Assets"
+    {
+        def Xform "plane" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD3/plane.usdc@
+        )
+        {
+            token visibility = "invisible"
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Xform "Instance_0_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2823373, 1.2823373, 1.2823373)
+        double3 xformOp:translate = (-5.475356578826904, 0, -5.475356578826904)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0383672, 1.0383672, 1.0383672)
+        double3 xformOp:translate = (-5.498912811279297, 0, -4.29891300201416)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2627178, 1.2627178, 1.2627178)
+        double3 xformOp:translate = (-5.846810817718506, 0, -3.4468109607696533)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1087615, 1.1087615, 1.1087615)
+        double3 xformOp:translate = (-5.671341419219971, 0, -2.0713412761688232)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2632129, 1.2632129, 1.2632129)
+        double3 xformOp:translate = (-5.7965006828308105, 0, -0.9965009093284607)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1245574, 1.1245574, 1.1245574)
+        double3 xformOp:translate = (-6.4519782066345215, 0, -0.4519784450531006)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0249406, 1.0249406, 1.0249406)
+        double3 xformOp:translate = (-6.0979838371276855, 0, 1.1020162105560303)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1964642, 1.1964642, 1.1964642)
+        double3 xformOp:translate = (-5.781451225280762, 0, 2.618548631668091)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.144201, 1.144201, 1.144201)
+        double3 xformOp:translate = (-6.388637065887451, 0, 3.211362838745117)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2686701, 1.2686701, 1.2686701)
+        double3 xformOp:translate = (-5.86782169342041, 0, 4.932178497314453)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1780323, 1.1780323, 1.1780323)
+        double3 xformOp:translate = (-4.247161388397217, 0, -5.4471611976623535)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0343904, 1.0343904, 1.0343904)
+        double3 xformOp:translate = (-4.364446640014648, 0, -4.364446640014648)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1414073, 1.1414073, 1.1414073)
+        double3 xformOp:translate = (-4.829278469085693, 0, -3.6292784214019775)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1903124, 1.1903124, 1.1903124)
+        double3 xformOp:translate = (-4.232957363128662, 0, -1.832957148551941)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1057719, 1.1057719, 1.1057719)
+        double3 xformOp:translate = (-4.287382125854492, 0, -0.6873822212219238)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.116642, 1.116642, 1.116642)
+        double3 xformOp:translate = (-5.114694595336914, 0, -0.31469452381134033)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1600187, 1.1600187, 1.1600187)
+        double3 xformOp:translate = (-4.914199352264404, 0, 1.0858006477355957)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0807642, 1.0807642, 1.0807642)
+        double3 xformOp:translate = (-5.146344184875488, 0, 2.0536558628082275)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2355589, 1.2355589, 1.2355589)
+        double3 xformOp:translate = (-4.983405113220215, 0, 3.416594982147217)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2754922, 1.2754922, 1.2754922)
+        double3 xformOp:translate = (-4.480042934417725, 0, 5.119956970214844)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1319404, 1.1319404, 1.1319404)
+        double3 xformOp:translate = (-3.8668789863586426, 0, -6.266879081726074)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2778057, 1.2778057, 1.2778057)
+        double3 xformOp:translate = (-4.068040370941162, 0, -5.268040657043457)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2972876, 1.2972876, 1.2972876)
+        double3 xformOp:translate = (-3.05543851852417, 0, -3.05543851852417)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.029025, 1.029025, 1.029025)
+        double3 xformOp:translate = (-4.0050482749938965, 0, -2.8050484657287598)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2955098, 1.2955098, 1.2955098)
+        double3 xformOp:translate = (-3.2302539348602295, 0, -0.8302538394927979)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.061669, 1.061669, 1.061669)
+        double3 xformOp:translate = (-3.066417694091797, 0, 0.533582329750061)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0907025, 1.0907025, 1.0907025)
+        double3 xformOp:translate = (-4.104160308837891, 0, 0.6958397030830383)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1527501, 1.1527501, 1.1527501)
+        double3 xformOp:translate = (-3.554349899291992, 0, 2.445650100708008)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2301844, 1.2301844, 1.2301844)
+        double3 xformOp:translate = (-3.338597297668457, 0, 3.861402750015259)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1142919, 1.1142919, 1.1142919)
+        double3 xformOp:translate = (-3.0811514854431152, 0, 5.318848609924316)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1890416, 1.1890416, 1.1890416)
+        double3 xformOp:translate = (-1.8973021507263184, 0, -5.497302055358887)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0513537, 1.0513537, 1.0513537)
+        double3 xformOp:translate = (-2.135937452316284, 0, -4.535937786102295)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2511127, 1.2511127, 1.2511127)
+        double3 xformOp:translate = (-2.100435495376587, 0, -3.3004353046417236)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0853606, 1.0853606, 1.0853606)
+        double3 xformOp:translate = (-2.376112222671509, 0, -2.376112222671509)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0486442, 1.0486442, 1.0486442)
+        double3 xformOp:translate = (-2.812093496322632, 0, -1.612093448638916)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0691432, 1.0691432, 1.0691432)
+        double3 xformOp:translate = (-2.4315054416656494, 0, -0.0315055325627327)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0795022, 1.0795022, 1.0795022)
+        double3 xformOp:translate = (-2.762284517288208, 0, 0.8377153873443604)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1264008, 1.1264008, 1.1264008)
+        double3 xformOp:translate = (-2.8050036430358887, 0, 1.994996428489685)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1450783, 1.1450783, 1.1450783)
+        double3 xformOp:translate = (-2.933917284011841, 0, 3.066082715988159)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0264398, 1.0264398, 1.0264398)
+        double3 xformOp:translate = (-2.610947608947754, 0, 4.589052200317383)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2547613, 1.2547613, 1.2547613)
+        double3 xformOp:translate = (-1.7420028448104858, 0, -6.5420026779174805)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.226777, 1.226777, 1.226777)
+        double3 xformOp:translate = (-1.0754244327545166, 0, -4.675424575805664)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0144403, 1.0144403, 1.0144403)
+        double3 xformOp:translate = (-0.8855469226837158, 0, -3.2855470180511475)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2458998, 1.2458998, 1.2458998)
+        double3 xformOp:translate = (-0.8187196850776672, 0, -2.0187196731567383)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.078396, 1.078396, 1.078396)
+        double3 xformOp:translate = (-0.8718210458755493, 0, -0.8718210458755493)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0593709, 1.0593709, 1.0593709)
+        double3 xformOp:translate = (-1.6457781791687012, 0, -0.4457781910896301)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1784714, 1.1784714, 1.1784714)
+        double3 xformOp:translate = (-0.8256502151489258, 0, 1.5743497610092163)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1945074, 1.1945074, 1.1945074)
+        double3 xformOp:translate = (-1.621971845626831, 0, 1.9780281782150269)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0477091, 1.0477091, 1.0477091)
+        double3 xformOp:translate = (-1.5355494022369385, 0, 3.2644505500793457)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1532285, 1.1532285, 1.1532285)
+        double3 xformOp:translate = (-1.0159885883331299, 0, 4.984011173248291)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.026436, 1.026436, 1.026436)
+        double3 xformOp:translate = (0.28441160917282104, 0, -5.715588569641113)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.146445, 1.146445, 1.146445)
+        double3 xformOp:translate = (-0.2986963987350464, 0, -5.098696231842041)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0288596, 1.0288596, 1.0288596)
+        double3 xformOp:translate = (0.4918784499168396, 0, -3.108121633529663)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0226669, 1.0226669, 1.0226669)
+        double3 xformOp:translate = (-0.15733101963996887, 0, -2.557331085205078)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0191963, 1.0191963, 1.0191963)
+        double3 xformOp:translate = (-0.193795308470726, 0, -1.3937952518463135)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0808182, 1.0808182, 1.0808182)
+        double3 xformOp:translate = (0.15889467298984528, 0, 0.15889467298984528)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0612494, 1.0612494, 1.0612494)
+        double3 xformOp:translate = (0.01974872313439846, 0, 1.2197487354278564)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.216331, 1.216331, 1.216331)
+        double3 xformOp:translate = (0.4713956117630005, 0, 2.8713955879211426)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2484491, 1.2484491, 1.2484491)
+        double3 xformOp:translate = (0.05852038040757179, 0, 3.658520460128784)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0709246, 1.0709246, 1.0709246)
+        double3 xformOp:translate = (-0.417805939912796, 0, 4.3821940422058105)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1807154, 1.1807154, 1.1807154)
+        double3 xformOp:translate = (1.3629294633865356, 0, -5.837070465087891)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0238827, 1.0238827, 1.0238827)
+        double3 xformOp:translate = (1.5327008962631226, 0, -4.467298984527588)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0958806, 1.0958806, 1.0958806)
+        double3 xformOp:translate = (0.8370506167411804, 0, -3.962949275970459)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.024277, 1.024277, 1.024277)
+        double3 xformOp:translate = (1.4263415336608887, 0, -2.1736583709716797)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1498271, 1.1498271, 1.1498271)
+        double3 xformOp:translate = (1.490958571434021, 0, -0.9090414047241211)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1676246, 1.1676246, 1.1676246)
+        double3 xformOp:translate = (1.644194483757019, 0, 0.444194495677948)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.019219, 1.019219, 1.019219)
+        double3 xformOp:translate = (1.1606082916259766, 0, 1.1606082916259766)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0335277, 1.0335277, 1.0335277)
+        double3 xformOp:translate = (1.66204035282135, 0, 2.8620402812957764)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.115076, 1.115076, 1.115076)
+        double3 xformOp:translate = (0.7281394600868225, 0, 3.1281394958496094)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0909927, 1.0909927, 1.0909927)
+        double3 xformOp:translate = (0.9850083589553833, 0, 4.585008144378662)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2541286, 1.2541286, 1.2541286)
+        double3 xformOp:translate = (2.850907564163208, 0, -5.549092769622803)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.10518, 1.10518, 1.10518)
+        double3 xformOp:translate = (1.8265854120254517, 0, -5.373414516448975)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2952392, 1.2952392, 1.2952392)
+        double3 xformOp:translate = (2.3090133666992188, 0, -3.6909866333007812)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1887532, 1.1887532, 1.1887532)
+        double3 xformOp:translate = (2.077697992324829, 0, -2.722301959991455)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2769414, 1.2769414, 1.2769414)
+        double3 xformOp:translate = (1.925207257270813, 0, -1.674792766571045)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0896486, 1.0896486, 1.0896486)
+        double3 xformOp:translate = (2.4373459815979004, 0, 0.037345923483371735)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2831044, 1.2831044, 1.2831044)
+        double3 xformOp:translate = (2.0739972591400146, 0, 0.8739972114562988)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1758664, 1.1758664, 1.1758664)
+        double3 xformOp:translate = (2.069025754928589, 0, 2.069025754928589)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2442709, 1.2442709, 1.2442709)
+        double3 xformOp:translate = (1.9007989168167114, 0, 3.1007988452911377)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0853398, 1.0853398, 1.0853398)
+        double3 xformOp:translate = (1.918226718902588, 0, 4.3182268142700195)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1378982, 1.1378982, 1.1378982)
+        double3 xformOp:translate = (3.1998465061187744, 0, -6.400153636932373)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.27699, 1.27699, 1.27699)
+        double3 xformOp:translate = (4.155410289764404, 0, -4.244589805603027)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1553583, 1.1553583, 1.1553583)
+        double3 xformOp:translate = (3.184403419494629, 0, -4.015596866607666)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1040827, 1.1040827, 1.1040827)
+        double3 xformOp:translate = (4.026340007781982, 0, -1.973659873008728)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0725179, 1.0725179, 1.0725179)
+        double3 xformOp:translate = (4.057260513305664, 0, -0.7427394390106201)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0927373, 1.0927373, 1.0927373)
+        double3 xformOp:translate = (3.4147746562957764, 0, -0.18522542715072632)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0291144, 1.0291144, 1.0291144)
+        double3 xformOp:translate = (3.503826141357422, 0, 1.1038261651992798)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1068919, 1.1068919, 1.1068919)
+        double3 xformOp:translate = (3.7094316482543945, 0, 2.509431838989258)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2624054, 1.2624054, 1.2624054)
+        double3 xformOp:translate = (3.5607354640960693, 0, 3.5607354640960693)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1926153, 1.1926153, 1.1926153)
+        double3 xformOp:translate = (4.005805492401123, 0, 5.20580530166626)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_0_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2994269, 1.2994269, 1.2994269)
+        double3 xformOp:translate = (5.193972587585449, 0, -5.606027603149414)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_1_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.134989, 1.134989, 1.134989)
+        double3 xformOp:translate = (4.728744029998779, 0, -4.871255874633789)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_2_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2710794, 1.2710794, 1.2710794)
+        double3 xformOp:translate = (5.269198894500732, 0, -3.13080096244812)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_3_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.040988, 1.040988, 1.040988)
+        double3 xformOp:translate = (4.388057708740234, 0, -2.8119423389434814)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_4_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0336553, 1.0336553, 1.0336553)
+        double3 xformOp:translate = (4.579936981201172, 0, -1.420062780380249)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_5_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2641367, 1.2641367, 1.2641367)
+        double3 xformOp:translate = (4.933328151702881, 0, 0.13332797586917877)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_6_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0693666, 1.0693666, 1.0693666)
+        double3 xformOp:translate = (4.377106666564941, 0, 0.7771066427230835)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_7_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2725043, 1.2725043, 1.2725043)
+        double3 xformOp:translate = (4.556654930114746, 0, 2.1566550731658936)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_8_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.2546881, 1.2546881, 1.2546881)
+        double3 xformOp:translate = (4.549264430999756, 0, 3.349264621734619)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_9_plane" (
+        instanceable = true
+        prepend references = </World/Assets/plane>
+    )
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0498384, 1.0498384, 1.0498384)
+        double3 xformOp:translate = (5.112760066986084, 0, 5.112760066986084)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+
