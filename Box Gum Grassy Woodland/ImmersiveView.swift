@@ -19,20 +19,21 @@ struct ImmersiveView: View {
             
             if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(scene)
-            }	
+            }
             
-            let Rytidosperma = PatchSpawner(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
+            if let guy = try? await Entity(named: "Animals/Bird flight", in: realityKitContentBundle) {
+                content.add(guy)
+            }
             
-            let Themeda = PatchSpawner(jsonPath: "Themeda Triandra - tile_data", modelsPath: "Grasses/Themeda Triandra/", content: content)
+            let Rytidosperma = TilesLoader(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
+            
+            let Themeda = TilesLoader(jsonPath: "Themeda Triandra - tile_data", modelsPath: "Grasses/Themeda Triandra/", content: content)
             
             let anchor = AnchorEntity(world: [0, 0, 0])
-            anchor.addChild(AnchorEntity(plane: .horizontal))
-            
-            let eucalyptusActor = EucalyptusAlbens()
+            let grassPatchSpawner = GrassPatchSpawner()
                     (0..<1000).forEach { _ in
-                        anchor.addChild(eucalyptusActor.spawn())
+                        anchor.addChild(grassPatchSpawner.spawn())
                     }
-            
             content.add(anchor)
             
             
@@ -44,10 +45,12 @@ struct ImmersiveView: View {
     }
 }
 
-class EucalyptusAlbens: RingSpawner {
+class GrassPatchSpawner: DistantSpawner {
     init(scale: Float = 1) {
         super.init(modelFilenames: [
-            ("Grasses/Billboard Grass/grass patch", 18...300),
+            ("Grasses/Billboard Grass/grass patch", 14...250),
+            ("Grasses/Billboard Grass/grass patch 2", 14...250),
+            ("Grasses/Billboard Grass/grass patch 3", 14...250),
         ], scale: scale, minimumSpacing: 4)
     }
 }

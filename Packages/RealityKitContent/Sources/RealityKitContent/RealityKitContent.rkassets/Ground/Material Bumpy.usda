@@ -1,0 +1,243 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Material"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Material "Material"
+{
+    reorder nameChildren = ["materialMix", "PBRSurface", "TiledImage_3", "Combine2", "TiledImage_1", "TiledImage_2", "TiledImage", "Dot_1", "GeometryModifier", "Mix", "Dot"]
+    float inputs:TileSize = 1 (
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-328.76114, 2.2862508)
+                int stackingOrderInSubgraph = 1143
+            }
+        }
+    )
+    token outputs:mtlx:surface.connect = </Material/PBRSurface.outputs:out>
+    token outputs:realitykit:vertex.connect = </Material/GeometryModifier.outputs:out>
+    int ui:nodegraph:node:stackingOrder = 1
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (978.84515, 101.81945)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1166
+
+    def NodeGraph "materialMix"
+    {
+        float outputs:Separate3_outr.connect = </Material/materialMix/Separate3.outputs:outr>
+        float2 ui:nodegraph:node:pos = (324.84564, -316.98077)
+        int ui:nodegraph:node:stackingOrder = 1148
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (931.25, 73.5)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 979
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_vector2FA"
+            float2 inputs:in1.connect = </Material/materialMix/TextureCoordinates.outputs:out>
+            float inputs:in2.connect = </Material/materialMix/ConstantFloat.outputs:out>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (295, 73.5)
+            int ui:nodegraph:node:stackingOrder = 1072
+        }
+
+        def Shader "TextureCoordinates"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (93.47251, 25.910952)
+            int ui:nodegraph:node:stackingOrder = 1072
+        }
+
+        def Shader "ConstantFloat"
+        {
+            uniform token info:id = "ND_constant_float"
+            float inputs:value = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (104.92902, 94.087425)
+            int ui:nodegraph:node:stackingOrder = 1072
+        }
+
+        def Shader "Noise2D"
+        {
+            uniform token info:id = "ND_noise2d_color3"
+            float3 inputs:amplitude
+            float inputs:pivot
+            float2 inputs:texcoord.connect = </Material/materialMix/Multiply.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (483.5, 73.5)
+            int ui:nodegraph:node:stackingOrder = 1072
+        }
+
+        def Shader "Separate3"
+        {
+            uniform token info:id = "ND_separate3_color3"
+            color3f inputs:in.connect = </Material/materialMix/Noise2D.outputs:out>
+            float outputs:outg
+            float outputs:outr
+            float2 ui:nodegraph:node:pos = (718.75, 73.5)
+            int ui:nodegraph:node:stackingOrder = 1072
+        }
+    }
+
+    def Shader "GeometryModifier"
+    {
+        uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+        float3 inputs:bitangent.connect = None
+        color4f inputs:color
+        float3 inputs:modelPositionOffset.connect = </Material/Heightmap.outputs:Height>
+        float3 inputs:normal.connect = </Material/TiledImage_1.outputs:out>
+        float2 inputs:uv0
+        float2 inputs:uv1
+        float4 inputs:uv2
+        float4 inputs:uv3
+        float4 inputs:uv4
+        float4 inputs:uv5
+        float4 inputs:uv6
+        float4 inputs:uv7
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (718.00586, 266.76935)
+        int ui:nodegraph:node:stackingOrder = 1633
+    }
+
+    def Shader "Mix"
+    {
+        uniform token info:id = "ND_mix_color3"
+        color3f inputs:bg.connect = </Material/Dot_1.outputs:out>
+        color3f inputs:fg.connect = </Material/Dot.outputs:out>
+        float inputs:mix = 0.5
+        float inputs:mix.connect = </Material/materialMix.outputs:Separate3_outr>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (496.49475, -405.59167)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "Dot"
+    {
+        uniform token info:id = "ND_dot_color3"
+        color3f inputs:in.connect = </Material/TiledImage_3.outputs:out>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (246.65764, -410.3822)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "TiledImage_1"
+    {
+        uniform token info:id = "ND_tiledimage_vector3"
+        float3 inputs:default
+        asset inputs:file = @Textures/forrest_ground_01_nor_gl_2k.exr@
+        string inputs:filtertype
+        float2 inputs:realworldimagesize
+        float2 inputs:realworldtilesize.connect = </Material/Combine2.outputs:out>
+        float2 inputs:texcoord
+        float2 inputs:uvoffset
+        float2 inputs:uvtiling
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (66.5282, -78.26203)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "TiledImage"
+    {
+        uniform token info:id = "ND_tiledimage_color3"
+        color3f inputs:default
+        asset inputs:file = @Textures/forrest_ground_01_diff_2k.jpg@
+        string inputs:filtertype = "cubic"
+        float2 inputs:realworldimagesize = (1, 1)
+        float2 inputs:realworldimagesize.connect = None
+        float2 inputs:realworldtilesize = (40, 40)
+        float2 inputs:realworldtilesize.connect = </Material/Combine2.outputs:out>
+        float2 inputs:texcoord
+        float2 inputs:uvoffset
+        float2 inputs:uvtiling
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (67.664795, -459.44693)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "Dot_1"
+    {
+        uniform token info:id = "ND_dot_color3"
+        color3f inputs:in.connect = </Material/TiledImage.outputs:out>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (249.04356, -390.38873)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "TiledImage_2"
+    {
+        uniform token info:id = "ND_tiledimage_float"
+        asset inputs:file = @Textures/forrest_ground_01_rough_2k.jpg@
+        string inputs:filtertype
+        float2 inputs:realworldimagesize
+        float2 inputs:realworldtilesize.connect = </Material/Combine2.outputs:out>
+        float2 inputs:texcoord
+        float2 inputs:uvoffset
+        float2 inputs:uvtiling
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (64.95116, 292.7569)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "PBRSurface"
+    {
+        uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+        float inputs:ambientOcclusion
+        color3f inputs:baseColor.connect = </Material/Mix.outputs:out>
+        float inputs:clearcoat
+        float3 inputs:clearcoatNormal
+        float inputs:clearcoatRoughness
+        color3f inputs:emissiveColor
+        bool inputs:hasPremultipliedAlpha
+        float inputs:metallic
+        float3 inputs:normal.connect = </Material/TiledImage_1.outputs:out>
+        float inputs:opacity = 1
+        float inputs:opacityThreshold
+        float inputs:roughness = 0.99
+        float inputs:roughness.connect = </Material/TiledImage_2.outputs:out>
+        float inputs:specular = 0.2
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (726.9308, -69.7635)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "TiledImage_3"
+    {
+        uniform token info:id = "ND_tiledimage_color3"
+        color3f inputs:default
+        asset inputs:file = @Textures/dry_ground_rocks_diff_2k.jpg@
+        string inputs:filtertype = "cubic"
+        float2 inputs:realworldimagesize = (1, 1)
+        float2 inputs:realworldimagesize.connect = None
+        float2 inputs:realworldtilesize = (40, 40)
+        float2 inputs:realworldtilesize.connect = </Material/Combine2.outputs:out>
+        float2 inputs:texcoord
+        float2 inputs:uvoffset
+        float2 inputs:uvtiling
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (67.56065, -931.4202)
+        int ui:nodegraph:node:stackingOrder = 1096
+    }
+
+    def Shader "Combine2"
+    {
+        uniform token info:id = "ND_combine2_vector2"
+        float inputs:in1.connect = </Material.inputs:TileSize>
+        float inputs:in2.connect = </Material.inputs:TileSize>
+        float2 outputs:out
+        float2 ui:nodegraph:node:pos = (-167.63322, 3.8100698)
+        int ui:nodegraph:node:stackingOrder = 1141
+    }
+
+    def "Heightmap" (
+        active = true
+        prepend references = @Heightmap.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (475.28333, 257.39752)
+        int ui:nodegraph:node:stackingOrder = 1637
+    }
+}
+

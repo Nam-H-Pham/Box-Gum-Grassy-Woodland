@@ -1,0 +1,194 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "NodeGraph"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def NodeGraph "NodeGraph" (
+    active = true
+)
+{
+    float inputs:Amplitude = 2 (
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-536.1608, -76.2878)
+                int stackingOrderInSubgraph = 5056
+            }
+        }
+    )
+    float inputs:Scale = 0.05 (
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-1190.1731, 159.32378)
+                int stackingOrderInSubgraph = 5059
+            }
+        }
+    )
+    float3 outputs:Height.connect = </NodeGraph/TransformVector.outputs:out>
+    string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:Height"]
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (711.2572, 97.885666)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 5060
+
+    def Shader "Combine3"
+    {
+        uniform token info:id = "ND_combine3_vector3"
+        float inputs:in1.connect = None
+        float inputs:in2.connect = </NodeGraph/Clamp_1.outputs:out>
+        float inputs:in3.connect = None
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (258.7798, 106.734314)
+        int ui:nodegraph:node:stackingOrder = 5023
+    }
+
+    def Shader "Separate3_1"
+    {
+        uniform token info:id = "ND_separate3_vector3"
+        float3 inputs:in.connect = </NodeGraph/Position.outputs:out>
+        float outputs:outx
+        float outputs:outy
+        float outputs:outz
+        float2 ui:nodegraph:node:pos = (-813.11896, 87.11582)
+        int ui:nodegraph:node:stackingOrder = 4518
+    }
+
+    def Shader "Combine2"
+    {
+        uniform token info:id = "ND_combine2_vector2"
+        float inputs:in1.connect = </NodeGraph/Separate3_1.outputs:outx>
+        float inputs:in2.connect = </NodeGraph/Separate3_1.outputs:outz>
+        float2 outputs:out
+        float2 ui:nodegraph:node:pos = (-648.3377, 85.6627)
+        int ui:nodegraph:node:stackingOrder = 4525
+    }
+
+    def Shader "Position"
+    {
+        uniform token info:id = "ND_position_vector3"
+        string inputs:space = "world"
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (-1094.8845, 244.89572)
+        int ui:nodegraph:node:stackingOrder = 5039
+    }
+
+    def Shader "Noise2D"
+    {
+        uniform token info:id = "ND_noise2d_float"
+        float inputs:amplitude = 2
+        float inputs:amplitude.connect = </NodeGraph.inputs:Amplitude>
+        float inputs:pivot
+        float2 inputs:texcoord.connect = </NodeGraph/Multiply.outputs:out>
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-390.72278, 52.865173)
+        int ui:nodegraph:node:stackingOrder = 5053
+    }
+
+    def Shader "Multiply"
+    {
+        uniform token info:id = "ND_multiply_vector2"
+        float2 inputs:in1.connect = </NodeGraph/Combine2.outputs:out>
+        float2 inputs:in2.connect = </NodeGraph/Combine2_1.outputs:out>
+        float2 outputs:out
+        float2 ui:nodegraph:node:pos = (-524.28125, 139.13281)
+        int ui:nodegraph:node:stackingOrder = 4541
+    }
+
+    def Shader "ConstantFloat"
+    {
+        uniform token info:id = "ND_constant_float"
+        float inputs:value = 0.05
+        float inputs:value.connect = </NodeGraph.inputs:Scale>
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-853.01953, 176.45312)
+        int ui:nodegraph:node:stackingOrder = 4782
+    }
+
+    def Shader "Combine2_1"
+    {
+        uniform token info:id = "ND_combine2_vector2"
+        float inputs:in1.connect = </NodeGraph/ConstantFloat.outputs:out>
+        float inputs:in2.connect = </NodeGraph/ConstantFloat.outputs:out>
+        float2 outputs:out
+        float2 ui:nodegraph:node:pos = (-656.20703, 177.3711)
+        int ui:nodegraph:node:stackingOrder = 4536
+    }
+
+    def Shader "TransformVector"
+    {
+        uniform token info:id = "ND_transformvector_vector3"
+        string inputs:fromspace = "world"
+        float3 inputs:in.connect = </NodeGraph/Combine3.outputs:out>
+        string inputs:tospace = "object"
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (475.70847, 125.368164)
+        int ui:nodegraph:node:stackingOrder = 5023
+    }
+
+    def Shader "Clamp"
+    {
+        uniform token info:id = "ND_clamp_float"
+        float inputs:high = 1
+        float inputs:high.connect = </NodeGraph/Power.outputs:out>
+        float inputs:in.connect = </NodeGraph/Noise2D.outputs:out>
+        float inputs:low
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-50.306763, 50.83742)
+        int ui:nodegraph:node:stackingOrder = 4858
+    }
+
+    def Shader "Add"
+    {
+        uniform token info:id = "ND_add_vector3"
+        float3 inputs:in1.connect = </NodeGraph/Position.outputs:out>
+        float3 inputs:in2 = (300, 0, 400)
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (-1015.6328, 84.80078)
+        int ui:nodegraph:node:stackingOrder = 5058
+    }
+
+    def Shader "MTLDistance"
+    {
+        uniform token info:id = "ND_MTL_distance_vector3_float"
+        float3 inputs:x.connect = </NodeGraph/Position.outputs:out>
+        float3 inputs:y = (0, 0, 0)
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-414.06622, 240.37836)
+        int ui:nodegraph:node:stackingOrder = 5032
+    }
+
+    def Shader "Power"
+    {
+        uniform token info:id = "ND_power_float"
+        float inputs:in1.connect = </NodeGraph/Multiply_1.outputs:out>
+        float inputs:in2 = 1.25
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-161.33655, 224.04514)
+        int ui:nodegraph:node:stackingOrder = 5036
+    }
+
+    def Shader "Multiply_1"
+    {
+        uniform token info:id = "ND_multiply_float"
+        float inputs:in1.connect = </NodeGraph/MTLDistance.outputs:out>
+        float inputs:in2 = 0.06
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-276.73285, 248.39957)
+        int ui:nodegraph:node:stackingOrder = 5034
+    }
+
+    def Shader "Clamp_1"
+    {
+        uniform token info:id = "ND_clamp_float"
+        float inputs:high = 2
+        float inputs:high.connect = </NodeGraph.inputs:Amplitude>
+        float inputs:in.connect = </NodeGraph/Clamp.outputs:out>
+        float inputs:low
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (99.35461, 11.824636)
+        int ui:nodegraph:node:stackingOrder = 5054
+    }
+}
+

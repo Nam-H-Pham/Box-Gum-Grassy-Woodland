@@ -22,14 +22,6 @@ def Material "Rytidosperma_caespitosum_Mat"
             }
         }
     )
-    float inputs:Amplitude = 0.4 (
-        customData = {
-            dictionary realitykit = {
-                float2 positionInSubgraph = (-41.54184, 248.66017)
-                int stackingOrderInSubgraph = 1173
-            }
-        }
-    )
     asset inputs:ColorMap = @models/Rytidosperma caespitosum/LOD0/textures/Rytidosperma caespitosum.png@ (
         customData = {
             dictionary realitykit = {
@@ -38,28 +30,12 @@ def Material "Rytidosperma_caespitosum_Mat"
             }
         }
     )
-    float inputs:Speed = 1 (
-        customData = {
-            dictionary realitykit = {
-                float2 positionInSubgraph = (-45.503746, 317.8309)
-                int stackingOrderInSubgraph = 1173
-            }
-        }
-    )
-    float3 inputs:WindDirection = (1, 0, 0) (
-        customData = {
-            dictionary realitykit = {
-                float2 positionInSubgraph = (-67.44906, 396.8387)
-                int stackingOrderInSubgraph = 1175
-            }
-        }
-    )
     token outputs:mtlx:surface.connect = </Rytidosperma_caespitosum_Mat/PBRSurface.outputs:out>
-    token outputs:realitykit:vertex.connect = </Rytidosperma_caespitosum_Mat/Grass_Animation.outputs:Displace>
-    float2 ui:nodegraph:node:pos = (35.550888, -86.630264)
-    int ui:nodegraph:node:stackingOrder = 5
-    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (430.98355, 118.836945)
-    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 677
+    token outputs:realitykit:vertex.connect = </Rytidosperma_caespitosum_Mat/GeometryModifier.outputs:out>
+    float2 ui:nodegraph:node:pos = (95.55089, -26.630264)
+    int ui:nodegraph:node:stackingOrder = 8
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (455.82587, 119.845726)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1185
 
     def Shader "PBRSurface"
     {
@@ -79,7 +55,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:specular
         token outputs:out
         float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
-        int ui:nodegraph:node:stackingOrder = 1179
+        int ui:nodegraph:node:stackingOrder = 1171
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
     }
 
@@ -121,8 +97,8 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
-        int ui:nodegraph:node:stackingOrder = 1182
-        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp", "inputs:no_flip_v"]
+        int ui:nodegraph:node:stackingOrder = 1180
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
     }
 
     def Shader "Dot_1"
@@ -152,7 +128,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         float4 outputs:out
         float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
-        int ui:nodegraph:node:stackingOrder = 1180
+        int ui:nodegraph:node:stackingOrder = 1181
     }
 
     def Shader "Separate4"
@@ -165,6 +141,54 @@ def Material "Rytidosperma_caespitosum_Mat"
         float outputs:outz
         float2 ui:nodegraph:node:pos = (-219.18825, 142.97026)
         int ui:nodegraph:node:stackingOrder = 1086
+    }
+
+    def Shader "GeometryModifier"
+    {
+        uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+        float3 inputs:bitangent
+        color4f inputs:color
+        float3 inputs:modelPositionOffset.connect = </Rytidosperma_caespitosum_Mat/Add.outputs:out>
+        float3 inputs:normal
+        float2 inputs:uv0
+        float2 inputs:uv1
+        float4 inputs:uv2
+        float4 inputs:uv3
+        float4 inputs:uv4
+        float4 inputs:uv5
+        float4 inputs:uv6
+        float4 inputs:uv7
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (173.07286, 381.48026)
+        int ui:nodegraph:node:stackingOrder = 2421
+    }
+
+    def "Grass_Animation" (
+        active = true
+        prepend references = @../Grass Animation.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (-362.0738, 316.81018)
+        int ui:nodegraph:node:stackingOrder = 2426
+    }
+
+    def "Heightmap" (
+        active = true
+        prepend references = @../../Ground/Heightmap.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (-312.3921, 454.9012)
+        int ui:nodegraph:node:stackingOrder = 2518
+    }
+
+    def Shader "Add"
+    {
+        uniform token info:id = "ND_add_vector3"
+        float3 inputs:in1.connect = </Rytidosperma_caespitosum_Mat/Grass_Animation.outputs:Displace>
+        float3 inputs:in2.connect = </Rytidosperma_caespitosum_Mat/Heightmap.outputs:Height>
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (-80.501816, 383.21014)
+        int ui:nodegraph:node:stackingOrder = 2518
     }
 }
 

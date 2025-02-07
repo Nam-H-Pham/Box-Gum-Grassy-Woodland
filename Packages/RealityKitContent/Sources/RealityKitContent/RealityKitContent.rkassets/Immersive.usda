@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["SkyDome", "Ground", "Trees", "Branches", "Tree_Billboard_Set", "Tree_Billboards"]
+    reorder nameChildren = ["SkyDome", "Ground", "Trees", "Branches", "Tree_Billboard_Set", "Tree_Billboards", "Birds", "Looping_Birds"]
     def "SkyDome" (
         references = @SkyDome/SkyDome.usdz@
     )
@@ -58,7 +58,7 @@ def Xform "Root"
                         }
                     }
                 )
-                asset inputs:image = @SkyDome/autumn_field_4k.hdr@ (
+                asset inputs:image = @SkyDome/autumn_field_8k.hdr@ (
                     customData = {
                         dictionary realitykit = {
                             float2 positionInSubgraph = (-809.14417, 22.825876)
@@ -127,10 +127,12 @@ def Xform "Root"
                     float3 inputs:normal
                     float inputs:opacity = 0.9
                     float inputs:opacity.connect = </Root/SkyDome/Looks/DomeMATSG/Separate4.outputs:outr>
+                    float inputs:opacityThreshold = 0.8
                     float inputs:roughness = 1
                     token outputs:out
                     float2 ui:nodegraph:node:pos = (-252.74019, 66.42131)
-                    int ui:nodegraph:node:stackingOrder = 31
+                    int ui:nodegraph:node:stackingOrder = 48
+                    string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
                 }
 
                 def Shader "Separate4"
@@ -170,11 +172,10 @@ def Xform "Root"
     }
 
     def Cylinder "Ground" (
-        active = true
+        active = false
         prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
-        reorder nameChildren = ["DefaultMaterial", "Material"]
         uniform token axis = "Y"
         double height = 0.2
         rel material:binding = </Root/Ground/Material> (
@@ -185,28 +186,17 @@ def Xform "Root"
         float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
-        def Material "DefaultMaterial"
-        {
-            token outputs:mtlx:surface
-            token outputs:realitykit:vertex
-            token outputs:surface.connect = </Root/Ground/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
-            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
-
-            def Shader "DefaultSurfaceShader"
-            {
-                uniform token info:id = "UsdPreviewSurface"
-                color3f inputs:diffuseColor = (1, 1, 1)
-                float inputs:roughness = 0.75
-                token outputs:surface
-            }
-        }
-
         def "Material" (
             active = true
-            references = @Ground Textures/Material.usda@
+            references = @Ground/Material.usda@
         )
         {
             float inputs:TileSize = 200
+
+            over "TiledImage_3"
+            {
+                int ui:nodegraph:node:stackingOrder = 1341
+            }
         }
     }
 
@@ -262,10 +252,13 @@ def Xform "Root"
         reorder nameChildren = ["Branch1", "Branch2", "Branch3"]
         def "Branch1" (
             active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
             references = @Branches/Branch1.usdc@
         )
         {
-            quatf xformOp:orient = (1, 0, 0, 0)
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
             float3 xformOp:translate = (3.741787, 0, -16.4037)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
@@ -288,77 +281,208 @@ def Xform "Root"
         def "Branch3" (
             active = true
             customData = {
-                float3 rotationEulerHint = (-1.5376347, 1.2129176, -4.253973e-7)
+                float3 rotationEulerHint = (-1.5707963, 1.2129174, -3.4031774e-7)
             }
             references = @Branches/Branch3.usdc@
         )
         {
-            quatf xformOp:orient = (0.5905629, -0.57129633, 0.40965042, 0.39628583)
+            quatf xformOp:orient = (0.5810096, -0.5810094, 0.40302363, 0.40302336)
             float3 xformOp:scale = (0.99999994, 0.99999994, 0.9999999)
             float3 xformOp:translate = (3.7728605, 0, -3.8907747)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
 
-    def "Redgum_2_LOD0" (
+    def Xform "Group" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["Redgum_Large_LOD2", "Redgum_2_LOD0", "Redgum_3_LOD0", "Redgum_4_LOD0", "Redgum_2_LOD0_1", "Redgum_3_LOD0_1"]
+        def "Redgum_3_LOD0" (
+            active = true
+            references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (52.231117, 0, 54.15513)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Redgum_4_LOD0" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707964, 0, 0)
+            }
+            references = @Trees/Red Gum/Redgum_4_LOD0.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+            float3 xformOp:translate = (-77.65844, -5.9604645e-7, 44.919872)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Redgum_2_LOD0_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707964, 0, 0)
+            }
+            references = @Trees/Red Gum/Redgum_2_LOD0.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+            float3 xformOp:translate = (-43.610306, 0.000008106232, -68.02272)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Redgum_3_LOD0_1" (
+            active = true
+            references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-91.133484, 0, -21.038292)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Redgum_Large_LOD2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            references = @Trees/Red Gum/Redgum_Large_LOD2.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, -39.272057)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def RealityKitTimeline "Birds"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Orbit"
+            {
+                string actionKind = "orbit"
+                float3 axis = (0, 0.96296674, 0.26962015)
+                int blendLayer = 300
+                double duration = 30
+                uniform token info:id = "89CEFF2F-96E2-4247-8054-553FCF9D951A"
+                token orbitDirection = "counterClockwise"
+                bool orientToPath = 1
+                rel pivotEntity = </Root>
+                float revolutions = 0.6
+                double startTime = 0
+                rel target = </Root/bird>
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 0.6666666865348816
+                uniform token info:id = "441DC2D9-E818-499B-B25C-21A4C3B34E7B"
+                double loopCount = 30
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/bird>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "bird" (
         active = true
         customData = {
-            float3 rotationEulerHint = (-1.5707964, 0, 0)
+            float3 rotationEulerHint = (0.20943955, 0, 0)
         }
-        prepend references = @Trees/Red Gum/Redgum_2_LOD0.usdc@
+        references = @Animals/bird.usdz@
     )
     {
-        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (37.534973, 0.0000059604645, -38.470085)
+        quatf xformOp:orient = (0.9945219, 0.10452848, 0, 0)
+        float3 xformOp:scale = (0.02, 0.02, 0.02)
+        float3 xformOp:translate = (30, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
 
-    def "Redgum_3_LOD0" (
-        active = true
-        prepend references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
-    )
-    {
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (52.231117, 0, 54.15513)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
+        def RealityKitComponent "AnimationLibrary"
+        {
+            token info:id = "RealityKit.AnimationLibrary"
 
-    def "Redgum_4_LOD0" (
-        active = true
-        customData = {
-            float3 rotationEulerHint = (-1.5707964, 0, 0)
+            def RealityKitAnimationFile "default_subtree_animation"
+            {
+                uniform bool looping = 1
+                uniform string name = "default subtree animation"
+            }
         }
-        prepend references = @Trees/Red Gum/Redgum_4_LOD0.usdc@
-    )
-    {
-        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-77.65844, -5.9604645e-7, 44.919872)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
 
-    def "Redgum_2_LOD0_1" (
-        active = true
-        customData = {
-            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Root/bird/OnAddedToScene>
+            uniform token info:id = "RCP.BehaviorsContainer"
         }
-        prepend references = @Trees/Red Gum/Redgum_2_LOD0.usdc@
-    )
-    {
-        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-43.610306, 0.000008106232, -68.02272)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Preliminary_Behavior "OnAddedToScene"
+        {
+            rel actions = </Root/bird/OnAddedToScene/Action>
+            uniform bool exclusive
+            rel triggers = </Root/bird/OnAddedToScene/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/bird>
+                token info:id = "SceneTransition"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/Looping_Birds>
+                rel animationLibraryKeyOverrideKey = </Root/bird/OnAddedToScene/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
     }
 
-    def "Redgum_3_LOD0_1" (
+    def RealityKitTimeline "Looping_Birds"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 30
+                uniform token info:id = "4874E6A3-2A31-4771-BF0C-526CE97DF9CE"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/Birds>
+            }
+        }
+    }
+
+    def "Ground_Bumpy" (
         active = true
-        prepend references = @Trees/Red Gum/Redgum_3_LOD0.usdc@
+        references = @Ground/Ground Bumpy.usda@
     )
     {
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-91.133484, 0, -21.038292)
+        float3 xformOp:translate = (0, 0, -1.2542755e-7)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
