@@ -1,61 +1,81 @@
-//
-//  ImmersiveView.swift
-//  Box Gum Grassy Woodland
-//
-//  Created by Nam Pham on 10/1/2025.
-//
-
 import SwiftUI
 import RealityKit
 import RealityKitContent
-
 import Foundation
 
 struct ImmersiveView: View {
-    @Environment(AppModel.self) var appModel
+    @EnvironmentObject var globalState: GlobalState
+    
+    // Lazy initialization of entitiesToUpdate
+    private var entitiesToUpdate: [(String, Bool)] {
+        [
+            ("SkyCover", globalState.showSkybox),
+            ("Landscape", globalState.showLandscape),
+            ("GrassAnchor", globalState.showGrass)
+        ]
+    }
 
     var body: some View {
         RealityView { content in
+            // Start the loading process in a Task
+            await loadContent(in: content)
+        } update: { content in
             
-            if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
-                content.add(scene)
+            // Update the visibility of entities based on global state
+            for (name, isEnabled) in entitiesToUpdate {
+                if let entity = content.entities.first(where: { $0.name == name }) {
+                    entity.isEnabled = isEnabled
+                }
             }
             
-            if let guy = try? await Entity(named: "Animals/Bird flight", in: realityKitContentBundle) {
-                content.add(guy)
-            }
-            
-            let Rytidosperma = TilesLoader(jsonPath: "Rytidosperma caespitosum - tile_data", modelsPath: "Grasses/Rytidosperma caespitosum/", content: content)
-            
-            let Themeda = TilesLoader(jsonPath: "Themeda Triandra - tile_data", modelsPath: "Grasses/Themeda Triandra/", content: content)
-            
-            let anchor = AnchorEntity(world: [0, 0, 0])
-            let grassPatchSpawner = GrassPatchSpawner()
-                    (0..<1000).forEach { _ in
-                        anchor.addChild(grassPatchSpawner.spawn())
-                    }
-            content.add(anchor)
-            
-            
-            print("Environment Loaded")
-            
-            
-        
         }
     }
-}
 
-class GrassPatchSpawner: DistantSpawner {
-    init(scale: Float = 1) {
-        super.init(modelFilenames: [
-            ("Grasses/Billboard Grass/grass patch", 14...250),
-            ("Grasses/Billboard Grass/grass patch 2", 14...250),
-            ("Grasses/Billboard Grass/grass patch 3", 14...250),
-        ], scale: scale, minimumSpacing: 4)
+
+    private func updateProgress(progress: Double) async {
+        globalState.progress = progress
+        await Task.yield()
     }
-}
 
-#Preview(immersionStyle: .full) {
-    ImmersiveView()
-        .environment(AppModel())
+    private func loadContent(in content: RealityViewContent) async {
+        // Step 1: Load the immersive scene
+        await updateProgress(progress: 0.2)
+        
+        globalState.landscape?.name = "Landscape"
+        globalState.landscape?.isEnabled = globalState.showLandscape
+        content.add(globalState.landscape ?? Entity())
+        await updateProgress(progress: 0.4)
+        
+
+        // Step 2: Load the sky cover
+        globalState.skyCover?.name = "SkyCover"
+        globalState.skyCover?.isEnabled = globalState.showSkybox
+        content.add(globalState.skyCover ?? Entity())
+        await updateProgress(progress: 0.6)
+
+        // Step 3: Spawn grass patches in batches
+        let grassAnchor = AnchorEntity(world: [0, 0, 0])
+        grassAnchor.name = "GrassAnchor"
+        grassAnchor.isEnabled = globalState.showGrass
+        
+        globalState.grassPatchSpawner.spawnAll(spawnCount: 500)
+
+        grassAnchor.addChild(globalState.grassPatchSpawner.getAnchor())
+        await updateProgress(progress: 0.8)
+
+        // Step 4: Load additional grass models
+        grassAnchor.addChild(globalState.Rytidosperma.getAnchor())
+        await updateProgress(progress: 0.9)
+
+        grassAnchor.addChild(globalState.Themeda.getAnchor())
+        await updateProgress(progress: 0.95)
+
+        // Finalizing the grass anchor
+        content.add(grassAnchor)
+        
+        print("Environment Loaded")
+        await updateProgress(progress: 1.0)
+        
+    }
+
 }

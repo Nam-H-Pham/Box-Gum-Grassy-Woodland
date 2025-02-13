@@ -9,13 +9,19 @@ class DistantSpawner {
     private var existingPositions: [SIMD3<Float>] = []
     private let minimumSpacing: Float
     private let center: SIMD3<Float>
+    private let anchor: AnchorEntity
     
-    init(modelFilenames: [(String, ClosedRange<Float>)], scale: Float = 1.0, minimumSpacing: Float = 0.0, translation: SIMD3<Float> = .zero, center: SIMD3<Float> = .zero) {
+    init(anchor: AnchorEntity, modelFilenames: [(String, ClosedRange<Float>)], scale: Float = 1.0, minimumSpacing: Float = 0.0, translation: SIMD3<Float> = .zero, center: SIMD3<Float> = .zero) {
         self.translation = translation
         self.modelFilenames = modelFilenames
         self.scale = scale
         self.minimumSpacing = minimumSpacing
         self.center = center
+        self.anchor = anchor
+    }
+    
+    func getAnchor() -> AnchorEntity {
+        return anchor
     }
     
     func selectRandomModelFilenameAndRange() -> (String, ClosedRange<Float>) {
@@ -48,40 +54,35 @@ class DistantSpawner {
         return selectedModels.randomElement()!
     }
     
-    func loadModel(named filename: String) -> Entity {
-        do {
-            return try ModelEntity.load(named: filename, in: realityKitContentBundle)
-        } catch {
-            fatalError("Failed to load model: \(filename), error: \(error)")
-        }
+    func loadModel(named filename: String) throws -> Entity {
+        return try ModelEntity.load(named: filename, in: realityKitContentBundle)
     }
     
     func spawn(at position: SIMD3<Float>? = nil) -> Entity {
         let (modelFilename, lodRange) = selectRandomModelFilenameAndRange()
-        let model = loadModel(named: modelFilename)
-        let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
-        let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition)
-        existingPositions.append(spawnPosition)
-        return entity
+        do {
+            let model = try loadModel(named: modelFilename)
+            let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
+            let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition)
+            existingPositions.append(spawnPosition)
+            return entity
+        } catch {
+            fatalError("Failed to load model: \(modelFilename), error: \(error)")
+        }
     }
 
-    
     private func createEntityClone(from model: Entity, lodRange: ClosedRange<Float>, position: SIMD3<Float>) -> Entity {
-            let clone = model.clone(recursive: true)
-            
-            let randomScaleFactor = Float.random(in: 0.7...1.2) * scale
-            clone.scale = SIMD3<Float>(repeating: randomScaleFactor)
-            
-            clone.position = position
-            
-//            let direction = normalize(center - position)
-//            let lookRotation = simd_quatf(from: SIMD3<Float>(0, 0, -1), to: direction)
-//            clone.transform.rotation = lookRotation
+        let clone = model.clone(recursive: true)
         
-            clone.look(at: center, from: position, relativeTo: nil)
-            
-            return clone
-        }
+        let randomScaleFactor = Float.random(in: 0.7...1.2) * scale
+        clone.scale = SIMD3<Float>(repeating: randomScaleFactor)
+        
+        clone.position = position
+    
+        clone.look(at: center, from: position, relativeTo: nil)
+        
+        return clone
+    }
     
     private func generateValidPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
         var position: SIMD3<Float>
@@ -89,7 +90,7 @@ class DistantSpawner {
         repeat {
             position = generateRandomPosition(lodRange: lodRange)
             attempts += 1
-        } while (!isValidPosition(position) && attempts < 150)
+        } while (!isValidPosition(position) && attempts < 10)
         return position
     }
     
@@ -109,5 +110,12 @@ class DistantSpawner {
             }
         }
         return true
+    }
+    
+    public func spawnAll(spawnCount: Int = 1) {
+        for _ in 0..<spawnCount {
+            let entity = spawn()
+            anchor.addChild(entity)
+        }
     }
 }

@@ -1,25 +1,22 @@
-//
-//  Box_Gum_Grassy_WoodlandApp.swift
-//  Box Gum Grassy Woodland
-//
-//  Created by Nam Pham on 10/1/2025.
-//
-
 import SwiftUI
 
 @main
 struct Box_Gum_Grassy_WoodlandApp: App {
     
     @State private var appModel = AppModel()
+    @StateObject private var globalState = GlobalState()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(appModel)
+                .environmentObject(globalState)
         }
+        .windowResizability(.contentSize) // Allow the window to resize based on content
         
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
+                .environmentObject(globalState)
                 .environment(appModel)
                 .onAppear {
                     appModel.immersiveSpaceState = .open

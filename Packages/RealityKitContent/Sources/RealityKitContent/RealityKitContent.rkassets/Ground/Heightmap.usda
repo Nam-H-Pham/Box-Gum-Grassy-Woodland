@@ -70,8 +70,8 @@ def NodeGraph "NodeGraph" (
         uniform token info:id = "ND_position_vector3"
         string inputs:space = "world"
         float3 outputs:out
-        float2 ui:nodegraph:node:pos = (-1094.8845, 244.89572)
-        int ui:nodegraph:node:stackingOrder = 5039
+        float2 ui:nodegraph:node:pos = (-1016.70483, 301.52853)
+        int ui:nodegraph:node:stackingOrder = 5073
     }
 
     def Shader "Noise2D"
@@ -139,24 +139,14 @@ def NodeGraph "NodeGraph" (
         int ui:nodegraph:node:stackingOrder = 4858
     }
 
-    def Shader "Add"
-    {
-        uniform token info:id = "ND_add_vector3"
-        float3 inputs:in1.connect = </NodeGraph/Position.outputs:out>
-        float3 inputs:in2 = (300, 0, 400)
-        float3 outputs:out
-        float2 ui:nodegraph:node:pos = (-1015.6328, 84.80078)
-        int ui:nodegraph:node:stackingOrder = 5058
-    }
-
     def Shader "MTLDistance"
     {
         uniform token info:id = "ND_MTL_distance_vector3_float"
         float3 inputs:x.connect = </NodeGraph/Position.outputs:out>
         float3 inputs:y = (0, 0, 0)
         float outputs:out
-        float2 ui:nodegraph:node:pos = (-414.06622, 240.37836)
-        int ui:nodegraph:node:stackingOrder = 5032
+        float2 ui:nodegraph:node:pos = (-476.74982, 287.69867)
+        int ui:nodegraph:node:stackingOrder = 5076
     }
 
     def Shader "Power"
@@ -173,10 +163,10 @@ def NodeGraph "NodeGraph" (
     {
         uniform token info:id = "ND_multiply_float"
         float inputs:in1.connect = </NodeGraph/MTLDistance.outputs:out>
-        float inputs:in2 = 0.06
+        float inputs:in2 = 0.035
         float outputs:out
-        float2 ui:nodegraph:node:pos = (-276.73285, 248.39957)
-        int ui:nodegraph:node:stackingOrder = 5034
+        float2 ui:nodegraph:node:pos = (-300.73285, 270.83316)
+        int ui:nodegraph:node:stackingOrder = 5071
     }
 
     def Shader "Clamp_1"

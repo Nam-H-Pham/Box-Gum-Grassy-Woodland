@@ -10,11 +10,12 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["SkyDome", "Ground", "Trees", "Branches", "Tree_Billboard_Set", "Tree_Billboards", "Birds", "Looping_Birds"]
-    def "SkyDome" (
+    reorder nameChildren = ["Landscape_Dome", "Ground", "Trees", "Branches", "Group", "Birds", "Birds_1", "Looping_Birds", "Ground_Bumpy", "Sky_Dome"]
+    def "Landscape_Dome" (
         references = @SkyDome/SkyDome.usdz@
     )
     {
+        reorder nameChildren = ["SkyDome_1", "Dome_01", "Ground_01", "Grid", "Looks"]
         float3 xformOp:scale = (10, 10, 10)
         float3 xformOp:translate = (0, -30, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
@@ -69,14 +70,14 @@ def Xform "Root"
                 asset inputs:mask = @SkyDome/mask2.png@ (
                     customData = {
                         dictionary realitykit = {
-                            float2 positionInSubgraph = (-806.48236, 316.80115)
-                            int stackingOrderInSubgraph = 33
+                            float2 positionInSubgraph = (-873.1893, 368.71664)
+                            int stackingOrderInSubgraph = 880
                         }
                     }
                 )
-                token outputs:mtlx:surface.connect = </Root/SkyDome/Looks/DomeMATSG/PreviewSurface.outputs:out>
+                token outputs:mtlx:surface.connect = </Root/Landscape_Dome/Looks/DomeMATSG/PreviewSurface.outputs:out>
                 token outputs:realitykit:vertex
-                token outputs:surface.connect = </Root/SkyDome/Looks/DomeMATSG/DomeMAT.outputs:surface>
+                token outputs:surface.connect = </Root/Landscape_Dome/Looks/DomeMATSG/DomeMAT.outputs:surface>
                 float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (112.375, 110.5)
 
                 over "DomeMAT" (
@@ -94,13 +95,13 @@ def Xform "Root"
                 {
                     uniform token info:id = "UsdUVTexture"
                     asset inputs:file = @rogland_clear_night_4k.hdr@
-                    float2 inputs:st.connect = </Root/SkyDome/Looks/DomeMATSG/diffuseColor/TexCoordReader.outputs:result>
+                    float2 inputs:st.connect = </Root/Landscape_Dome/Looks/DomeMATSG/diffuseColor/TexCoordReader.outputs:result>
                     color3f outputs:rgb
 
                     def Shader "TexCoordReader"
                     {
                         uniform token info:id = "UsdPrimvarReader_float2"
-                        token inputs:varname.connect = </Root/SkyDome/Looks/DomeMATSG.inputs:frame:stPrimvarName>
+                        token inputs:varname.connect = </Root/Landscape_Dome/Looks/DomeMATSG.inputs:frame:stPrimvarName>
                         float2 outputs:result
                     }
                 }
@@ -109,7 +110,7 @@ def Xform "Root"
                 {
                     uniform token info:id = "ND_RealityKitTexture2D_color3"
                     string inputs:border_color
-                    asset inputs:file.connect = </Root/SkyDome/Looks/DomeMATSG.inputs:image>
+                    asset inputs:file.connect = </Root/Landscape_Dome/Looks/DomeMATSG.inputs:image>
                     bool inputs:no_flip_v = 1
                     int2 inputs:offset
                     string inputs:u_wrap_mode
@@ -122,11 +123,16 @@ def Xform "Root"
                 def Shader "PreviewSurface"
                 {
                     uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
-                    color3f inputs:diffuseColor.connect = </Root/SkyDome/Looks/DomeMATSG/Image2D.outputs:out>
+                    float inputs:clearcoat
+                    float inputs:clearcoatRoughness
+                    color3f inputs:diffuseColor.connect = </Root/Landscape_Dome/Looks/DomeMATSG/Image2D.outputs:out>
+                    color3f inputs:emissiveColor
+                    float inputs:ior
                     float inputs:metallic
                     float3 inputs:normal
+                    float inputs:occlusion
                     float inputs:opacity = 0.9
-                    float inputs:opacity.connect = </Root/SkyDome/Looks/DomeMATSG/Separate4.outputs:outr>
+                    float inputs:opacity.connect = </Root/Landscape_Dome/Looks/DomeMATSG/Dot.outputs:out>
                     float inputs:opacityThreshold = 0.8
                     float inputs:roughness = 1
                     token outputs:out
@@ -138,10 +144,13 @@ def Xform "Root"
                 def Shader "Separate4"
                 {
                     uniform token info:id = "ND_separate4_color4"
-                    color4f inputs:in.connect = </Root/SkyDome/Looks/DomeMATSG/Image2D_1.outputs:out>
+                    color4f inputs:in.connect = </Root/Landscape_Dome/Looks/DomeMATSG/Image2D_1.outputs:out>
+                    float outputs:outa
+                    float outputs:outb
+                    float outputs:outg
                     float outputs:outr
-                    float2 ui:nodegraph:node:pos = (-324.95145, 415.19543)
-                    int ui:nodegraph:node:stackingOrder = 38
+                    float2 ui:nodegraph:node:pos = (-468.46216, 428.73383)
+                    int ui:nodegraph:node:stackingOrder = 876
                 }
 
                 def Shader "Image2D_1"
@@ -150,7 +159,7 @@ def Xform "Root"
                     float inputs:bias
                     string inputs:border_color
                     float inputs:dynamic_min_lod_clamp
-                    prepend asset inputs:file.connect = </Root/SkyDome/Looks/DomeMATSG.inputs:mask>
+                    asset inputs:file.connect = </Root/Landscape_Dome/Looks/DomeMATSG.inputs:mask>
                     float inputs:min_lod_clamp
                     bool inputs:no_flip_v = 1
                     int2 inputs:offset
@@ -158,8 +167,17 @@ def Xform "Root"
                     string inputs:u_wrap_mode
                     string inputs:v_wrap_mode
                     color4f outputs:out
-                    float2 ui:nodegraph:node:pos = (-583.3488, 478.73224)
-                    int ui:nodegraph:node:stackingOrder = 37
+                    float2 ui:nodegraph:node:pos = (-699.47797, 490.43713)
+                    int ui:nodegraph:node:stackingOrder = 878
+                }
+
+                def Shader "Dot"
+                {
+                    uniform token info:id = "ND_dot_float"
+                    float inputs:in.connect = </Root/Landscape_Dome/Looks/DomeMATSG/Separate4.outputs:outr>
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (-236.48116, 364.90558)
+                    int ui:nodegraph:node:stackingOrder = 924
                 }
             }
         }
@@ -260,7 +278,7 @@ def Xform "Root"
         {
             quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (3.741787, 0, -16.4037)
+            float3 xformOp:translate = (3.741787, 0.4001875, -16.4037)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -288,7 +306,7 @@ def Xform "Root"
         {
             quatf xformOp:orient = (0.5810096, -0.5810094, 0.40302363, 0.40302336)
             float3 xformOp:scale = (0.99999994, 0.99999994, 0.9999999)
-            float3 xformOp:translate = (3.7728605, 0, -3.8907747)
+            float3 xformOp:translate = (3.7728605, 0.053313076, -3.8907747)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
@@ -380,7 +398,7 @@ def Xform "Root"
                 rel pivotEntity = </Root>
                 float revolutions = 0.6
                 double startTime = 0
-                rel target = </Root/bird>
+                rel target = </Root/Birds_1>
             }
         }
 
@@ -396,7 +414,7 @@ def Xform "Root"
                 double loopCount = 30
                 bool separateAnimatedValue = 1
                 double startTime = 0
-                rel target = </Root/bird>
+                rel target = </Root/Birds_1>
 
                 def RealityKitStruct "handoffType"
                 {
@@ -405,7 +423,7 @@ def Xform "Root"
         }
     }
 
-    def "bird" (
+    def "Birds_1" (
         active = true
         customData = {
             float3 rotationEulerHint = (0.20943955, 0, 0)
@@ -431,19 +449,19 @@ def Xform "Root"
 
         def RealityKitComponent "RCP_BehaviorsContainer"
         {
-            rel behaviors = </Root/bird/OnAddedToScene>
+            rel behaviors = </Root/Birds_1/OnAddedToScene>
             uniform token info:id = "RCP.BehaviorsContainer"
         }
 
         def Preliminary_Behavior "OnAddedToScene"
         {
-            rel actions = </Root/bird/OnAddedToScene/Action>
+            rel actions = </Root/Birds_1/OnAddedToScene/Action>
             uniform bool exclusive
-            rel triggers = </Root/bird/OnAddedToScene/Trigger>
+            rel triggers = </Root/Birds_1/OnAddedToScene/Trigger>
 
             def Preliminary_Trigger "Trigger"
             {
-                rel affectedObjects = </Root/bird>
+                rel affectedObjects = </Root/Birds_1>
                 token info:id = "SceneTransition"
             }
 
@@ -451,7 +469,7 @@ def Xform "Root"
             {
                 rel affectedObjects = </Root>
                 rel animationLibraryKey = </Root/Looping_Birds>
-                rel animationLibraryKeyOverrideKey = </Root/bird/OnAddedToScene/Trigger>
+                rel animationLibraryKeyOverrideKey = </Root/Birds_1/OnAddedToScene/Trigger>
                 token info:id = "PlayTimeline"
                 int loops = 0
                 int performCount = 1
@@ -484,6 +502,11 @@ def Xform "Root"
     {
         float3 xformOp:translate = (0, 0, -1.2542755e-7)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RealityKitComponent "RCP_BehaviorsContainer"
+    {
+        uniform token info:id = "RCP.BehaviorsContainer"
     }
 }
 
