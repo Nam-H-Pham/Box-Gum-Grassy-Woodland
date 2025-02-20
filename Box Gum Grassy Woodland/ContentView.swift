@@ -50,5 +50,6 @@ struct ContentView: View {
         }
         .frame(width: 500, height: 400) // Adjusted height to accommodate the new dropdown section
         .padding(20)
+        .fixedSize(horizontal: true, vertical: true)
     }
 }

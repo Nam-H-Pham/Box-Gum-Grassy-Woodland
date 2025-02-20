@@ -11,13 +11,33 @@ class DistantSpawner {
     private let center: SIMD3<Float>
     private let anchor: AnchorEntity
     
-    init(anchor: AnchorEntity, modelFilenames: [(String, ClosedRange<Float>)], scale: Float = 1.0, minimumSpacing: Float = 0.0, translation: SIMD3<Float> = .zero, center: SIMD3<Float> = .zero) {
+    // New properties for spawnAll parameters
+    private let spawnCount: Int
+    private let batchSize: Int
+    private let delayBetweenBatches: TimeInterval
+    
+    init(anchor: AnchorEntity,
+         modelFilenames: [(String, ClosedRange<Float>)],
+         scale: Float = 1.0,
+         minimumSpacing: Float = 0.0,
+         translation: SIMD3<Float> = .zero,
+         center: SIMD3<Float> = .zero,
+         spawnCount: Int = 400,
+         batchSize: Int = 20,
+         delayBetweenBatches: TimeInterval = 0.4) {
+        
         self.translation = translation
         self.modelFilenames = modelFilenames
         self.scale = scale
         self.minimumSpacing = minimumSpacing
         self.center = center
         self.anchor = anchor
+        
+        // Initialize spawnAll parameters
+        self.spawnCount = spawnCount
+        self.batchSize = batchSize
+        self.delayBetweenBatches = delayBetweenBatches
+        
     }
     
     func getAnchor() -> AnchorEntity {
@@ -112,10 +132,36 @@ class DistantSpawner {
         return true
     }
     
-    public func spawnAll(spawnCount: Int = 1) {
-        for _ in 0..<spawnCount {
-            let entity = spawn()
-            anchor.addChild(entity)
+    public func spawnAll() {
+        
+        removeAll()
+        
+        var remainingSpawnCount = spawnCount
+        
+        func spawnBatch() {
+            let currentBatchSize = min(batchSize, remainingSpawnCount)
+            
+            for _ in 0..<currentBatchSize {
+                let entity = spawn()
+                anchor.addChild(entity)
+            }
+            
+            remainingSpawnCount -= currentBatchSize
+            
+            if remainingSpawnCount > 0 {
+                // Schedule the next batch after the delay
+                DispatchQueue.main.asyncAfter(deadline: .now() + delayBetweenBatches) {
+                    spawnBatch()
+                }
+            }
         }
+        
+        // Start the first batch
+        spawnBatch()
+    }
+    
+    public func removeAll() {
+        anchor.children.removeAll(keepCapacity: true)
+        existingPositions.removeAll()
     }
 }

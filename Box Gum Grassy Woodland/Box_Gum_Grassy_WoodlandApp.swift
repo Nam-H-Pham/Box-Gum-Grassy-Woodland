@@ -26,5 +26,6 @@ struct Box_Gum_Grassy_WoodlandApp: App {
                 }
         }
         .immersionStyle(selection: .constant(.mixed), in: .mixed)
+        .upperLimbVisibility(Visibility.visible)
     }
 }

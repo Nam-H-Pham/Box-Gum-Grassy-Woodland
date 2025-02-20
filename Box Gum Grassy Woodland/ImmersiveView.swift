@@ -6,6 +6,8 @@ import Foundation
 struct ImmersiveView: View {
     @EnvironmentObject var globalState: GlobalState
     
+    var grassAnchor: AnchorEntity = AnchorEntity(world: [0, 0, 0])
+    
     // Lazy initialization of entitiesToUpdate
     private var entitiesToUpdate: [(String, Bool)] {
         [
@@ -17,8 +19,10 @@ struct ImmersiveView: View {
 
     var body: some View {
         RealityView { content in
+            
             // Start the loading process in a Task
             await loadContent(in: content)
+            
         } update: { content in
             
             // Update the visibility of entities based on global state
@@ -29,6 +33,15 @@ struct ImmersiveView: View {
             }
             
         }
+        .onAppear {
+            globalState.Rytidosperma.LoadModels()
+            globalState.Themeda.LoadModels()
+            
+            globalState.landscape?.addShadows()
+            
+            globalState.grassPatchSpawner.spawnAll()
+        }
+        
     }
 
 
@@ -45,7 +58,6 @@ struct ImmersiveView: View {
         globalState.landscape?.isEnabled = globalState.showLandscape
         content.add(globalState.landscape ?? Entity())
         await updateProgress(progress: 0.4)
-        
 
         // Step 2: Load the sky cover
         globalState.skyCover?.name = "SkyCover"
@@ -54,11 +66,7 @@ struct ImmersiveView: View {
         await updateProgress(progress: 0.6)
 
         // Step 3: Spawn grass patches in batches
-        let grassAnchor = AnchorEntity(world: [0, 0, 0])
         grassAnchor.name = "GrassAnchor"
-        grassAnchor.isEnabled = globalState.showGrass
-        
-        globalState.grassPatchSpawner.spawnAll(spawnCount: 500)
 
         grassAnchor.addChild(globalState.grassPatchSpawner.getAnchor())
         await updateProgress(progress: 0.8)

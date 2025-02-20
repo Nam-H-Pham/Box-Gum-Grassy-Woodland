@@ -178,7 +178,7 @@ def Material "Material"
         float2 inputs:uvtiling
         float outputs:out
         float2 ui:nodegraph:node:pos = (64.95116, 292.7569)
-        int ui:nodegraph:node:stackingOrder = 1096
+        int ui:nodegraph:node:stackingOrder = 1638
     }
 
     def Shader "PBRSurface"

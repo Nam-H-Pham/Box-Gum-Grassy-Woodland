@@ -1,4 +1,7 @@
 #usda 1.0
+(
+    defaultPrim = ""
+)
 
 def Xform "World" (
     prepend apiSchemas = ["MaterialBindingAPI"]
@@ -7,6 +10,8 @@ def Xform "World" (
     rel material:binding = </World/Material> (
         bindMaterialAs = "strongerThanDescendants"
     )
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
     def Xform "Assets"
     {

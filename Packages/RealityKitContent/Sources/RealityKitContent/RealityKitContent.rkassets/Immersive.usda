@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Landscape_Dome", "Ground", "Trees", "Branches", "Group", "Birds", "Birds_1", "Looping_Birds", "Ground_Bumpy", "Sky_Dome"]
+    reorder nameChildren = ["Landscape_Dome", "Ground", "Trees", "Branches", "Group", "Birds", "Birds_1", "Looping_Birds", "Ground_Bumpy", "Sky_Dome", "Kangaroo_1", "Kangaroo_Loop"]
     def "Landscape_Dome" (
         references = @SkyDome/SkyDome.usdz@
     )
@@ -189,35 +189,6 @@ def Xform "Root"
         }
     }
 
-    def Cylinder "Ground" (
-        active = false
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        uniform token axis = "Y"
-        double height = 0.2
-        rel material:binding = </Root/Ground/Material> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 300
-        float3 xformOp:scale = (1, 5.551115e-19, 1)
-        float3 xformOp:translate = (0, 0, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def "Material" (
-            active = true
-            references = @Ground/Material.usda@
-        )
-        {
-            float inputs:TileSize = 200
-
-            over "TiledImage_3"
-            {
-                int ui:nodegraph:node:stackingOrder = 1341
-            }
-        }
-    }
-
     def Scope "Trees" (
         active = true
     )
@@ -225,9 +196,6 @@ def Xform "Root"
         reorder nameChildren = ["Redgum_4_LOD0", "Redgum_2_LOD0", "Redgum_3_LOD0"]
         def "Redgum_4_LOD0" (
             active = true
-            customData = {
-                float3 rotationEulerHint = (-1.5707964, 0, 0)
-            }
             references = @Trees/Red Gum/Redgum_4_LOD0.usdc@
         )
         {
@@ -260,6 +228,24 @@ def Xform "Root"
             float3 xformOp:scale = (1, 1, 1)
             float3 xformOp:translate = (-2.9271507, 0, 0.027032852)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Redgum_3_LOD0"
+            {
+                over "LOD0_008"
+                {
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "GroundingShadow"
+                    {
+                        bool enableIBLShadow = 1
+                        bool enableMeshShadow = 1
+                        bool enableReceiveIBLShadow = 1
+                        bool enableReceiveMeshShadow = 1
+                        uniform token info:id = "RealityKit.GroundingShadow"
+                    }
+                }
+            }
         }
     }
 
@@ -294,6 +280,13 @@ def Xform "Root"
             float3 xformOp:scale = (1, 1, 1)
             float3 xformOp:translate = (-4.7953672, 0, -6.622853)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Branch2"
+            {
+                over "Cube_002"
+                {
+                }
+            }
         }
 
         def "Branch3" (
@@ -411,7 +404,7 @@ def Xform "Root"
                 int blendLayer = 500
                 double duration = 0.6666666865348816
                 uniform token info:id = "441DC2D9-E818-499B-B25C-21A4C3B34E7B"
-                double loopCount = 30
+                double loopCount = 45
                 bool separateAnimatedValue = 1
                 double startTime = 0
                 rel target = </Root/Birds_1>
@@ -486,7 +479,7 @@ def Xform "Root"
             {
                 string actionKind = "timeline"
                 int blendLayer = 500
-                double duration = 30
+                double duration = 30.00000089406967
                 uniform token info:id = "4874E6A3-2A31-4771-BF0C-526CE97DF9CE"
                 double loopCount = 0
                 double startTime = 0
@@ -495,18 +488,275 @@ def Xform "Root"
         }
     }
 
-    def "Ground_Bumpy" (
+    def "Kangaroo" (
         active = true
-        references = @Ground/Ground Bumpy.usda@
+        references = @Animals/Kangaroo.usda@
     )
     {
-        float3 xformOp:translate = (0, 0, -1.2542755e-7)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (15.000786, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Root/Kangaroo/OnAddedToScene>
+            uniform token info:id = "RCP.BehaviorsContainer"
+        }
+
+        def Preliminary_Behavior "OnAddedToScene"
+        {
+            rel actions = </Root/Kangaroo/OnAddedToScene/Action>
+            uniform bool exclusive
+            rel triggers = </Root/Kangaroo/OnAddedToScene/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/Kangaroo>
+                token info:id = "SceneTransition"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/Kangaroo_Loop>
+                rel animationLibraryKeyOverrideKey = </Root/Kangaroo/OnAddedToScene/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
     }
 
-    def RealityKitComponent "RCP_BehaviorsContainer"
+    def RealityKitTimeline "Kangaroo_1"
     {
-        uniform token info:id = "RCP.BehaviorsContainer"
+        reorder nameChildren = ["Track", "Track3", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Animation", "Animation2", "Animation3"]
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Walk"
+                int blendLayer = 500
+                double duration = 1.0121111111111112
+                uniform token info:id = "E354BF32-C439-463A-B727-35F8B8701F36"
+                double loopCount = 8
+                bool parentControllers = 0
+                bool separateAnimatedValue = 1
+                double startTime = 4.3498519361933425
+                rel target = </Root/Kangaroo>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation3"
+            {
+                string actionKind = "animation"
+                string animation = "Jump Run"
+                int blendLayer = 500
+                double duration = 0.7089830164251343
+                uniform token info:id = "7F58CA09-AAB6-48C0-8430-7150713C60CE"
+                double loopCount = 3
+                bool separateAnimatedValue = 1
+                double startTime = 16.46025004843563
+                rel target = </Root/Kangaroo>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation2"
+            {
+                string actionKind = "animation"
+                string animation = "Walk"
+                int blendLayer = 500
+                double duration = 1.0121111111111112
+                uniform token info:id = "E354BF32-C439-463A-B727-35F8B8701F36"
+                double loopCount = 28
+                bool parentControllers = 0
+                bool separateAnimatedValue = 1
+                double startTime = 22.649244843615723
+                rel target = </Root/Kangaroo>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            reorder nameChildren = ["Animation2", "Animation2_1"]
+            def RealityKitAction "Orbit"
+            {
+                string actionKind = "orbit"
+                int blendLayer = 300
+                double duration = 8.107841264007348
+                uniform token info:id = "35F0598A-8D57-496E-AAE2-5752555487E0"
+                token orbitDirection = "clockwise"
+                bool orientToPath = 1
+                rel pivotEntity = </Root>
+                float revolutions = 0.15
+                double startTime = 4.216398843610259
+                rel target = </Root/Kangaroo>
+            }
+
+            def RealityKitAction "Orbit2"
+            {
+                string actionKind = "orbit"
+                int blendLayer = 300
+                double duration = 2.260141824856013
+                uniform token info:id = "1C17D905-0D22-4149-A82F-64FF48BDC10C"
+                bool orientToPath = 1
+                rel pivotEntity = </Root>
+                float revolutions = 0.2
+                double startTime = 16.443710856236468
+                rel target = </Root/Kangaroo>
+            }
+
+            def RealityKitAction "Orbit22"
+            {
+                string actionKind = "orbit"
+                int blendLayer = 300
+                double duration = 28.321278995674554
+                uniform token info:id = "1C17D905-0D22-4149-A82F-64FF48BDC10C"
+                bool orientToPath = 1
+                rel pivotEntity = </Root>
+                float revolutions = 0.65
+                double startTime = 22.666298935819697
+                rel target = </Root/Kangaroo>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            reorder nameChildren = ["Animation2", "Animation2_2", "Animation2_1", "Animation2_12"]
+            def RealityKitAction "Animation2_1"
+            {
+                string actionKind = "animation"
+                string animation = "Idle"
+                int blendLayer = 500
+                double duration = 4.802606627989083
+                uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
+                bool separateAnimatedValue = 1
+                double startTime = 18.5020672626281
+                rel target = </Root/Kangaroo>
+                float2 ui:nodegraph:node:pos = (215.75, 104.5)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation2_12"
+            {
+                string actionKind = "animation"
+                string animation = "Idle"
+                int blendLayer = 500
+                double duration = 4.802606627989083
+                uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
+                bool separateAnimatedValue = 1
+                double startTime = 50.82051337849813
+                rel target = </Root/Kangaroo>
+                float2 ui:nodegraph:node:pos = (235.75, 124.5)
+                int ui:nodegraph:node:stackingOrder = 2
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation2"
+            {
+                string actionKind = "animation"
+                string animation = "Idle"
+                int blendLayer = 500
+                double duration = 4.802606627989083
+                uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
+                bool separateAnimatedValue = 1
+                double startTime = 12.181307868852453
+                rel target = </Root/Kangaroo>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation2_2"
+            {
+                string actionKind = "animation"
+                string animation = "Idle"
+                int blendLayer = 500
+                double duration = 4.802606627989083
+                uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Kangaroo>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Kangaroo_Loop"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 1000
+                double duration = 55.62312000648721
+                uniform token info:id = "250E2AFF-476F-45FF-84DB-94633F22326E"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/Kangaroo_1>
+            }
+        }
+    }
+
+    def RealityKitComponent "EnvironmentLightingConfiguration"
+    {
+        float environmentLightingWeight = 1
+        uniform token info:id = "RealityKit.EnvironmentLightingConfiguration"
+    }
+
+    def "Ground_Bumpy" (
+        active = true
+        prepend references = @Ground/Ground Bumpy.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "GroundTex"
+        {
+            over "Circle"
+            {
+                over "Circle_001"
+                {
+                    def RealityKitComponent "GroundingShadow"
+                    {
+                        bool enableIBLShadow = 0
+                        bool enableMeshShadow = 0
+                        uniform token info:id = "RealityKit.GroundingShadow"
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -33,6 +33,7 @@ def Xform "Root" (
                 }
             }
         )
+        float inputs:TileSize = 1.5
 
         over "ConstantFloat"
         {
