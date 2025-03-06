@@ -1,0 +1,84 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = ""
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Material "Material"
+{
+    asset inputs:Image (
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-368.3003, -406.7847)
+                int stackingOrderInSubgraph = 582
+            }
+        }
+    )
+    token outputs:mtlx:surface.connect = </Material/PBRSurface.outputs:out>
+    token outputs:realitykit:vertex.connect = </Material/GeometryModifier.outputs:out>
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.5, 100.5)
+
+    def "Heightmap" (
+        active = true
+        prepend references = @../../Ground/Heightmap.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (-228.11713, 317.26843)
+        int ui:nodegraph:node:stackingOrder = 40
+    }
+
+    def Shader "GeometryModifier"
+    {
+        uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+        float3 inputs:bitangent
+        color4f inputs:color
+        float3 inputs:modelPositionOffset.connect = </Material/Heightmap.outputs:Height>
+        float3 inputs:normal
+        float4 inputs:uv6
+        float4 inputs:uv7
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (15.44364, 398.003)
+        int ui:nodegraph:node:stackingOrder = 40
+    }
+
+    def Shader "PBRSurface"
+    {
+        uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+        float inputs:ambientOcclusion
+        color3f inputs:baseColor.connect = </Material/Image2D.outputs:out>
+        float3 inputs:clearcoatNormal
+        color3f inputs:emissiveColor
+        bool inputs:hasPremultipliedAlpha
+        float inputs:metallic
+        float3 inputs:normal
+        float inputs:opacity
+        float inputs:opacityThreshold
+        float inputs:roughness = 1
+        float inputs:specular
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (67.549446, -42.84389)
+        int ui:nodegraph:node:stackingOrder = 102
+    }
+
+    def Shader "Image2D"
+    {
+        uniform token info:id = "ND_RealityKitTexture2D_color3"
+        float inputs:bias
+        float inputs:dynamic_min_lod_clamp
+        asset inputs:file.connect = </Material.inputs:Image>
+        float inputs:min_lod_clamp
+        bool inputs:no_flip_v = 1
+        int2 inputs:offset
+        float2 inputs:texcoord
+        string inputs:u_wrap_mode
+        string inputs:v_wrap_mode
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-174.85892, -307.85504)
+        int ui:nodegraph:node:stackingOrder = 582
+    }
+}
+

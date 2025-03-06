@@ -1,0 +1,1030 @@
+#usda 1.0
+
+def Xform "World" (
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
+{
+    rel material:binding = </World/Material> (
+        bindMaterialAs = "strongerThanDescendants"
+    )
+
+    def Xform "Assets"
+    {
+        def Xform "Rytidosperma_caespitosum_4_LOD1" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD1/Rytidosperma_caespitosum_4_LOD1.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Rytidosperma_caespitosum_1_LOD1" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD1/Rytidosperma_caespitosum_1_LOD1.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Rytidosperma_caespitosum_2_LOD1" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD1/Rytidosperma_caespitosum_2_LOD1.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+
+        def Xform "Rytidosperma_caespitosum_3_LOD1" (
+            kind = "component"
+            prepend references = @models/Rytidosperma caespitosum/LOD1/Rytidosperma_caespitosum_3_LOD1.usdc@
+        )
+        {
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Xform "Instance_0_0_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0460565, 1.0460565, 1.0460565)
+        double3 xformOp:translate = (-14.051590919494629, 0, -14.051590919494629)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_1_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1765817, 1.1765817, 1.1765817)
+        double3 xformOp:translate = (-16.164886474609375, 0, -13.164886474609375)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_2_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.95595354, 0.95595354, 0.95595354)
+        double3 xformOp:translate = (-16.260461807250977, 0, -10.26046085357666)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_3_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0552441, 1.0552441, 1.0552441)
+        double3 xformOp:translate = (-15.373909950256348, 0, -6.373909950256348)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_4_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.026046, 1.026046, 1.026046)
+        double3 xformOp:translate = (-15.423112869262695, 0, -3.4231131076812744)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_5_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.837896, 0.837896, 0.837896)
+        double3 xformOp:translate = (-16.232572555541992, 0, -1.2325732707977295)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_6_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1344203, 1.1344203, 1.1344203)
+        double3 xformOp:translate = (-15.730111122131348, 0, 2.2698888778686523)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_7_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.85184187, 0.85184187, 0.85184187)
+        double3 xformOp:translate = (-14.678645133972168, 0, 6.321354389190674)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_0_9_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.91408825, 0.91408825, 0.91408825)
+        double3 xformOp:translate = (-15.069832801818848, 0, 11.930167198181152)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_1_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1151081, 1.1151081, 1.1151081)
+        double3 xformOp:translate = (-10.92181396484375, 0, -10.92181396484375)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_2_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.90090233, 0.90090233, 0.90090233)
+        double3 xformOp:translate = (-12.360032081604004, 0, -9.360032081604004)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_3_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0919119, 1.0919119, 1.0919119)
+        double3 xformOp:translate = (-13.074454307556152, 0, -7.074454307556152)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_4_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9189, 0.9189, 0.9189)
+        double3 xformOp:translate = (-12.099017143249512, 0, -3.0990169048309326)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_5_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.98231006, 0.98231006, 0.98231006)
+        double3 xformOp:translate = (-12.460433959960938, 0, -0.4604336619377136)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_6_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.877516, 0.877516, 0.877516)
+        double3 xformOp:translate = (-11.648237228393555, 0, 3.351762533187866)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_8_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9939409, 0.9939409, 0.9939409)
+        double3 xformOp:translate = (-11.212303161621094, 0, 9.787696838378906)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_9_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.99673027, 0.99673027, 0.99673027)
+        double3 xformOp:translate = (-11.512195587158203, 0, 12.487804412841797)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_0_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8930104, 0.8930104, 0.8930104)
+        double3 xformOp:translate = (-9.67310905456543, 0, -15.67310905456543)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_1_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.85218745, 0.85218745, 0.85218745)
+        double3 xformOp:translate = (-8.905854225158691, 0, -11.905854225158691)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_2_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0335742, 1.0335742, 1.0335742)
+        double3 xformOp:translate = (-9.600395202636719, 0, -9.600395202636719)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_3_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8605088, 0.8605088, 0.8605088)
+        double3 xformOp:translate = (-10.335909843444824, 0, -7.335909843444824)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_4_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1004621, 1.1004621, 1.1004621)
+        double3 xformOp:translate = (-8.389636993408203, 0, -2.389636993408203)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_5_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0416403, 1.0416403, 1.0416403)
+        double3 xformOp:translate = (-9.841869354248047, 0, -0.8418692350387573)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_6_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.066087, 1.066087, 1.066087)
+        double3 xformOp:translate = (-9.697382926940918, 0, 2.302616834640503)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_7_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.98102343, 0.98102343, 0.98102343)
+        double3 xformOp:translate = (-8.800925254821777, 0, 6.199075222015381)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_8_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.93446636, 0.93446636, 0.93446636)
+        double3 xformOp:translate = (-7.907593727111816, 0, 10.092406272888184)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_9_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1922692, 1.1922692, 1.1922692)
+        double3 xformOp:translate = (-8.248784065246582, 0, 12.751215934753418)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_0_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.95939344, 0.95939344, 0.95939344)
+        double3 xformOp:translate = (-5.31586217880249, 0, -14.315861701965332)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_1_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.93634593, 0.93634593, 0.93634593)
+        double3 xformOp:translate = (-6.891267776489258, 0, -12.891267776489258)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_2_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.88233715, 0.88233715, 0.88233715)
+        double3 xformOp:translate = (-6.592991828918457, 0, -9.592991828918457)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_5_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.84029377, 0.84029377, 0.84029377)
+        double3 xformOp:translate = (-5.004827499389648, 0, 0.9951725602149963)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_6_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1604515, 1.1604515, 1.1604515)
+        double3 xformOp:translate = (-4.79129695892334, 0, 4.20870304107666)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_7_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1961442, 1.1961442, 1.1961442)
+        double3 xformOp:translate = (-5.308533668518066, 0, 6.691466331481934)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_8_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9268383, 0.9268383, 0.9268383)
+        double3 xformOp:translate = (-6.350648403167725, 0, 8.649352073669434)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_9_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8992461, 0.8992461, 0.8992461)
+        double3 xformOp:translate = (-6.937154769897461, 0, 11.062845230102539)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_0_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1587778, 1.1587778, 1.1587778)
+        double3 xformOp:translate = (-1.6606377363204956, 0, -13.660637855529785)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_2_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.052314, 1.052314, 1.052314)
+        double3 xformOp:translate = (-1.9381541013717651, 0, -7.938154220581055)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_3_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1622207, 1.1622207, 1.1622207)
+        double3 xformOp:translate = (-3.4692461490631104, 0, -6.4692463874816895)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_4_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.96337134, 0.96337134, 0.96337134)
+        double3 xformOp:translate = (-3.22308349609375, 0, -3.22308349609375)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_5_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1053137, 1.1053137, 1.1053137)
+        double3 xformOp:translate = (-4.2801666259765625, 0, -1.2801668643951416)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_6_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1631906, 1.1631906, 1.1631906)
+        double3 xformOp:translate = (-4.3650383949279785, 0, 1.6349618434906006)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_7_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9090473, 0.9090473, 0.9090473)
+        double3 xformOp:translate = (-3.7698512077331543, 0, 5.230148792266846)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_8_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1728814, 1.1728814, 1.1728814)
+        double3 xformOp:translate = (-3.0585548877716064, 0, 8.941445350646973)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_9_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.93401796, 0.93401796, 0.93401796)
+        double3 xformOp:translate = (-1.6842814683914185, 0, 13.315718650817871)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_0_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9254163, 0.9254163, 0.9254163)
+        double3 xformOp:translate = (0.3083797097206116, 0, -14.691619873046875)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_1_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9399855, 0.9399855, 0.9399855)
+        double3 xformOp:translate = (0.05279111862182617, 0, -11.947209358215332)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_2_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1292243, 1.1292243, 1.1292243)
+        double3 xformOp:translate = (-1.2834714651107788, 0, -10.28347110748291)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_4_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8942343, 0.8942343, 0.8942343)
+        double3 xformOp:translate = (-0.06833775341510773, 0, -3.0683376789093018)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_5_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0354372, 1.0354372, 1.0354372)
+        double3 xformOp:translate = (-1.3184261322021484, 0, -1.3184261322021484)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_6_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1723524, 1.1723524, 1.1723524)
+        double3 xformOp:translate = (-0.28718292713165283, 0, 2.7128169536590576)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_7_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0679661, 1.0679661, 1.0679661)
+        double3 xformOp:translate = (0.11773087084293365, 0, 6.117731094360352)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_9_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.88610554, 0.88610554, 0.88610554)
+        double3 xformOp:translate = (-0.7594794034957886, 0, 11.240520477294922)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_0_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.80650246, 0.80650246, 0.80650246)
+        double3 xformOp:translate = (2.8212099075317383, 0, -15.178790092468262)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_1_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0281059, 1.0281059, 1.0281059)
+        double3 xformOp:translate = (3.260425329208374, 0, -11.739574432373047)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_2_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1699553, 1.1699553, 1.1699553)
+        double3 xformOp:translate = (4.091328144073486, 0, -7.908671855926514)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_3_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1776841, 1.1776841, 1.1776841)
+        double3 xformOp:translate = (1.7873467206954956, 0, -7.212653160095215)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_4_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0726559, 1.0726559, 1.0726559)
+        double3 xformOp:translate = (3.418062686920166, 0, -2.581937313079834)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_5_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1694993, 1.1694993, 1.1694993)
+        double3 xformOp:translate = (3.093871831893921, 0, 0.0938718318939209)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_6_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1412703, 1.1412703, 1.1412703)
+        double3 xformOp:translate = (3.250983238220215, 0, 3.250983238220215)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_7_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0567993, 1.0567993, 1.0567993)
+        double3 xformOp:translate = (1.5662850141525269, 0, 4.566285133361816)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_8_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.0783682, 1.0783682, 1.0783682)
+        double3 xformOp:translate = (4.481725215911865, 0, 10.481724739074707)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_9_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8766459, 0.8766459, 0.8766459)
+        double3 xformOp:translate = (1.8527498245239258, 0, 10.852749824523926)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_0_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1891049, 1.1891049, 1.1891049)
+        double3 xformOp:translate = (4.869109630584717, 0, -16.130889892578125)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_1_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9835738, 0.9835738, 0.9835738)
+        double3 xformOp:translate = (4.832882404327393, 0, -13.167118072509766)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_2_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.149589, 1.149589, 1.149589)
+        double3 xformOp:translate = (4.911410808563232, 0, -10.08858871459961)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_4_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9119222, 0.9119222, 0.9119222)
+        double3 xformOp:translate = (6.547419548034668, 0, -2.452580451965332)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_5_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8270379, 0.8270379, 0.8270379)
+        double3 xformOp:translate = (5.7877912521362305, 0, -0.21220873296260834)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_6_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1014915, 1.1014915, 1.1014915)
+        double3 xformOp:translate = (7.028215408325195, 0, 4.028215408325195)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_7_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8757764, 0.8757764, 0.8757764)
+        double3 xformOp:translate = (4.762405872344971, 0, 4.762405872344971)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_8_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1612135, 1.1612135, 1.1612135)
+        double3 xformOp:translate = (7.493185997009277, 0, 10.493185997009277)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_9_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8804682, 0.8804682, 0.8804682)
+        double3 xformOp:translate = (7.007256984710693, 0, 13.007256507873535)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_0_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9604797, 0.9604797, 0.9604797)
+        double3 xformOp:translate = (10.158576011657715, 0, -13.841423988342285)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_1_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9252872, 0.9252872, 0.9252872)
+        double3 xformOp:translate = (8.51695442199707, 0, -12.48304557800293)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_2_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.159199, 1.159199, 1.159199)
+        double3 xformOp:translate = (8.597321510314941, 0, -9.402678489685059)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_3_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9078706, 0.9078706, 0.9078706)
+        double3 xformOp:translate = (8.661477088928223, 0, -6.338522911071777)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_4_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9138997, 0.9138997, 0.9138997)
+        double3 xformOp:translate = (9.95443344116211, 0, -2.045567035675049)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_6_Rytidosperma_caespitosum_2_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_2_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1731411, 1.1731411, 1.1731411)
+        double3 xformOp:translate = (9.910585403442383, 0, 3.9105851650238037)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_7_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8164603, 0.8164603, 0.8164603)
+        double3 xformOp:translate = (9.125835418701172, 0, 6.12583589553833)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_8_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.90639657, 0.90639657, 0.90639657)
+        double3 xformOp:translate = (8.840269088745117, 0, 8.840269088745117)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_0_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8168764, 0.8168764, 0.8168764)
+        double3 xformOp:translate = (12.488279342651367, 0, -14.511720657348633)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_1_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.84674406, 0.84674406, 0.84674406)
+        double3 xformOp:translate = (11.290445327758789, 0, -12.709554672241211)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_2_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9691658, 0.9691658, 0.9691658)
+        double3 xformOp:translate = (13.415907859802246, 0, -7.584092617034912)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_3_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.9266622, 0.9266622, 0.9266622)
+        double3 xformOp:translate = (12.909286499023438, 0, -5.090713977813721)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_4_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.8636018, 0.8636018, 0.8636018)
+        double3 xformOp:translate = (12.834162712097168, 0, -2.165837049484253)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_6_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.82336664, 0.82336664, 0.82336664)
+        double3 xformOp:translate = (11.71215534210205, 0, 2.7121551036834717)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_7_Rytidosperma_caespitosum_4_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_4_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.132118, 1.132118, 1.132118)
+        double3 xformOp:translate = (11.59821891784668, 0, 5.598219394683838)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_8_Rytidosperma_caespitosum_1_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_1_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (0.80435157, 0.80435157, 0.80435157)
+        double3 xformOp:translate = (11.874190330505371, 0, 8.874190330505371)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_9_Rytidosperma_caespitosum_3_LOD1" (
+        instanceable = true
+        prepend references = </World/Assets/Rytidosperma_caespitosum_3_LOD1>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 90)
+        float3 xformOp:scale = (1.1441141, 1.1441141, 1.1441141)
+        double3 xformOp:translate = (12.344306945800781, 0, 12.344306945800781)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def "Material" (
+        active = true
+        prepend references = @../../Grasses/Rytidosperma caespitosum/Material.usda@
+    )
+    {
+        over "Grass_Animation" (
+            active = false
+        )
+        {
+        }
+    }
+}
+

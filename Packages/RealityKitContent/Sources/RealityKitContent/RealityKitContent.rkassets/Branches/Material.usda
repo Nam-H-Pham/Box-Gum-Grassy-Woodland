@@ -10,14 +10,27 @@
 
 def Material "Material"
 {
-    token outputs:mtlx:surface
+    asset inputs:ColorMap = @textures/Eucalyptus_Bark_3.png@ (
+        colorSpace = ""
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-676.28766, -243.34679)
+                int stackingOrderInSubgraph = 3152
+            }
+        }
+    )
+    token outputs:mtlx:surface.connect = </Material/PBRSurface.outputs:out>
     token outputs:realitykit:vertex
     token outputs:surface.connect = </Material/Principled_BSDF.outputs:surface>
     float2 ui:nodegraph:node:pos = (40, 40)
     int ui:nodegraph:node:stackingOrder = 2
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (297.8384, 365.51324)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3019
     custom string userProperties:blender:data_name = "Bark"
 
-    def Shader "Principled_BSDF"
+    def Shader "Principled_BSDF" (
+        active = false
+    )
     {
         uniform token info:id = "UsdPreviewSurface"
         float inputs:clearcoat = 0
@@ -58,6 +71,218 @@ def Material "Material"
         token inputs:wrapS = "repeat"
         token inputs:wrapT = "repeat"
         float outputs:a
+    }
+
+    def Shader "Mix"
+    {
+        uniform token info:id = "ND_mix_color3"
+        color3f inputs:bg.connect = </Material/Image2D.outputs:out>
+        color3f inputs:fg.connect = None
+        float inputs:mix = 1
+        float inputs:mix.connect = </Material/FakeShadow.outputs:Darkness>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-201.09995, 24.215546)
+        int ui:nodegraph:node:stackingOrder = 3016
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+    }
+
+    def NodeGraph "FakeShadow" (
+        active = true
+    )
+    {
+        float inputs:DirectionAngle = 160 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-1170.8646, 75.890305)
+                    int stackingOrderInSubgraph = 730
+                }
+            }
+        )
+        float outputs:Darkness (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-16, 71.5)
+                    int stackingOrderInSubgraph = 1
+                }
+            }
+        )
+        float outputs:Darkness.connect = </Material/FakeShadow/Clamp.outputs:out>
+        float2 ui:nodegraph:node:pos = (-262.42053, 348.4773)
+        int ui:nodegraph:node:stackingOrder = 1
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (397.94818, 62.949986)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 715
+
+        def Shader "RampVertical"
+        {
+            uniform token info:id = "ND_ramptb_float"
+            float2 inputs:texcoord.connect = </Material/FakeShadow/Combine2.outputs:out>
+            float inputs:valueb = 0
+            float inputs:valuet = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-110.56745, -13.2531395)
+            int ui:nodegraph:node:stackingOrder = 424
+        }
+
+        def Shader "Position"
+        {
+            uniform token info:id = "ND_position_vector3"
+            string inputs:space = "model"
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-1644.5013, -55.328445)
+            int ui:nodegraph:node:stackingOrder = 660
+        }
+
+        def Shader "Separate3"
+        {
+            uniform token info:id = "ND_separate3_vector3"
+            float3 inputs:in.connect = </Material/FakeShadow/Add.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float outputs:outz
+            float2 ui:nodegraph:node:pos = (-501.39166, 21.07108)
+            int ui:nodegraph:node:stackingOrder = 415
+        }
+
+        def Shader "Combine2"
+        {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </Material/FakeShadow/Separate3.outputs:outx>
+            float inputs:in2.connect = </Material/FakeShadow/Separate3.outputs:outz>
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-304.4815, 20.367954)
+            int ui:nodegraph:node:stackingOrder = 417
+        }
+
+        def Shader "Rotate3D"
+        {
+            uniform token info:id = "ND_rotate3d_vector3"
+            float inputs:amount.connect = </Material/FakeShadow.inputs:DirectionAngle>
+            float3 inputs:axis
+            float3 inputs:in.connect = </Material/FakeShadow/Rotate3D_1.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-936.8529, 74.952805)
+            int ui:nodegraph:node:stackingOrder = 725
+        }
+
+        def Shader "TransformVector"
+        {
+            uniform token info:id = "ND_transformvector_vector3"
+            string inputs:fromspace = "model"
+            float3 inputs:in.connect = </Material/FakeShadow/Position.outputs:out>
+            string inputs:tospace = "world"
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-1398.2592, -37.504227)
+            int ui:nodegraph:node:stackingOrder = 660
+        }
+
+        def Shader "Rotate3D_1"
+        {
+            uniform token info:id = "ND_rotate3d_vector3"
+            float inputs:amount = 10
+            float3 inputs:axis = (1, 0, 0)
+            float3 inputs:in.connect = </Material/FakeShadow/TransformVector.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-1126.3373, -18.097977)
+            int ui:nodegraph:node:stackingOrder = 665
+        }
+
+        def Shader "Normalize"
+        {
+            uniform token info:id = "ND_normalize_vector3"
+            float3 inputs:in.connect = </Material/FakeShadow/Rotate3D.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-764.2324, 21.02212)
+            int ui:nodegraph:node:stackingOrder = 660
+        }
+
+        def Shader "Clamp"
+        {
+            uniform token info:id = "ND_clamp_float"
+            float inputs:high = 0.9
+            float inputs:in.connect = </Material/FakeShadow/RampVertical.outputs:out>
+            float inputs:low
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (182.6435, 20.801548)
+            int ui:nodegraph:node:stackingOrder = 715
+        }
+
+        def Shader "Add"
+        {
+            uniform token info:id = "ND_add_vector3"
+            float3 inputs:in1.connect = </Material/FakeShadow/Normalize.outputs:out>
+            float3 inputs:in2 = (0, 0, 0.3)
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-637.98047, 29.980469)
+            int ui:nodegraph:node:stackingOrder = 856
+        }
+    }
+
+    def Shader "PBRSurface"
+    {
+        uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+        float inputs:ambientOcclusion
+        color3f inputs:baseColor.connect = </Material/Dot_2.outputs:out>
+        float inputs:clearcoat
+        float3 inputs:clearcoatNormal
+        float inputs:clearcoatRoughness
+        color3f inputs:emissiveColor
+        bool inputs:hasPremultipliedAlpha
+        float inputs:metallic
+        float3 inputs:normal.connect = None
+        float inputs:opacity.connect = None
+        float inputs:opacityThreshold = 0.1
+        float inputs:roughness = 0.5
+        float inputs:roughness.connect = </Material/Clamp.outputs:out>
+        float inputs:specular
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (40.301674, 254.26595)
+        int ui:nodegraph:node:stackingOrder = 2894
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
+    }
+
+    def Shader "Image2D"
+    {
+        uniform token info:id = "ND_RealityKitTexture2D_color3"
+        float inputs:bias
+        string inputs:border_color = "transparent_black"
+        color3f inputs:default
+        float inputs:dynamic_min_lod_clamp
+        asset inputs:file.connect = </Material.inputs:ColorMap>
+        string inputs:mag_filter
+        int inputs:max_anisotropy
+        string inputs:min_filter
+        float inputs:min_lod_clamp
+        string inputs:mip_filter
+        bool inputs:no_flip_v = 1
+        int2 inputs:offset
+        float2 inputs:texcoord
+        string inputs:u_wrap_mode = "repeat"
+        string inputs:v_wrap_mode = "repeat"
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-427.0893, -243.65019)
+        int ui:nodegraph:node:stackingOrder = 3020
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp"]
+    }
+
+    def Shader "Dot_2"
+    {
+        uniform token info:id = "ND_dot_color3"
+        color3f inputs:in.connect = </Material/Mix.outputs:out>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-106.56896, 160.4157)
+        int ui:nodegraph:node:stackingOrder = 3016
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in"]
+    }
+
+    def Shader "Clamp"
+    {
+        uniform token info:id = "ND_clamp_float"
+        float inputs:high = 0.9
+        float inputs:in.connect = </Material/FakeShadow.outputs:Darkness>
+        float inputs:low = 0.5
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-208.34995, 187.1843)
+        int ui:nodegraph:node:stackingOrder = 3016
     }
 }
 

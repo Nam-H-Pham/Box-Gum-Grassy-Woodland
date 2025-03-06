@@ -34,11 +34,7 @@ struct ImmersiveView: View {
             
         }
         .onAppear {
-            globalState.Rytidosperma.LoadModels()
-            globalState.Themeda.LoadModels()
-            
-            globalState.landscape?.addShadows()
-            
+            globalState.nearbyGrass.spawnAll()
             globalState.grassPatchSpawner.spawnAll()
         }
         
@@ -57,6 +53,7 @@ struct ImmersiveView: View {
         globalState.landscape?.name = "Landscape"
         globalState.landscape?.isEnabled = globalState.showLandscape
         content.add(globalState.landscape ?? Entity())
+        
         await updateProgress(progress: 0.4)
 
         // Step 2: Load the sky cover
@@ -72,11 +69,8 @@ struct ImmersiveView: View {
         await updateProgress(progress: 0.8)
 
         // Step 4: Load additional grass models
-        grassAnchor.addChild(globalState.Rytidosperma.getAnchor())
+        grassAnchor.addChild(globalState.nearbyGrass.getAnchor())
         await updateProgress(progress: 0.9)
-
-        grassAnchor.addChild(globalState.Themeda.getAnchor())
-        await updateProgress(progress: 0.95)
 
         // Finalizing the grass anchor
         content.add(grassAnchor)

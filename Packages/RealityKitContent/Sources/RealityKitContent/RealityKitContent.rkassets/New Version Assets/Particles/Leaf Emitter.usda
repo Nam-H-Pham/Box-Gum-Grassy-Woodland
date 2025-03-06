@@ -1,0 +1,71 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "ParticleEmitter"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "ParticleEmitter"
+{
+    quatf xformOp:orient = (1, 0, 0, 0)
+    float3 xformOp:scale = (1, 1, 1)
+    float3 xformOp:translate = (0, 0.7979965, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def RealityKitComponent "VFXEmitter"
+    {
+        token info:id = "RealityKit.VFXEmitter"
+
+        def RealityKitStruct "currentState"
+        {
+            token birthDirection = "Constant"
+            token birthLocation = "Volume"
+            int64 burstCount = 1
+            double emissionDuration = 5
+            token emitterShape = "Sphere"
+            double idleDuration = 0
+            bool isLocal = 0
+            float particleSpeed = 0
+            float particleSpeedVariation = 0.1
+            float3 shapeSize = (6, 2, 6)
+            bool spawnInheritParentColor = 0
+            float spawnVelocityFactor = 1
+
+            def RealityKitStruct "mainEmitter"
+            {
+                float3 acceleration = (0, -0.2, 0)
+                float axisVariation = 45
+                float3 billboardAxis = (1, 1, 1)
+                token billboardMode = "Free"
+                float birthRate = 0.3
+                token blendMode = "Alpha"
+                float4 endColorA = (0.0013006331, 0.032195132, 1, 1)
+                bool isLightingEnabled = 1
+                float noiseScale = 0.1
+                float noiseStrength = 0.1
+                token opacityOverLife = "QuickFadeInOut"
+                float particleAngle = 1.0471976
+                float particleAngleVariation = 3.1415927
+                float particleAngularVelocity = 20
+                float particleAngularVelocityVariation = 0.5
+                asset particleImage = @leaf.png@
+                double particleLifeSpan = 9
+                float particleSize = 0.05
+                float radialGravityStrength = 0
+                float sizeMultiplierAtEndOfLifespan = 1
+                float4 startColorA = (0.26583552, 0.31564066, 0.17619815, 1)
+                bool useEndColor = 0
+                bool useEndColorRange = 0
+                bool useStartColorRange = 0
+            }
+
+            def RealityKitStruct "spawnedEmitter"
+            {
+            }
+        }
+    }
+}
+

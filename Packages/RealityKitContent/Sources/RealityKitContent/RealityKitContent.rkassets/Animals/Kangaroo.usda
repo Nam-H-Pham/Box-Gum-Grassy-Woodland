@@ -10,25 +10,7 @@
 
 def Xform "Root"
 {
-    def "Kangargoo" (
-        active = true
-        prepend references = @Kangargoo.usdz@
-    )
-    {
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 0, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        over "Materials"
-        {
-            over "Kangaroo__Body___Material"
-            {
-                token outputs:mtlx:surface
-                token outputs:realitykit:vertex
-            }
-        }
-    }
-
+    reorder nameChildren = ["Kangargoo_10", "AnimationLibrary"]
     def RealityKitComponent "AnimationLibrary"
     {
         uniform token info:id = "RealityKit.AnimationLibrary"
@@ -39,6 +21,15 @@ def Xform "Root"
             uniform string sourceAnimationName = "default subtree animation"
             uniform double[] startTimes = [0, 1.0121111111111112, 1.7210941275362455, 6.523700755525328]
         }
+    }
+
+    def "Kangargoo_10" (
+        active = true
+        prepend references = @Kangargoo/Kangargoo-10.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 

@@ -19,11 +19,11 @@ class DistantSpawner {
     init(anchor: AnchorEntity,
          modelFilenames: [(String, ClosedRange<Float>)],
          scale: Float = 1.0,
-         minimumSpacing: Float = 0.0,
+         minimumSpacing: Float = 4.0,
          translation: SIMD3<Float> = .zero,
          center: SIMD3<Float> = .zero,
-         spawnCount: Int = 400,
-         batchSize: Int = 20,
+         spawnCount: Int,
+         batchSize: Int,
          delayBetweenBatches: TimeInterval = 0.4) {
         
         self.translation = translation

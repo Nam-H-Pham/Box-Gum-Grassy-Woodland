@@ -72,7 +72,7 @@ def Material "Rytidosperma_caespitosum_Mat"
     def Shader "Dot_2"
     {
         uniform token info:id = "ND_dot_color3"
-        color3f inputs:in.connect = </Rytidosperma_caespitosum_Mat/Image2D.outputs:out>
+        color3f inputs:in.connect = </Rytidosperma_caespitosum_Mat/Mix.outputs:out>
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-74.97684, -99.29204)
         int ui:nodegraph:node:stackingOrder = 504
@@ -164,6 +164,70 @@ def Material "Rytidosperma_caespitosum_Mat"
         token outputs:out
         float2 ui:nodegraph:node:pos = (151.80322, 386.99588)
         int ui:nodegraph:node:stackingOrder = 2627
+    }
+
+    def Shader "Mix"
+    {
+        uniform token info:id = "ND_mix_color3"
+        color3f inputs:bg.connect = None
+        color3f inputs:fg.connect = </Rytidosperma_caespitosum_Mat/Image2D.outputs:out>
+        float inputs:mix.connect = </Rytidosperma_caespitosum_Mat/Clamp.outputs:out>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-6.5680146, -318.19714)
+        int ui:nodegraph:node:stackingOrder = 2628
+    }
+
+    def Shader "Position"
+    {
+        uniform token info:id = "ND_position_vector3"
+        string inputs:space = "model"
+        float3 outputs:out
+        float2 ui:nodegraph:node:pos = (-775.39307, -271.55023)
+        int ui:nodegraph:node:stackingOrder = 2851
+    }
+
+    def Shader "Separate3"
+    {
+        uniform token info:id = "ND_separate3_vector3"
+        float3 inputs:in.connect = </Rytidosperma_caespitosum_Mat/Position.outputs:out>
+        float outputs:outx
+        float outputs:outy
+        float outputs:outz
+        float2 ui:nodegraph:node:pos = (-595.1875, -271.76172)
+        int ui:nodegraph:node:stackingOrder = 2848
+    }
+
+    def Shader "Clamp"
+    {
+        uniform token info:id = "ND_clamp_float"
+        float inputs:high
+        float inputs:in.connect = </Rytidosperma_caespitosum_Mat/Multiply.outputs:out>
+        float inputs:low = 0
+        float inputs:low.connect = None
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-201.55078, -234.58594)
+        int ui:nodegraph:node:stackingOrder = 2864
+    }
+
+    def Shader "Add"
+    {
+        uniform token info:id = "ND_add_float"
+        float inputs:in1.connect = </Rytidosperma_caespitosum_Mat/Separate3.outputs:outy>
+        float inputs:in2 = 0.5
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-431.1328, -248.92188)
+        int ui:nodegraph:node:stackingOrder = 2861
+    }
+
+    def Shader "Multiply"
+    {
+        uniform token info:id = "ND_multiply_float"
+        float inputs:in1.connect = </Rytidosperma_caespitosum_Mat/Add.outputs:out>
+        float inputs:in2 = 6
+        float outputs:out
+        float2 ui:nodegraph:node:pos = (-327.4336, -270.5703)
+        int ui:nodegraph:node:stackingOrder = 2873
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
     }
 }
 

@@ -1,0 +1,174 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Material "Material"
+    {
+        reorder nameChildren = ["PreviewSurface", "Mix", "FakeShadow"]
+        token outputs:mtlx:surface.connect = </Root/Material/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = </Root/Material/Mix.outputs:out>
+            float inputs:metallic
+            float3 inputs:normal
+            float inputs:opacity.connect = None
+            float inputs:roughness.connect = </Root/Material/FakeShadow.outputs:Darkness>
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (69.16797, 83.28516)
+            int ui:nodegraph:node:stackingOrder = 15
+        }
+
+        def Shader "Mix"
+        {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:bg = (1, 1, 1) (
+                colorSpace = "srgb_displayp3"
+            )
+            color3f inputs:fg
+            float inputs:mix.connect = </Root/Material/FakeShadow.outputs:Darkness>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-124.75, -20.945312)
+            int ui:nodegraph:node:stackingOrder = 29
+        }
+
+        def "FakeShadow" (
+            active = true
+            references = @FakeShadow.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (-361.48047, 56.60547)
+            int ui:nodegraph:node:stackingOrder = 26
+        }
+    }
+
+    def Capsule "Capsule" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (0, 6.482148, 0)
+        }
+    )
+    {
+        uniform token axis = "Y"
+        double height = 0.2
+        rel material:binding = </Root/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        quatf xformOp:orient = (0.9950558, 0, 0.09931757, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.3275439, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Capsule/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+    }
+
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        float3 xformOp:translate = (0, 0, -0.22598574)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+    }
+
+    def "GrassRing_0_5"
+    {
+        def "grass_patch_0_8"
+        {
+            def "Instance_3_8_Rytidosperma_caespitosum_4_LOD1"
+            {
+                def "Rytidosperma_caespitosum_4_LOD1"
+                {
+                    def "Plane_009"
+                    {
+                    }
+                }
+            }
+
+            def "Instance_2_5_Rytidosperma_caespitosum_4_LOD1"
+            {
+                def "Rytidosperma_caespitosum_4_LOD1"
+                {
+                    def "Plane_009"
+                    {
+                    }
+                }
+            }
+
+            def "Instance_2_6_Rytidosperma_caespitosum_3_LOD1"
+            {
+                def "Rytidosperma_caespitosum_3_LOD1"
+                {
+                    def "Plane_006"
+                    {
+                    }
+                }
+            }
+
+            def "Instance_3_6_Rytidosperma_caespitosum_4_LOD1"
+            {
+                def "Rytidosperma_caespitosum_4_LOD1"
+                {
+                    def "Plane_009"
+                    {
+                    }
+                }
+            }
+        }
+
+        def "grass_patch_0_5"
+        {
+            def "Instance_3_0_Rytidosperma_caespitosum_3_LOD1"
+            {
+                def "Rytidosperma_caespitosum_3_LOD1"
+                {
+                    def "Plane_006"
+                    {
+                    }
+                }
+            }
+        }
+    }
+}
+
