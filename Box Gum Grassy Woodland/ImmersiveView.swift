@@ -89,7 +89,7 @@ struct ImmersiveView: View {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 3) {
             Task {
                 removeDistantLandscape(from: content)
             }
@@ -103,15 +103,16 @@ struct ImmersiveView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 8) {
             Task {
+                removeTrees(from: content)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 11) {
+            Task {
                 removeGrass(from: content)
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 10) {
-            Task {
-                removeTrees(from: content)
-            }
-        }
         
     }
 
@@ -163,8 +164,8 @@ struct ImmersiveView: View {
 
     private func removeTrees(from content: RealityViewContent) {
         if let trees = content.entities.first(where: { $0.name == "Trees" }) {
-            fade(for: trees, to: 0, duration: 1)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            fade(for: trees, to: 0, duration: 2)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 content.remove(trees)
             }
         }
@@ -173,7 +174,7 @@ struct ImmersiveView: View {
     private func removeSkyCover(from content: RealityViewContent) {
         if let skyCover = content.entities.first(where: { $0.name == "SkyCover" }) {
             fade(for: skyCover, to: 0, duration: 4)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 content.remove(skyCover)
             }
         }
@@ -182,7 +183,7 @@ struct ImmersiveView: View {
     private func removeDistantLandscape(from content: RealityViewContent) {
         if let distantLandscape = content.entities.first(where: { $0.name == "DistantLandscape" }) {
             fade(for: distantLandscape, to: 0, duration: 3)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 content.remove(distantLandscape)
             }
         }
@@ -191,7 +192,8 @@ struct ImmersiveView: View {
     private func removeGrass(from content: RealityViewContent) {
         if let grass = content.entities.first(where: { $0.name == "GrassAnchor" }) {
             fade(for: grass, to: 0, duration: 5)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                grass.children.removeAll()
                 content.remove(grass)
             }
         }

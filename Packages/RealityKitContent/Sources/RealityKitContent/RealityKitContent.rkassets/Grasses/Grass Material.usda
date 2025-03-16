@@ -161,8 +161,9 @@ def Material "Rytidosperma_caespitosum_Mat"
         references = @Grass Animation.usda@
     )
     {
+        float3 inputs:Wind_Direction = (1, 0, 0)
         float2 ui:nodegraph:node:pos = (-362.0738, 316.81018)
-        int ui:nodegraph:node:stackingOrder = 2426
+        int ui:nodegraph:node:stackingOrder = 3205
     }
 
     def "Heightmap" (
@@ -171,7 +172,7 @@ def Material "Rytidosperma_caespitosum_Mat"
     )
     {
         float2 ui:nodegraph:node:pos = (-316.95605, 472.9543)
-        int ui:nodegraph:node:stackingOrder = 3017
+        int ui:nodegraph:node:stackingOrder = 3205
     }
 
     def Shader "Add"
@@ -181,7 +182,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float3 inputs:in2.connect = </Rytidosperma_caespitosum_Mat/Heightmap.outputs:Height>
         float3 outputs:out
         float2 ui:nodegraph:node:pos = (-80.501816, 383.21014)
-        int ui:nodegraph:node:stackingOrder = 2518
+        int ui:nodegraph:node:stackingOrder = 3205
     }
 
     def Shader "Mix"

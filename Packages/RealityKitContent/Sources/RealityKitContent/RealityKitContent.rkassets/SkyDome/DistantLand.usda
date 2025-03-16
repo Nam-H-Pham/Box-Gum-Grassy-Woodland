@@ -233,5 +233,158 @@ def Xform "Root"
             }
         }
     }
+
+    def "Sky_Dome_1" (
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+        references = @SkyDome.usdz@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (-289.63458, 328.26846)
+        int ui:nodegraph:node:stackingOrder = 3
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (11, 11, 11)
+        float3 xformOp:translate = (0, -60, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Ground_01" (
+            active = false
+        )
+        {
+        }
+
+        over "Grid" (
+            active = false
+        )
+        {
+        }
+
+        over "Looks"
+        {
+            over "GroundMATSG" (
+                active = false
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "GridMATSG" (
+                active = false
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "DomeMATSG"
+            {
+                asset inputs:image = @Mount_Dandenong_upscaled.png@ (
+                    customData = {
+                        dictionary realitykit = {
+                            float2 positionInSubgraph = (-809.14417, 22.825876)
+                            int stackingOrderInSubgraph = 15
+                        }
+                    }
+                )
+                token outputs:mtlx:surface.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/PBRSurface.outputs:out>
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = None
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (112.375, 110.5)
+
+                over "DomeMAT" (
+                    active = false
+                )
+                {
+                    color3f inputs:diffuseColor = (0.08266256, 0.08266256, 0.08266256) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    color3f inputs:diffuseColor.connect = </Root/SkyDome/Looks/DomeMATSG/diffuseColor.outputs:rgb>
+                    float inputs:opacity = 0.8
+                }
+
+                def Shader "diffuseColor"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @rogland_clear_night_4k.hdr@
+                    float2 inputs:st.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/diffuseColor/TexCoordReader.outputs:result>
+                    color3f outputs:rgb
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/Sky_Dome_1/Looks/DomeMATSG.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+
+                def Shader "Image2D"
+                {
+                    uniform token info:id = "ND_RealityKitTexture2D_color3"
+                    string inputs:border_color
+                    float inputs:dynamic_min_lod_clamp
+                    asset inputs:file.connect = </Root/Sky_Dome_1/Looks/DomeMATSG.inputs:image>
+                    bool inputs:no_flip_v = 1
+                    int2 inputs:offset
+                    string inputs:u_wrap_mode
+                    string inputs:v_wrap_mode
+                    color3f outputs:out
+                    float2 ui:nodegraph:node:pos = (-612.54767, 89.80469)
+                    int ui:nodegraph:node:stackingOrder = 1008
+                }
+
+                def Shader "PBRSurface"
+                {
+                    uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+                    float inputs:ambientOcclusion
+                    color3f inputs:baseColor.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Image2D.outputs:out>
+                    float inputs:clearcoat
+                    float3 inputs:clearcoatNormal
+                    float inputs:clearcoatRoughness
+                    color3f inputs:emissiveColor
+                    bool inputs:hasPremultipliedAlpha
+                    float inputs:metallic
+                    float3 inputs:normal
+                    float inputs:opacity.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Step.outputs:out>
+                    float inputs:opacityThreshold = 0.99
+                    float inputs:roughness
+                    float inputs:specular
+                    token outputs:out
+                    float2 ui:nodegraph:node:pos = (-233.7835, 173.31671)
+                    int ui:nodegraph:node:stackingOrder = 1041
+                }
+
+                def Shader "Separate3"
+                {
+                    uniform token info:id = "ND_separate3_color3"
+                    color3f inputs:in.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Image2D.outputs:out>
+                    float outputs:outb
+                    float outputs:outg
+                    float outputs:outr
+                    float2 ui:nodegraph:node:pos = (-625.4802, 386.55118)
+                    int ui:nodegraph:node:stackingOrder = 1054
+                }
+
+                def Shader "Step"
+                {
+                    uniform token info:id = "ND_realitykit_step_float"
+                    float inputs:edge = 0.2
+                    float inputs:edge.connect = None
+                    float inputs:in.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Separate3.outputs:outb>
+                    float outputs:out
+                    float2 ui:nodegraph:node:pos = (-457.3164, 379.08203)
+                    int ui:nodegraph:node:stackingOrder = 1063
+                }
+            }
+        }
+
+        over "Dome_01"
+        {
+            uniform token subdivisionScheme = "none"
+            float3 xformOp:scale = (0.03, 0.03, 0.03)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
 }
 

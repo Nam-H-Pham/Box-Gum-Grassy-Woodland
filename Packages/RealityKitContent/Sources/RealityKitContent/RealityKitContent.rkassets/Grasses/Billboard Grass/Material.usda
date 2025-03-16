@@ -17,8 +17,8 @@ def Material "Rytidosperma_caespitosum_Mat"
     asset inputs:AlphaMap = @textures/output-onlinepngtools-alpha.png@ (
         customData = {
             dictionary realitykit = {
-                float2 positionInSubgraph = (-684.1396, -150.91136)
-                int stackingOrderInSubgraph = 1095
+                float2 positionInSubgraph = (-1008.8039, 115.53425)
+                int stackingOrderInSubgraph = 3264
             }
         }
     )
@@ -55,7 +55,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:specular = 0.5
         token outputs:out
         float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
-        int ui:nodegraph:node:stackingOrder = 1271
+        int ui:nodegraph:node:stackingOrder = 3423
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
     }
 
@@ -64,9 +64,9 @@ def Material "Rytidosperma_caespitosum_Mat"
         uniform token info:id = "ND_dot_float"
         float inputs:in.connect = </Rytidosperma_caespitosum_Mat/Separate4.outputs:outx>
         float outputs:out
-        float2 ui:nodegraph:node:pos = (-68.41439, 114.68096)
-        int ui:nodegraph:node:stackingOrder = 1089
-        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        float2 ui:nodegraph:node:pos = (-378.15323, 131.3394)
+        int ui:nodegraph:node:stackingOrder = 3264
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out", "outputs:out"]
     }
 
     def Shader "Dot_2"
@@ -102,15 +102,6 @@ def Material "Rytidosperma_caespitosum_Mat"
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp", "inputs:no_flip_v"]
     }
 
-    def Shader "Dot_1"
-    {
-        uniform token info:id = "ND_dot_vector3"
-        float3 inputs:in.connect = None
-        float3 outputs:out
-        float2 ui:nodegraph:node:pos = (-76.61219, -64.75849)
-        int ui:nodegraph:node:stackingOrder = 718
-    }
-
     def Shader "Image2D_1"
     {
         uniform token info:id = "ND_RealityKitTexture2D_vector4"
@@ -129,8 +120,8 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:u_wrap_mode
         string inputs:v_wrap_mode
         float4 outputs:out
-        float2 ui:nodegraph:node:pos = (-464.26138, -29.25302)
-        int ui:nodegraph:node:stackingOrder = 1267
+        float2 ui:nodegraph:node:pos = (-774.00024, -12.594585)
+        int ui:nodegraph:node:stackingOrder = 3264
     }
 
     def Shader "Separate4"
@@ -141,8 +132,8 @@ def Material "Rytidosperma_caespitosum_Mat"
         float outputs:outx
         float outputs:outy
         float outputs:outz
-        float2 ui:nodegraph:node:pos = (-219.18825, 142.97026)
-        int ui:nodegraph:node:stackingOrder = 1086
+        float2 ui:nodegraph:node:pos = (-528.92706, 159.6287)
+        int ui:nodegraph:node:stackingOrder = 3264
     }
 
     def "Heightmap" (
@@ -228,6 +219,10 @@ def Material "Rytidosperma_caespitosum_Mat"
         float2 ui:nodegraph:node:pos = (-327.4336, -270.5703)
         int ui:nodegraph:node:stackingOrder = 2873
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
+    }
+
+    def "Dot_1"
+    {
     }
 }
 

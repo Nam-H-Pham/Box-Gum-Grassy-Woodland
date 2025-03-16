@@ -24,8 +24,8 @@ class GlobalState: ObservableObject {
     @Published var trees = try? ModelEntity.load(named: "New Version Assets/SceneTrees", in: realityKitContentBundle)
     
     @Published var grassPatchSpawner = DistantSpawner(anchor: AnchorEntity(world: [0, 0, 0]), modelFilenames: [
-        ("Grasses/Billboard Grass/grass patch", 17...150),
-        ("Grasses/Billboard Grass/grass patch 2", 17...150),
+        ("Grasses/Billboard Grass/grass patch", 17...120),
+        ("Grasses/Billboard Grass/grass patch 2", 17...120),
     ], scale: 0.9, spawnCount: 600, batchSize: 50, delayBetweenBatches: 0.5)
     
     @Published var nearbyGrass = BasicSpawner(anchor: AnchorEntity(world: [0, 0, 0]), modelFilenames: [
