@@ -8,7 +8,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("AR Reconstruction of the Australian Woodlands")
+            Text("AR Reconstruction of the Australian Grasslands")
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
