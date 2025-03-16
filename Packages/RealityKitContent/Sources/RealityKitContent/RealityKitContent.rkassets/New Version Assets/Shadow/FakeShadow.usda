@@ -16,7 +16,15 @@ def NodeGraph "NodeGraph" (
         customData = {
             dictionary realitykit = {
                 float2 positionInSubgraph = (-1170.8646, 75.890305)
-                int stackingOrderInSubgraph = 730
+                int stackingOrderInSubgraph = 862
+            }
+        }
+    )
+    float inputs:DownwardsAngle = 10 (
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-1402.217, 48.468094)
+                int stackingOrderInSubgraph = 865
             }
         }
     )
@@ -99,11 +107,12 @@ def NodeGraph "NodeGraph" (
     {
         uniform token info:id = "ND_rotate3d_vector3"
         float inputs:amount = 10
+        float inputs:amount.connect = </NodeGraph.inputs:DownwardsAngle>
         float3 inputs:axis = (1, 0, 0)
         float3 inputs:in.connect = </NodeGraph/TransformVector.outputs:out>
         float3 outputs:out
         float2 ui:nodegraph:node:pos = (-1126.3373, -18.097977)
-        int ui:nodegraph:node:stackingOrder = 665
+        int ui:nodegraph:node:stackingOrder = 861
     }
 
     def Shader "Normalize"
@@ -120,10 +129,10 @@ def NodeGraph "NodeGraph" (
         uniform token info:id = "ND_clamp_float"
         float inputs:high = 0.9
         float inputs:in.connect = </NodeGraph/RampVertical.outputs:out>
-        float inputs:low
+        float inputs:low = 0
         float outputs:out
         float2 ui:nodegraph:node:pos = (182.6435, 20.801548)
-        int ui:nodegraph:node:stackingOrder = 715
+        int ui:nodegraph:node:stackingOrder = 872
     }
 
     def Shader "Add"

@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Trees", "Trees_2", "Ground_1", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop", "Animals", "Branches_1", "Leaf_Emitter", "Rocks", "Falling_Leaves"]
+    reorder nameChildren = ["Trees", "Trees_2", "Ground_1", "Animals", "Branches_1", "Leaf_Emitter", "Rocks", "Falling_Leaves", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop"]
     def "Trees" (
         active = false
         customData = {
@@ -80,7 +80,7 @@ def Xform "Root"
     )
     {
         def Xform "Trees_1" (
-            active = true
+            active = false
         )
         {
             reorder nameChildren = ["Redgum_Large_LOD2", "Redgum_4_LOD0", "Redgum_3_LOD0", "Redgum_2_LOD0", "Redgum_3_LOD0_1", "Redgum_4_LOD0_1", "Redgum_2_LOD0_1", "Redgum_3_LOD0_2", "Redgum_2_LOD0_2"]
@@ -99,13 +99,21 @@ def Xform "Root"
             {
                 quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
                 float3 xformOp:scale = (1, 1, 1)
-                float3 xformOp:translate = (-2.120624, 0, -2.1582088)
+                float3 xformOp:translate = (-4.335803, 0, -3.033708)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 over "Redgum_2_LOD0"
                 {
                     over "LOD0_001"
                     {
+                    }
+                }
+
+                over "Bark1"
+                {
+                    over "FakeShadow"
+                    {
+                        float inputs:DownwardsAngle = 0
                     }
                 }
             }
@@ -146,6 +154,14 @@ def Xform "Root"
                 float3 xformOp:scale = (0.83, 0.83, 0.83)
                 float3 xformOp:translate = (39.375, 0, 0)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                over "Bark1"
+                {
+                    over "FakeShadow"
+                    {
+                        float inputs:DownwardsAngle = 0
+                    }
+                }
             }
 
             def "Redgum_3_LOD0_1" (
@@ -232,6 +248,12 @@ def Xform "Root"
                 float3 xformOp:scale = (0.83, 0.83000004, 0.83)
                 float3 xformOp:translate = (-0.88920975, 0, -105.56584)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def RealityKitComponent "HierarchicalFade"
+            {
+                uniform token info:id = "RealityKit.HierarchicalFade"
+                float opacity = 0
             }
         }
     }
@@ -753,6 +775,44 @@ def Xform "Root"
             float3 xformOp:translate = (-4.124301, 6, -2.8295407)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
+    }
+
+    def "DistantLand" (
+        active = false
+        references = @../SkyDome/DistantLand.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, -27.702, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "HierarchicalFade"
+        {
+            float opacity = 0
+        }
+    }
+
+    def "SkyCover" (
+        active = false
+        references = @../SkyDome/SkyCover.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "HierarchicalFade"
+        {
+            float opacity = 0
+        }
+    }
+
+    def "Audio_Entity" (
+        active = true
+        prepend references = @Audio/Audio Entity.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
     }
 }
 

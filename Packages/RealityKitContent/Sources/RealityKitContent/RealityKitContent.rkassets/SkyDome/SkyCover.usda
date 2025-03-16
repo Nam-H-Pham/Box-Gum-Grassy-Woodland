@@ -10,63 +10,7 @@
 
 def Xform "Root"
 {
-    def RealityKitComponent "HierarchicalFade"
-    {
-        uniform token info:id = "RealityKit.HierarchicalFade"
-        float opacity = 0.014011335
-    }
-
-    def RealityKitComponent "RCP_BehaviorsContainer"
-    {
-        rel behaviors = </Root/OnAddedToScene>
-        uniform token info:id = "RCP.BehaviorsContainer"
-    }
-
-    def RealityKitTimeline "Show"
-    {
-        def RealityKitTrack "Track"
-        {
-            def RealityKitAction "Show"
-            {
-                string actionKind = "show"
-                int blendLayer = 300
-                double duration = 5
-                uniform token info:id = "7EE23CB2-7564-46E8-83D1-2AEAAD204B78"
-                double startTime = 0
-                rel target = </Root>
-
-                def RealityKitStruct "timingFunction"
-                {
-                    token type = "easeIn"
-                }
-            }
-        }
-    }
-
-    def Preliminary_Behavior "OnAddedToScene"
-    {
-        rel actions = </Root/OnAddedToScene/Action>
-        uniform bool exclusive
-        rel triggers = </Root/OnAddedToScene/Trigger>
-
-        def Preliminary_Trigger "Trigger"
-        {
-            rel affectedObjects = </Root>
-            token info:id = "SceneTransition"
-        }
-
-        def Preliminary_Action "Action"
-        {
-            rel affectedObjects = </Root>
-            rel animationLibraryKey = </Root/Show>
-            rel animationLibraryKeyOverrideKey = </Root/OnAddedToScene/Trigger>
-            token info:id = "PlayTimeline"
-            int loops = 0
-            int performCount = 1
-            token type = "serial"
-        }
-    }
-
+    reorder nameChildren = ["HierarchicalFade", "RCP_BehaviorsContainer", "OnAddedToScene", "Sky_Dome"]
     def "Sky_Dome" (
         references = @SkyDome.usdz@
     )

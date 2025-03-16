@@ -31,13 +31,17 @@ struct ContentView: View {
                     .padding(.vertical, 10)
                 
                 // Dropdown section for additional settings
-                DisclosureGroup("Settings") {
+                DisclosureGroup("Developer Settings") {
                     VStack(alignment: .leading, spacing: 10) {
                         Toggle("Show Skybox", isOn: $globalState.showSkybox)
                             .padding(.vertical, 5)
                         Toggle("Show Landscape", isOn: $globalState.showLandscape)
                             .padding(.vertical, 5)
                         Toggle("Show Grass", isOn: $globalState.showGrass)
+                            .padding(.vertical, 5)
+                        Toggle("Show Trees", isOn: $globalState.showTrees)
+                            .padding(.vertical, 5)
+                        Toggle("Show Distant Land", isOn: $globalState.showDistantLandscape)
                             .padding(.vertical, 5)
                     }
                     .padding(.top, 10)
@@ -48,7 +52,7 @@ struct ContentView: View {
                 .padding(.horizontal)
             }
         }
-        .frame(width: 500, height: 400) // Adjusted height to accommodate the new dropdown section
+        .frame(width: 500, height: 500) // Adjusted height to accommodate the new dropdown section
         .padding(20)
         .fixedSize(horizontal: true, vertical: true)
     }

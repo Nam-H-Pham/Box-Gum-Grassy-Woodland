@@ -1,0 +1,251 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Trees_1"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Trees_1" (
+    active = true
+)
+{
+    reorder nameChildren = ["Redgum_Large_LOD2", "Redgum_4_LOD0", "Redgum_3_LOD0", "Redgum_2_LOD0", "Redgum_3_LOD0_1", "Redgum_4_LOD0_1", "Redgum_2_LOD0_1", "Redgum_3_LOD0_2", "Redgum_2_LOD0_2", "Timeline"]
+    quatf xformOp:orient = (1, 0, 0, 0)
+    float3 xformOp:scale = (1, 1, 1)
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def "Redgum_2_LOD0" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, -6.283185)
+        }
+        references = @../Trees/Red Gum/Redgum_2_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-4.335803, 0, -3.033708)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Redgum_2_LOD0"
+        {
+            over "LOD0_001"
+            {
+            }
+        }
+
+        over "Bark1"
+        {
+            over "FakeShadow"
+            {
+                float inputs:DownwardsAngle = 0
+            }
+        }
+    }
+
+    def "Redgum_3_LOD0" (
+        active = true
+        references = @../Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        float3 xformOp:scale = (0.83, 0.83, 0.83)
+        float3 xformOp:translate = (14.483, 0, 53.607)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_4_LOD0" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        references = @../Trees/Red Gum/Redgum_4_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (0.83, 0.83, 0.83)
+        float3 xformOp:translate = (70.581, 0, -89.575)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_Large_LOD2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707961, -0.7649779, 4.131192e-8)
+        }
+        references = @../Trees/Red Gum/Redgum_Large_LOD2.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.65601027, -0.65601015, -0.263914, -0.26391393)
+        float3 xformOp:scale = (0.83, 0.83, 0.83)
+        float3 xformOp:translate = (39.375, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Bark1"
+        {
+            over "FakeShadow"
+            {
+                float inputs:DownwardsAngle = 0
+            }
+        }
+    }
+
+    def "Redgum_3_LOD0_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 1.1850786, 7.921424e-8)
+        }
+        references = @../Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.82952523, -2.2119357e-8, 0.55846924, 3.2855105e-8)
+        float3 xformOp:scale = (0.83, 0.83, 0.83)
+        float3 xformOp:translate = (-90.421, 0, 97.708)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_4_LOD0_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        references = @../Trees/Red Gum/Redgum_4_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (0.83, 0.83, 0.83)
+        float3 xformOp:translate = (-75.942, 0, -88.6)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_LOD0_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, -0.84793234, 0)
+        }
+        references = @../Trees/Red Gum/Redgum_2_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.6445027, -0.6445027, -0.29088867, -0.29088867)
+        float3 xformOp:scale = (0.83, 0.83, 0.83)
+        float3 xformOp:translate = (142.04805, 0, 41.966293)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_LOD0_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -5.202572, 0)
+        }
+        references = @../Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.857551, 0, 0.514399, 0)
+        float3 xformOp:scale = (0.83, 0.83000004, 0.83)
+        float3 xformOp:translate = (-0.88920975, 0, 129.91382)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_2_LOD0_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-4.7123885, 5.6871886, -9.424778)
+        }
+        references = @../Trees/Red Gum/Redgum_2_LOD0.usdc@
+    )
+    {
+        quatf xformOp:orient = (-0.20761171, 0.20761171, 0.6759418, 0.6759418)
+        float3 xformOp:scale = (0.83, 0.83, 0.83000004)
+        float3 xformOp:translate = (102.53641, -4.7683716e-7, 109.85835)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Redgum_3_LOD0_3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -5.202572, 0)
+        }
+        references = @../Trees/Red Gum/Redgum_3_LOD0.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.857551, 0, 0.514399, 0)
+        float3 xformOp:scale = (0.83, 0.83000004, 0.83)
+        float3 xformOp:translate = (-0.88920975, 0, -105.56584)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "leaves-rustling-236742.mp3"
+                bool controlPlayback = 1
+                double duration = 6.008145833333334
+                double gain = 0
+                uniform token info:id = "2A88B59B-0D4E-46CC-94BC-65D5B6D3EF40"
+                double startTime = 0
+                rel target = </Trees_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitComponent "AudioLibrary"
+    {
+        uniform token info:id = "RealityKit.AudioLibrary"
+
+        def RealityKitDict "resources"
+        {
+            string[] keys = ["leaves-rustling-236742.mp3"]
+            rel values = </Trees_1/leaves_rustling_236742_mp3>
+        }
+    }
+
+    def RealityKitAudioFile "leaves_rustling_236742_mp3"
+    {
+        uniform asset file = @Audio/leaves-rustling-236742.mp3@
+        uniform bool shouldLoop = 0
+    }
+
+    def RealityKitComponent "RCP_BehaviorsContainer"
+    {
+        rel behaviors = </Trees_1/OnAddedToScene>
+        uniform token info:id = "RCP.BehaviorsContainer"
+    }
+
+    def Preliminary_Behavior "OnAddedToScene"
+    {
+        rel actions = </Trees_1/OnAddedToScene/Action>
+        uniform bool exclusive
+        rel triggers = </Trees_1/OnAddedToScene/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Trees_1>
+            token info:id = "SceneTransition"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Trees_1>
+            rel animationLibraryKey = </Trees_1/Timeline>
+            rel animationLibraryKeyOverrideKey = </Trees_1/OnAddedToScene/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+}
+

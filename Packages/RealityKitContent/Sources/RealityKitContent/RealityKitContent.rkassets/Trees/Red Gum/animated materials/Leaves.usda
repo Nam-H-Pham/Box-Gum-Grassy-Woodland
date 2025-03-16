@@ -22,7 +22,7 @@ def Material "Leaves"
             }
         }
     )
-    float inputs:Amplitude = 0.01 (
+    float inputs:Amplitude = 0.005 (
         customData = {
             dictionary realitykit = {
                 float2 positionInSubgraph = (-41.54184, 248.66017)

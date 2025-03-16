@@ -12,7 +12,7 @@ def NodeGraph "NodeGraph" (
     active = true
 )
 {
-    float inputs:Amplitude = 2 (
+    float inputs:Amplitude = 2.3 (
         customData = {
             dictionary realitykit = {
                 float2 positionInSubgraph = (-536.1608, -76.2878)

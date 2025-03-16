@@ -170,8 +170,8 @@ def Material "Rytidosperma_caespitosum_Mat"
         references = @../Ground/Heightmap.usda@
     )
     {
-        float2 ui:nodegraph:node:pos = (-312.3921, 454.9012)
-        int ui:nodegraph:node:stackingOrder = 2518
+        float2 ui:nodegraph:node:pos = (-316.95605, 472.9543)
+        int ui:nodegraph:node:stackingOrder = 3017
     }
 
     def Shader "Add"
