@@ -220,9 +220,5 @@ def Material "Rytidosperma_caespitosum_Mat"
         int ui:nodegraph:node:stackingOrder = 2873
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
     }
-
-    def "Dot_1"
-    {
-    }
 }
 

@@ -1,0 +1,103 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Rytidosperma_caespitosum_Mat"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Material "Rytidosperma_caespitosum_Mat"
+{
+    reorder nameChildren = ["PBRSurface", "Dot", "Dot_2", "Image2D", "Dot_1", "Image2D_1", "Separate4", "Grass_Animation"]
+    token cullMode = "back" (
+        allowedTokens = ["unspecified", "none", "front", "back"]
+    )
+    asset inputs:ColorMap = @textures/bill1.png@ (
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-524.8635, -483.09747)
+                int stackingOrderInSubgraph = 427
+            }
+        }
+    )
+    token outputs:mtlx:surface.connect = </Rytidosperma_caespitosum_Mat/PBRSurface.outputs:out>
+    token outputs:realitykit:vertex
+    float2 ui:nodegraph:node:pos = (35.550888, -86.630264)
+    int ui:nodegraph:node:stackingOrder = 5
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (430.98355, 118.836945)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 677
+
+    def Shader "PBRSurface"
+    {
+        uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+        float inputs:ambientOcclusion
+        color3f inputs:baseColor.connect = </Rytidosperma_caespitosum_Mat/Dot_2.outputs:out>
+        float inputs:clearcoat
+        float3 inputs:clearcoatNormal
+        float inputs:clearcoatRoughness
+        color3f inputs:emissiveColor
+        bool inputs:hasPremultipliedAlpha
+        float inputs:metallic
+        float3 inputs:normal.connect = </Rytidosperma_caespitosum_Mat/Dot_1.outputs:out>
+        float inputs:opacity.connect = </Rytidosperma_caespitosum_Mat/Separate3.outputs:outb>
+        float inputs:opacityThreshold = 0.04
+        float inputs:roughness = 0.5
+        float inputs:specular = 0.5
+        float inputs:specular.connect = None
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
+        int ui:nodegraph:node:stackingOrder = 3533
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
+    }
+
+    def Shader "Dot_2"
+    {
+        uniform token info:id = "ND_dot_color3"
+        color3f inputs:in.connect = </Rytidosperma_caespitosum_Mat/Image2D.outputs:out>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-74.97684, -99.29204)
+        int ui:nodegraph:node:stackingOrder = 504
+    }
+
+    def Shader "Image2D"
+    {
+        uniform token info:id = "ND_RealityKitTexture2D_color3"
+        float inputs:bias
+        string inputs:border_color = "transparent_black"
+        color3f inputs:default
+        float inputs:dynamic_min_lod_clamp
+        asset inputs:file.connect = </Rytidosperma_caespitosum_Mat.inputs:ColorMap>
+        string inputs:mag_filter
+        int inputs:max_anisotropy
+        string inputs:min_filter
+        float inputs:min_lod_clamp
+        string inputs:mip_filter
+        bool inputs:no_flip_v = 1
+        int2 inputs:offset
+        float2 inputs:texcoord
+        string inputs:u_wrap_mode
+        string inputs:v_wrap_mode
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
+        int ui:nodegraph:node:stackingOrder = 3501
+        string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp", "inputs:no_flip_v"]
+    }
+
+    def Shader "Separate3"
+    {
+        uniform token info:id = "ND_separate3_color3"
+        color3f inputs:in.connect = </Rytidosperma_caespitosum_Mat/Image2D.outputs:out>
+        float outputs:outb
+        float outputs:outg
+        float outputs:outr
+        float2 ui:nodegraph:node:pos = (-251.03125, -32.54297)
+        int ui:nodegraph:node:stackingOrder = 3502
+    }
+
+    def "Dot_1"
+    {
+    }
+}
+

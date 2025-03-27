@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9DC183E2D30BA3100C169B6"
-               BuildableName = "Box Gum Grassy Woodland.app"
+               BuildableName = "Australian Grasslands.app"
                BlueprintName = "Box Gum Grassy Woodland"
                ReferencedContainer = "container:Box Gum Grassy Woodland.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9DC183E2D30BA3100C169B6"
-            BuildableName = "Box Gum Grassy Woodland.app"
+            BuildableName = "Australian Grasslands.app"
             BlueprintName = "Box Gum Grassy Woodland"
             ReferencedContainer = "container:Box Gum Grassy Woodland.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9DC183E2D30BA3100C169B6"
-            BuildableName = "Box Gum Grassy Woodland.app"
+            BuildableName = "Australian Grasslands.app"
             BlueprintName = "Box Gum Grassy Woodland"
             ReferencedContainer = "container:Box Gum Grassy Woodland.xcodeproj">
          </BuildableReference>

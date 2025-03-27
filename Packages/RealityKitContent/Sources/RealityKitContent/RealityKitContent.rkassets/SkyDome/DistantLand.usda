@@ -10,31 +10,9 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["RCP_BehaviorsContainer", "Show_Distant_Land", "OnAddedToScene", "Sky_Dome", "Hide_Distant_Land", "Hide_Distant_Land_Instant", "HierarchicalFade"]
+    reorder nameChildren = ["Sky_Dome", "Dandenong_Ranges"]
     float3 xformOp:translate = (0, -30, 0)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-    def RealityKitTimeline "Show_Distant_Land"
-    {
-        reorder nameChildren = ["Track", "Track2", "Track3"]
-        def RealityKitTrack "Track3"
-        {
-            def RealityKitAction "Show"
-            {
-                string actionKind = "show"
-                int blendLayer = 300
-                double duration = 10
-                uniform token info:id = "7EE23CB2-7564-46E8-83D1-2AEAAD204B78"
-                double startTime = 0
-                rel target = </Root>
-
-                def RealityKitStruct "timingFunction"
-                {
-                    token type = "easeIn"
-                }
-            }
-        }
-    }
 
     def "Sky_Dome" (
         references = @SkyDome.usdz@
@@ -191,50 +169,7 @@ def Xform "Root"
         }
     }
 
-    def RealityKitTimeline "Hide_Distant_Land"
-    {
-        def RealityKitTrack "Track"
-        {
-            def RealityKitAction "Hide"
-            {
-                string actionKind = "hide"
-                int blendLayer = 300
-                double duration = 15
-                uniform token info:id = "451123D3-380B-4EAB-A3AC-518EEAD41AF1"
-                double startTime = 0
-                rel target = </Root>
-
-                def RealityKitStruct "timingFunction"
-                {
-                }
-            }
-        }
-    }
-
-    def RealityKitTimeline "Hide_Distant_Land_Instant"
-    {
-        float2 ui:nodegraph:node:pos = (20, 20)
-        int ui:nodegraph:node:stackingOrder = 1
-
-        def RealityKitTrack "Track"
-        {
-            def RealityKitAction "Hide"
-            {
-                string actionKind = "hide"
-                int blendLayer = 300
-                double duration = 0
-                uniform token info:id = "451123D3-380B-4EAB-A3AC-518EEAD41AF1"
-                double startTime = 0
-                rel target = </Root>
-
-                def RealityKitStruct "timingFunction"
-                {
-                }
-            }
-        }
-    }
-
-    def "Sky_Dome_1" (
+    def "Dandenong_Ranges" (
         customData = {
             float3 rotationEulerHint = (0, 0, 0)
         }
@@ -288,7 +223,7 @@ def Xform "Root"
                         }
                     }
                 )
-                token outputs:mtlx:surface.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/PBRSurface.outputs:out>
+                token outputs:mtlx:surface.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG/PBRSurface.outputs:out>
                 token outputs:realitykit:vertex
                 token outputs:surface.connect = None
                 float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (112.375, 110.5)
@@ -308,13 +243,13 @@ def Xform "Root"
                 {
                     uniform token info:id = "UsdUVTexture"
                     asset inputs:file = @rogland_clear_night_4k.hdr@
-                    float2 inputs:st.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/diffuseColor/TexCoordReader.outputs:result>
+                    float2 inputs:st.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG/diffuseColor/TexCoordReader.outputs:result>
                     color3f outputs:rgb
 
                     def Shader "TexCoordReader"
                     {
                         uniform token info:id = "UsdPrimvarReader_float2"
-                        token inputs:varname.connect = </Root/Sky_Dome_1/Looks/DomeMATSG.inputs:frame:stPrimvarName>
+                        token inputs:varname.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG.inputs:frame:stPrimvarName>
                         float2 outputs:result
                     }
                 }
@@ -324,7 +259,7 @@ def Xform "Root"
                     uniform token info:id = "ND_RealityKitTexture2D_color3"
                     string inputs:border_color
                     float inputs:dynamic_min_lod_clamp
-                    asset inputs:file.connect = </Root/Sky_Dome_1/Looks/DomeMATSG.inputs:image>
+                    asset inputs:file.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG.inputs:image>
                     bool inputs:no_flip_v = 1
                     int2 inputs:offset
                     string inputs:u_wrap_mode
@@ -338,7 +273,7 @@ def Xform "Root"
                 {
                     uniform token info:id = "ND_realitykit_pbr_surfaceshader"
                     float inputs:ambientOcclusion
-                    color3f inputs:baseColor.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Image2D.outputs:out>
+                    color3f inputs:baseColor.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG/Image2D.outputs:out>
                     float inputs:clearcoat
                     float3 inputs:clearcoatNormal
                     float inputs:clearcoatRoughness
@@ -346,7 +281,7 @@ def Xform "Root"
                     bool inputs:hasPremultipliedAlpha
                     float inputs:metallic
                     float3 inputs:normal
-                    float inputs:opacity.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Step.outputs:out>
+                    float inputs:opacity.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG/Step.outputs:out>
                     float inputs:opacityThreshold = 0.99
                     float inputs:roughness
                     float inputs:specular
@@ -358,7 +293,7 @@ def Xform "Root"
                 def Shader "Separate3"
                 {
                     uniform token info:id = "ND_separate3_color3"
-                    color3f inputs:in.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Image2D.outputs:out>
+                    color3f inputs:in.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG/Image2D.outputs:out>
                     float outputs:outb
                     float outputs:outg
                     float outputs:outr
@@ -371,7 +306,7 @@ def Xform "Root"
                     uniform token info:id = "ND_realitykit_step_float"
                     float inputs:edge = 0.2
                     float inputs:edge.connect = None
-                    float inputs:in.connect = </Root/Sky_Dome_1/Looks/DomeMATSG/Separate3.outputs:outb>
+                    float inputs:in.connect = </Root/Dandenong_Ranges/Looks/DomeMATSG/Separate3.outputs:outb>
                     float outputs:out
                     float2 ui:nodegraph:node:pos = (-457.3164, 379.08203)
                     int ui:nodegraph:node:stackingOrder = 1063

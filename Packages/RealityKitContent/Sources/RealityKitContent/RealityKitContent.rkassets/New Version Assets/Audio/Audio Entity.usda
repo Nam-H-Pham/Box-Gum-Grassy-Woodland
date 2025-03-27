@@ -19,29 +19,33 @@ def Xform "Root"
 
         def RealityKitDict "resources"
         {
-            string[] keys = ["Grassland Ambience.mp3"]
-            rel values = </Root/Grassland_Ambience_mp3>
+            string[] keys = ["Grassland Ambience.mp3", "Grassland Ambience.wav"]
+            rel values = [
+                </Root/Grassland_Ambience_mp3>,
+                </Root/Grassland_Ambience_wav>,
+            ]
         }
     }
 
     def RealityKitAudioFile "Grassland_Ambience_mp3"
     {
         uniform asset file = @Grassland Ambience.mp3@
-        uniform token normalization = "dynamic"
+        uniform token normalization = "none"
         uniform bool shouldLoop = 0
     }
 
     def RealityKitTimeline "Timeline"
     {
+        reorder nameChildren = ["Track", "Track2"]
         def RealityKitTrack "Track"
         {
             def RealityKitAction "Play_Audio"
             {
                 string actionKind = "audio"
-                string audioResourceName = "Grassland Ambience.mp3"
+                string audioResourceName = "Grassland Ambience.wav"
                 bool controlPlayback = 1
-                double duration = 45
-                double gain = -24.861460957178842
+                double duration = 67.73433333333334
+                double gain = 0
                 uniform token info:id = "2D26B1EA-4F18-4061-94EF-F30D5F1F73DB"
                 double startTime = 0
                 rel target = </Root>
@@ -81,6 +85,12 @@ def Xform "Root"
             int performCount = 1
             token type = "serial"
         }
+    }
+
+    def RealityKitAudioFile "Grassland_Ambience_wav"
+    {
+        uniform asset file = @Grassland Ambience.wav@
+        uniform bool shouldLoop = 0
     }
 }
 

@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Trees", "Trees_2", "Ground_1", "Animals", "Branches_1", "Leaf_Emitter", "Rocks", "Falling_Leaves", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop"]
+    reorder nameChildren = ["Trees", "Trees_2", "Ground_1", "Animals", "Branches_1", "Leaf_Emitter", "Rocks", "Falling_Leaves", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop", "Bird_Audio"]
     def "Trees" (
         active = false
         customData = {
@@ -631,7 +631,10 @@ def Xform "Root"
 
             def RealityKitComponent "RCP_BehaviorsContainer"
             {
-                rel behaviors = </Root/Animals/Birds_1/OnAddedToScene>
+                rel behaviors = [
+                    </Root/Animals/Birds_1/OnAddedToScene>,
+                    </Root/Animals/Birds_1/OnAddedToScene2>,
+                ]
                 uniform token info:id = "RCP.BehaviorsContainer"
             }
 
@@ -652,6 +655,44 @@ def Xform "Root"
                     rel affectedObjects = </Root>
                     rel animationLibraryKey = </Root/Looping_Birds>
                     rel animationLibraryKeyOverrideKey = </Root/Animals/Birds_1/OnAddedToScene/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+
+            def RealityKitComponent "AudioLibrary"
+            {
+                uniform token info:id = "RealityKit.AudioLibrary"
+
+                def RealityKitDict "resources"
+                {
+                    string[] keys = ["Yellow Tailed Black Cockatoo.mp3", "Yellow Tailed Black Cockatoo.wav"]
+                    rel values = [
+                        </Root/Yellow_Tailed_Black_Cockatoo_mp3>,
+                        </Root/Yellow_Tailed_Black_Cockatoo_wav>,
+                    ]
+                }
+            }
+
+            def Preliminary_Behavior "OnAddedToScene2"
+            {
+                rel actions = </Root/Animals/Birds_1/OnAddedToScene2/Action>
+                uniform bool exclusive
+                rel triggers = </Root/Animals/Birds_1/OnAddedToScene2/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/Animals/Birds_1>
+                    token info:id = "SceneTransition"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/Bird_Audio>
+                    rel animationLibraryKeyOverrideKey = </Root/Animals/Birds_1/OnAddedToScene2/Trigger>
                     token info:id = "PlayTimeline"
                     int loops = 0
                     int performCount = 1
@@ -809,10 +850,154 @@ def Xform "Root"
 
     def "Audio_Entity" (
         active = true
-        prepend references = @Audio/Audio Entity.usda@
+        references = @Audio/Audio Entity.usda@
     )
     {
-        float3 xformOp:scale = (1, 1, 1)
+        over "Grassland_Ambience_mp3"
+        {
+            uniform token normalization = "none"
+        }
+    }
+
+    def "plane2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-10.995574, -1.5707963, 0)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        quatf xformOp:orient = (-0.4905379, 0.4905379, 0.50928634, 0.50928634)
+        float3 xformOp:scale = (30, 30, 30.000004)
+        float3 xformOp:translate = (-217.4376, 0, 41.16176)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "plane2_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (30, 30, 30)
+        float3 xformOp:translate = (-5.073568, 0, -233.80693)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "plane2_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707961, -0.7744962, -1.2508436e-7)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.65474683, -0.6547467, -0.267033, -0.26703304)
+        float3 xformOp:scale = (30, 29.999996, 29.999996)
+        float3 xformOp:translate = (163.53357, 0, -165.03479)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "plane2_3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707945, -1.4234567, -0.0000018270272)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.5354455, -0.5354453, -0.4618421, -0.46184212)
+        float3 xformOp:scale = (30, 29.999996, 29.999996)
+        float3 xformOp:translate = (199.08334, 0, -3.8654327)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "plane2_4" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-14.137166, -0.5662682, 0)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.67895305, -0.67895305, -0.19754183, -0.19754182)
+        float3 xformOp:scale = (30, 30.000002, 30.000004)
+        float3 xformOp:translate = (-161.03967, 0, 243.96967)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "plane2_5" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-4.712389, -0.02632922, 3.1415925)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (-0.009308515, 0.009308517, 0.70704544, 0.70704556)
+        float3 xformOp:scale = (29.999992, 29.999994, 29.999992)
+        float3 xformOp:translate = (30.483986, 0, 261.9726)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "plane2_6" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-4.712389, -0.91366833, 3.1415925)
+        }
+        references = @../Trees/Billboarded/plane2.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (-0.3119112, 0.31191126, 0.63459533, 0.6345955)
+        float3 xformOp:scale = (29.999992, 29.999992, 29.99999)
+        float3 xformOp:translate = (188.89201, 0.0000019073486, 205.35391)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RealityKitTimeline "Bird_Audio"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "Yellow Tailed Black Cockatoo.wav"
+                bool controlPlayback = 1
+                double duration = 19.853166666666667
+                uniform token info:id = "0DFDEDBA-2951-459A-B266-227B4B889DE7"
+                double startTime = 2.1490089823580036
+                rel target = </Root/Animals/Birds_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "Yellow_Tailed_Black_Cockatoo_mp3"
+    {
+        uniform asset file = @Audio/Yellow Tailed Black Cockatoo.mp3@
+        uniform bool shouldLoop = 0
+    }
+
+    def RealityKitAudioFile "Yellow_Tailed_Black_Cockatoo_wav"
+    {
+        uniform asset file = @Audio/Yellow Tailed Black Cockatoo.wav@
+        uniform bool shouldLoop = 0
     }
 }
 

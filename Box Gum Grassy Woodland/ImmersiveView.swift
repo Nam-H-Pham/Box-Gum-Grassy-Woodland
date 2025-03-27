@@ -191,11 +191,11 @@ struct ImmersiveView: View {
 
     private func removeGrass(from content: RealityViewContent) {
         if let grass = content.entities.first(where: { $0.name == "GrassAnchor" }) {
-            fade(for: grass, to: 0, duration: 5)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                grass.children.removeAll()
-                content.remove(grass)
-            }
+            fade(for: grass, to: 0, duration: 4)
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//                grass.children.removeAll()
+//                content.remove(grass)
+//            }
         }
     }
 
