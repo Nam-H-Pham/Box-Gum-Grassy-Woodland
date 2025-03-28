@@ -126,6 +126,10 @@ struct ImmersiveView: View {
     private func addTrees(to content: RealityViewContent) {
         globalState.trees?.name = "Trees"
         setInvisible(entity: globalState.trees ?? Entity())
+        globalState.trees?.components.set(EnvironmentLightingConfigurationComponent(
+            environmentLightingWeight: globalState.envLightIntensity))
+        globalState.landscape?.components.set(EnvironmentLightingConfigurationComponent(
+            environmentLightingWeight: globalState.envLightIntensity))
         content.add(globalState.trees ?? Entity())
         fade(for: globalState.trees ?? Entity(), to: 1, duration: 2)
     }
@@ -149,6 +153,10 @@ struct ImmersiveView: View {
         grassAnchor.addChild(globalState.grassPatchSpawner.getAnchor())
         grassAnchor.addChild(globalState.nearbyGrass.getAnchor())
         setInvisible(entity: grassAnchor)
+        globalState.nearbyGrass.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
+            environmentLightingWeight: globalState.envLightIntensity))
+        globalState.grassPatchSpawner.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
+            environmentLightingWeight: globalState.envLightIntensity))
         content.add(grassAnchor)
         fade(for: grassAnchor, to: 1, duration: 5)
     }

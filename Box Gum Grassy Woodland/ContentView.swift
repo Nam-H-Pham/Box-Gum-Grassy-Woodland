@@ -33,6 +33,19 @@ struct ContentView: View {
                 // Dropdown section for additional settings
                 DisclosureGroup("Developer Settings") {
                     VStack(alignment: .leading, spacing: 10) {
+                        
+                        
+                        // Environment Light Intensity slider
+                        HStack {
+                            Text("Env. Light Intensity:")
+                            Slider(value: $globalState.envLightIntensity, in: 0...0.9, step: 0.1)
+                                .frame(width: 200)
+                            Text("\(globalState.envLightIntensity, specifier: "%.1f")")
+                                .frame(width: 40, alignment: .trailing)
+                        }
+                        .padding(.vertical, 5)
+                        
+                        
                         Toggle("Show Skybox", isOn: $globalState.showSkybox)
                             .padding(.vertical, 5)
                         Toggle("Show Landscape", isOn: $globalState.showLandscape)

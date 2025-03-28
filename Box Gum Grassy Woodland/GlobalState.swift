@@ -18,6 +18,8 @@ class GlobalState: ObservableObject {
     @Published var showLandscape: Bool = true
     @Published var showGrass: Bool = true
     
+    @Published var envLightIntensity: Float = 0.9
+    
     @Published var landscape = try? ModelEntity.load(named: "New Version Assets/Scene", in: realityKitContentBundle)
     @Published var skyCover = try? ModelEntity.load(named: "SkyDome/SkyCover", in: realityKitContentBundle)
     @Published var distantLandscape = try? ModelEntity.load(named: "SkyDome/DistantLand", in: realityKitContentBundle)
