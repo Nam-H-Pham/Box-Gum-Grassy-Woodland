@@ -1,0 +1,138 @@
+#usda 1.0
+
+def Xform "World"
+{
+    float3 xformOp:scale = (100, 100, 100)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def Xform "Assets"
+    {
+        def Xform "grass_patch" (
+            kind = "component"
+            prepend references = @./15.0_3.2.usda@</World>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance_0_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 180, 0)
+        double3 xformOp:translate = (-22.5, 0, -22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_1_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 180, 0)
+        double3 xformOp:translate = (-7.5, 0, -22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_2_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 180, 0)
+        double3 xformOp:translate = (7.5, 0, -22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_3_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:translate = (22.5, 0, -22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_4_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 270, 0)
+        double3 xformOp:translate = (-22.5, 0, -7.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_5_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 270, 0)
+        double3 xformOp:translate = (22.5, 0, -7.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_6_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 270, 0)
+        double3 xformOp:translate = (-22.5, 0, 7.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_7_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 180, 0)
+        double3 xformOp:translate = (22.5, 0, 7.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_8_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 0)
+        double3 xformOp:translate = (-22.5, 0, 22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_9_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 90, 0)
+        double3 xformOp:translate = (-7.5, 0, 22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_10_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 270, 0)
+        double3 xformOp:translate = (7.5, 0, 22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "Instance_11_grass_patch" (
+        instanceable = true
+        prepend references = </World/Assets/grass_patch>
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 180, 0)
+        double3 xformOp:translate = (22.5, 0, 22.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+

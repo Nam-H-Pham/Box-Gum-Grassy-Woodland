@@ -1,0 +1,99 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.120.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    float3 xformOp:translate = (0, -0.249, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def "Close_Tree_Leaves" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @Close Tree Leaves.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "_materials"
+        {
+            over "MI_Tree_L_01_Leaves_SM_Tree_L_01_001"
+            {
+                token cullMode = "none" (
+                    allowedTokens = ["unspecified", "none", "front", "back"]
+                )
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 117)
+
+                over "Principled_BSDF"
+                {
+                    float inputs:opacityThreshold = 0.3333
+                    delete float inputs:roughness.connect = </Root/Close_Tree_Leaves/_materials/MI_Tree_L_01_Leaves_SM_Tree_L_01_001/roughness.outputs:r>
+                }
+            }
+
+            over "MI_Tree_L_01_Leaves_SM_Tree_L_01"
+            {
+                token cullMode = "none" (
+                    allowedTokens = ["unspecified", "none", "front", "back"]
+                )
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 117)
+
+                over "Principled_BSDF"
+                {
+                    float inputs:opacityThreshold = 0.3333
+                    delete float inputs:roughness.connect = </Root/Close_Tree_Leaves/_materials/MI_Tree_L_01_Leaves_SM_Tree_L_01/roughness.outputs:r>
+                }
+            }
+        }
+    }
+
+    def "Close_Trees_Trunks" (
+        active = true
+        references = None
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree_Trunks" (
+        active = true
+        prepend references = @Close Trees Trunks/Tree Trunks.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "MI_Tree_L_01_Base"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "MI_Tree_L_01_Tile_001"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "MI_Tree_L_01_Tile"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+        }
+    }
+}
+

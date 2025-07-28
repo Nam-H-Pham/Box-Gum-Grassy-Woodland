@@ -1,0 +1,82 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.120.2)"
+    }
+    defaultPrim = ""
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Material "Material"
+{
+    asset inputs:ImageFile = @Singles/Tree1.png@ (
+        colorSpace = "srgb_texture"
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-785.8539, 53.74145)
+                int stackingOrderInSubgraph = 333
+            }
+        }
+    )
+    token outputs:mtlx:surface.connect = </Material/PBRSurface.outputs:out>
+    token outputs:realitykit:vertex
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (421.4336, 100.5)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 335
+
+    def Shader "Separate4"
+    {
+        uniform token info:id = "ND_separate4_vector4"
+        float4 inputs:in.connect = </Material/Image2D.outputs:out>
+        float outputs:outw
+        float outputs:outx
+        float outputs:outy
+        float outputs:outz
+        float2 ui:nodegraph:node:pos = (-206.54926, 186.54614)
+        int ui:nodegraph:node:stackingOrder = 333
+    }
+
+    def Shader "Image2D"
+    {
+        uniform token info:id = "ND_RealityKitTexture2D_vector4"
+        float inputs:dynamic_min_lod_clamp
+        asset inputs:file.connect = </Material.inputs:ImageFile>
+        bool inputs:no_flip_v = 1
+        int2 inputs:offset
+        string inputs:u_wrap_mode
+        float4 outputs:out
+        float2 ui:nodegraph:node:pos = (-429.84222, 91.83911)
+        int ui:nodegraph:node:stackingOrder = 333
+    }
+
+    def Shader "Combine3"
+    {
+        uniform token info:id = "ND_combine3_color3"
+        float inputs:in1.connect = </Material/Separate4.outputs:outx>
+        float inputs:in2.connect = </Material/Separate4.outputs:outy>
+        float inputs:in3.connect = </Material/Separate4.outputs:outz>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-119.9399, 81.54224)
+        int ui:nodegraph:node:stackingOrder = 333
+    }
+
+    def Shader "PBRSurface"
+    {
+        uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+        color3f inputs:baseColor.connect = </Material/Combine3.outputs:out>
+        float inputs:clearcoat
+        float3 inputs:clearcoatNormal
+        float inputs:clearcoatRoughness
+        color3f inputs:emissiveColor
+        bool inputs:hasPremultipliedAlpha
+        float inputs:metallic
+        float3 inputs:normal
+        float inputs:opacity.connect = </Material/Separate4.outputs:outw>
+        float inputs:opacityThreshold = 0.33
+        float inputs:roughness = 1
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (139.01683, 98.56264)
+        int ui:nodegraph:node:stackingOrder = 354
+    }
+}
+

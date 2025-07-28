@@ -1,0 +1,146 @@
+#usda 1.0
+
+def Xform "World"
+{
+    def Xform "Assets"
+    {
+        def Xform "Dry_grass" (
+            kind = "component"
+            prepend references = @models/Grass/Dry_grass.usdc@
+        )
+        {
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            uniform token[] xformOpOrder = ["xformOp:scale"]
+        }
+    }
+
+    def Xform "Instances"
+    {
+        def Xform "Instance_0_0_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 126.8012, 0)
+            double3 xformOp:translate = (-4.949985980987549, 0, -4.949985980987549)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_0_1_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 307.35876, 0)
+            double3 xformOp:translate = (-5.145780563354492, 0, -1.945780634880066)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_0_2_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 234.29984, 0)
+            double3 xformOp:translate = (-6.673862457275391, 0, -0.27386245131492615)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_0_3_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 80.315216, 0)
+            double3 xformOp:translate = (-7.4877448081970215, 0, 2.112255334854126)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_1_0_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 204.29004, 0)
+            double3 xformOp:translate = (-2.0105977058410645, 0, -5.210597991943359)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_1_1_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 252.54582, 0)
+            double3 xformOp:translate = (-4.595563888549805, 0, -4.595563888549805)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_1_3_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 14.007667, 0)
+            double3 xformOp:translate = (-4.799778461456299, 0, 1.6002212762832642)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_2_0_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 350.70367, 0)
+            double3 xformOp:translate = (1.0327037572860718, 0, -5.36729621887207)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_2_1_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 5.302543, 0)
+            double3 xformOp:translate = (-1.1823303699493408, 0, -4.382330417633057)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_2_2_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 258.2367, 0)
+            double3 xformOp:translate = (-0.9167211055755615, 0, -0.9167211055755615)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_2_3_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 71.4659, 0)
+            double3 xformOp:translate = (0.3467508554458618, 0, 3.546750783920288)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_3_0_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 142.81062, 0)
+            double3 xformOp:translate = (4.332602024078369, 0, -5.267397880554199)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_3_2_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 92.33596, 0)
+            double3 xformOp:translate = (1.970494031906128, 0, -1.2295058965682983)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "Instance_3_3_Dry_grass" (
+            prepend references = </World/Assets/Dry_grass>
+        )
+        {
+            float3 xformOp:rotateXYZ = (0, 306.44632, 0)
+            double3 xformOp:translate = (2.0942084789276123, 0, 2.0942084789276123)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+    }
+}
+

@@ -25,6 +25,8 @@ struct ImmersiveView: View {
             
             // Start the timed content loading process
             await startSequence(content: content)
+            
+            
         } update: { content in
             
             // Update the visibility of entities based on global state
@@ -38,6 +40,7 @@ struct ImmersiveView: View {
         .onAppear {
             globalState.nearbyGrass.spawnAll()
             globalState.grassPatchSpawner.spawnAll()
+            globalState.grassClosePatchSpawner.spawnAll()
         }
     }
 
@@ -79,40 +82,6 @@ struct ImmersiveView: View {
             }
         }
         
-        let dissapearTime : Double = 40
-        
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 2) {
-            Task {
-                removeSkyCover(from: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 3) {
-            Task {
-                removeDistantLandscape(from: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 6) {
-            Task {
-                removeLandscape(from: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 8) {
-            Task {
-                removeTrees(from: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + dissapearTime + 11) {
-            Task {
-                removeGrass(from: content)
-            }
-        }
-        
         
     }
 
@@ -151,60 +120,17 @@ struct ImmersiveView: View {
     private func addGrass(to content: RealityViewContent) {
         grassAnchor.name = "GrassAnchor"
         grassAnchor.addChild(globalState.grassPatchSpawner.getAnchor())
+        grassAnchor.addChild(globalState.grassClosePatchSpawner.getAnchor())
         grassAnchor.addChild(globalState.nearbyGrass.getAnchor())
         setInvisible(entity: grassAnchor)
         globalState.nearbyGrass.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
             environmentLightingWeight: globalState.envLightIntensity))
         globalState.grassPatchSpawner.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
             environmentLightingWeight: globalState.envLightIntensity))
+        globalState.grassClosePatchSpawner.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
+            environmentLightingWeight: globalState.envLightIntensity))
         content.add(grassAnchor)
         fade(for: grassAnchor, to: 1, duration: 5)
-    }
-
-    private func removeLandscape(from content: RealityViewContent) {
-        if let landscape = content.entities.first(where: { $0.name == "Landscape" }) {
-            fade(for: landscape, to: 0, duration: 1)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                content.remove(landscape)
-            }
-        }
-    }
-
-    private func removeTrees(from content: RealityViewContent) {
-        if let trees = content.entities.first(where: { $0.name == "Trees" }) {
-            fade(for: trees, to: 0, duration: 2)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                content.remove(trees)
-            }
-        }
-    }
-
-    private func removeSkyCover(from content: RealityViewContent) {
-        if let skyCover = content.entities.first(where: { $0.name == "SkyCover" }) {
-            fade(for: skyCover, to: 0, duration: 4)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                content.remove(skyCover)
-            }
-        }
-    }
-
-    private func removeDistantLandscape(from content: RealityViewContent) {
-        if let distantLandscape = content.entities.first(where: { $0.name == "DistantLandscape" }) {
-            fade(for: distantLandscape, to: 0, duration: 3)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                content.remove(distantLandscape)
-            }
-        }
-    }
-
-    private func removeGrass(from content: RealityViewContent) {
-        if let grass = content.entities.first(where: { $0.name == "GrassAnchor" }) {
-            fade(for: grass, to: 0, duration: 4)
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//                grass.children.removeAll()
-//                content.remove(grass)
-//            }
-        }
     }
 
     private func updateProgress(progress: Double) async {

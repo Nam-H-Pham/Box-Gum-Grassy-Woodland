@@ -1,0 +1,737 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Trees", "Trees_2", "Ground_1", "Animals", "Branches_1", "Falling_Leaves", "DistantLand", "SkyCover", "Audio_Entity", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop", "Bird_Audio", "Yellow_Tailed_Black_Cockatoo_mp3", "Yellow_Tailed_Black_Cockatoo_wav", "Tree_Billboards", "Tree_Billboards_High_Quality"]
+    def Scope "Ground_1"
+    {
+        def Xform "Ground" (
+            active = true
+        )
+        {
+            reorder nameChildren = ["Plane1", "Plane2", "Plane3", "Plane4"]
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def "Plane1" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 0, 0)
+                }
+                references = @Ground/Plane1.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Plane2" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 0, 0)
+                }
+                references = @Ground/Plane2.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Plane3" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 0, 0)
+                }
+                references = @Ground/Plane3.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Plane4" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 0, 0)
+                }
+                references = @Ground/Plane4.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+    }
+
+    def RealityKitTimeline "Birds"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Orbit"
+            {
+                string actionKind = "orbit"
+                float3 axis = (0, 0.96296674, 0.26962015)
+                int blendLayer = 300
+                double duration = 30
+                uniform token info:id = "89CEFF2F-96E2-4247-8054-553FCF9D951A"
+                token orbitDirection = "counterClockwise"
+                bool orientToPath = 1
+                rel pivotEntity = </Root>
+                float revolutions = 0.6
+                double startTime = 0
+                rel target = </Root/Animals/Birds_1>
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 0.6666666865348816
+                uniform token info:id = "441DC2D9-E818-499B-B25C-21A4C3B34E7B"
+                double loopCount = 45
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Animals/Birds_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Looping_Birds"
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 30.00000089406967
+                uniform token info:id = "4874E6A3-2A31-4771-BF0C-526CE97DF9CE"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/Birds>
+            }
+        }
+    }
+
+    def RealityKitTimeline "Kangaroo_1"
+    {
+        reorder nameChildren = ["Track", "Track3", "Track2", "Track4", "Track5", "Track6"]
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Animation42", "Orbit", "Animation42_1"]
+            def RealityKitAction "Animation42"
+            {
+                string actionKind = "animation"
+                string animation = "Walk"
+                int blendLayer = 500
+                double duration = 1.0121111111111112
+                uniform token info:id = "E354BF32-C439-463A-B727-35F8B8701F36"
+                double loopCount = 13
+                bool parentControllers = 0
+                bool separateAnimatedValue = 1
+                double startTime = 4.3498519361933425
+                rel target = </Root/Animals/Kangaroo>
+
+                def RealityKitStruct "handoffType"
+                {
+                    token type = "compose"
+                }
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            reorder nameChildren = ["Animation2", "Animation2_1"]
+            def RealityKitAction "Orbit"
+            {
+                string actionKind = "orbit"
+                int blendLayer = 300
+                double duration = 13.430281466470673
+                uniform token info:id = "35F0598A-8D57-496E-AAE2-5752555487E0"
+                token orbitDirection = "clockwise"
+                bool orientToPath = 1
+                rel pivotEntity = </Root>
+                float revolutions = 0.15
+                double startTime = 4.21639884361026
+                rel target = </Root/Animals/Kangaroo>
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            reorder nameChildren = ["Animation2_2", "Animation2_3"]
+            def RealityKitAction "Animation2_2"
+            {
+                string actionKind = "animation"
+                string animation = "Idle"
+                int blendLayer = 500
+                double duration = 4.6842585836779405
+                uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Animals/Kangaroo>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation2_3"
+            {
+                string actionKind = "animation"
+                string animation = "Idle"
+                int blendLayer = 500
+                double duration = 4.6842585836779405
+                uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
+                double loopCount = 5
+                bool separateAnimatedValue = 1
+                double startTime = 17.39629543211302
+                rel target = </Root/Animals/Kangaroo>
+                float2 ui:nodegraph:node:pos = (40, 40)
+                int ui:nodegraph:node:stackingOrder = 2
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Kangaroo_Loop"
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 1000
+                double duration = 41.409328572058435
+                uniform token info:id = "250E2AFF-476F-45FF-84DB-94633F22326E"
+                double loopCount = 1
+                double startTime = 0
+                rel timeline = </Root/Kangaroo_1>
+            }
+        }
+    }
+
+    def Scope "Animals" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["Birds_1", "Kangaroo"]
+        def "Birds_1" (
+            customData = {
+                float3 rotationEulerHint = (0.20943955, 0, 0)
+            }
+            references = @../Animals/bird.usdz@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.9945219, 0.10452828, 0, 0)
+            float3 xformOp:scale = (0.02, 0.02, 0.02)
+            float3 xformOp:translate = (30, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "AnimationLibrary"
+            {
+                token info:id = "RealityKit.AnimationLibrary"
+
+                def RealityKitAnimationFile "default_subtree_animation"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "default subtree animation"
+                }
+            }
+
+            def RealityKitComponent "RCP_BehaviorsContainer"
+            {
+                rel behaviors = [
+                    </Root/Animals/Birds_1/OnAddedToScene>,
+                    </Root/Animals/Birds_1/OnAddedToScene2>,
+                ]
+                uniform token info:id = "RCP.BehaviorsContainer"
+            }
+
+            def Preliminary_Behavior "OnAddedToScene"
+            {
+                rel actions = </Root/Animals/Birds_1/OnAddedToScene/Action>
+                uniform bool exclusive
+                rel triggers = </Root/Animals/Birds_1/OnAddedToScene/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/Animals/Birds_1>
+                    token info:id = "SceneTransition"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/Looping_Birds>
+                    rel animationLibraryKeyOverrideKey = </Root/Animals/Birds_1/OnAddedToScene/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+
+            def RealityKitComponent "AudioLibrary"
+            {
+                uniform token info:id = "RealityKit.AudioLibrary"
+
+                def RealityKitDict "resources"
+                {
+                    string[] keys = ["Yellow Tailed Black Cockatoo.mp3", "Yellow Tailed Black Cockatoo.wav"]
+                    rel values = [
+                        </Root/Yellow_Tailed_Black_Cockatoo_mp3>,
+                        </Root/Yellow_Tailed_Black_Cockatoo_wav>,
+                    ]
+                }
+            }
+
+            def Preliminary_Behavior "OnAddedToScene2"
+            {
+                rel actions = </Root/Animals/Birds_1/OnAddedToScene2/Action>
+                uniform bool exclusive
+                rel triggers = </Root/Animals/Birds_1/OnAddedToScene2/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/Animals/Birds_1>
+                    token info:id = "SceneTransition"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/Bird_Audio>
+                    rel animationLibraryKeyOverrideKey = </Root/Animals/Birds_1/OnAddedToScene2/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+        }
+
+        def "Kangaroo" (
+            references = @../Animals/Kangaroo.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (16.063843, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "RCP_BehaviorsContainer"
+            {
+                rel behaviors = </Root/Animals/Kangaroo/OnAddedToScene>
+                uniform token info:id = "RCP.BehaviorsContainer"
+            }
+
+            def Preliminary_Behavior "OnAddedToScene"
+            {
+                rel actions = </Root/Animals/Kangaroo/OnAddedToScene/Action>
+                uniform bool exclusive
+                rel triggers = </Root/Animals/Kangaroo/OnAddedToScene/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/Animals/Kangaroo>
+                    token info:id = "SceneTransition"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/Kangaroo_Loop>
+                    rel animationLibraryKeyOverrideKey = </Root/Animals/Kangaroo/OnAddedToScene/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+
+            over "AnimationLibrary"
+            {
+                over "Clip_default_subtree_animation"
+                {
+                    uniform string[] clipNames = ["Walk", "Jump Run", "Idle", "Clip 3"]
+                    uniform string sourceAnimationName = "default subtree animation"
+                    uniform double[] startTimes = [0, 1.0121111111111112, 1.8394421718473877, 6.523700755525328]
+                }
+            }
+        }
+    }
+
+    def Scope "Branches_1" (
+        active = true
+    )
+    {
+        def Xform "Branches" (
+            active = true
+        )
+        {
+            reorder nameChildren = ["Branch1", "Branch3", "Branch2"]
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def "Branch1" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 0, 0)
+                }
+                references = @../Branches/Branch1.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+                float3 xformOp:translate = (0.8462639, 0, -3.2171483)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Branch3" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 0, 0)
+                }
+                references = @../Branches/Branch3.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+                float3 xformOp:translate = (9.0564575, 0, 4.902959)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Branch2" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (-1.5707963, 2.7613758e-8, -1.6045203e-9)
+                }
+                references = @../Branches/Branch2.usdc@
+            )
+            {
+                quatf xformOp:orient = (0.7071067, -0.70710677, 1.0330222e-8, 9.195654e-9)
+                float3 xformOp:scale = (0.9999998, 0.9999998, 0.9999998)
+                float3 xformOp:translate = (-4.048775, 0.25918156, 6.98201)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+    }
+
+    def Scope "Falling_Leaves" (
+        active = true
+    )
+    {
+        def "Leaf_Emitter" (
+            active = true
+            references = @Particles/Leaf Emitter.usda@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-4.124301, 6, -2.8295407)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def "Audio_Entity" (
+        active = true
+        references = @Audio/Audio Entity.usda@
+    )
+    {
+        over "Grassland_Ambience_mp3"
+        {
+            uniform token normalization = "none"
+        }
+    }
+
+    def RealityKitTimeline "Bird_Audio"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "Yellow Tailed Black Cockatoo.wav"
+                bool controlPlayback = 1
+                double duration = 19.853166666666667
+                uniform token info:id = "0DFDEDBA-2951-459A-B266-227B4B889DE7"
+                double startTime = 2.1490089823580036
+                rel target = </Root/Animals/Birds_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "Yellow_Tailed_Black_Cockatoo_mp3"
+    {
+        uniform float absoluteCalibration = 34.486187
+        uniform token calibrationMode = "relative"
+        uniform asset file = @Audio/Yellow Tailed Black Cockatoo.mp3@
+        uniform token loadingStrategy = "Stream"
+        uniform token normalization = "dynamic"
+        uniform float relativeCalibration = -7.754093
+        uniform bool shouldLoop = 0
+    }
+
+    def Scope "Tree_Billboards_High_Quality" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["SinglesPlane", "SinglesPlane_1", "SinglesPlane_2", "SinglesPlane_3", "SinglesPlane_4", "SinglesPlane_5", "TreeBillboardsGroups", "TreeBillboardsGroups_1", "TreeBillboardsGroups_2", "TreeBillboardsGroups_3"]
+        def "SinglesPlane" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707961, -0.017706903, 3.7258747e-9)
+            }
+            references = @Trees/Billboards/Singles/SinglesPlane.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.7070791, -0.707079, -0.006260255, -0.006260251)
+            float3 xformOp:scale = (0.9999997, 0.9999997, 0.9999996)
+            float3 xformOp:translate = (-0.9175186, 0, 129.94968)
+        }
+
+        def "SinglesPlane_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707961, 0.77416664, 0)
+            }
+            references = @Trees/Billboards/Singles/SinglesPlane.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.6547909, -0.6547907, 0.26692516, 0.2669251)
+            float3 xformOp:scale = (0.9999995, 0.9999995, 0.9999994)
+            float3 xformOp:translate = (102.11416, -0.0000076293945, 110.768524)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Singles/Tree2.png@
+            }
+        }
+
+        def "SinglesPlane_2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707959, -0.6624336, -1.1338901e-7)
+            }
+            references = @Trees/Billboards/Singles/SinglesPlane.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.66867375, -0.66867346, -0.22994682, -0.22994678)
+            float3 xformOp:scale = (0.9999995, 0.9999995, 0.9999994)
+            float3 xformOp:translate = (-89.74219, -0.0000076293945, 97.90454)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Singles/Tree3.png@
+            }
+        }
+
+        def "SinglesPlane_3" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (1.5707967, -0.81552106, -3.1415925)
+            }
+            references = @Trees/Billboards/Singles/SinglesPlane.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (-0.28040645, 0.2804063, 0.6491321, 0.6491318)
+            float3 xformOp:scale = (0.9999994, 0.9999994, 0.9999993)
+            float3 xformOp:translate = (-74.98552, -0.000015258789, -87.38506)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Singles/Tree4.png@
+            }
+        }
+
+        def "SinglesPlane_4" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (1.5707968, 0.56660974, -3.1415925)
+            }
+            references = @Trees/Billboards/Singles/SinglesPlane.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (80, 80)
+            int ui:nodegraph:node:stackingOrder = 4
+            quatf xformOp:orient = (0.19765781, -0.19765772, 0.67891943, 0.6789191)
+            float3 xformOp:scale = (0.9999994, 0.99999934, 0.9999993)
+            float3 xformOp:translate = (72.23747, -0.000015258789, -90.010216)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Singles/Tree5.png@
+            }
+        }
+
+        def "SinglesPlane_5" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (1.5707968, 1.9206743, -3.1415925)
+            }
+            references = @Trees/Billboards/Singles/SinglesPlane.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (100, 100)
+            int ui:nodegraph:node:stackingOrder = 5
+            quatf xformOp:orient = (0.5793928, -0.5793924, 0.40534472, 0.4053444)
+            float3 xformOp:scale = (0.9999993, 0.9999993, 0.9999992)
+            float3 xformOp:translate = (142.52475, -0.000015258789, 42.484802)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Singles/Tree1.png@
+            }
+        }
+
+        def "TreeBillboardsGroups" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0.2517358, 1.5386108e-8)
+            }
+            references = @Trees/Billboards/Groups/TreeBillboardsGroups.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70151293, -0.70151293, 0.08876723, 0.08876723)
+            float3 xformOp:scale = (0.9999999, 0.9999999, 0.9999999)
+            float3 xformOp:translate = (201.45105, 0, -76.18503)
+        }
+
+        def "TreeBillboardsGroups_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707967, 1.319792, -3.5996445e-7)
+            }
+            references = @Trees/Billboards/Groups/TreeBillboardsGroups.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (-166.08514, 95.83911)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.558654, -0.558654, 0.43348092, 0.43348092)
+            float3 xformOp:scale = (0.9999999, 0.9999999, 0.9999999)
+            float3 xformOp:translate = (54.970734, 0, -194.22058)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Groups/Group2.png@
+            }
+        }
+
+        def "TreeBillboardsGroups_2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.570796, 2.876444, 0)
+            }
+            references = @Trees/Billboards/Groups/TreeBillboardsGroups.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (-146.08514, 115.83911)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.093469724, -0.09346971, 0.70090187, 0.7009019)
+            float3 xformOp:scale = (0.99999964, 0.9999997, 0.99999976)
+            float3 xformOp:translate = (-196.9049, 0, -59.498154)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Groups/Group3.png@
+            }
+        }
+
+        def "TreeBillboardsGroups_3" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-4.712389, 4.209206, 3.141593)
+            }
+            references = @Trees/Billboards/Groups/TreeBillboardsGroups.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (-126.085144, 135.83911)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.60873145, -0.6087315, -0.359786, -0.35978603)
+            float3 xformOp:scale = (0.99999964, 0.9999997, 0.9999997)
+            float3 xformOp:translate = (123.11952, 0, 183.50818)
+        }
+
+        def "TreeBillboardsGroups_4" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.570796, 2.876444, 0)
+            }
+            references = @Trees/Billboards/Groups/TreeBillboardsGroups.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (-126.085144, 135.83911)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.093469724, -0.09346971, 0.70090187, 0.7009019)
+            float3 xformOp:scale = (0.99999964, 0.9999997, 0.99999976)
+            float3 xformOp:translate = (-198.10631, 0, -87.08262)
+
+            over "BillboardMaterial"
+            {
+                asset inputs:ImageFile = @Trees/Billboards/Groups/Group1.png@
+            }
+        }
+    }
+}
+

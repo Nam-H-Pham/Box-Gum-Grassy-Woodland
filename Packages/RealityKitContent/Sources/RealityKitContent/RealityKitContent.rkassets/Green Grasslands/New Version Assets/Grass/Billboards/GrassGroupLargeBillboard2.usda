@@ -1,0 +1,121 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.120.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "GrassBillboardsLarge" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @GrassBillboardsLarge.usdc@
+    )
+    {
+        rel material:binding = </Root/BillboardMaterial> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, -0.35538077)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "BillboardMaterial" (
+        active = true
+        prepend references = @BillboardMaterial.usda@</Material>
+    )
+    {
+        asset inputs:ImageFile = @Textures/GroupLarge2.png@
+
+        over "Subtract"
+        {
+            delete float inputs:in2.connect = </Root/BillboardMaterial/Divide.outputs:out>
+        }
+    }
+
+    def "GrassBillboardsLarge_1" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @GrassBillboardsLarge.usdc@
+    )
+    {
+        rel material:binding = </Root/BillboardMaterial_1> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        float2 ui:nodegraph:node:pos = (-103.70981, 207.85365)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.98626995, 0, -1.0264266)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "GrassBillboardsLarge_2" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @GrassBillboardsLarge.usdc@
+    )
+    {
+        rel material:binding = </Root/BillboardMaterial_1> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        float2 ui:nodegraph:node:pos = (-83.70981, 227.85365)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-2.5771935, 0, 0.2932644)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "GrassBillboardsLarge_3" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @GrassBillboardsLarge.usdc@
+    )
+    {
+        rel material:binding = </Root/BillboardMaterial_1> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        float2 ui:nodegraph:node:pos = (-63.70981, 247.85365)
+        int ui:nodegraph:node:stackingOrder = 3
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (1.8464911, 0, 0.2932644)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "BillboardMaterial_1" (
+        active = true
+        prepend references = @BillboardMaterial.usda@</Material>
+    )
+    {
+        asset inputs:ImageFile = @Textures/GroupLarge3.png@
+        token outputs:mtlx:surface.connect = </Root/BillboardMaterial_1/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/BillboardMaterial_1/GeometryModifier.outputs:out>
+        float2 ui:nodegraph:node:pos = (-115.65373, 290.75052)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        over "Subtract"
+        {
+            delete float inputs:in2.connect = </Root/BillboardMaterial_1/Divide.outputs:out>
+        }
+    }
+}
+

@@ -4,7 +4,7 @@ import SwiftUI
 struct Box_Gum_Grassy_WoodlandApp: App {
     
     @State private var appModel = AppModel()
-    @StateObject private var globalState = GlobalState()
+    @StateObject private var globalState = GlobalState(configuration: EnvironmentType.desert.configuration)
     
     var body: some Scene {
         WindowGroup {
