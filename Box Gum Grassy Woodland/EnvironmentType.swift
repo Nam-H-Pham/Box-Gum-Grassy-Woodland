@@ -23,39 +23,61 @@ struct EnvironmentConfiguration {
 enum EnvironmentType: String, CaseIterable, Identifiable {
     case grassyWoodland = "Grassy Woodland"
     case desert = "Desert"
+    case snow = "Alpine"
 
     var id: String { rawValue }
 
     var configuration: EnvironmentConfiguration {
         switch self {
             
+        case .snow:
+            return EnvironmentConfiguration(
+                landscape: loadModel(named: "Snow/SnowEnvrionment"),
+                skyCover: loadModel(named: "Snow/Skydome/SkyCover"),
+                distantLandscape: loadModel(named: "Snow/Skydome/DistantLand"),
+                trees: loadModel(named: "Snow/Trees/SnowyTrees"),
+                
+                grassPatches: [
+                ],
+                closeGrassPatches: [
+                ],
+                nearbyGrass: [
+                ],
+                
+                grassScale: 1.3,
+                closeGrassScale: 1,
+                grassSpawnCount: 0,
+                closeGrassSpawnCount: 0
+            )
+            
             
         case .desert:
             return EnvironmentConfiguration(
                 landscape: loadModel(named: "Desert/DesertEnvrionment"),
-                skyCover: loadModel(named: "Green Grasslands/SkyDome/SkyCover"),
-                distantLandscape: loadModel(named: "Green Grasslands/SkyDome/DistantLand"),
+                skyCover: loadModel(named: "Desert/Skydome/SkyCover"),
+                distantLandscape: loadModel(named: "Desert/Skydome/DistantLand"),
                 trees: loadModel(named: "Desert/Trees/Trees"),
                 
                 grassPatches: [
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard1.usda", 15...100),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard2.usda", 15...100)
+                    ("Desert/Grass/Billboards/GrassLargeGroup1", 15...90),
+                    ("Desert/Grass/Billboards/GrassLargeGroup2", 15...90),
+                    ("Desert/Grass/Billboards/GrassLargeGroup3", 15...90)
                 ],
                 closeGrassPatches: [
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard1.usda", 1...15),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard2.usda", 1...15),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard3.usda", 1...15)
+                    ("Desert/Grass/Billboards/Grass1", 5...15),
+                    ("Desert/Grass/Billboards/Grass2", 5...15),
+                    ("Desert/Grass/Billboards/Grass3", 5...15)
                 ],
                 nearbyGrass: [
                     "Desert/Grass/3.75_0.8_ring",
-//                    "Desert/Grass/7.5_1.6_ring",
-                    "Desert/Grass/15.0_3.2.usda"
+                    "Desert/Grass/7.5_1.6_ring",
+//                    "Desert/Grass/15.0_3.2.usda"
                 ],
                 
                 grassScale: 1.3,
-                closeGrassScale: 1.1,
-                grassSpawnCount: 40,
-                closeGrassSpawnCount: 10
+                closeGrassScale: 1,
+                grassSpawnCount: 1400,
+                closeGrassSpawnCount: 300
             )
             
         case .grassyWoodland:

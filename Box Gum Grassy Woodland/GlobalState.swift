@@ -21,12 +21,16 @@ class GlobalState: ObservableObject {
     @Published var grassPatchSpawner: DistantSpawner!
     @Published var grassClosePatchSpawner: DistantSpawner!
     @Published var nearbyGrass: BasicSpawner!
+    
+    @Published var environmentType: EnvironmentType!
 
-    init(configuration: EnvironmentConfiguration) {
-        loadEnvironment(configuration: configuration)
+    init(environmentType: EnvironmentType) {
+        loadEnvironment(envType: environmentType)
     }
 
-    private func loadEnvironment(configuration: EnvironmentConfiguration) {
+    public func loadEnvironment(envType: EnvironmentType) {
+        environmentType = envType
+        var configuration = envType.configuration
         // Use preloaded models from the configuration directly
         landscape = configuration.landscape
         skyCover = configuration.skyCover

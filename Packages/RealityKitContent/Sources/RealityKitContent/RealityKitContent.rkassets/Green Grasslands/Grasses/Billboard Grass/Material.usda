@@ -18,7 +18,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         customData = {
             dictionary realitykit = {
                 float2 positionInSubgraph = (-1008.8039, 115.53425)
-                int stackingOrderInSubgraph = 3264
+                int stackingOrderInSubgraph = 3518
             }
         }
     )
@@ -26,7 +26,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         customData = {
             dictionary realitykit = {
                 float2 positionInSubgraph = (-524.8635, -483.09747)
-                int stackingOrderInSubgraph = 427
+                int stackingOrderInSubgraph = 3518
             }
         }
     )
@@ -35,7 +35,7 @@ def Material "Rytidosperma_caespitosum_Mat"
     float2 ui:nodegraph:node:pos = (35.550888, -86.630264)
     int ui:nodegraph:node:stackingOrder = 5
     float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (430.98355, 118.836945)
-    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 677
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 3518
 
     def Shader "PBRSurface"
     {
@@ -55,7 +55,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:specular = 0.5
         token outputs:out
         float2 ui:nodegraph:node:pos = (122.91724, -5.484755)
-        int ui:nodegraph:node:stackingOrder = 3423
+        int ui:nodegraph:node:stackingOrder = 3518
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:normal"]
     }
 
@@ -65,7 +65,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:in.connect = </Rytidosperma_caespitosum_Mat/Separate4.outputs:outx>
         float outputs:out
         float2 ui:nodegraph:node:pos = (-378.15323, 131.3394)
-        int ui:nodegraph:node:stackingOrder = 3264
+        int ui:nodegraph:node:stackingOrder = 3518
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out", "outputs:out"]
     }
 
@@ -75,7 +75,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         color3f inputs:in.connect = </Rytidosperma_caespitosum_Mat/Mix.outputs:out>
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-74.97684, -99.29204)
-        int ui:nodegraph:node:stackingOrder = 504
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Image2D"
@@ -98,7 +98,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-313.45416, -503.9556)
-        int ui:nodegraph:node:stackingOrder = 1272
+        int ui:nodegraph:node:stackingOrder = 3518
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:dynamic_min_lod_clamp", "inputs:no_flip_v"]
     }
 
@@ -121,7 +121,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:v_wrap_mode
         float4 outputs:out
         float2 ui:nodegraph:node:pos = (-774.00024, -12.594585)
-        int ui:nodegraph:node:stackingOrder = 3264
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Separate4"
@@ -133,7 +133,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float outputs:outy
         float outputs:outz
         float2 ui:nodegraph:node:pos = (-528.92706, 159.6287)
-        int ui:nodegraph:node:stackingOrder = 3264
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def "Heightmap" (
@@ -143,7 +143,7 @@ def Material "Rytidosperma_caespitosum_Mat"
     {
         float3 outputs:Height.connect = </Rytidosperma_caespitosum_Mat/Heightmap/TransformVector.outputs:out>
         float2 ui:nodegraph:node:pos = (-77.49329, 301.9548)
-        int ui:nodegraph:node:stackingOrder = 2627
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "GeometryModifier"
@@ -154,7 +154,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float3 inputs:normal
         token outputs:out
         float2 ui:nodegraph:node:pos = (151.80322, 386.99588)
-        int ui:nodegraph:node:stackingOrder = 2627
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Mix"
@@ -165,7 +165,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:mix.connect = </Rytidosperma_caespitosum_Mat/Clamp.outputs:out>
         color3f outputs:out
         float2 ui:nodegraph:node:pos = (-6.5680146, -318.19714)
-        int ui:nodegraph:node:stackingOrder = 2628
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Position"
@@ -174,7 +174,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         string inputs:space = "model"
         float3 outputs:out
         float2 ui:nodegraph:node:pos = (-775.39307, -271.55023)
-        int ui:nodegraph:node:stackingOrder = 2851
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Separate3"
@@ -185,7 +185,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float outputs:outy
         float outputs:outz
         float2 ui:nodegraph:node:pos = (-595.1875, -271.76172)
-        int ui:nodegraph:node:stackingOrder = 2848
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Clamp"
@@ -197,7 +197,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:low.connect = None
         float outputs:out
         float2 ui:nodegraph:node:pos = (-201.55078, -234.58594)
-        int ui:nodegraph:node:stackingOrder = 2864
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Add"
@@ -207,7 +207,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:in2 = 0.5
         float outputs:out
         float2 ui:nodegraph:node:pos = (-431.1328, -248.92188)
-        int ui:nodegraph:node:stackingOrder = 2861
+        int ui:nodegraph:node:stackingOrder = 3518
     }
 
     def Shader "Multiply"
@@ -217,7 +217,7 @@ def Material "Rytidosperma_caespitosum_Mat"
         float inputs:in2 = 6
         float outputs:out
         float2 ui:nodegraph:node:pos = (-327.4336, -270.5703)
-        int ui:nodegraph:node:stackingOrder = 2873
+        int ui:nodegraph:node:stackingOrder = 3518
         string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
     }
 }

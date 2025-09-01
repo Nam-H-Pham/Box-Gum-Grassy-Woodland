@@ -1,0 +1,38 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.120.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "BillboardMaterial" (
+        active = true
+        prepend references = @BillboardMaterial.usda@</Material>
+    )
+    {
+        asset inputs:ImageFile = @textures/DesertGrassLarge3.png@
+    }
+
+    def "GrassBillboardsLarge" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @GrassBillboardsLarge.usdc@
+    )
+    {
+        rel material:binding = </Root/BillboardMaterial> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

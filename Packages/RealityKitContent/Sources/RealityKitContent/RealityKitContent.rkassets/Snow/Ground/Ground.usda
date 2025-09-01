@@ -1,0 +1,141 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.120.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root" (
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
+{
+    rel material:binding = </Root/Material> (
+        bindMaterialAs = "strongerThanDescendants"
+    )
+
+    def "Plane1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @../../Green Grasslands/New Version Assets/Ground/Plane1.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Ground_Material" (
+            active = false
+        )
+        {
+            asset inputs:Image = @Textures/Plane_Bake1_CyclesBake_COMBINED.png@
+        }
+    }
+
+    def "Plane2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @../../Green Grasslands/New Version Assets/Ground/Plane2.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Ground_Material" (
+            active = false
+        )
+        {
+            asset inputs:Image = @Textures/Plane.003_Bake1_CyclesBake_COMBINED.png@
+        }
+    }
+
+    def "Plane3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        prepend references = @../../Green Grasslands/New Version Assets/Ground/Plane3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Ground_Material" (
+            active = false
+        )
+        {
+            asset inputs:Image = @Textures/Plane.002_Bake1_CyclesBake_COMBINED.png@
+        }
+
+        over "Plane_003" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = None (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    def "Plane4" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-4.7123885, -1.5707963, 0)
+        }
+        prepend references = @../../Green Grasslands/New Version Assets/Ground/Plane4.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.5, -0.5, -0.5, -0.5)
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Ground_Material" (
+            active = false
+        )
+        {
+            asset inputs:Image = @Textures/Plane.001 small_Bake1_CyclesBake_COMBINED.png@
+        }
+    }
+
+    def Material "Material"
+    {
+        token outputs:mtlx:surface.connect = </Root/Material/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/Material/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        def Shader "PBRSurface"
+        {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            color3f inputs:baseColor = (0.8957544, 0.8957544, 0.8957544) (
+                colorSpace = "srgb_displayp3"
+            )
+            float inputs:clearcoat
+            float3 inputs:clearcoatNormal
+            float inputs:clearcoatRoughness
+            bool inputs:hasPremultipliedAlpha
+            float inputs:opacity
+            float inputs:opacityThreshold
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (-248.20326, 90.32723)
+            int ui:nodegraph:node:stackingOrder = 5
+        }
+    }
+}
+

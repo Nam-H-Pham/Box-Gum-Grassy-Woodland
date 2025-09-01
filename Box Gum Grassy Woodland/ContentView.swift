@@ -13,6 +13,19 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
+            
+            // Environment selector
+            Picker("Environment", selection: $globalState.environmentType) {
+                ForEach(EnvironmentType.allCases) { type in
+                    Text(type.rawValue).tag(type)
+                }
+            }
+            .pickerStyle(.segmented)
+            .frame(width: 340)
+            .onChange(of: globalState.environmentType) { newType in
+                globalState.loadEnvironment(envType: newType)
+            }
+            
             // Show the progress bar only when loading is in progress
             if globalState.progress > 0 && globalState.progress < 1.0 {
                 VStack(spacing: 10) {

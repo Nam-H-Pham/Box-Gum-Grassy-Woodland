@@ -1,0 +1,108 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.120.2)"
+    }
+    defaultPrim = ""
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Material "Material" (
+    references = None
+)
+{
+    asset inputs:ImageFile = @DesertGrass1.png@ (
+        colorSpace = "srgb_texture"
+        customData = {
+            dictionary realitykit = {
+                float2 positionInSubgraph = (-785.8539, 53.74145)
+                int stackingOrderInSubgraph = 333
+            }
+        }
+    )
+    token outputs:mtlx:surface.connect = </Material/PBRSurface.outputs:out>
+    token outputs:realitykit:vertex.connect = </Material/GeometryModifier.outputs:out>
+    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (546.18427, 100.5)
+    int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 422
+
+    def Shader "Separate4"
+    {
+        uniform token info:id = "ND_separate4_vector4"
+        float4 inputs:in.connect = </Material/Image2D.outputs:out>
+        float outputs:outw
+        float outputs:outx
+        float outputs:outy
+        float outputs:outz
+        float2 ui:nodegraph:node:pos = (-206.54926, 186.54614)
+        int ui:nodegraph:node:stackingOrder = 333
+    }
+
+    def Shader "Image2D"
+    {
+        uniform token info:id = "ND_RealityKitTexture2D_vector4"
+        float inputs:dynamic_min_lod_clamp
+        asset inputs:file.connect = </Material.inputs:ImageFile>
+        bool inputs:no_flip_v = 1
+        int2 inputs:offset
+        string inputs:u_wrap_mode
+        float4 outputs:out
+        float2 ui:nodegraph:node:pos = (-442.00974, -41.058968)
+        int ui:nodegraph:node:stackingOrder = 587
+    }
+
+    def Shader "Combine3"
+    {
+        uniform token info:id = "ND_combine3_color3"
+        float inputs:in1.connect = </Material/Separate4.outputs:outx>
+        float inputs:in2.connect = </Material/Separate4.outputs:outy>
+        float inputs:in3.connect = </Material/Separate4.outputs:outz>
+        color3f outputs:out
+        float2 ui:nodegraph:node:pos = (-119.9399, 81.54224)
+        int ui:nodegraph:node:stackingOrder = 333
+    }
+
+    def Shader "PBRSurface"
+    {
+        uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+        color3f inputs:baseColor.connect = </Material/Combine3.outputs:out>
+        float inputs:clearcoat
+        float3 inputs:clearcoatNormal
+        float inputs:clearcoatRoughness
+        color3f inputs:emissiveColor
+        bool inputs:hasPremultipliedAlpha
+        float inputs:metallic
+        float3 inputs:normal
+        float inputs:opacity.connect = </Material/Separate4.outputs:outw>
+        float inputs:opacityThreshold = 0.33
+        float inputs:roughness = 1
+        float inputs:specular
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (230.03499, 77.636536)
+        int ui:nodegraph:node:stackingOrder = 601
+    }
+
+    def NodeGraph "NodeGraph" (
+        references = @../../../Green Grasslands/Ground/Heightmap.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (77.73396, 540.0468)
+        int ui:nodegraph:node:stackingOrder = 602
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (859.723, 55.177376)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 5079
+    }
+
+    def Shader "GeometryModifier"
+    {
+        uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+        float3 inputs:bitangent
+        color4f inputs:color
+        float3 inputs:modelPositionOffset.connect = </Material/NodeGraph.outputs:Height>
+        float3 inputs:normal
+        float2 inputs:uv0
+        token outputs:out
+        float2 ui:nodegraph:node:pos = (403.27005, 484.76627)
+        int ui:nodegraph:node:stackingOrder = 591
+    }
+}
+
