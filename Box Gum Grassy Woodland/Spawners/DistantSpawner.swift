@@ -231,5 +231,6 @@ class DistantSpawner {
         anchor.children.removeAll(keepCapacity: true)
         existingPositions.removeAll()
         grid.removeAll()
+        modelCache.removeAll()
     }
 }
