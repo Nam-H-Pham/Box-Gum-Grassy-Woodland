@@ -5,10 +5,10 @@ import Foundation
 
 struct ImmersiveView: View {
     @EnvironmentObject var globalState: GlobalState
-    
+
     // Anchor for grass
     var grassAnchor: AnchorEntity = AnchorEntity(world: [0, 0, 0])
-    
+
     // Lazy initialization of entitiesToUpdate
     private var entitiesToUpdate: [(String, Bool)] {
         [
@@ -19,23 +19,23 @@ struct ImmersiveView: View {
             ("Trees", globalState.showTrees),
         ]
     }
-    
+
     var body: some View {
         RealityView { content in
-            
+
             // Start the timed content loading process
             await startSequence(content: content)
-            
-            
+
+
         } update: { content in
-            
+
             // Update the visibility of entities based on global state
             for (name, isEnabled) in entitiesToUpdate {
                 if let entity = content.entities.first(where: { $0.name == name }) {
                     entity.isEnabled = isEnabled
                 }
             }
-            
+
         }
         .onAppear {
             globalState.nearbyGrass.spawnAll()
@@ -45,90 +45,54 @@ struct ImmersiveView: View {
     }
 
     private func startSequence(content: RealityViewContent) async {
-        // Add grass immediately
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-            Task {
-                await updateProgress(progress: 0.3)
-                addGrass(to: content)
-            }
+        let steps: [SequenceStep] = [
+            .init(delay: 0, progress: 0.3, action: addGrass),
+            .init(delay: 4, progress: 0.5, action: addTrees),
+            .init(delay: 8, progress: 1, action: addLandscape),
+            .init(delay: 10, progress: 1, action: addDistantLandscape),
+            .init(delay: 12, progress: 1, action: addSkyCover),
+        ]
+
+        steps.forEach { step in
+            schedule(step: step, for: content)
         }
-        
-        // Add trees after 5 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            Task {
-                await updateProgress(progress: 0.5)
-                addTrees(to: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-            Task {
-                await updateProgress(progress: 1)
-                addLandscape(to: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            Task {
-                await updateProgress(progress: 1)
-                addDistantLandscape(to: content)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
-            Task {
-                await updateProgress(progress: 1)
-                addSkyCover(to: content)
-            }
-        }
-        
-        
     }
 
     private func addLandscape(to content: RealityViewContent) {
-        globalState.landscape?.name = "Landscape"
-        setInvisible(entity: globalState.landscape ?? Entity())
-        content.add(globalState.landscape ?? Entity())
-        fade(for: globalState.landscape ?? Entity(), to: 1, duration: 2)
+        addEntity(named: "Landscape", entity: globalState.landscape, to: content, fadeDuration: 2)
     }
 
     private func addTrees(to content: RealityViewContent) {
-        globalState.trees?.name = "Trees"
-        setInvisible(entity: globalState.trees ?? Entity())
-        globalState.trees?.components.set(EnvironmentLightingConfigurationComponent(
-            environmentLightingWeight: globalState.envLightIntensity))
-        globalState.landscape?.components.set(EnvironmentLightingConfigurationComponent(
-            environmentLightingWeight: globalState.envLightIntensity))
-        content.add(globalState.trees ?? Entity())
-        fade(for: globalState.trees ?? Entity(), to: 1, duration: 2)
+        addEntity(named: "Trees", entity: globalState.trees, to: content, fadeDuration: 2) { entity in
+            applyEnvironmentLighting(to: entity)
+            if let landscape = globalState.landscape {
+                applyEnvironmentLighting(to: landscape)
+            }
+        }
     }
 
     private func addSkyCover(to content: RealityViewContent) {
-        globalState.skyCover?.name = "SkyCover"
-        setInvisible(entity: globalState.skyCover ?? Entity())
-        content.add(globalState.skyCover ?? Entity())
-        fade(for: globalState.skyCover ?? Entity(), to: 1, duration: 10)
+        addEntity(named: "SkyCover", entity: globalState.skyCover, to: content, fadeDuration: 10)
     }
 
     private func addDistantLandscape(to content: RealityViewContent) {
-        globalState.distantLandscape?.name = "DistantLandscape"
-        setInvisible(entity: globalState.distantLandscape ?? Entity())
-        content.add(globalState.distantLandscape ?? Entity())
-        fade(for: globalState.distantLandscape ?? Entity(), to: 1, duration: 10)
+        addEntity(named: "DistantLandscape", entity: globalState.distantLandscape, to: content, fadeDuration: 10)
     }
 
     private func addGrass(to content: RealityViewContent) {
         grassAnchor.name = "GrassAnchor"
-        grassAnchor.addChild(globalState.grassPatchSpawner.getAnchor())
-        grassAnchor.addChild(globalState.grassClosePatchSpawner.getAnchor())
-        grassAnchor.addChild(globalState.nearbyGrass.getAnchor())
+        let anchors = [
+            globalState.grassPatchSpawner.getAnchor(),
+            globalState.grassClosePatchSpawner.getAnchor(),
+            globalState.nearbyGrass.getAnchor(),
+        ]
+
+        anchors.forEach { anchor in
+            grassAnchor.addChild(anchor)
+            applyEnvironmentLighting(to: anchor)
+        }
+
         setInvisible(entity: grassAnchor)
-        globalState.nearbyGrass.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
-            environmentLightingWeight: globalState.envLightIntensity))
-        globalState.grassPatchSpawner.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
-            environmentLightingWeight: globalState.envLightIntensity))
-        globalState.grassClosePatchSpawner.getAnchor().components.set(EnvironmentLightingConfigurationComponent(
-            environmentLightingWeight: globalState.envLightIntensity))
         content.add(grassAnchor)
         fade(for: grassAnchor, to: 1, duration: 5)
     }
@@ -137,14 +101,37 @@ struct ImmersiveView: View {
         globalState.progress = progress
         await Task.yield()
     }
-    
-    func setInvisible(entity: Entity) {
+
+    private func schedule(step: SequenceStep, for content: RealityViewContent) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + step.delay) {
+            Task {
+                await updateProgress(progress: step.progress)
+                step.action(content)
+            }
+        }
+    }
+
+    private func addEntity(named name: String, entity: Entity?, to content: RealityViewContent, fadeDuration: TimeInterval, configure: ((Entity) -> Void)? = nil) {
+        guard let entity else { return }
+        entity.name = name
+        configure?(entity)
+        setInvisible(entity: entity)
+        content.add(entity)
+        fade(for: entity, to: 1, duration: fadeDuration)
+    }
+
+    private func applyEnvironmentLighting(to entity: Entity) {
+        entity.components.set(EnvironmentLightingConfigurationComponent(
+            environmentLightingWeight: globalState.envLightIntensity))
+    }
+
+    private func setInvisible(entity: Entity) {
         let opacityComponent = OpacityComponent(opacity: 0)
         entity.components.set(opacityComponent)
     }
-    
-    func fade(for entity: Entity, to targetOpacity: Float, duration: TimeInterval, timing: AnimationTimingFunction = .linear) {
-        
+
+    private func fade(for entity: Entity, to targetOpacity: Float, duration: TimeInterval, timing: AnimationTimingFunction = .linear) {
+
         let opacityAction = FromToByAction<Float>(to: targetOpacity,
                                                   timing: timing,
                                                   isAdditive: false)
@@ -153,11 +140,16 @@ struct ImmersiveView: View {
                 .makeActionAnimation(for: opacityAction,
                                      duration: duration,
                                      bindTarget: .opacity)
-            
+
             entity.playAnimation(opacityAnimation)
         } catch {
             print("Error when fading entity: \(error)")
         }
     }
 
+    private struct SequenceStep {
+        let delay: TimeInterval
+        let progress: Double
+        let action: (RealityViewContent) -> Void
+    }
 }
