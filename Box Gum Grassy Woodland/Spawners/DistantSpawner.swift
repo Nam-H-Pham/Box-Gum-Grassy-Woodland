@@ -6,7 +6,6 @@ class DistantSpawner {
     private let translation: SIMD3<Float>
     private let modelFilenames: [(String, ClosedRange<Float>)]
     private let scale: Float
-    private var existingPositions: [SIMD3<Float>] = []
     private let minimumSpacing: Float
     private let center: SIMD3<Float>
     private let anchor: AnchorEntity
@@ -25,7 +24,8 @@ class DistantSpawner {
     
     // Grid for spatial partitioning
     private var grid: [SIMD2<Int>: [SIMD3<Float>]] = [:]
-    private let gridCellSize: Float = 5.0 // Adjust based on minimumSpacing
+    private var positionQueue: [(cell: SIMD2<Int>, position: SIMD3<Float>)] = []
+    private let gridCellSize: Float
     
     // Entity pool for reuse
     private var entityPool: [String: [Entity]] = [:]
@@ -52,6 +52,7 @@ class DistantSpawner {
         self.spawnCount = spawnCount
         self.batchSize = batchSize
         self.delayBetweenBatches = delayBetweenBatches
+        self.gridCellSize = max(minimumSpacing, 0.001)
         
         // Precompute weights
         self.weights = modelFilenames.map { Float($0.1.upperBound - $0.1.lowerBound) }
@@ -108,7 +109,6 @@ class DistantSpawner {
             let model = try loadModel(named: modelFilename)
             let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
             let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition, filename: modelFilename)
-            existingPositions.append(spawnPosition)
             addToGrid(position: spawnPosition)
             return entity
         } catch {
@@ -155,16 +155,16 @@ class DistantSpawner {
     }
     
     private func isValidPosition(_ position: SIMD3<Float>) -> Bool {
-        let gridX = Int(position.x / gridCellSize)
-        let gridZ = Int(position.z / gridCellSize)
-        
+        let worldPosition = position + translation
+        let baseKey = gridKey(for: worldPosition)
+
         // Check neighboring grid cells
         for dx in -1...1 {
             for dz in -1...1 {
-                let key = SIMD2<Int>(gridX + dx, gridZ + dz)
+                let key = SIMD2<Int>(baseKey.x + dx, baseKey.y + dz)
                 if let positions = grid[key] {
                     for existingPosition in positions {
-                        let distance = simd_distance(existingPosition, position)
+                        let distance = simd_distance(existingPosition, worldPosition)
                         if distance < minimumSpacing {
                             return false
                         }
@@ -176,21 +176,29 @@ class DistantSpawner {
     }
     
     private func addToGrid(position: SIMD3<Float>) {
-        if existingPositions.count >= maxPositions {
-            existingPositions.removeFirst() // Remove oldest position
-            // Rebuild grid
-            grid = [:]
-            for pos in existingPositions {
-                let gridX = Int(pos.x / gridCellSize)
-                let gridZ = Int(pos.z / gridCellSize)
-                let key = SIMD2<Int>(gridX, gridZ)
-                grid[key, default: []].append(pos)
+        if positionQueue.count >= maxPositions, let oldest = positionQueue.first {
+            positionQueue.removeFirst()
+            if var positions = grid[oldest.cell] {
+                if let index = positions.firstIndex(of: oldest.position) {
+                    positions.remove(at: index)
+                }
+                if positions.isEmpty {
+                    grid.removeValue(forKey: oldest.cell)
+                } else {
+                    grid[oldest.cell] = positions
+                }
             }
         }
-        let gridX = Int(position.x / gridCellSize)
-        let gridZ = Int(position.z / gridCellSize)
-        let key = SIMD2<Int>(gridX, gridZ)
+
+        let key = gridKey(for: position)
         grid[key, default: []].append(position)
+        positionQueue.append((cell: key, position: position))
+    }
+
+    private func gridKey(for position: SIMD3<Float>) -> SIMD2<Int> {
+        let gridX = Int(floor(position.x / gridCellSize))
+        let gridZ = Int(floor(position.z / gridCellSize))
+        return SIMD2<Int>(gridX, gridZ)
     }
     
     public func spawnAll(clearExisting: Bool = true) {
@@ -229,7 +237,7 @@ class DistantSpawner {
             }
         }
         anchor.children.removeAll(keepCapacity: true)
-        existingPositions.removeAll()
         grid.removeAll()
+        positionQueue.removeAll()
     }
 }
