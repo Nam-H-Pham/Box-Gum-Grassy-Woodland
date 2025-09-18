@@ -21,21 +21,31 @@ struct ImmersiveView: View {
     }
 
     var body: some View {
-        RealityView { content in
+        ZStack {
+            RealityView { content in
 
-            // Start the timed content loading process
-            await startSequence(content: content)
+                // Start the timed content loading process
+                await startSequence(content: content)
 
 
-        } update: { content in
+            } update: { content in
 
-            // Update the visibility of entities based on global state
-            for (name, isEnabled) in entitiesToUpdate {
-                if let entity = content.entities.first(where: { $0.name == name }) {
-                    entity.isEnabled = isEnabled
+                // Update the visibility of entities based on global state
+                for (name, isEnabled) in entitiesToUpdate {
+                    if let entity = content.entities.first(where: { $0.name == name }) {
+                        entity.isEnabled = isEnabled
+                    }
                 }
-            }
 
+                if let cameraTransform = content.cameraTransform {
+                    globalState.distantMetalRenderer?.updateCameraTransform(cameraTransform)
+                }
+
+            }
+            if let renderer = globalState.distantMetalRenderer, globalState.showGrass {
+                MetalBillboardView(renderer: renderer)
+                    .opacity(globalState.showGrass ? 1 : 0)
+            }
         }
         .onAppear {
             globalState.nearbyGrass.spawnAll()
