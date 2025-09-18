@@ -21,35 +21,13 @@ struct EnvironmentConfiguration {
 }
 
 enum EnvironmentType: String, CaseIterable, Identifiable {
-    case grassyWoodland = "Grassy Woodland"
+    case grassyWoodland = "Grasslands"
     case desert = "Desert"
-    case snow = "Alpine"
 
     var id: String { rawValue }
 
     var configuration: EnvironmentConfiguration {
         switch self {
-            
-        case .snow:
-            return EnvironmentConfiguration(
-                landscape: loadModel(named: "Snow/SnowEnvrionment"),
-                skyCover: loadModel(named: "Snow/Skydome/SkyCover"),
-                distantLandscape: loadModel(named: "Snow/Skydome/DistantLand"),
-                trees: loadModel(named: "Snow/Trees/SnowyTrees"),
-                
-                grassPatches: [
-                ],
-                closeGrassPatches: [
-                ],
-                nearbyGrass: [
-                ],
-                
-                grassScale: 1.3,
-                closeGrassScale: 1,
-                grassSpawnCount: 0,
-                closeGrassSpawnCount: 0
-            )
-            
             
         case .desert:
             return EnvironmentConfiguration(
@@ -59,9 +37,9 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 trees: loadModel(named: "Desert/Trees/Trees"),
                 
                 grassPatches: [
-                    ("Desert/Grass/Billboards/GrassLargeGroup1", 15...90),
-                    ("Desert/Grass/Billboards/GrassLargeGroup2", 15...90),
-                    ("Desert/Grass/Billboards/GrassLargeGroup3", 15...90)
+                    ("Desert/Grass/Billboards/GrassLargeGroup1", 15...120),
+                    ("Desert/Grass/Billboards/GrassLargeGroup2", 15...120),
+                    ("Desert/Grass/Billboards/GrassLargeGroup3", 15...120)
                 ],
                 closeGrassPatches: [
                     ("Desert/Grass/Billboards/Grass1", 5...15),
@@ -100,7 +78,7 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 
                 grassScale: 1.3,
                 closeGrassScale: 1.1,
-                grassSpawnCount: 1200,
+                grassSpawnCount: 1000,
                 closeGrassSpawnCount: 400
             )
         }

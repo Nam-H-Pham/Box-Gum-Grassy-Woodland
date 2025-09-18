@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Ground", "Tree_Bilboards"]
+    reorder nameChildren = ["Ground", "Tree_Bilboards", "australian_ant_hills", "Scans"]
     def "Ground" (
         active = true
         references = @Ground/Ground.usda@
@@ -80,6 +80,136 @@ def Xform "Root"
             quatf xformOp:orient = (0.63870704, -0.63870704, -0.30340287, -0.30340287)
             float3 xformOp:scale = (0.9999999, 0.9999999, 0.99999994)
             float3 xformOp:translate = (-137.93842, 0, -156.59662)
+        }
+    }
+
+    def Scope "Scans" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["australian_black_rock_1", "australian_tree_stump_2", "australian_quartz_rock_1", "australian_yellow_rock", "australian_striped_rock", "australian_short_branch", "australian_quartz_rock", "australian_ant_hills", "australian_red_bark_2"]
+        def "australian_ant_hills" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707964, 0, -0.06563593)
+            }
+            references = @../PhotoScans/australian_ant_hills.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.706726, -0.7067261, 0.023201637, -0.023201637)
+            float3 xformOp:scale = (2, 2, 2)
+            float3 xformOp:translate = (-3.5889244, 0.014021762, -1.7566973)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_quartz_rock" (
+            active = true
+            references = @../PhotoScans/australian_quartz_rock.usdc@
+        )
+        {
+            float3 xformOp:scale = (1.5, 1.5, 1.5)
+            float3 xformOp:translate = (0, 0.29927784, 1.1460825)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_red_bark_2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            references = @../PhotoScans/australian_red_bark_2.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-3.335685, 0, 1.4034708)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_short_branch" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-0.11863961, -0.7217399, 0.17849587)
+            }
+            prepend references = @../PhotoScans/australian_short_branch.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.9320931, -0.023830494, -0.3560081, 0.062392466)
+            float3 xformOp:scale = (2.9999993, 2.9999998, 2.9999998)
+            float3 xformOp:translate = (-5.827785, 0.38545737, 3.9417953)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_striped_rock" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            prepend references = @../PhotoScans/australian_striped_rock.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.9084829, 0, 1.615724)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_yellow_rock" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            prepend references = @../PhotoScans/australian_yellow_rock.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (5, 5, 5)
+            float3 xformOp:translate = (-5.509038, -0.45160475, -4.159849)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_tree_stump_2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            prepend references = @../PhotoScans/australian_tree_stump_2.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-13.786684, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_quartz_rock_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (1.5707963, 0, 0)
+            }
+            references = @../PhotoScans/australian_quartz_rock.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.70710677, 0.7071067, 0, 0)
+            float3 xformOp:scale = (1.7, 1.7, 1.7)
+            float3 xformOp:translate = (3.0760028, 0.57463145, 4.504961)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_black_rock_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-0.6942136, 1.5253575e-7, -5.5180287e-8)
+            }
+            prepend references = @../PhotoScans/australian_black_rock_1.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.94036084, -0.3401786, 8.11049e-8, 9.44508e-15)
+            float3 xformOp:scale = (2.9999998, 2.9999998, 2.9999998)
+            float3 xformOp:translate = (0, 0.33077216, 7.2062206)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
 }

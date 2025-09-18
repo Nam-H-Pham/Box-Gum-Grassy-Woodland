@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Trees", "Trees_2", "Ground_1", "Animals", "Branches_1", "Falling_Leaves", "DistantLand", "SkyCover", "Audio_Entity", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop", "Bird_Audio", "Yellow_Tailed_Black_Cockatoo_mp3", "Yellow_Tailed_Black_Cockatoo_wav", "Tree_Billboards", "Tree_Billboards_High_Quality"]
+    reorder nameChildren = ["Ground_1", "Animals", "Branches_1", "Falling_Leaves", "Audio_Entity", "Birds", "Looping_Birds", "Kangaroo_1", "Kangaroo_Loop", "Bird_Audio", "Yellow_Tailed_Black_Cockatoo_mp3", "Tree_Billboards_High_Quality", "Scans"]
     def Scope "Ground_1"
     {
         def Xform "Ground" (
@@ -410,64 +410,6 @@ def Xform "Root"
         }
     }
 
-    def Scope "Branches_1" (
-        active = true
-    )
-    {
-        def Xform "Branches" (
-            active = true
-        )
-        {
-            reorder nameChildren = ["Branch1", "Branch3", "Branch2"]
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (0, 0, 0)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-            def "Branch1" (
-                active = true
-                customData = {
-                    float3 rotationEulerHint = (-1.5707963, 0, 0)
-                }
-                references = @../Branches/Branch1.usdc@
-            )
-            {
-                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
-                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
-                float3 xformOp:translate = (0.8462639, 0, -3.2171483)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-            }
-
-            def "Branch3" (
-                active = true
-                customData = {
-                    float3 rotationEulerHint = (-1.5707963, 0, 0)
-                }
-                references = @../Branches/Branch3.usdc@
-            )
-            {
-                quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
-                float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
-                float3 xformOp:translate = (9.0564575, 0, 4.902959)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-            }
-
-            def "Branch2" (
-                active = true
-                customData = {
-                    float3 rotationEulerHint = (-1.5707963, 2.7613758e-8, -1.6045203e-9)
-                }
-                references = @../Branches/Branch2.usdc@
-            )
-            {
-                quatf xformOp:orient = (0.7071067, -0.70710677, 1.0330222e-8, 9.195654e-9)
-                float3 xformOp:scale = (0.9999998, 0.9999998, 0.9999998)
-                float3 xformOp:translate = (-4.048775, 0.25918156, 6.98201)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-            }
-        }
-    }
-
     def Scope "Falling_Leaves" (
         active = true
     )
@@ -731,6 +673,108 @@ def Xform "Root"
             {
                 asset inputs:ImageFile = @Trees/Billboards/Groups/Group1.png@
             }
+        }
+    }
+
+    def Scope "Scans" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["australian_wooden_chunk", "australian_small_forest_green_boulder", "australian_mossy_branch", "australian_hollow_branch", "australian_mossy_boulder_2", "australian_forest_green_boulder_3"]
+        def "australian_forest_green_boulder_3" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707964, -0.42799878, -3.275707e-8)
+            }
+            prepend references = @../../PhotoScans/australian_forest_green_boulder_3.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.6909772, -0.6909772, -0.15016808, -0.15016809)
+            float3 xformOp:scale = (0.9999999, 0.9999998, 0.9999998)
+            float3 xformOp:translate = (4.0836887, -0.05368173, -2.3841858e-7)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_mossy_boulder_2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-7.8539805, -3.0311387, 0)
+            }
+            prepend references = @../../PhotoScans/australian_mossy_boulder_2.usdc@
+        )
+        {
+            quatf xformOp:orient = (-0.039031453, 0.039031453, 0.70602876, 0.7060287)
+            float3 xformOp:scale = (3, 3, 2.9999993)
+            float3 xformOp:translate = (2.157311, 0.109232545, 6.284438)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_hollow_branch" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-0.3484737, -1.2121361, 0.4612057)
+            }
+            prepend references = @../../PhotoScans/australian_hollow_branch.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.81059366, -0.010480896, -0.5787308, 0.0888746)
+            float3 xformOp:scale = (4.0000005, 4, 3.9999995)
+            float3 xformOp:translate = (9.518798, 0.20728874, -0.6024842)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_mossy_branch" (
+            active = true
+            prepend references = @../../PhotoScans/australian_mossy_branch.usdc@
+        )
+        {
+            float3 xformOp:scale = (1.3, 1.3, 1.3)
+            float3 xformOp:translate = (-4.558676, 0.34253526, 2.8515887)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_small_forest_green_boulder" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            prepend references = @../../PhotoScans/australian_small_forest_green_boulder.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (2, 2, 2)
+            float3 xformOp:translate = (8.748074, 0, -5.9357314)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_wooden_chunk" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            prepend references = @../../PhotoScans/australian_wooden_chunk.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (5, 5, 5)
+            float3 xformOp:translate = (0.23261642, -0.06313026, -8.965639)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "australian_small_forest_green_boulder_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707963, 0, 0)
+            }
+            prepend references = @../../PhotoScans/australian_small_forest_green_boulder.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+            float3 xformOp:scale = (3, 3, 3)
+            float3 xformOp:translate = (-11.219338, 0, 6.5038047)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
 }
