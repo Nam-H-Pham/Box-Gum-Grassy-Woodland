@@ -32,6 +32,9 @@ class DistantSpawner {
     
     // Memory management
     private let maxPositions: Int = 1000 // Adjust as needed
+
+    private var spawnTimer: DispatchSourceTimer?
+    private var remainingSpawnCount: Int = 0
     
     init(anchor: AnchorEntity,
          modelFilenames: [(String, ClosedRange<Float>)],
@@ -197,32 +200,47 @@ class DistantSpawner {
         if clearExisting {
             removeAll()
         }
-        
-        var remainingSpawnCount = spawnCount
-        
-        func spawnBatch() {
-            let currentBatchSize = min(batchSize, remainingSpawnCount)
-            
-            for _ in 0..<currentBatchSize {
-                let entity = spawn()
-                anchor.addChild(entity)
+
+        cancelSpawnTimer()
+
+        remainingSpawnCount = spawnCount
+
+        guard remainingSpawnCount > 0 else {
+            return
+        }
+
+        let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
+        timer.schedule(deadline: .now(), repeating: delayBetweenBatches)
+        timer.setEventHandler { [weak self] in
+            guard let self = self else { return }
+
+            guard self.remainingSpawnCount > 0 else {
+                self.cancelSpawnTimer()
+                return
             }
-            
-            remainingSpawnCount -= currentBatchSize
-            
-            if remainingSpawnCount > 0 {
-                // Schedule the next batch after the delay
-                DispatchQueue.main.asyncAfter(deadline: .now() + delayBetweenBatches) {
-                    spawnBatch()
-                }
+
+            let currentBatchSize = min(self.batchSize, self.remainingSpawnCount)
+
+            for _ in 0..<currentBatchSize {
+                let entity = self.spawn()
+                self.anchor.addChild(entity)
+            }
+
+            self.remainingSpawnCount -= currentBatchSize
+
+            if self.remainingSpawnCount <= 0 {
+                self.cancelSpawnTimer()
             }
         }
-        
-        // Start the first batch
-        spawnBatch()
+
+        spawnTimer = timer
+        timer.resume()
     }
-    
+
     public func removeAll() {
+        cancelSpawnTimer()
+        remainingSpawnCount = 0
+
         for entities in entityPool.values {
             for entity in entities {
                 entity.isEnabled = false // Disable instead of removing
@@ -231,5 +249,11 @@ class DistantSpawner {
         anchor.children.removeAll(keepCapacity: true)
         existingPositions.removeAll()
         grid.removeAll()
+    }
+
+    private func cancelSpawnTimer() {
+        spawnTimer?.setEventHandler(handler: nil)
+        spawnTimer?.cancel()
+        spawnTimer = nil
     }
 }
