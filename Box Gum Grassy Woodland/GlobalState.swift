@@ -21,6 +21,8 @@ class GlobalState: ObservableObject {
     @Published var grassPatchSpawner: DistantSpawner!
     @Published var grassClosePatchSpawner: DistantSpawner!
     @Published var nearbyGrass: BasicSpawner!
+
+    @Published var distantMetalRenderer: MetalBillboardRenderer?
     
     @Published var environmentType: EnvironmentType!
 
@@ -37,13 +39,18 @@ class GlobalState: ObservableObject {
         distantLandscape = configuration.distantLandscape
         trees = configuration.trees
 
+        if distantMetalRenderer == nil {
+            distantMetalRenderer = MetalBillboardRenderer()
+        }
+
         grassPatchSpawner = DistantSpawner(
             anchor: AnchorEntity(world: [0, 0, 0]),
             modelFilenames: configuration.grassPatches.map { ($0.path, Float($0.range.lowerBound)...Float($0.range.upperBound)) },
             scale: configuration.grassScale,
             spawnCount: configuration.grassSpawnCount,
             batchSize: 50,
-            delayBetweenBatches: 0.5
+            delayBetweenBatches: 0.5,
+            metalRenderer: distantMetalRenderer
         )
 
         grassClosePatchSpawner = DistantSpawner(

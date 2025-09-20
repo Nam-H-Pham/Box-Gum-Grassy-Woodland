@@ -9,6 +9,13 @@ class DistantSpawner {
     private let minimumSpacing: Float
     private let center: SIMD3<Float>
     private let anchor: AnchorEntity
+
+    enum RenderBackend {
+        case realityKit
+        case metal(MetalBillboardRenderer)
+    }
+
+    private let renderBackend: RenderBackend
     
     // New properties for spawnAll parameters
     private let spawnCount: Int
@@ -44,8 +51,9 @@ class DistantSpawner {
          center: SIMD3<Float> = .zero,
          spawnCount: Int,
          batchSize: Int,
-         delayBetweenBatches: TimeInterval = 0.4) {
-        
+         delayBetweenBatches: TimeInterval = 0.4,
+         metalRenderer: MetalBillboardRenderer? = nil) {
+
         self.translation = translation
         self.modelFilenames = modelFilenames
         self.scale = scale
@@ -56,21 +64,32 @@ class DistantSpawner {
         self.batchSize = batchSize
         self.delayBetweenBatches = delayBetweenBatches
         self.gridCellSize = max(minimumSpacing, 0.001)
-        
+
+        if let metalRenderer {
+            self.renderBackend = .metal(metalRenderer)
+        } else {
+            self.renderBackend = .realityKit
+        }
+
         // Precompute weights
         self.weights = modelFilenames.map { Float($0.1.upperBound - $0.1.lowerBound) }
         self.totalWeight = weights.reduce(0, +)
-        
-        // Preload entity pool
-        for (filename, _) in modelFilenames {
-            entityPool[filename] = []
-            if let model = try? loadModel(named: filename) {
-                for _ in 0..<batchSize { // Pre-clone for batch size
-                    let clone = model.clone(recursive: true)
-                    clone.isEnabled = false
-                    entityPool[filename]?.append(clone)
+
+        switch renderBackend {
+        case .realityKit:
+            // Preload entity pool
+            for (filename, _) in modelFilenames {
+                entityPool[filename] = []
+                if let model = try? loadModel(named: filename) {
+                    for _ in 0..<batchSize { // Pre-clone for batch size
+                        let clone = model.clone(recursive: true)
+                        clone.isEnabled = false
+                        entityPool[filename]?.append(clone)
+                    }
                 }
             }
+        case .metal:
+            break
         }
     }
     
@@ -106,16 +125,24 @@ class DistantSpawner {
         return model
     }
     
-    func spawn(at position: SIMD3<Float>? = nil) -> Entity {
+    func spawn(at position: SIMD3<Float>? = nil) -> Entity? {
         let (modelFilename, lodRange) = selectRandomModelFilenameAndRange()
-        do {
-            let model = try loadModel(named: modelFilename)
-            let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
-            let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition, filename: modelFilename)
-            addToGrid(position: spawnPosition)
-            return entity
-        } catch {
-            fatalError("Failed to load model: \(modelFilename), error: \(error)")
+        let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
+        addToGrid(position: spawnPosition)
+
+        switch renderBackend {
+        case .realityKit:
+            do {
+                let model = try loadModel(named: modelFilename)
+                let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition, filename: modelFilename)
+                return entity
+            } catch {
+                fatalError("Failed to load model: \(modelFilename), error: \(error)")
+            }
+        case .metal(let renderer):
+            let descriptor = makeInstanceDescriptor(position: spawnPosition, filename: modelFilename)
+            renderer.appendInstance(descriptor)
+            return nil
         }
     }
 
@@ -217,44 +244,65 @@ class DistantSpawner {
             return
         }
 
-        let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
-        timer.schedule(deadline: .now(), repeating: delayBetweenBatches)
-        timer.setEventHandler { [weak self] in
-            guard let self = self else { return }
+        switch renderBackend {
+        case .realityKit:
+            let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
+            timer.schedule(deadline: .now(), repeating: delayBetweenBatches)
+            timer.setEventHandler { [weak self] in
+                guard let self = self else { return }
 
-            guard self.remainingSpawnCount > 0 else {
-                self.cancelSpawnTimer()
-                return
+                guard self.remainingSpawnCount > 0 else {
+                    self.cancelSpawnTimer()
+                    return
+                }
+
+                let currentBatchSize = min(self.batchSize, self.remainingSpawnCount)
+
+                for _ in 0..<currentBatchSize {
+                    if let entity = self.spawn() {
+                        self.anchor.addChild(entity)
+                    }
+                }
+
+                self.remainingSpawnCount -= currentBatchSize
+
+                if self.remainingSpawnCount <= 0 {
+                    self.cancelSpawnTimer()
+                }
             }
 
-            let currentBatchSize = min(self.batchSize, self.remainingSpawnCount)
-
-            for _ in 0..<currentBatchSize {
-                let entity = self.spawn()
-                self.anchor.addChild(entity)
+            spawnTimer = timer
+            timer.resume()
+        case .metal(let renderer):
+            var descriptors: [MetalBillboardRenderer.InstanceDescriptor] = []
+            for _ in 0..<remainingSpawnCount {
+                let (filename, lodRange) = selectRandomModelFilenameAndRange()
+                let localPosition = generateValidPosition(lodRange: lodRange)
+                let spawnPosition = localPosition + translation
+                addToGrid(position: spawnPosition)
+                descriptors.append(makeInstanceDescriptor(position: spawnPosition, filename: filename))
             }
-
-            self.remainingSpawnCount -= currentBatchSize
-
-            if self.remainingSpawnCount <= 0 {
-                self.cancelSpawnTimer()
-            }
+            renderer.replaceInstances(descriptors)
+            remainingSpawnCount = 0
         }
-
-        spawnTimer = timer
-        timer.resume()
     }
 
     public func removeAll() {
         cancelSpawnTimer()
         remainingSpawnCount = 0
 
-        for entities in entityPool.values {
-            for entity in entities {
-                entity.isEnabled = false // Disable instead of removing
+        switch renderBackend {
+        case .realityKit:
+            for entities in entityPool.values {
+                for entity in entities {
+                    entity.isEnabled = false // Disable instead of removing
+                }
             }
+            anchor.children.removeAll(keepCapacity: true)
+        case .metal(let renderer):
+            renderer.clearInstances()
         }
-        anchor.children.removeAll(keepCapacity: true)
+
         grid.removeAll()
         positionQueue.removeAll()
     }
@@ -263,5 +311,29 @@ class DistantSpawner {
         spawnTimer?.setEventHandler(handler: nil)
         spawnTimer?.cancel()
         spawnTimer = nil
+    }
+
+    private func makeInstanceDescriptor(position: SIMD3<Float>, filename: String) -> MetalBillboardRenderer.InstanceDescriptor {
+        let randomScaleFactor = Float.random(in: 0.7...1.2) * scale
+        let direction = center - position
+        let yaw = atan2(direction.x, direction.z)
+        let normalizedIndex = colorIndex(for: filename)
+        let baseColor = SIMD4<Float>(0.45, 0.6, 0.3, 0.85)
+        let tint = SIMD4<Float>(normalizedIndex * 0.1, normalizedIndex * 0.05, normalizedIndex * 0.02, 0)
+        let color = SIMD4<Float>(baseColor.x + tint.x,
+                                 baseColor.y + tint.y,
+                                 baseColor.z + tint.z,
+                                 baseColor.w)
+        return MetalBillboardRenderer.InstanceDescriptor(position: position,
+                                                         scale: randomScaleFactor,
+                                                         yaw: yaw,
+                                                         color: color)
+    }
+
+    private func colorIndex(for filename: String) -> Float {
+        guard let index = modelFilenames.firstIndex(where: { $0.0 == filename }) else {
+            return 0
+        }
+        return Float(index) / Float(max(modelFilenames.count - 1, 1))
     }
 }
