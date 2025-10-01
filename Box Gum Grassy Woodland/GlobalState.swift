@@ -41,18 +41,14 @@ class GlobalState: ObservableObject {
             anchor: AnchorEntity(world: [0, 0, 0]),
             modelFilenames: configuration.grassPatches.map { ($0.path, Float($0.range.lowerBound)...Float($0.range.upperBound)) },
             scale: configuration.grassScale,
-            spawnCount: configuration.grassSpawnCount,
-            batchSize: 50,
-            delayBetweenBatches: 0.5
+            spawnCount: configuration.grassSpawnCount
         )
 
         grassClosePatchSpawner = DistantSpawner(
             anchor: AnchorEntity(world: [0, 0, 0]),
             modelFilenames: configuration.closeGrassPatches.map { ($0.path, Float($0.range.lowerBound)...Float($0.range.upperBound)) },
             scale: configuration.closeGrassScale,
-            spawnCount: configuration.closeGrassSpawnCount,
-            batchSize: 50,
-            delayBetweenBatches: 0.5
+            spawnCount: configuration.closeGrassSpawnCount
         )
 
 
