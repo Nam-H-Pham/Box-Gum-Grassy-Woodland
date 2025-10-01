@@ -30,7 +30,7 @@ class GlobalState: ObservableObject {
 
     public func loadEnvironment(envType: EnvironmentType) {
         environmentType = envType
-        var configuration = envType.configuration
+        let configuration = envType.configuration
         // Use preloaded models from the configuration directly
         landscape = configuration.landscape
         skyCover = configuration.skyCover
@@ -41,14 +41,16 @@ class GlobalState: ObservableObject {
             anchor: AnchorEntity(world: [0, 0, 0]),
             modelFilenames: configuration.grassPatches.map { ($0.path, Float($0.range.lowerBound)...Float($0.range.upperBound)) },
             scale: configuration.grassScale,
-            spawnCount: configuration.grassSpawnCount
+            spawnCount: configuration.grassSpawnCount,
+            batchSize: 100
         )
 
         grassClosePatchSpawner = DistantSpawner(
             anchor: AnchorEntity(world: [0, 0, 0]),
             modelFilenames: configuration.closeGrassPatches.map { ($0.path, Float($0.range.lowerBound)...Float($0.range.upperBound)) },
             scale: configuration.closeGrassScale,
-            spawnCount: configuration.closeGrassSpawnCount
+            spawnCount: configuration.closeGrassSpawnCount,
+            batchSize: 100
         )
 
 

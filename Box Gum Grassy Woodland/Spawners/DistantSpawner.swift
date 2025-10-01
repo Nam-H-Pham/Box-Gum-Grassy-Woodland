@@ -1,40 +1,51 @@
+import SwiftUI
 import RealityKit
 import RealityKitContent
-import simd
 
-private enum DistantSpawnerError: Error {
-    case failedToCloneModel(String)
-}
-
-final class DistantSpawner {
+class DistantSpawner {
     private let translation: SIMD3<Float>
     private let modelFilenames: [(String, ClosedRange<Float>)]
     private let scale: Float
     private let minimumSpacing: Float
     private let center: SIMD3<Float>
     private let anchor: AnchorEntity
+    
+    // New properties for spawnAll parameters
     private let spawnCount: Int
-
-    private var modelCache: [String: ModelEntity] = [:]
-    private var instancedEntities: [String: ModelEntity] = [:]
-    private var fallbackClones: [String: [Entity]] = [:]
-    private var storedTransforms: [String: [simd_float4x4]] = [:]
-
+    private let batchSize: Int
+    private let delayBetweenBatches: TimeInterval
+    
+    // Cache for loaded models
+    private var modelCache: [String: Entity] = [:]
+    
+    // Precomputed weights for model selection
     private let weights: [Float]
     private let totalWeight: Float
-
+    
+    // Grid for spatial partitioning
     private var grid: [SIMD2<Int>: [SIMD3<Float>]] = [:]
     private var positionQueue: [(cell: SIMD2<Int>, position: SIMD3<Float>)] = []
     private let gridCellSize: Float
-    private let maxPositions: Int = 1000
+    
+    // Entity pool for reuse
+    private var entityPool: [String: [Entity]] = [:]
+    
+    // Memory management
+    private let maxPositions: Int = 1000 // Adjust as needed
 
+    private var spawnTimer: DispatchSourceTimer?
+    private var remainingSpawnCount: Int = 0
+    
     init(anchor: AnchorEntity,
          modelFilenames: [(String, ClosedRange<Float>)],
          scale: Float = 1.0,
          minimumSpacing: Float = 5.0,
          translation: SIMD3<Float> = .zero,
          center: SIMD3<Float> = .zero,
-         spawnCount: Int) {
+         spawnCount: Int,
+         batchSize: Int,
+         delayBetweenBatches: TimeInterval = 0.4) {
+        
         self.translation = translation
         self.modelFilenames = modelFilenames
         self.scale = scale
@@ -42,66 +53,36 @@ final class DistantSpawner {
         self.center = center
         self.anchor = anchor
         self.spawnCount = spawnCount
+        self.batchSize = batchSize
+        self.delayBetweenBatches = delayBetweenBatches
         self.gridCellSize = max(minimumSpacing, 0.001)
-
+        
+        // Precompute weights
         self.weights = modelFilenames.map { Float($0.1.upperBound - $0.1.lowerBound) }
         self.totalWeight = weights.reduce(0, +)
+        
+        // Preload entity pool
+        for (filename, _) in modelFilenames {
+            entityPool[filename] = []
+            if let model = try? loadModel(named: filename) {
+                for _ in 0..<batchSize { // Pre-clone for batch size
+                    let clone = model.clone(recursive: true)
+                    clone.isEnabled = false
+                    entityPool[filename]?.append(clone)
+                }
+            }
+        }
     }
-
+    
     func getAnchor() -> AnchorEntity {
-        anchor
+        return anchor
     }
-
-    func spawnAll(clearExisting: Bool = true) {
-        if clearExisting {
-            removeAll()
+    
+    func selectRandomModelFilenameAndRange() -> (String, ClosedRange<Float>) {
+        guard !modelFilenames.isEmpty else {
+            fatalError("No model filenames provided.")
         }
 
-        guard spawnCount > 0, !modelFilenames.isEmpty else {
-            return
-        }
-
-        var transformsByModel: [String: [simd_float4x4]] = clearExisting ? [:] : storedTransforms
-
-        for _ in 0..<spawnCount {
-            let (modelFilename, lodRange) = selectRandomModelFilenameAndRange()
-            let localPosition = generateValidPosition(lodRange: lodRange)
-            let worldPosition = localPosition + translation
-            let scaleFactor = Float.random(in: 0.7...1.2) * scale
-            let transform = makeTransform(for: worldPosition, scale: scaleFactor)
-
-            transformsByModel[modelFilename, default: []].append(transform)
-            addToGrid(position: worldPosition)
-        }
-
-        storedTransforms = transformsByModel
-        applyTransformsToInstances()
-    }
-
-    func removeAll() {
-        storedTransforms.removeAll()
-        grid.removeAll()
-        positionQueue.removeAll()
-
-        if #available(visionOS 2.0, *) {
-            for entity in instancedEntities.values {
-                entity.components.remove(MeshInstancesComponent.self)
-                entity.removeFromParent()
-            }
-        }
-
-        for clones in fallbackClones.values {
-            for entity in clones {
-                entity.removeFromParent()
-            }
-        }
-
-        instancedEntities.removeAll()
-        fallbackClones.removeAll()
-        anchor.children.removeAll(keepCapacity: true)
-    }
-
-    private func selectRandomModelFilenameAndRange() -> (String, ClosedRange<Float>) {
         let randomValue = Float.random(in: 0..<totalWeight)
         var cumulativeWeight: Float = 0.0
 
@@ -112,132 +93,53 @@ final class DistantSpawner {
             }
         }
 
-        return modelFilenames.last ?? ("", 0...0)
+        // Fallback to last model (should rarely happen)
+        return modelFilenames.last!
     }
-
-    private func loadModel(named filename: String) throws -> ModelEntity {
-        if let cached = modelCache[filename] {
-            return cached
+    
+    func loadModel(named filename: String) throws -> Entity {
+        if let cachedModel = modelCache[filename] {
+            return cachedModel
         }
-
         let model = try ModelEntity.load(named: filename, in: realityKitContentBundle)
         modelCache[filename] = model
         return model
     }
-
-    private func prepareInstancedEntity(for filename: String) throws -> ModelEntity {
-        if let entity = instancedEntities[filename] {
+    
+    func spawn(at position: SIMD3<Float>? = nil) -> Entity {
+        let (modelFilename, lodRange) = selectRandomModelFilenameAndRange()
+        do {
+            let model = try loadModel(named: modelFilename)
+            let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
+            let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition, filename: modelFilename)
+            addToGrid(position: spawnPosition)
             return entity
-        }
-
-        let baseModel = try loadModel(named: filename)
-        let clonedEntity = baseModel.clone(recursive: true)
-
-        guard let modelEntity = clonedEntity as? ModelEntity else {
-            throw DistantSpawnerError.failedToCloneModel(filename)
-        }
-
-        modelEntity.isEnabled = true
-        anchor.addChild(modelEntity)
-        instancedEntities[filename] = modelEntity
-        return modelEntity
-    }
-
-    private func applyTransformsToInstances() {
-        let filenames = Set(storedTransforms.keys)
-            .union(instancedEntities.keys)
-            .union(fallbackClones.keys)
-
-        for filename in filenames {
-            let transforms = storedTransforms[filename] ?? []
-
-            if transforms.isEmpty {
-                clearEntities(for: filename)
-                continue
-            }
-
-            do {
-                if #available(visionOS 2.0, *) {
-                    try applyInstancedTransforms(for: filename, transforms: transforms)
-                } else {
-                    try applyFallbackTransforms(for: filename, transforms: transforms)
-                }
-            } catch {
-                print("Failed to apply mesh instancing for \(filename): \(error)")
-            }
+        } catch {
+            fatalError("Failed to load model: \(modelFilename), error: \(error)")
         }
     }
 
-    private func clearEntities(for filename: String) {
-        if #available(visionOS 2.0, *) {
-            if let entity = instancedEntities.removeValue(forKey: filename) {
-                entity.components.remove(MeshInstancesComponent.self)
-                entity.removeFromParent()
-            }
-        }
-
-        if let clones = fallbackClones.removeValue(forKey: filename) {
-            for entity in clones {
-                entity.removeFromParent()
-            }
+    private func createEntityClone(from model: Entity, lodRange: ClosedRange<Float>, position: SIMD3<Float>, filename: String) -> Entity {
+        if let pool = entityPool[filename], let clone = pool.first(where: { !$0.isEnabled }) {
+            // Reuse from pool
+            let randomScaleFactor = Float.random(in: 0.7...1.2) * scale
+            clone.scale = SIMD3<Float>(repeating: randomScaleFactor)
+            clone.position = position
+            clone.look(at: center, from: position, relativeTo: nil)
+            clone.isEnabled = true
+            return clone
+        } else {
+            // Create new clone if pool is empty
+            let clone = model.clone(recursive: true)
+            let randomScaleFactor = Float.random(in: 0.7...1.2) * scale
+            clone.scale = SIMD3<Float>(repeating: randomScaleFactor)
+            clone.position = position
+            clone.look(at: center, from: position, relativeTo: nil)
+            entityPool[filename, default: []].append(clone)
+            return clone
         }
     }
-
-    @available(visionOS 2.0, *)
-    private func applyInstancedTransforms(for filename: String, transforms: [simd_float4x4]) throws {
-        let instancedEntity = try prepareInstancedEntity(for: filename)
-        var meshInstances = MeshInstancesComponent()
-        let instanceData = try LowLevelInstanceData(instanceCount: transforms.count)
-        meshInstances[partIndex: 0] = instanceData
-        instanceData.withMutableTransforms { buffer in
-            for (index, matrix) in transforms.enumerated() {
-                buffer[index] = matrix
-            }
-        }
-        instancedEntity.components.set(meshInstances)
-    }
-
-    private func applyFallbackTransforms(for filename: String, transforms: [simd_float4x4]) throws {
-        let baseModel = try loadModel(named: filename)
-
-        if let clones = fallbackClones[filename] {
-            for entity in clones {
-                entity.removeFromParent()
-            }
-        }
-
-        var newClones: [Entity] = []
-        for matrix in transforms {
-            let clone = baseModel.clone(recursive: true)
-            clone.transform.matrix = matrix
-            anchor.addChild(clone)
-            newClones.append(clone)
-        }
-
-        fallbackClones[filename] = newClones
-    }
-
-    private func makeTransform(for worldPosition: SIMD3<Float>, scale: Float) -> simd_float4x4 {
-        let rotation = rotationTowardCenter(from: worldPosition)
-        let transform = Transform(scale: SIMD3<Float>(repeating: scale),
-                                  rotation: rotation,
-                                  translation: worldPosition)
-        return transform.matrix
-    }
-
-    private func rotationTowardCenter(from worldPosition: SIMD3<Float>) -> simd_quatf {
-        let direction = SIMD3<Float>(center.x - worldPosition.x, 0, center.z - worldPosition.z)
-        let lengthSquared = simd_length_squared(direction)
-
-        guard lengthSquared > 0.0001 else {
-            return simd_quatf(angle: 0, axis: [0, 1, 0])
-        }
-
-        let normalized = normalize(direction)
-        let angle = atan2(normalized.x, normalized.z)
-        return simd_quatf(angle: angle, axis: [0, 1, 0])
-    }
-
+    
     private func generateValidPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
         var position: SIMD3<Float>
         var attempts = 0
@@ -247,18 +149,19 @@ final class DistantSpawner {
         } while (!isValidPosition(position) && attempts < 10)
         return position
     }
-
+    
     private func generateRandomPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
         let angle = Float.random(in: 0...(2 * .pi))
         let radius = Float.random(in: lodRange)
-        let (sinAngle, cosAngle) = (sin(angle), cos(angle))
+        let (sinAngle, cosAngle) = (sin(angle), cos(angle)) // Compute once
         return SIMD3<Float>(radius * cosAngle, 0, radius * sinAngle)
     }
-
+    
     private func isValidPosition(_ position: SIMD3<Float>) -> Bool {
         let worldPosition = position + translation
         let baseKey = gridKey(for: worldPosition)
 
+        // Check neighboring grid cells
         for dx in -1...1 {
             for dz in -1...1 {
                 let key = SIMD2<Int>(baseKey.x + dx, baseKey.y + dz)
@@ -274,7 +177,7 @@ final class DistantSpawner {
         }
         return true
     }
-
+    
     private func addToGrid(position: SIMD3<Float>) {
         if positionQueue.count >= maxPositions, let oldest = positionQueue.first {
             positionQueue.removeFirst()
@@ -299,5 +202,138 @@ final class DistantSpawner {
         let gridX = Int(floor(position.x / gridCellSize))
         let gridZ = Int(floor(position.z / gridCellSize))
         return SIMD2<Int>(gridX, gridZ)
+    }
+    
+    @MainActor
+    func spawnInstances(count: Int, for filename: String, in lodRange: ClosedRange<Float>) async throws -> ModelEntity {
+        // Load the asset; it might be a hierarchy whose root is not a ModelEntity.
+        let root: Entity = try await Entity(named: filename, in: realityKitContentBundle)
+
+        // Find a renderable ModelEntity in the hierarchy (fallback to making a box if none found).
+        let renderable: ModelEntity = root.findRenderableModelEntity() ?? {
+            // Fallback cube so this function still returns something useful if the asset has no meshes.
+            let mesh = MeshResource.generateBox(size: 0.05)
+            let material = SimpleMaterial(color: .systemBlue, isMetallic: false)
+            return ModelEntity(mesh: mesh, materials: [material])
+        }()
+
+        // Prepare instancing
+        var mic = MeshInstancesComponent()
+        let instances = try LowLevelInstanceData(instanceCount: count)
+        let part = MeshInstancesComponent.Part(data: instances)
+
+        // Attach the same instance buffer to *all* mesh parts of this model.
+        if let modelComp = renderable.model {
+            let partCount = modelComp.mesh.lowLevelMesh?.parts.count ?? 1
+            for p in 0..<partCount {
+                mic[partIndex: p] = part
+            }
+        } else {
+            // If somehow no model component (shouldn't happen here), still set index 0 to be safe.
+            mic[partIndex: 0] = part
+        }
+
+        // Write per-instance transforms
+        instances.withMutableTransforms { transforms in
+            for i in 0..<count {
+                let position = generateRandomPosition(lodRange: lodRange)
+                let angle: Float = .random(in: 0..<2) * .pi
+                let scaleFactor = Float.random(in: 0.7...1.2) * self.scale
+
+                let transform = Transform(
+                    scale: SIMD3<Float>(repeating: scaleFactor),
+                    rotation: simd_quatf(angle: angle, axis: [0, 1, 0]),
+                    translation: position + translation
+                )
+                transforms[i] = transform.matrix
+            }
+        }
+
+        renderable.components.set(mic)
+        return renderable
+    }
+
+
+    
+    public func spawnAll(clearExisting: Bool = true) {
+        Task {
+            if clearExisting {
+                removeAll()
+            }
+
+            cancelSpawnTimer()
+            remainingSpawnCount = spawnCount
+            guard remainingSpawnCount > 0 else { return }
+
+            let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
+            timer.schedule(deadline: .now(), repeating: delayBetweenBatches)
+            timer.setEventHandler { [weak self] in
+                guard let self = self else { return }
+                guard self.remainingSpawnCount > 0 else {
+                    self.cancelSpawnTimer()
+                    return
+                }
+
+                let currentBatchSize = min(self.batchSize, self.remainingSpawnCount)
+                Task {
+                    let (filename, lodRange) = self.selectRandomModelFilenameAndRange()
+
+                    do {
+                        let instancedEntity = try await self.spawnInstances(
+                            count: currentBatchSize,
+                            for: filename,
+                            in: lodRange
+                        )
+                        await self.anchor.addChild(instancedEntity)
+                    } catch {
+                        print("Failed to spawn instances for \(filename): \(error)")
+                    }
+
+                    self.remainingSpawnCount -= currentBatchSize
+                    if self.remainingSpawnCount <= 0 {
+                        self.cancelSpawnTimer()
+                    }
+                }
+            }
+
+            spawnTimer = timer
+            timer.resume()
+        }
+    }
+
+
+    public func removeAll() {
+        cancelSpawnTimer()
+        remainingSpawnCount = 0
+
+        for entities in entityPool.values {
+            for entity in entities {
+                entity.isEnabled = false // Disable instead of removing
+            }
+        }
+        anchor.children.removeAll(keepCapacity: true)
+        grid.removeAll()
+        positionQueue.removeAll()
+    }
+
+    private func cancelSpawnTimer() {
+        spawnTimer?.setEventHandler(handler: nil)
+        spawnTimer?.cancel()
+        spawnTimer = nil
+    }
+}
+
+extension Entity {
+    /// Depth-first search for the first ModelEntity that actually has a ModelComponent.
+    func findRenderableModelEntity() -> ModelEntity? {
+        if let me = self as? ModelEntity, me.model != nil {
+            return me
+        }
+        for child in children {
+            if let found = child.findRenderableModelEntity() {
+                return found
+            }
+        }
+        return nil
     }
 }

@@ -48,7 +48,7 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 ],
                 nearbyGrass: [
                     "Desert/Grass/3.75_0.8_ring",
-                    "Desert/Grass/7.5_1.6_ring",
+//                    "Desert/Grass/7.5_1.6_ring",
 //                    "Desert/Grass/15.0_3.2.usda"
                 ],
                 
@@ -66,20 +66,20 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 trees: loadModel(named: "Green Grasslands/New Version Assets/SceneTrees"),
                 
                 grassPatches: [
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard1.usda", 15...100),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard2.usda", 15...100)
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard1.usda", 15...130),
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard2.usda", 15...130)
                 ],
                 closeGrassPatches: [
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard1.usda", 1...15),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard2.usda", 1...15),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard3.usda", 1...15)
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard1.usda", 1...20),
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard2.usda", 1...20),
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard3.usda", 1...20)
                 ],
                 nearbyGrass: ["Green Grasslands/New Version Assets/Grass/GrassRing_0.5"],
                 
                 grassScale: 1.3,
                 closeGrassScale: 1.1,
                 grassSpawnCount: 1000,
-                closeGrassSpawnCount: 400
+                closeGrassSpawnCount: 300
             )
         }
     
