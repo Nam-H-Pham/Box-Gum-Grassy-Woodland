@@ -2,6 +2,10 @@ import RealityKit
 import RealityKitContent
 import simd
 
+private enum DistantSpawnerError: Error {
+    case failedToCloneModel(String)
+}
+
 final class DistantSpawner {
     private let translation: SIMD3<Float>
     private let modelFilenames: [(String, ClosedRange<Float>)]
@@ -13,6 +17,7 @@ final class DistantSpawner {
 
     private var modelCache: [String: ModelEntity] = [:]
     private var instancedEntities: [String: ModelEntity] = [:]
+    private var fallbackClones: [String: [Entity]] = [:]
     private var storedTransforms: [String: [simd_float4x4]] = [:]
 
     private let weights: [Float]
@@ -78,11 +83,21 @@ final class DistantSpawner {
         grid.removeAll()
         positionQueue.removeAll()
 
-        for entity in instancedEntities.values {
-            entity.removeFromParent()
+        if #available(visionOS 2.0, *) {
+            for entity in instancedEntities.values {
+                entity.components.remove(MeshInstancesComponent.self)
+                entity.removeFromParent()
+            }
+        }
+
+        for clones in fallbackClones.values {
+            for entity in clones {
+                entity.removeFromParent()
+            }
         }
 
         instancedEntities.removeAll()
+        fallbackClones.removeAll()
         anchor.children.removeAll(keepCapacity: true)
     }
 
@@ -116,43 +131,90 @@ final class DistantSpawner {
         }
 
         let baseModel = try loadModel(named: filename)
-        let instancedEntity = baseModel.clone(recursive: true)
-        instancedEntity.isEnabled = true
-        anchor.addChild(instancedEntity)
-        instancedEntities[filename] = instancedEntity
-        return instancedEntity
+        let clonedEntity = baseModel.clone(recursive: true)
+
+        guard let modelEntity = clonedEntity as? ModelEntity else {
+            throw DistantSpawnerError.failedToCloneModel(filename)
+        }
+
+        modelEntity.isEnabled = true
+        anchor.addChild(modelEntity)
+        instancedEntities[filename] = modelEntity
+        return modelEntity
     }
 
     private func applyTransformsToInstances() {
-        let filenames = Set(storedTransforms.keys).union(instancedEntities.keys)
+        let filenames = Set(storedTransforms.keys)
+            .union(instancedEntities.keys)
+            .union(fallbackClones.keys)
 
         for filename in filenames {
             let transforms = storedTransforms[filename] ?? []
 
             if transforms.isEmpty {
-                if let entity = instancedEntities[filename] {
-                    entity.components.remove(MeshInstancesComponent.self)
-                    entity.removeFromParent()
-                    instancedEntities.removeValue(forKey: filename)
-                }
+                clearEntities(for: filename)
                 continue
             }
 
             do {
-                let instancedEntity = try prepareInstancedEntity(for: filename)
-                var meshInstances = instancedEntity.components[MeshInstancesComponent.self] ?? MeshInstancesComponent()
-                let instanceData = try LowLevelInstanceData(instanceCount: transforms.count)
-                meshInstances[partIndex: 0] = instanceData
-                instanceData.withMutableTransforms { buffer in
-                    for (index, matrix) in transforms.enumerated() {
-                        buffer[index] = matrix
-                    }
+                if #available(visionOS 2.0, *) {
+                    try applyInstancedTransforms(for: filename, transforms: transforms)
+                } else {
+                    try applyFallbackTransforms(for: filename, transforms: transforms)
                 }
-                instancedEntity.components.set(meshInstances)
             } catch {
                 print("Failed to apply mesh instancing for \(filename): \(error)")
             }
         }
+    }
+
+    private func clearEntities(for filename: String) {
+        if #available(visionOS 2.0, *) {
+            if let entity = instancedEntities.removeValue(forKey: filename) {
+                entity.components.remove(MeshInstancesComponent.self)
+                entity.removeFromParent()
+            }
+        }
+
+        if let clones = fallbackClones.removeValue(forKey: filename) {
+            for entity in clones {
+                entity.removeFromParent()
+            }
+        }
+    }
+
+    @available(visionOS 2.0, *)
+    private func applyInstancedTransforms(for filename: String, transforms: [simd_float4x4]) throws {
+        let instancedEntity = try prepareInstancedEntity(for: filename)
+        var meshInstances = MeshInstancesComponent()
+        let instanceData = try LowLevelInstanceData(instanceCount: transforms.count)
+        meshInstances[partIndex: 0] = instanceData
+        instanceData.withMutableTransforms { buffer in
+            for (index, matrix) in transforms.enumerated() {
+                buffer[index] = matrix
+            }
+        }
+        instancedEntity.components.set(meshInstances)
+    }
+
+    private func applyFallbackTransforms(for filename: String, transforms: [simd_float4x4]) throws {
+        let baseModel = try loadModel(named: filename)
+
+        if let clones = fallbackClones[filename] {
+            for entity in clones {
+                entity.removeFromParent()
+            }
+        }
+
+        var newClones: [Entity] = []
+        for matrix in transforms {
+            let clone = baseModel.clone(recursive: true)
+            clone.transform.matrix = matrix
+            anchor.addChild(clone)
+            newClones.append(clone)
+        }
+
+        fallbackClones[filename] = newClones
     }
 
     private func makeTransform(for worldPosition: SIMD3<Float>, scale: Float) -> simd_float4x4 {
