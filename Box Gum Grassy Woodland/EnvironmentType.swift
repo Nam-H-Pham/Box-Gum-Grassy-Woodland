@@ -78,7 +78,7 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 
                 grassScale: 1.3,
                 closeGrassScale: 1.1,
-                grassSpawnCount: 1300,
+                grassSpawnCount: 2300,
                 closeGrassSpawnCount: 400
             )
         }

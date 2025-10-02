@@ -34,7 +34,6 @@ class DistantSpawner {
     private let maxPositions: Int = 1000 // Adjust as needed
 
     private var spawnTimer: DispatchSourceTimer?
-    private var remainingSpawnCount: Int = 0
     
     init(anchor: AnchorEntity,
          modelFilenames: [(String, ClosedRange<Float>)],
@@ -218,10 +217,9 @@ class DistantSpawner {
     
     @MainActor
     func spawnInstances(
-        count: Int,
+        positions: [SIMD3<Float>],
         for filename: String,
-        in lodRange: ClosedRange<Float>,
-        onPositionAccepted: ((SIMD3<Float>) -> Void)? = nil
+        in lodRange: ClosedRange<Float>
     ) async throws -> ModelEntity {
         let root = try await Entity(named: filename, in: realityKitContentBundle)
 
@@ -237,7 +235,7 @@ class DistantSpawner {
         let baseWorld = source.transformMatrix(relativeTo: nil)
 
         var mic = MeshInstancesComponent()
-        let instances = try LowLevelInstanceData(instanceCount: count)
+        let instances = try LowLevelInstanceData(instanceCount: positions.count)
         let part = MeshInstancesComponent.Part(data: instances)
 
         if let llm = renderable.model?.mesh.lowLevelMesh {
@@ -247,22 +245,14 @@ class DistantSpawner {
         }
 
         instances.withMutableTransforms { transforms in
-            for i in 0..<count {
-                let basePos = generateValidPosition(lodRange: lodRange) + self.translation
-
-                // Yaw to face center
+            for (i, basePos) in positions.enumerated() {
                 let yaw = yawFacing(self.center, from: basePos)
                 let rot = simd_quatf(angle: yaw, axis: SIMD3<Float>(0, 1, 0))
 
                 var t = Transform(rotation: rot, translation: basePos)
-                // Optional authored scale if needed:
-                // t.scale = ...
+                t.scale = SIMD3(repeating: Float.random(in: 0.7...1.2) * self.scale)
 
                 transforms[i] = t.matrix * baseWorld
-
-                // IMPORTANT: record each position so spacing applies across future batches
-                self.addToGrid(position: basePos)
-                onPositionAccepted?(basePos)
             }
         }
 
@@ -270,59 +260,76 @@ class DistantSpawner {
         return renderable
     }
 
-
-
-
-
     
     public func spawnAll(clearExisting: Bool = true) {
-        Task { @MainActor in
+        Task {
             if clearExisting {
-                removeAll()
+                await MainActor.run {
+                    removeAll()
+                }
             }
 
             cancelSpawnTimer()
-            remainingSpawnCount = spawnCount
-            guard remainingSpawnCount > 0 else { return }
 
-            var batchIndex = 0
-            while remainingSpawnCount > 0 {
-                let currentBatchSize = min(self.batchSize, remainingSpawnCount)
-                let (filename, lodRange) = self.selectRandomModelFilenameAndRange()
+            var modelPositions: [String: [SIMD3<Float>]] = [:]
 
-                do {
-                    // Spawn a batch of instances and add to anchor on main actor
-                    let instancedEntity = try await self.spawnInstances(
-                        count: currentBatchSize,
-                        for: filename,
-                        in: lodRange
-                    ) { _ in /* optional hook if you want to log positions */ }
+            for _ in 0..<spawnCount {
+                let (filename, lodRange) = selectRandomModelFilenameAndRange()
+                let localPos = generateValidPosition(lodRange: lodRange)
+                let worldPos = localPos + translation
+                addToGrid(position: worldPos)
+                modelPositions[filename, default: []].append(worldPos)
+            }
 
-                    self.anchor.addChild(instancedEntity)
+            let filenames = Array(modelPositions.keys)
+            for filename in filenames {
+                guard let allPositions = modelPositions[filename],
+                      let lodRange = modelFilenames.first(where: { $0.0 == filename })?.1 else { continue }
 
-                    #if DEBUG
-                    print("Batch \(batchIndex): +\(currentBatchSize) of \(filename) (lodRange: \(lodRange.lowerBound)–\(lodRange.upperBound))")
-                    #endif
-                } catch {
-                    print("Failed to spawn instances for \(filename): \(error)")
+                var remainingPositions = allPositions
+                var batchIndex = 0
+
+                while !remainingPositions.isEmpty {
+                    let currentBatchSize = min(self.batchSize, remainingPositions.count)
+                    let batchPositions = Array(remainingPositions.prefix(currentBatchSize))
+                    remainingPositions.removeFirst(currentBatchSize)
+
+                    do {
+                        let instancedEntity = try await self.spawnInstances(
+                            positions: batchPositions,
+                            for: filename,
+                            in: lodRange
+                        )
+
+                        await MainActor.run {
+                            self.anchor.addChild(instancedEntity)
+                        }
+
+                        #if DEBUG
+                        print("Batch \(batchIndex) for \(filename): +\(currentBatchSize) (lodRange: \(lodRange.lowerBound)–\(lodRange.upperBound))")
+                        #endif
+                    } catch {
+                        print("Failed to spawn instances for \(filename): \(error)")
+                    }
+
+                    batchIndex += 1
+
+                    if !remainingPositions.isEmpty {
+                        try? await Task.sleep(nanoseconds: UInt64(delayBetweenBatches * 1_000_000_000))
+                    }
                 }
 
-                remainingSpawnCount -= currentBatchSize
-                batchIndex += 1
-
-                // Respect pacing between batches (non-blocking)
-                if remainingSpawnCount > 0 {
+                // Sleep between models if more models remain
+                if filenames.last != filename {
                     try? await Task.sleep(nanoseconds: UInt64(delayBetweenBatches * 1_000_000_000))
                 }
             }
         }
     }
-	
-
+    
 
     public func removeAll() {
         cancelSpawnTimer()
-        remainingSpawnCount = 0
 
         for entities in entityPool.values {
             for entity in entities {
@@ -364,4 +371,3 @@ extension Entity {
         return nil
     }
 }
-
