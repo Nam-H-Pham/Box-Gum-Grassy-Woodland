@@ -22,10 +22,6 @@ class DistantSpawner {
     private let weights: [Float]
     private let totalWeight: Float
     
-    // Grid for spatial partitioning
-    private var grid: [SIMD2<Int>: [SIMD3<Float>]] = [:]
-    private var positionQueue: [(cell: SIMD2<Int>, position: SIMD3<Float>)] = []
-    private let gridCellSize: Float
     
     // Entity pool for reuse
     private var entityPool: [String: [Entity]] = [:]
@@ -40,7 +36,7 @@ class DistantSpawner {
          modelFilenames: [(String, ClosedRange<Float>)],
          scale: Float = 1.0,
          minimumSpacing: Float = 5.0,
-         translation: SIMD3<Float> = .zero,
+         translation: SIMD3<Float> = SIMD3<Float>(0,0,0),
          center: SIMD3<Float> = .zero,
          spawnCount: Int,
          batchSize: Int,
@@ -55,7 +51,6 @@ class DistantSpawner {
         self.spawnCount = spawnCount
         self.batchSize = batchSize
         self.delayBetweenBatches = delayBetweenBatches
-        self.gridCellSize = max(minimumSpacing, 0.001)
         
         // Precompute weights
         self.weights = modelFilenames.map { Float($0.1.upperBound - $0.1.lowerBound) }
@@ -110,9 +105,8 @@ class DistantSpawner {
         let (modelFilename, lodRange) = selectRandomModelFilenameAndRange()
         do {
             let model = try loadModel(named: modelFilename)
-            let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
+            let spawnPosition = generateRandomPosition(lodRange: lodRange) + translation
             let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition, filename: modelFilename)
-            addToGrid(position: spawnPosition)
             return entity
         } catch {
             fatalError("Failed to load model: \(modelFilename), error: \(error)")
@@ -140,15 +134,6 @@ class DistantSpawner {
         }
     }
     
-    private func generateValidPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
-        var position: SIMD3<Float>
-        var attempts = 0
-        repeat {
-            position = generateRandomPosition(lodRange: lodRange)
-            attempts += 1
-        } while (!isValidPosition(position) && attempts < 10)
-        return position
-    }
     
     private func generateRandomPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
         let angle = Float.random(in: 0...(2 * .pi))
@@ -157,101 +142,79 @@ class DistantSpawner {
         return SIMD3<Float>(radius * cosAngle, 0, radius * sinAngle)
     }
     
-    private func isValidPosition(_ position: SIMD3<Float>) -> Bool {
-        let worldPosition = position + translation
-        let baseKey = gridKey(for: worldPosition)
-
-        // Check neighboring grid cells
-        for dx in -1...1 {
-            for dz in -1...1 {
-                let key = SIMD2<Int>(baseKey.x + dx, baseKey.y + dz)
-                if let positions = grid[key] {
-                    for existingPosition in positions {
-                        let distance = simd_distance(existingPosition, worldPosition)
-                        if distance < minimumSpacing {
-                            return false
-                        }
-                    }
-                }
-            }
-        }
-        return true
-    }
     
-    private func addToGrid(position: SIMD3<Float>) {
-        if positionQueue.count >= maxPositions, let oldest = positionQueue.first {
-            positionQueue.removeFirst()
-            if var positions = grid[oldest.cell] {
-                if let index = positions.firstIndex(of: oldest.position) {
-                    positions.remove(at: index)
-                }
-                if positions.isEmpty {
-                    grid.removeValue(forKey: oldest.cell)
-                } else {
-                    grid[oldest.cell] = positions
-                }
-            }
-        }
-
-        let key = gridKey(for: position)
-        grid[key, default: []].append(position)
-        positionQueue.append((cell: key, position: position))
+    @inline(__always)
+    func yawFacing(_ center: SIMD3<Float>, from pos: SIMD3<Float>) -> Float {
+        // Direction to centre in XZ plane
+        let dx = center.x - pos.x
+        let dz = center.z - pos.z
+        // If your mesh’s “forward” is +Z (typical), use atan2(dx, dz).
+        // If it’s -Z, add .pi (see note below).
+        return atan2(dx, dz)
     }
 
-    private func gridKey(for position: SIMD3<Float>) -> SIMD2<Int> {
-        let gridX = Int(floor(position.x / gridCellSize))
-        let gridZ = Int(floor(position.z / gridCellSize))
-        return SIMD2<Int>(gridX, gridZ)
-    }
     
     @MainActor
     func spawnInstances(count: Int, for filename: String, in lodRange: ClosedRange<Float>) async throws -> ModelEntity {
-        // Load the asset; it might be a hierarchy whose root is not a ModelEntity.
-        let root: Entity = try await Entity(named: filename, in: realityKitContentBundle)
+        let root = try await Entity(named: filename, in: realityKitContentBundle)
 
-        // Find a renderable ModelEntity in the hierarchy (fallback to making a box if none found).
-        let renderable: ModelEntity = root.findRenderableModelEntity() ?? {
-            // Fallback cube so this function still returns something useful if the asset has no meshes.
+        // Get a renderable + its authored world transform
+        guard let source = root.findRenderableModelEntity(),
+              let mc = source.components[ModelComponent.self] else {
             let mesh = MeshResource.generateBox(size: 0.05)
-            let material = SimpleMaterial(color: .systemBlue, isMetallic: false)
-            return ModelEntity(mesh: mesh, materials: [material])
-        }()
+            return ModelEntity(mesh: mesh, materials: [SimpleMaterial(color: .systemBlue, isMetallic: false)])
+        }
+
+        // Fresh ModelEntity with identity local transform (we’ll compose everything into the instance matrices)
+        let renderable = ModelEntity()
+        renderable.model = mc
+
+
+        // 2) Authored Y-scale from baseWorld (handles non-uniform parent scaling)
+        let baseWorld = source.transformMatrix(relativeTo: nil)
+        @inline(__always) func axisLen(_ c: SIMD4<Float>) -> Float { simd_length(SIMD3<Float>(c.x, c.y, c.z)) }
 
         // Prepare instancing
         var mic = MeshInstancesComponent()
         let instances = try LowLevelInstanceData(instanceCount: count)
         let part = MeshInstancesComponent.Part(data: instances)
 
-        // Attach the same instance buffer to *all* mesh parts of this model.
-        if let modelComp = renderable.model {
-            let partCount = modelComp.mesh.lowLevelMesh?.parts.count ?? 1
-            for p in 0..<partCount {
-                mic[partIndex: p] = part
-            }
+        if let llm = renderable.model?.mesh.lowLevelMesh {
+            for p in 0..<llm.parts.count { mic[partIndex: p] = part }
         } else {
-            // If somehow no model component (shouldn't happen here), still set index 0 to be safe.
             mic[partIndex: 0] = part
         }
 
-        // Write per-instance transforms
+        // Fill transforms with spacing + rotation + scale + LIFT
         instances.withMutableTransforms { transforms in
             for i in 0..<count {
-                let position = generateRandomPosition(lodRange: lodRange)
-                let angle: Float = .random(in: 0..<2) * .pi
-                let scaleFactor = Float.random(in: 0.7...1.2) * self.scale
+                let basePos = generateRandomPosition(lodRange: lodRange) + self.translation
 
-                let transform = Transform(
-                    scale: SIMD3<Float>(repeating: scaleFactor),
-                    rotation: simd_quatf(angle: angle, axis: [0, 1, 0]),
-                    translation: position + translation
-                )
-                transforms[i] = transform.matrix
+                // Uniform scale keeps things safe with non-uniform authored base
+                let scl: Float = 1.0 * self.scale
+
+                // Yaw so each instance faces the centre
+                let yaw = yawFacing(self.center, from: basePos)
+
+                let rot = simd_quatf(angle: yaw, axis: SIMD3<Float>(0, 1, 0))
+
+                let t = Transform(
+                    scale: SIMD3<Float>(repeating: scl),
+                    rotation: rot,
+                    translation: basePos
+                ).matrix
+
+                // Keep authored transform first, then per-instance TRS
+                transforms[i] = baseWorld * t
             }
         }
+
 
         renderable.components.set(mic)
         return renderable
     }
+
+
 
 
     
@@ -312,8 +275,6 @@ class DistantSpawner {
             }
         }
         anchor.children.removeAll(keepCapacity: true)
-        grid.removeAll()
-        positionQueue.removeAll()
     }
 
     private func cancelSpawnTimer() {
@@ -323,17 +284,27 @@ class DistantSpawner {
     }
 }
 
+// MARK: - Find/copy a renderable while PRESERVING materials/shaders
+
 extension Entity {
-    /// Depth-first search for the first ModelEntity that actually has a ModelComponent.
+    /// Returns a ModelEntity you can render/instance.
+    /// If `self` already has a ModelComponent, we *copy* it into a new ModelEntity (or return self if it's already a ModelEntity).
     func findRenderableModelEntity() -> ModelEntity? {
-        if let me = self as? ModelEntity, me.model != nil {
+        // If this entity already is a ModelEntity and has a ModelComponent, keep it.
+        if let me = self as? ModelEntity, me.components.has(ModelComponent.self) {
             return me
         }
+        // If it has a ModelComponent but isn't a ModelEntity, copy that component into a fresh ModelEntity.
+        if let mc = self.components[ModelComponent.self] {
+            let me = ModelEntity()
+            me.model = mc            // <-- copies mesh + *all* materials (incl. ShaderGraphMaterial / CustomMaterial)
+            return me
+        }
+        // Depth-first search into children
         for child in children {
-            if let found = child.findRenderableModelEntity() {
-                return found
-            }
+            if let r = child.findRenderableModelEntity() { return r }
         }
         return nil
     }
 }
+

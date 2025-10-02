@@ -28,7 +28,6 @@ def Xform "Root"
     }
 
     def "BillboardMaterial" (
-        active = true
         prepend references = @BillboardMaterial.usda@</Material>
     )
     {

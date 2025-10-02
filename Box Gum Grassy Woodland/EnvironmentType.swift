@@ -66,8 +66,8 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 trees: loadModel(named: "Green Grasslands/New Version Assets/SceneTrees"),
                 
                 grassPatches: [
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard1.usda", 15...130),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard2.usda", 15...130)
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard1.usda", 15...100),
+                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard2.usda", 15...100)
                 ],
                 closeGrassPatches: [
                     ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard1.usda", 1...20),
@@ -78,8 +78,8 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 
                 grassScale: 1.3,
                 closeGrassScale: 1.1,
-                grassSpawnCount: 1000,
-                closeGrassSpawnCount: 300
+                grassSpawnCount: 1300,
+                closeGrassSpawnCount: 400
             )
         }
     
