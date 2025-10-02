@@ -22,6 +22,10 @@ class DistantSpawner {
     private let weights: [Float]
     private let totalWeight: Float
     
+    // Grid for spatial partitioning
+    private var grid: [SIMD2<Int>: [SIMD3<Float>]] = [:]
+    private var positionQueue: [(cell: SIMD2<Int>, position: SIMD3<Float>)] = []
+    private let gridCellSize: Float
     
     // Entity pool for reuse
     private var entityPool: [String: [Entity]] = [:]
@@ -51,6 +55,7 @@ class DistantSpawner {
         self.spawnCount = spawnCount
         self.batchSize = batchSize
         self.delayBetweenBatches = delayBetweenBatches
+        self.gridCellSize = max(minimumSpacing, 0.001)
         
         // Precompute weights
         self.weights = modelFilenames.map { Float($0.1.upperBound - $0.1.lowerBound) }
@@ -105,8 +110,9 @@ class DistantSpawner {
         let (modelFilename, lodRange) = selectRandomModelFilenameAndRange()
         do {
             let model = try loadModel(named: modelFilename)
-            let spawnPosition = generateRandomPosition(lodRange: lodRange) + translation
+            let spawnPosition = (position ?? generateValidPosition(lodRange: lodRange)) + translation
             let entity = createEntityClone(from: model, lodRange: lodRange, position: spawnPosition, filename: modelFilename)
+            addToGrid(position: spawnPosition)
             return entity
         } catch {
             fatalError("Failed to load model: \(modelFilename), error: \(error)")
@@ -134,12 +140,68 @@ class DistantSpawner {
         }
     }
     
+    private func generateValidPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
+        var position: SIMD3<Float>
+        var attempts = 0
+        repeat {
+            position = generateRandomPosition(lodRange: lodRange)
+            attempts += 1
+        } while (!isValidPosition(position) && attempts < 10)
+        return position
+    }
     
     private func generateRandomPosition(lodRange: ClosedRange<Float>) -> SIMD3<Float> {
         let angle = Float.random(in: 0...(2 * .pi))
         let radius = Float.random(in: lodRange)
         let (sinAngle, cosAngle) = (sin(angle), cos(angle)) // Compute once
         return SIMD3<Float>(radius * cosAngle, 0, radius * sinAngle)
+    }
+    
+    private func isValidPosition(_ position: SIMD3<Float>) -> Bool {
+        let worldPosition = position + translation
+        let baseKey = gridKey(for: worldPosition)
+
+        // Check neighboring grid cells
+        for dx in -1...1 {
+            for dz in -1...1 {
+                let key = SIMD2<Int>(baseKey.x + dx, baseKey.y + dz)
+                if let positions = grid[key] {
+                    for existingPosition in positions {
+                        let distance = simd_distance(existingPosition, worldPosition)
+                        if distance < minimumSpacing {
+                            return false
+                        }
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+    private func addToGrid(position: SIMD3<Float>) {
+        if positionQueue.count >= maxPositions, let oldest = positionQueue.first {
+            positionQueue.removeFirst()
+            if var positions = grid[oldest.cell] {
+                if let index = positions.firstIndex(of: oldest.position) {
+                    positions.remove(at: index)
+                }
+                if positions.isEmpty {
+                    grid.removeValue(forKey: oldest.cell)
+                } else {
+                    grid[oldest.cell] = positions
+                }
+            }
+        }
+
+        let key = gridKey(for: position)
+        grid[key, default: []].append(position)
+        positionQueue.append((cell: key, position: position))
+    }
+
+    private func gridKey(for position: SIMD3<Float>) -> SIMD2<Int> {
+        let gridX = Int(floor(position.x / gridCellSize))
+        let gridZ = Int(floor(position.z / gridCellSize))
+        return SIMD2<Int>(gridX, gridZ)
     }
     
     
@@ -155,26 +217,25 @@ class DistantSpawner {
 
     
     @MainActor
-    func spawnInstances(count: Int, for filename: String, in lodRange: ClosedRange<Float>) async throws -> ModelEntity {
+    func spawnInstances(
+        count: Int,
+        for filename: String,
+        in lodRange: ClosedRange<Float>,
+        onPositionAccepted: ((SIMD3<Float>) -> Void)? = nil
+    ) async throws -> ModelEntity {
         let root = try await Entity(named: filename, in: realityKitContentBundle)
 
-        // Get a renderable + its authored world transform
         guard let source = root.findRenderableModelEntity(),
               let mc = source.components[ModelComponent.self] else {
             let mesh = MeshResource.generateBox(size: 0.05)
             return ModelEntity(mesh: mesh, materials: [SimpleMaterial(color: .systemBlue, isMetallic: false)])
         }
 
-        // Fresh ModelEntity with identity local transform (we’ll compose everything into the instance matrices)
         let renderable = ModelEntity()
         renderable.model = mc
 
-
-        // 2) Authored Y-scale from baseWorld (handles non-uniform parent scaling)
         let baseWorld = source.transformMatrix(relativeTo: nil)
-        @inline(__always) func axisLen(_ c: SIMD4<Float>) -> Float { simd_length(SIMD3<Float>(c.x, c.y, c.z)) }
 
-        // Prepare instancing
         var mic = MeshInstancesComponent()
         let instances = try LowLevelInstanceData(instanceCount: count)
         let part = MeshInstancesComponent.Part(data: instances)
@@ -185,30 +246,25 @@ class DistantSpawner {
             mic[partIndex: 0] = part
         }
 
-        // Fill transforms with spacing + rotation + scale + LIFT
         instances.withMutableTransforms { transforms in
             for i in 0..<count {
-                let basePos = generateRandomPosition(lodRange: lodRange) + self.translation
+                let basePos = generateValidPosition(lodRange: lodRange) + self.translation
 
-                // Uniform scale keeps things safe with non-uniform authored base
-                let scl: Float = 1.0 * self.scale
-
-                // Yaw so each instance faces the centre
+                // Yaw to face center
                 let yaw = yawFacing(self.center, from: basePos)
-
                 let rot = simd_quatf(angle: yaw, axis: SIMD3<Float>(0, 1, 0))
 
-                let t = Transform(
-                    scale: SIMD3<Float>(repeating: scl),
-                    rotation: rot,
-                    translation: basePos
-                ).matrix
+                var t = Transform(rotation: rot, translation: basePos)
+                // Optional authored scale if needed:
+                // t.scale = ...
 
-                // Keep authored transform first, then per-instance TRS
-                transforms[i] = baseWorld * t
+                transforms[i] = t.matrix * baseWorld
+
+                // IMPORTANT: record each position so spacing applies across future batches
+                self.addToGrid(position: basePos)
+                onPositionAccepted?(basePos)
             }
         }
-
 
         renderable.components.set(mic)
         return renderable
@@ -217,9 +273,10 @@ class DistantSpawner {
 
 
 
+
     
     public func spawnAll(clearExisting: Bool = true) {
-        Task {
+        Task { @MainActor in
             if clearExisting {
                 removeAll()
             }
@@ -228,41 +285,39 @@ class DistantSpawner {
             remainingSpawnCount = spawnCount
             guard remainingSpawnCount > 0 else { return }
 
-            let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
-            timer.schedule(deadline: .now(), repeating: delayBetweenBatches)
-            timer.setEventHandler { [weak self] in
-                guard let self = self else { return }
-                guard self.remainingSpawnCount > 0 else {
-                    self.cancelSpawnTimer()
-                    return
+            var batchIndex = 0
+            while remainingSpawnCount > 0 {
+                let currentBatchSize = min(self.batchSize, remainingSpawnCount)
+                let (filename, lodRange) = self.selectRandomModelFilenameAndRange()
+
+                do {
+                    // Spawn a batch of instances and add to anchor on main actor
+                    let instancedEntity = try await self.spawnInstances(
+                        count: currentBatchSize,
+                        for: filename,
+                        in: lodRange
+                    ) { _ in /* optional hook if you want to log positions */ }
+
+                    self.anchor.addChild(instancedEntity)
+
+                    #if DEBUG
+                    print("Batch \(batchIndex): +\(currentBatchSize) of \(filename) (lodRange: \(lodRange.lowerBound)–\(lodRange.upperBound))")
+                    #endif
+                } catch {
+                    print("Failed to spawn instances for \(filename): \(error)")
                 }
 
-                let currentBatchSize = min(self.batchSize, self.remainingSpawnCount)
-                Task {
-                    let (filename, lodRange) = self.selectRandomModelFilenameAndRange()
+                remainingSpawnCount -= currentBatchSize
+                batchIndex += 1
 
-                    do {
-                        let instancedEntity = try await self.spawnInstances(
-                            count: currentBatchSize,
-                            for: filename,
-                            in: lodRange
-                        )
-                        await self.anchor.addChild(instancedEntity)
-                    } catch {
-                        print("Failed to spawn instances for \(filename): \(error)")
-                    }
-
-                    self.remainingSpawnCount -= currentBatchSize
-                    if self.remainingSpawnCount <= 0 {
-                        self.cancelSpawnTimer()
-                    }
+                // Respect pacing between batches (non-blocking)
+                if remainingSpawnCount > 0 {
+                    try? await Task.sleep(nanoseconds: UInt64(delayBetweenBatches * 1_000_000_000))
                 }
             }
-
-            spawnTimer = timer
-            timer.resume()
         }
     }
+	
 
 
     public func removeAll() {
@@ -275,6 +330,8 @@ class DistantSpawner {
             }
         }
         anchor.children.removeAll(keepCapacity: true)
+        grid.removeAll()
+        positionQueue.removeAll()
     }
 
     private func cancelSpawnTimer() {
