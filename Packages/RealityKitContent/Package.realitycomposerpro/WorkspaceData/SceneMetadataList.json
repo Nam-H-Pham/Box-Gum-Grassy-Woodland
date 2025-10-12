@@ -3,8 +3,7 @@
     "objectMetadataList" : [
       [
         "0045DA3C-CC36-4516-9936-B326A2BE0918",
-        "World",
-        "Material"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -12,7 +11,8 @@
       },
       [
         "0045DA3C-CC36-4516-9936-B326A2BE0918",
-        "World"
+        "World",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -36,8 +36,7 @@
     "objectMetadataList" : [
       [
         "022D3D06-238A-432C-AF72-7B7C2A8FEFA6",
-        "World",
-        "Leaves_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -45,7 +44,8 @@
       },
       [
         "022D3D06-238A-432C-AF72-7B7C2A8FEFA6",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -67,7 +67,8 @@
       },
       [
         "036B34A0-2B3C-421E-9010-9C261A36F149",
-        "Root"
+        "Root",
+        "FloorSmall"
       ],
       {
         "isExpanded" : true,
@@ -75,8 +76,7 @@
       },
       [
         "036B34A0-2B3C-421E-9010-9C261A36F149",
-        "Root",
-        "FloorSmall"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -100,6 +100,14 @@
     "objectMetadataList" : [
       [
         "04214E2A-B563-4C59-8F80-F973A8EB3A8A",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "04214E2A-B563-4C59-8F80-F973A8EB3A8A",
         "Root",
         "Tree_Bilboards"
       ],
@@ -111,14 +119,6 @@
         "04214E2A-B563-4C59-8F80-F973A8EB3A8A",
         "Root",
         "Scans"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "04214E2A-B563-4C59-8F80-F973A8EB3A8A",
-        "Root"
       ],
       {
         "isExpanded" : true,
@@ -161,7 +161,8 @@
     "objectMetadataList" : [
       [
         "082ECC00-48F8-40D2-B61B-B39A910D1D02",
-        "root"
+        "root",
+        "billboard_transparent_3"
       ],
       {
         "isExpanded" : true,
@@ -169,8 +170,7 @@
       },
       [
         "082ECC00-48F8-40D2-B61B-B39A910D1D02",
-        "root",
-        "billboard_transparent_3"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -184,6 +184,16 @@
         "0842F586-AF8F-47BC-A82E-D5CCE52B9E20",
         "Root",
         "Kangargoo_10"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0842F586-AF8F-47BC-A82E-D5CCE52B9E20",
+        "Root",
+        "Kangargoo",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -217,16 +227,6 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "0842F586-AF8F-47BC-A82E-D5CCE52B9E20",
-        "Root",
-        "Kangargoo",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
@@ -236,41 +236,11 @@
         "08BA0947-DB3C-46F6-A874-2F01413AF12E",
         "World",
         "Assets",
-        "SM_DryPlant_05",
-        "Materials"
+        "SM_DryPlant_05"
       ],
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "08BA0947-DB3C-46F6-A874-2F01413AF12E",
-        "World",
-        "Assets"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "08BA0947-DB3C-46F6-A874-2F01413AF12E",
-        "World",
-        "Assets",
-        "SM_DryPlant_00",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "08BA0947-DB3C-46F6-A874-2F01413AF12E",
-        "World",
-        "Instance_0_5_SM_DryPlant_05"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : true
       },
       [
         "08BA0947-DB3C-46F6-A874-2F01413AF12E",
@@ -295,6 +265,15 @@
       },
       [
         "08BA0947-DB3C-46F6-A874-2F01413AF12E",
+        "World",
+        "Instances"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "08BA0947-DB3C-46F6-A874-2F01413AF12E",
         "World"
       ],
       {
@@ -304,7 +283,7 @@
       [
         "08BA0947-DB3C-46F6-A874-2F01413AF12E",
         "World",
-        "Instances"
+        "Assets"
       ],
       {
         "isExpanded" : true,
@@ -323,8 +302,29 @@
       [
         "08BA0947-DB3C-46F6-A874-2F01413AF12E",
         "World",
+        "Instance_0_5_SM_DryPlant_05"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : true
+      },
+      [
+        "08BA0947-DB3C-46F6-A874-2F01413AF12E",
+        "World",
         "Assets",
-        "SM_DryPlant_05"
+        "SM_DryPlant_00",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "08BA0947-DB3C-46F6-A874-2F01413AF12E",
+        "World",
+        "Assets",
+        "SM_DryPlant_05",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -400,8 +400,7 @@
     "objectMetadataList" : [
       [
         "106711B8-C93D-45D8-A48A-B891E443F879",
-        "untitled",
-        "Material"
+        "untitled"
       ],
       {
         "isExpanded" : true,
@@ -409,7 +408,8 @@
       },
       [
         "106711B8-C93D-45D8-A48A-B891E443F879",
-        "untitled"
+        "untitled",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -447,15 +447,6 @@
     "objectMetadataList" : [
       [
         "1510E1C6-EB16-4444-9EB5-B6DC3BF1FEF9",
-        "root",
-        "_materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "1510E1C6-EB16-4444-9EB5-B6DC3BF1FEF9",
         "root"
       ],
       {
@@ -467,6 +458,15 @@
         "root",
         "_materials",
         "Grass"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "1510E1C6-EB16-4444-9EB5-B6DC3BF1FEF9",
+        "root",
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -522,6 +522,15 @@
       [
         "17E63C6A-17CF-4B11-88E3-02BC39C4D2CA",
         "Close_Trees_Trunks",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "17E63C6A-17CF-4B11-88E3-02BC39C4D2CA",
+        "Close_Trees_Trunks",
         "Geom",
         "SM_Tree_L_01"
       ],
@@ -532,15 +541,6 @@
       [
         "17E63C6A-17CF-4B11-88E3-02BC39C4D2CA",
         "Close_Trees_Trunks"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "17E63C6A-17CF-4B11-88E3-02BC39C4D2CA",
-        "Close_Trees_Trunks",
-        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -574,8 +574,7 @@
       [
         "1DF9DD42-856F-4C02-96DF-2955B41488FD",
         "Root",
-        "Sky_Dome",
-        "Looks"
+        "Sky_Dome"
       ],
       {
         "isExpanded" : true,
@@ -584,7 +583,8 @@
       [
         "1DF9DD42-856F-4C02-96DF-2955B41488FD",
         "Root",
-        "Sky_Dome"
+        "Sky_Dome",
+        "Looks"
       ],
       {
         "isExpanded" : true,
@@ -628,6 +628,16 @@
         "248ADF9B-8227-4BE7-A8FC-DD0579EE3BA6",
         "World",
         "Assets",
+        "Rytidosperma_caespitosum_2_LOD1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "248ADF9B-8227-4BE7-A8FC-DD0579EE3BA6",
+        "World",
+        "Assets",
         "Rytidosperma_caespitosum_1_LOD1"
       ],
       {
@@ -639,16 +649,6 @@
         "World",
         "Assets",
         "Rytidosperma_caespitosum_3_LOD1"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "248ADF9B-8227-4BE7-A8FC-DD0579EE3BA6",
-        "World",
-        "Assets",
-        "Rytidosperma_caespitosum_2_LOD1"
       ],
       {
         "isExpanded" : true,
@@ -791,12 +791,23 @@
       }
     ]
   },
+  "2C6411C6-1B87-4C8F-919D-B9CF0FFE49FF" : {
+    "objectMetadataList" : [
+      [
+        "2C6411C6-1B87-4C8F-919D-B9CF0FFE49FF",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "2D099CAC-5139-426C-92F8-575B35A8533E" : {
     "objectMetadataList" : [
       [
         "2D099CAC-5139-426C-92F8-575B35A8533E",
-        "root",
-        "Plane_001"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -804,7 +815,8 @@
       },
       [
         "2D099CAC-5139-426C-92F8-575B35A8533E",
-        "root"
+        "root",
+        "Plane_001"
       ],
       {
         "isExpanded" : true,
@@ -825,7 +837,8 @@
     "objectMetadataList" : [
       [
         "3076583D-A0F0-40BA-8CB7-B87F12B14090",
-        "Root"
+        "Root",
+        "grass_patch_t"
       ],
       {
         "isExpanded" : true,
@@ -833,8 +846,7 @@
       },
       [
         "3076583D-A0F0-40BA-8CB7-B87F12B14090",
-        "Root",
-        "grass_patch_t"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -887,7 +899,8 @@
     "objectMetadataList" : [
       [
         "35421EA7-C62B-4C13-BC8D-3AC6FE5241E7",
-        "root"
+        "root",
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -895,8 +908,7 @@
       },
       [
         "35421EA7-C62B-4C13-BC8D-3AC6FE5241E7",
-        "root",
-        "_materials"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -908,7 +920,8 @@
     "objectMetadataList" : [
       [
         "385DBD83-F2A4-44CF-AEAD-A7D115E5435C",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -916,8 +929,7 @@
       },
       [
         "385DBD83-F2A4-44CF-AEAD-A7D115E5435C",
-        "World",
-        "Leaves_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -965,8 +977,7 @@
     "objectMetadataList" : [
       [
         "3D522B2F-C042-4B1E-950B-69940C36DE54",
-        "Root",
-        "Sky_Dome"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -995,7 +1006,8 @@
       },
       [
         "3D522B2F-C042-4B1E-950B-69940C36DE54",
-        "Root"
+        "Root",
+        "Sky_Dome"
       ],
       {
         "isExpanded" : true,
@@ -1041,17 +1053,20 @@
       }
     ]
   },
-  "42071DD5-9384-4A0E-832C-13A546F12C6A" : {
+  "41D9F175-A13D-44EB-A358-FD89FDD048CE" : {
     "objectMetadataList" : [
       [
-        "42071DD5-9384-4A0E-832C-13A546F12C6A",
-        "Root",
-        "Timeline"
+        "41D9F175-A13D-44EB-A358-FD89FDD048CE",
+        "root"
       ],
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
+      }
+    ]
+  },
+  "42071DD5-9384-4A0E-832C-13A546F12C6A" : {
+    "objectMetadataList" : [
       [
         "42071DD5-9384-4A0E-832C-13A546F12C6A",
         "Root",
@@ -1065,6 +1080,15 @@
       [
         "42071DD5-9384-4A0E-832C-13A546F12C6A",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "42071DD5-9384-4A0E-832C-13A546F12C6A",
+        "Root",
+        "Timeline"
       ],
       {
         "isExpanded" : true,
@@ -1088,7 +1112,8 @@
     "objectMetadataList" : [
       [
         "42ABDC81-1FEA-4470-B11F-34B3025035A1",
-        "root"
+        "root",
+        "output_onlinepngtools_003"
       ],
       {
         "isExpanded" : true,
@@ -1096,8 +1121,7 @@
       },
       [
         "42ABDC81-1FEA-4470-B11F-34B3025035A1",
-        "root",
-        "output_onlinepngtools_003"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -1147,7 +1171,8 @@
     "objectMetadataList" : [
       [
         "446F2E5B-31AF-49E6-9998-FABAE93114D1",
-        "World"
+        "World",
+        "Rytidosperma_caespitosum_Mat"
       ],
       {
         "isExpanded" : true,
@@ -1155,8 +1180,7 @@
       },
       [
         "446F2E5B-31AF-49E6-9998-FABAE93114D1",
-        "World",
-        "Rytidosperma_caespitosum_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -1198,8 +1222,7 @@
     "objectMetadataList" : [
       [
         "4639A01E-400B-4B42-A4C4-F788F0AD3D2F",
-        "root",
-        "Themeda_triandra_3_LOD2"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -1207,7 +1230,8 @@
       },
       [
         "4639A01E-400B-4B42-A4C4-F788F0AD3D2F",
-        "root"
+        "root",
+        "Themeda_triandra_3_LOD2"
       ],
       {
         "isExpanded" : true,
@@ -1231,7 +1255,8 @@
     "objectMetadataList" : [
       [
         "4895848F-E807-4C4F-BFE4-413FB528ECB8",
-        "SM_DryPlant_00"
+        "SM_DryPlant_00",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -1239,8 +1264,7 @@
       },
       [
         "4895848F-E807-4C4F-BFE4-413FB528ECB8",
-        "SM_DryPlant_00",
-        "Materials"
+        "SM_DryPlant_00"
       ],
       {
         "isExpanded" : true,
@@ -1309,8 +1333,69 @@
     "objectMetadataList" : [
       [
         "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
+        "scene"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
+        "scene",
+        "Meshes",
+        "Sketchfab_model",
+        "aa43fa90b7ff47a59a32202ea26df00d_fbx",
+        "RootNode",
+        "Sketchfab_grass",
+        "clump_dry_grass_8"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
         "scene",
         "Meshes"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
+        "scene",
+        "Meshes",
+        "Sketchfab_model",
+        "aa43fa90b7ff47a59a32202ea26df00d_fbx",
+        "RootNode",
+        "Sketchfab_grass",
+        "clump_dry_grass_7",
+        "clump_dry_grass_7_M_dry_grass_0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
+        "scene",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
+        "scene",
+        "Meshes",
+        "Sketchfab_model",
+        "aa43fa90b7ff47a59a32202ea26df00d_fbx",
+        "RootNode",
+        "Sketchfab_grass",
+        "clump_dry_grass_11",
+        "clump_dry_grass_11_M_dry_grass_0"
       ],
       {
         "isExpanded" : true,
@@ -1337,8 +1422,7 @@
         "aa43fa90b7ff47a59a32202ea26df00d_fbx",
         "RootNode",
         "Sketchfab_grass",
-        "clump_dry_grass_7",
-        "clump_dry_grass_7_M_dry_grass_0"
+        "clump_dry_grass_7"
       ],
       {
         "isExpanded" : true,
@@ -1360,7 +1444,10 @@
         "Meshes",
         "Sketchfab_model",
         "aa43fa90b7ff47a59a32202ea26df00d_fbx",
-        "RootNode"
+        "RootNode",
+        "Sketchfab_grass",
+        "clump_dry_grass_8",
+        "clump_dry_grass_8_M_dry_grass_0"
       ],
       {
         "isExpanded" : true,
@@ -1368,7 +1455,13 @@
       },
       [
         "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
-        "scene"
+        "scene",
+        "Meshes",
+        "Sketchfab_model",
+        "aa43fa90b7ff47a59a32202ea26df00d_fbx",
+        "RootNode",
+        "Sketchfab_grass",
+        "clump_dry_grass_11"
       ],
       {
         "isExpanded" : true,
@@ -1380,15 +1473,6 @@
         "Meshes",
         "Sketchfab_model",
         "aa43fa90b7ff47a59a32202ea26df00d_fbx"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "4C1A4090-D2C7-40CD-AFF9-9A3CA5868A56",
-        "scene",
-        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -1410,9 +1494,7 @@
         "Meshes",
         "Sketchfab_model",
         "aa43fa90b7ff47a59a32202ea26df00d_fbx",
-        "RootNode",
-        "Sketchfab_grass",
-        "clump_dry_grass_7"
+        "RootNode"
       ],
       {
         "isExpanded" : true,
@@ -1448,8 +1530,7 @@
     "objectMetadataList" : [
       [
         "507C9850-515E-426F-946F-F96DDC698E60",
-        "Root",
-        "Timeline"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -1457,7 +1538,8 @@
       },
       [
         "507C9850-515E-426F-946F-F96DDC698E60",
-        "Root"
+        "Root",
+        "Timeline"
       ],
       {
         "isExpanded" : true,
@@ -1480,7 +1562,8 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
-        "Kangaroo_1"
+        "Kangaroo_Loop",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -1488,7 +1571,9 @@
       },
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root"
+        "Root",
+        "Timeline",
+        "Track3"
       ],
       {
         "isExpanded" : true,
@@ -1507,35 +1592,6 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
-        "Show_Trees",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Birds"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Hide_Trees",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
         "Kangaroo_Loop"
       ],
       {
@@ -1545,75 +1601,7 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
-        "Birds",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Timeline",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Trees_2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Trees_Timeline",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Kangaroo_Loop",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Trees"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Audio_Entity"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Birds",
-        "Track2"
+        "Birds"
       ],
       {
         "isExpanded" : true,
@@ -1642,7 +1630,7 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
-        "SkyCover"
+        "Audio_Entity"
       ],
       {
         "isExpanded" : true,
@@ -1651,7 +1639,16 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
-        "Timeline",
+        "Animals"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Kangaroo_1",
         "Track3"
       ],
       {
@@ -1670,46 +1667,8 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
-        "Bird_Audio"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Kangaroo_1",
-        "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Timeline",
-        "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
         "Kangaroo_1",
         "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
-        "Root",
-        "Animals"
       ],
       {
         "isExpanded" : true,
@@ -1728,8 +1687,122 @@
       [
         "51974FA8-0BD2-4197-A318-BF940CB2DA67",
         "Root",
+        "Bird_Audio"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Show_Trees",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Trees_2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Trees"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Birds",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Hide_Trees",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Trees_Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Kangaroo_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Timeline",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "Birds",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
         "Kangaroo_1",
-        "Track3"
+        "Track2"
       ],
       {
         "isExpanded" : true,
@@ -1744,21 +1817,20 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "51974FA8-0BD2-4197-A318-BF940CB2DA67",
+        "Root",
+        "SkyCover"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
   "5339E18B-4381-42CD-AF88-4C58E80F07A5" : {
     "objectMetadataList" : [
-      [
-        "5339E18B-4381-42CD-AF88-4C58E80F07A5",
-        "Root",
-        "Close_Tree_Leaves",
-        "_materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
       [
         "5339E18B-4381-42CD-AF88-4C58E80F07A5",
         "Root"
@@ -1771,7 +1843,7 @@
         "5339E18B-4381-42CD-AF88-4C58E80F07A5",
         "Root",
         "Close_Tree_Leaves",
-        "Leaves_1"
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -1791,6 +1863,16 @@
         "Root",
         "Close_Tree_Leaves",
         "Leaves_2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "5339E18B-4381-42CD-AF88-4C58E80F07A5",
+        "Root",
+        "Close_Tree_Leaves",
+        "Leaves_1"
       ],
       {
         "isExpanded" : true,
@@ -1824,8 +1906,7 @@
     "objectMetadataList" : [
       [
         "5E063200-BAE3-40E0-97B6-3B64DC5AF3B6",
-        "Root",
-        "Material"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -1833,7 +1914,8 @@
       },
       [
         "5E063200-BAE3-40E0-97B6-3B64DC5AF3B6",
-        "Root"
+        "Root",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -1887,7 +1969,8 @@
     "objectMetadataList" : [
       [
         "62D26BA8-1A0C-4544-B9D3-3DB1F31B40A9",
-        "root"
+        "root",
+        "Redgum_3_LOD0"
       ],
       {
         "isExpanded" : true,
@@ -1904,8 +1987,7 @@
       },
       [
         "62D26BA8-1A0C-4544-B9D3-3DB1F31B40A9",
-        "root",
-        "Redgum_3_LOD0"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -1930,18 +2012,7 @@
       [
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
-        "SkyDome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "64F20CC4-45C2-4A81-A998-213177F49B3A",
-        "Root",
-        "Hide_Distant_Land_1",
-        "Track"
+        "Sky_Dome"
       ],
       {
         "isExpanded" : true,
@@ -1958,9 +2029,8 @@
       [
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
-        "SkyDome",
-        "Looks",
-        "DomeMATSG"
+        "Hide_Distant_Land",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -1969,7 +2039,7 @@
       [
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
-        "Hide_Distant_Land_Instant",
+        "Hide_Distant_Land_1",
         "Track"
       ],
       {
@@ -1980,58 +2050,7 @@
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
         "Dandenong_Ranges_1",
-        "Looks",
-        "DomeMATSG"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "64F20CC4-45C2-4A81-A998-213177F49B3A",
-        "Root",
-        "Timeline",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "64F20CC4-45C2-4A81-A998-213177F49B3A",
-        "Root",
-        "SkyDome",
         "Looks"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "64F20CC4-45C2-4A81-A998-213177F49B3A",
-        "Root",
-        "Show_Distant_Land",
-        "Track3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "64F20CC4-45C2-4A81-A998-213177F49B3A",
-        "Root",
-        "Show",
-        "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "64F20CC4-45C2-4A81-A998-213177F49B3A",
-        "Root",
-        "Hide_Distant_Land",
-        "Track"
       ],
       {
         "isExpanded" : true,
@@ -2051,6 +2070,16 @@
       [
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "64F20CC4-45C2-4A81-A998-213177F49B3A",
+        "Root",
         "Hide",
         "Track"
       ],
@@ -2061,8 +2090,8 @@
       [
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
-        "Show",
-        "Track3"
+        "Hide_Distant_Land_Instant",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -2071,7 +2100,29 @@
       [
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
-        "Sky_Dome"
+        "SkyDome",
+        "Looks",
+        "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "64F20CC4-45C2-4A81-A998-213177F49B3A",
+        "Root",
+        "SkyDome",
+        "Looks"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "64F20CC4-45C2-4A81-A998-213177F49B3A",
+        "Root",
+        "Show",
+        "Track2"
       ],
       {
         "isExpanded" : true,
@@ -2081,7 +2132,28 @@
         "64F20CC4-45C2-4A81-A998-213177F49B3A",
         "Root",
         "Dandenong_Ranges_1",
-        "Looks"
+        "Looks",
+        "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "64F20CC4-45C2-4A81-A998-213177F49B3A",
+        "Root",
+        "Show_Distant_Land",
+        "Track3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "64F20CC4-45C2-4A81-A998-213177F49B3A",
+        "Root",
+        "Timeline",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -2093,6 +2165,16 @@
         "Dandenong_Ranges",
         "Looks",
         "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "64F20CC4-45C2-4A81-A998-213177F49B3A",
+        "Root",
+        "Show",
+        "Track3"
       ],
       {
         "isExpanded" : true,
@@ -2116,6 +2198,15 @@
     "objectMetadataList" : [
       [
         "662AB73F-8D9E-4E54-BACE-CA06BB001ABE",
+        "Root",
+        "Ground"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "662AB73F-8D9E-4E54-BACE-CA06BB001ABE",
         "Root"
       ],
       {
@@ -2131,15 +2222,6 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "662AB73F-8D9E-4E54-BACE-CA06BB001ABE",
-        "Root",
-        "Ground"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
@@ -2147,7 +2229,9 @@
     "objectMetadataList" : [
       [
         "694A94F2-F32C-40B5-AD6A-8BB79A8DC22A",
-        "root"
+        "root",
+        "_materials",
+        "Eucalyptus_Bark_3_Mat"
       ],
       {
         "isExpanded" : true,
@@ -2155,9 +2239,7 @@
       },
       [
         "694A94F2-F32C-40B5-AD6A-8BB79A8DC22A",
-        "root",
-        "_materials",
-        "Eucalyptus_Bark_3_Mat"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -2179,8 +2261,7 @@
     "objectMetadataList" : [
       [
         "6B070359-748A-4C70-A5C7-09C203DC8A1B",
-        "root",
-        "Ground_Material"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -2188,6 +2269,19 @@
       },
       [
         "6B070359-748A-4C70-A5C7-09C203DC8A1B",
+        "root",
+        "Ground_Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "6E0D0930-4BB3-40D6-B6D4-CCDABCC551D2" : {
+    "objectMetadataList" : [
+      [
+        "6E0D0930-4BB3-40D6-B6D4-CCDABCC551D2",
         "root"
       ],
       {
@@ -2218,12 +2312,24 @@
 
     ]
   },
+  "712EEAB0-46C2-44D7-B6EE-25285A85D873" : {
+    "objectMetadataList" : [
+      [
+        "712EEAB0-46C2-44D7-B6EE-25285A85D873",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "72898A5F-F3E2-41C0-9E3F-F47318F3E60F" : {
     "objectMetadataList" : [
       [
         "72898A5F-F3E2-41C0-9E3F-F47318F3E60F",
         "root",
-        "Ground_Material"
+        "Plane_002"
       ],
       {
         "isExpanded" : true,
@@ -2240,7 +2346,7 @@
       [
         "72898A5F-F3E2-41C0-9E3F-F47318F3E60F",
         "root",
-        "Plane_002"
+        "Ground_Material"
       ],
       {
         "isExpanded" : true,
@@ -2276,8 +2382,7 @@
     "objectMetadataList" : [
       [
         "73D36C43-612F-47A6-BA5D-1FA6287758BB",
-        "World",
-        "Leaves_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -2285,7 +2390,8 @@
       },
       [
         "73D36C43-612F-47A6-BA5D-1FA6287758BB",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -2297,17 +2403,8 @@
     "objectMetadataList" : [
       [
         "7443D511-D918-42B4-9207-539A035A74EA",
-        "Kangargoo"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "7443D511-D918-42B4-9207-539A035A74EA",
         "Kangargoo",
-        "Materials",
-        "Kangaroo___Eye___Material"
+        "Geom"
       ],
       {
         "isExpanded" : true,
@@ -2326,7 +2423,7 @@
         "7443D511-D918-42B4-9207-539A035A74EA",
         "Kangargoo",
         "Materials",
-        "Kangaroo__Body___Material"
+        "Kangaroo___Eye___Material"
       ],
       {
         "isExpanded" : true,
@@ -2335,7 +2432,16 @@
       [
         "7443D511-D918-42B4-9207-539A035A74EA",
         "Kangargoo",
-        "Geom"
+        "Materials",
+        "Kangaroo__Body___Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "7443D511-D918-42B4-9207-539A035A74EA",
+        "Kangargoo"
       ],
       {
         "isExpanded" : true,
@@ -2347,8 +2453,7 @@
     "objectMetadataList" : [
       [
         "746C7858-FB84-45F8-AFBB-16768D929733",
-        "World",
-        "Material"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -2356,7 +2461,8 @@
       },
       [
         "746C7858-FB84-45F8-AFBB-16768D929733",
-        "World"
+        "World",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -2380,15 +2486,6 @@
     "objectMetadataList" : [
       [
         "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626",
-        "Root",
-        "New_Audio_File_Group"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626",
         "SpatialAudio"
       ],
       {
@@ -2405,6 +2502,15 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "74801EB2-B9E2-4B9D-AFD2-7DC30D6B8626",
+        "Root",
+        "New_Audio_File_Group"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -2412,8 +2518,7 @@
     "objectMetadataList" : [
       [
         "757BAD60-20C5-4AF8-9F7F-37E78B450E10",
-        "Root",
-        "Sky_Dome"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -2431,7 +2536,8 @@
       },
       [
         "757BAD60-20C5-4AF8-9F7F-37E78B450E10",
-        "Root"
+        "Root",
+        "Sky_Dome"
       ],
       {
         "isExpanded" : true,
@@ -2443,7 +2549,8 @@
     "objectMetadataList" : [
       [
         "75EB2303-8122-4A7E-97E5-B37B24738C30",
-        "root"
+        "root",
+        "Plane"
       ],
       {
         "isExpanded" : true,
@@ -2451,8 +2558,7 @@
       },
       [
         "75EB2303-8122-4A7E-97E5-B37B24738C30",
-        "root",
-        "Plane"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -2465,8 +2571,7 @@
       [
         "77FA8133-DDA6-4D2A-8228-ED528F6B892F",
         "Root",
-        "grass_patch_1_5",
-        "Instance_3_6_Rytidosperma_caespitosum_3_LOD1"
+        "grass_patch_1_5"
       ],
       {
         "isExpanded" : true,
@@ -2475,7 +2580,8 @@
       [
         "77FA8133-DDA6-4D2A-8228-ED528F6B892F",
         "Root",
-        "grass_patch_1_5"
+        "grass_patch_1_5",
+        "Instance_3_6_Rytidosperma_caespitosum_3_LOD1"
       ],
       {
         "isExpanded" : true,
@@ -2521,8 +2627,7 @@
     "objectMetadataList" : [
       [
         "78E4848F-DB49-472B-BB86-996A959A464D",
-        "World",
-        "Material"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -2530,7 +2635,8 @@
       },
       [
         "78E4848F-DB49-472B-BB86-996A959A464D",
-        "World"
+        "World",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -2543,7 +2649,7 @@
       [
         "7916C67C-4C75-40A1-B74D-9856988505C2",
         "rocks_dark_low",
-        "rock_low_exp_03"
+        "rock_low_exp_01"
       ],
       {
         "isExpanded" : true,
@@ -2569,7 +2675,7 @@
       [
         "7916C67C-4C75-40A1-B74D-9856988505C2",
         "rocks_dark_low",
-        "rock_low_exp_04"
+        "rock_low_exp_03"
       ],
       {
         "isExpanded" : true,
@@ -2578,7 +2684,7 @@
       [
         "7916C67C-4C75-40A1-B74D-9856988505C2",
         "rocks_dark_low",
-        "rock_low_exp_01"
+        "rock_low_exp_04"
       ],
       {
         "isExpanded" : true,
@@ -2602,26 +2708,17 @@
     "objectMetadataList" : [
       [
         "7BD371ED-0096-430A-B7E5-FCB977CE2715",
+        "World"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "7BD371ED-0096-430A-B7E5-FCB977CE2715",
         "World",
         "Instances",
-        "Instance_25_grass_patch"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "7BD371ED-0096-430A-B7E5-FCB977CE2715",
-        "World",
-        "Instances"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "7BD371ED-0096-430A-B7E5-FCB977CE2715",
-        "World"
+        "Instance_24_grass_patch"
       ],
       {
         "isExpanded" : true,
@@ -2641,8 +2738,7 @@
       [
         "7BD371ED-0096-430A-B7E5-FCB977CE2715",
         "World",
-        "Instances",
-        "Instance_24_grass_patch"
+        "Assets"
       ],
       {
         "isExpanded" : true,
@@ -2651,7 +2747,17 @@
       [
         "7BD371ED-0096-430A-B7E5-FCB977CE2715",
         "World",
-        "Assets"
+        "Instances",
+        "Instance_25_grass_patch"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "7BD371ED-0096-430A-B7E5-FCB977CE2715",
+        "World",
+        "Instances"
       ],
       {
         "isExpanded" : true,
@@ -2723,8 +2829,7 @@
     "objectMetadataList" : [
       [
         "811050B3-7EF7-40F9-8FCF-9465319CD2CD",
-        "root",
-        "Material"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -2732,7 +2837,8 @@
       },
       [
         "811050B3-7EF7-40F9-8FCF-9465319CD2CD",
-        "root"
+        "root",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -2755,15 +2861,6 @@
       [
         "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
         "Root",
-        "Timeline"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
-        "Root",
         "SpatialAudio"
       ],
       {
@@ -2772,6 +2869,14 @@
         "selectedAudioFilePrim" : {
           "string" : "\/Root\/New_Audio_File_Group"
         }
+      },
+      [
+        "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       },
       [
         "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
@@ -2785,7 +2890,8 @@
       },
       [
         "8158ECFE-DEF7-451F-928F-31A3EA9509E5",
-        "Root"
+        "Root",
+        "Timeline"
       ],
       {
         "isExpanded" : true,
@@ -2859,8 +2965,7 @@
     "objectMetadataList" : [
       [
         "84585AB8-3ED0-4956-A553-73043BA17A52",
-        "Root",
-        "Leaves_Mat"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -2868,7 +2973,8 @@
       },
       [
         "84585AB8-3ED0-4956-A553-73043BA17A52",
-        "Root"
+        "Root",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -2888,8 +2994,7 @@
       },
       [
         "8497F827-25CE-4E1D-9E44-5FC4BD4CDB63",
-        "Root",
-        "Material"
+        "NodeGraph"
       ],
       {
         "isExpanded" : true,
@@ -2897,7 +3002,8 @@
       },
       [
         "8497F827-25CE-4E1D-9E44-5FC4BD4CDB63",
-        "NodeGraph"
+        "Root",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -2955,6 +3061,18 @@
       }
     ]
   },
+  "86F41580-BE63-4FD5-A179-9F042B4FC45D" : {
+    "objectMetadataList" : [
+      [
+        "86F41580-BE63-4FD5-A179-9F042B4FC45D",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "870EA3E4-EE47-4049-9D62-A6D7E90B3A00" : {
     "objectMetadataList" : [
       [
@@ -2992,7 +3110,8 @@
     "objectMetadataList" : [
       [
         "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
-        "root"
+        "root",
+        "Redgum_4_LOD0"
       ],
       {
         "isExpanded" : true,
@@ -3011,7 +3130,7 @@
       [
         "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
         "root",
-        "Redgum_4_LOD0"
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -3019,8 +3138,7 @@
       },
       [
         "8845BEBD-0D10-42CF-B5A1-8D6CA4F8533B",
-        "root",
-        "_materials"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -3068,7 +3186,8 @@
     "objectMetadataList" : [
       [
         "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
-        "World"
+        "World",
+        "Rytidosperma_caespitosum_Mat"
       ],
       {
         "isExpanded" : true,
@@ -3076,8 +3195,7 @@
       },
       [
         "8A94C0A2-65C7-4905-9D43-D69DB00B8CA3",
-        "World",
-        "Rytidosperma_caespitosum_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -3106,6 +3224,7 @@
     "objectMetadataList" : [
       [
         "8ADE97B2-DC83-42F9-8F6C-872D6211ECDB",
+        "Root",
         "Material"
       ],
       {
@@ -3114,7 +3233,6 @@
       },
       [
         "8ADE97B2-DC83-42F9-8F6C-872D6211ECDB",
-        "Root",
         "Material"
       ],
       {
@@ -3127,7 +3245,7 @@
     "objectMetadataList" : [
       [
         "8B001440-4A3D-4EBA-BD37-3998096A3F71",
-        "Root"
+        "Material_Bumpy"
       ],
       {
         "isExpanded" : true,
@@ -3135,7 +3253,7 @@
       },
       [
         "8B001440-4A3D-4EBA-BD37-3998096A3F71",
-        "Material_Bumpy"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -3169,7 +3287,7 @@
       [
         "8C6C4FA4-3752-44BC-BFA1-24E509048EB9",
         "Root",
-        "Timeline"
+        "Repeated_Timeline"
       ],
       {
         "isExpanded" : true,
@@ -3188,8 +3306,7 @@
       [
         "8C6C4FA4-3752-44BC-BFA1-24E509048EB9",
         "Root",
-        "Repeated_Timeline",
-        "Track"
+        "Timeline"
       ],
       {
         "isExpanded" : true,
@@ -3198,7 +3315,8 @@
       [
         "8C6C4FA4-3752-44BC-BFA1-24E509048EB9",
         "Root",
-        "Repeated_Timeline"
+        "Kangargoo",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -3225,8 +3343,7 @@
       [
         "8C6C4FA4-3752-44BC-BFA1-24E509048EB9",
         "Root",
-        "Kangargoo",
-        "Materials"
+        "Kangargoo"
       ],
       {
         "isExpanded" : true,
@@ -3235,7 +3352,8 @@
       [
         "8C6C4FA4-3752-44BC-BFA1-24E509048EB9",
         "Root",
-        "Kangargoo"
+        "Repeated_Timeline",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -3259,8 +3377,7 @@
     "objectMetadataList" : [
       [
         "91AC0ED2-2691-49CD-92C7-081AF0522880",
-        "World",
-        "Rytidosperma_caespitosum_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -3268,7 +3385,8 @@
       },
       [
         "91AC0ED2-2691-49CD-92C7-081AF0522880",
-        "World"
+        "World",
+        "Rytidosperma_caespitosum_Mat"
       ],
       {
         "isExpanded" : true,
@@ -3297,17 +3415,7 @@
     "objectMetadataList" : [
       [
         "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
-        "root",
-        "Redgum_3_LOD0"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
-        "root",
-        "_materials"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -3325,7 +3433,17 @@
       },
       [
         "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
-        "root"
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9362F25B-5B63-4970-AF9F-5AD6D8AE9798",
+        "root",
+        "Redgum_3_LOD0"
       ],
       {
         "isExpanded" : true,
@@ -3394,8 +3512,7 @@
     "objectMetadataList" : [
       [
         "984E0C43-CD31-45CE-9CE4-5EA1A7C7C6DC",
-        "World",
-        "Leaves_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -3403,7 +3520,8 @@
       },
       [
         "984E0C43-CD31-45CE-9CE4-5EA1A7C7C6DC",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -3440,7 +3558,7 @@
       [
         "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
         "Root",
-        "Hide_Sky_Cover_Instant",
+        "Show_Sky_Cover",
         "Track"
       ],
       {
@@ -3459,7 +3577,46 @@
       },
       [
         "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
+        "Root",
+        "Sky_Dome"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
+        "Root",
+        "Hide_Sky_Cover_Instant",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
+        "Root",
+        "Show",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
+        "Root",
+        "Sky_Dome",
+        "Looks"
       ],
       {
         "isExpanded" : true,
@@ -3470,15 +3627,6 @@
         "Root",
         "Hide_Sky_Cover",
         "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
-        "Root",
-        "Sky_Dome"
       ],
       {
         "isExpanded" : true,
@@ -3498,37 +3646,7 @@
       [
         "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
         "Root",
-        "Sky_Dome",
-        "Looks"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
-        "Root",
-        "Show",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
-        "Root",
         "Hide",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9C032FA3-CC42-41D9-AAC9-7FD33ED56A8A",
-        "Root",
-        "Show_Sky_Cover",
         "Track"
       ],
       {
@@ -3541,8 +3659,7 @@
     "objectMetadataList" : [
       [
         "9CD9066E-AE03-40EE-A929-5096FFBD4188",
-        "root",
-        "Plane"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -3550,7 +3667,8 @@
       },
       [
         "9CD9066E-AE03-40EE-A929-5096FFBD4188",
-        "root"
+        "root",
+        "Plane"
       ],
       {
         "isExpanded" : true,
@@ -3600,8 +3718,7 @@
     "objectMetadataList" : [
       [
         "A1DDBA9C-EEE2-4003-A38C-7F6AA66461CF",
-        "World",
-        "Material"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -3609,7 +3726,8 @@
       },
       [
         "A1DDBA9C-EEE2-4003-A38C-7F6AA66461CF",
-        "World"
+        "World",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -3648,6 +3766,17 @@
         "A3C3A465-878D-40CE-9967-9150EAE82354",
         "Root",
         "Sky_Dome",
+        "Looks",
+        "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "A3C3A465-878D-40CE-9967-9150EAE82354",
+        "Root",
+        "Sky_Dome",
         "Looks"
       ],
       {
@@ -3658,17 +3787,6 @@
         "A3C3A465-878D-40CE-9967-9150EAE82354",
         "Root",
         "Sky_Dome"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "A3C3A465-878D-40CE-9967-9150EAE82354",
-        "Root",
-        "Sky_Dome",
-        "Looks",
-        "DomeMATSG"
       ],
       {
         "isExpanded" : true,
@@ -3714,7 +3832,8 @@
       [
         "A55F2D6F-DAFD-45CC-976B-0F2FA9EF9459",
         "Root",
-        "Timeline"
+        "Timeline",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -3723,8 +3842,7 @@
       [
         "A55F2D6F-DAFD-45CC-976B-0F2FA9EF9459",
         "Root",
-        "Timeline",
-        "Track"
+        "Timeline"
       ],
       {
         "isExpanded" : true,
@@ -3748,7 +3866,8 @@
       [
         "A68B6DF5-295B-4944-9148-D0A4BCD16D55",
         "Close_Trees_Trunks",
-        "Geom"
+        "Geom",
+        "SM_Tree_L_01"
       ],
       {
         "isExpanded" : true,
@@ -3757,8 +3876,7 @@
       [
         "A68B6DF5-295B-4944-9148-D0A4BCD16D55",
         "Close_Trees_Trunks",
-        "Geom",
-        "SM_Tree_L_01"
+        "Geom"
       ],
       {
         "isExpanded" : true,
@@ -3900,6 +4018,18 @@
       }
     ]
   },
+  "AFEB64F3-F6F2-4B0E-813E-E48F2028C66F" : {
+    "objectMetadataList" : [
+      [
+        "AFEB64F3-F6F2-4B0E-813E-E48F2028C66F",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "B0706351-D3FA-45D6-898A-17B11A1F2CB1" : {
     "objectMetadataList" : [
       [
@@ -3949,7 +4079,8 @@
     "objectMetadataList" : [
       [
         "B3EF3A93-B6D6-4453-9860-4EDB41B56BF6",
-        "Root"
+        "Root",
+        "BillboardMaterial"
       ],
       {
         "isExpanded" : true,
@@ -3957,8 +4088,7 @@
       },
       [
         "B3EF3A93-B6D6-4453-9860-4EDB41B56BF6",
-        "Root",
-        "BillboardMaterial"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -3970,7 +4100,8 @@
     "objectMetadataList" : [
       [
         "B5EF102F-CBB7-431F-9F89-69F0CDA07530",
-        "root"
+        "root",
+        "output_onlinepngtools_003"
       ],
       {
         "isExpanded" : true,
@@ -3978,8 +4109,7 @@
       },
       [
         "B5EF102F-CBB7-431F-9F89-69F0CDA07530",
-        "root",
-        "output_onlinepngtools_003"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -4012,8 +4142,7 @@
     "objectMetadataList" : [
       [
         "B72B7AC5-91ED-4622-AD63-879B70021188",
-        "Material",
-        "nodegraph"
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -4021,7 +4150,8 @@
       },
       [
         "B72B7AC5-91ED-4622-AD63-879B70021188",
-        "Material"
+        "Material",
+        "nodegraph"
       ],
       {
         "isExpanded" : true,
@@ -4083,8 +4213,7 @@
     "objectMetadataList" : [
       [
         "BE3C6DBF-068E-4A4C-990D-33D0E62E1A12",
-        "World",
-        "Instance_8_6_SM_DryPlant_01"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -4111,7 +4240,8 @@
       },
       [
         "BE3C6DBF-068E-4A4C-990D-33D0E62E1A12",
-        "World"
+        "World",
+        "Instance_8_6_SM_DryPlant_01"
       ],
       {
         "isExpanded" : true,
@@ -4168,7 +4298,8 @@
     "objectMetadataList" : [
       [
         "BF7B8A3A-AF4C-49F4-937A-44F8C51C783C",
-        "root"
+        "root",
+        "Plane"
       ],
       {
         "isExpanded" : true,
@@ -4176,8 +4307,7 @@
       },
       [
         "BF7B8A3A-AF4C-49F4-937A-44F8C51C783C",
-        "root",
-        "Plane"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -4237,6 +4367,14 @@
     "objectMetadataList" : [
       [
         "C3E2A7B9-72AF-44CA-98CD-3C3AE15D7A95",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C3E2A7B9-72AF-44CA-98CD-3C3AE15D7A95",
         "Root",
         "Sky_Dome",
         "Looks",
@@ -4264,14 +4402,6 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "C3E2A7B9-72AF-44CA-98CD-3C3AE15D7A95",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
@@ -4280,296 +4410,8 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "SkyDome",
-        "Grid"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Eucalyptus_Albens_1_LOD0",
-        "SkyDome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sphere",
-        "DefaultMaterial"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Landscape_Dome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Timeline",
-        "Track3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SkySphere"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Ground_Scene",
-        "GroundTex"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Branches",
-        "Branch3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Birds",
-        "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Ground_Scene",
-        "Material_Bumpy"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Kangaroo_1"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Kangaroo_1",
-        "Track3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Ground_Scene",
-        "GroundTex",
-        "_materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SkyDome",
-        "Dome_01"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Audio",
-        "AmbientAudio"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/Scope\/Fan_Tailed_Cuckoo_mp3"
-        }
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Show",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SkyDome",
-        "Ground_01"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SkyDome",
-        "Looks",
-        "DomeMATSG"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Video_Dock"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Timeline",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
         "Ground",
         "Material"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Looping_Birds"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Landscape_Dome",
-        "Looks",
-        "DomeMATSG"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Branches",
-        "Branch1"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SkyDome",
-        "Looks",
-        "GroundMATSG"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Branches",
-        "Branch1",
-        "Branch1"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Branches",
-        "Branch3",
-        "Branch3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Looping_Birds",
-        "Track"
       ],
       {
         "isExpanded" : true,
@@ -4589,99 +4431,8 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Kangaroo_Loop",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Branches",
-        "Branch2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Kangaroo_Loop"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SkyDome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "SpatialAudio"
-      ],
-      {
-        "isExpanded" : false,
-        "isLocked" : false,
-        "selectedAudioFilePrim" : {
-          "string" : "\/Root\/New_Audio_File_Group"
-        }
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Cube",
-        "DefaultMaterial"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sphere",
-        "SkyBox"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Birds",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Kangaroo_1",
-        "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Landscape_Dome",
-        "Dome_01"
+        "SkyDome",
+        "Grid"
       ],
       {
         "disallowsFraming" : false,
@@ -4691,7 +4442,67 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Branches"
+        "Landscape_Dome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Looping_Birds"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Looping_Birds",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome",
+        "Looks",
+        "GroundMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Ground_Scene",
+        "GroundTex",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Timeline",
+        "Track3"
       ],
       {
         "isExpanded" : true,
@@ -4711,8 +4522,77 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Kangaroo_1",
+        "SkyDome",
+        "Ground_01"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Kangaroo_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Birds",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Timeline",
         "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Branches",
+        "Branch1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sphere",
+        "SkyBox"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkySphere"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Kangaroo_Loop"
       ],
       {
         "isExpanded" : true,
@@ -4726,11 +4606,270 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Branches",
+        "Branch3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Landscape_Dome",
+        "Looks",
+        "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Kangaroo_1",
+        "Track3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sphere",
+        "DefaultMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome",
+        "Dome_01"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Birds",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Landscape_Dome",
+        "Dome_01"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Branches",
+        "Branch3",
+        "Branch3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Eucalyptus_Albens_1_LOD0",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Branches"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Branches",
+        "Branch2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Audio",
+        "AmbientAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/Scope\/Fan_Tailed_Cuckoo_mp3"
+        }
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Kangaroo_1",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Branches",
+        "Branch1",
+        "Branch1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Cube",
+        "DefaultMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Kangaroo_Loop",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Show",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Video_Dock"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Kangaroo_1",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SpatialAudio"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/New_Audio_File_Group"
+        }
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "SkyDome",
+        "Looks",
+        "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Ground_Scene",
+        "GroundTex"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Ground_Scene",
+        "Material_Bumpy"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
   "C7996E6C-F0CD-4080-AB91-CC34E7577CE5" : {
     "objectMetadataList" : [
+      [
+        "C7996E6C-F0CD-4080-AB91-CC34E7577CE5",
+        "root",
+        "Redgum_Large_LOD2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "C7996E6C-F0CD-4080-AB91-CC34E7577CE5",
         "root"
@@ -4743,15 +4882,6 @@
         "C7996E6C-F0CD-4080-AB91-CC34E7577CE5",
         "root",
         "_materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C7996E6C-F0CD-4080-AB91-CC34E7577CE5",
-        "root",
-        "Redgum_Large_LOD2"
       ],
       {
         "isExpanded" : true,
@@ -4809,7 +4939,8 @@
     "objectMetadataList" : [
       [
         "CBEEC9D6-9DA0-4080-8477-8DE9C0ABD468",
-        "root"
+        "root",
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -4817,8 +4948,7 @@
       },
       [
         "CBEEC9D6-9DA0-4080-8477-8DE9C0ABD468",
-        "root",
-        "_materials"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -4840,8 +4970,29 @@
       [
         "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
         "Root",
-        "Billboard_Uluru",
-        "BillboardMaterial"
+        "Dandenong_Ranges",
+        "Looks",
+        "DomeMATSG"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
+        "Root",
+        "GrassBillboards",
+        "Plane"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
+        "Root",
+        "Dandenong_Ranges",
+        "Looks"
       ],
       {
         "isExpanded" : true,
@@ -4860,7 +5011,7 @@
       [
         "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
         "Root",
-        "Dandenong_Ranges",
+        "Sky_Dome",
         "Looks",
         "DomeMATSG"
       ],
@@ -4871,17 +5022,8 @@
       [
         "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
         "Root",
-        "Sky_Dome"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
-        "Root",
-        "Dandenong_Ranges",
-        "Looks"
+        "Billboard_Uluru",
+        "BillboardMaterial"
       ],
       {
         "isExpanded" : true,
@@ -4898,19 +5040,7 @@
       [
         "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
         "Root",
-        "Sky_Dome",
-        "Looks",
-        "DomeMATSG"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "CD79FC1C-2746-46A8-B9E1-CD8EF95615BE",
-        "Root",
-        "GrassBillboards",
-        "Plane"
+        "Sky_Dome"
       ],
       {
         "isExpanded" : true,
@@ -5102,8 +5232,7 @@
     "objectMetadataList" : [
       [
         "DD4C1693-C5B7-4958-A65E-C504F1CEC451",
-        "World",
-        "Leaves_Mat"
+        "World"
       ],
       {
         "isExpanded" : true,
@@ -5111,7 +5240,8 @@
       },
       [
         "DD4C1693-C5B7-4958-A65E-C504F1CEC451",
-        "World"
+        "World",
+        "Leaves_Mat"
       ],
       {
         "isExpanded" : true,
@@ -5262,8 +5392,7 @@
     "objectMetadataList" : [
       [
         "E4730617-4782-4659-B93A-13A013636F82",
-        "root",
-        "Redgum_2_LOD0"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -5271,7 +5400,8 @@
       },
       [
         "E4730617-4782-4659-B93A-13A013636F82",
-        "root"
+        "root",
+        "Redgum_2_LOD0"
       ],
       {
         "isExpanded" : true,
@@ -5294,16 +5424,6 @@
       [
         "E5130631-A446-4E24-A354-D72F62F0C764",
         "Trees_1",
-        "Timeline",
-        "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "E5130631-A446-4E24-A354-D72F62F0C764",
-        "Trees_1",
         "Timeline"
       ],
       {
@@ -5321,7 +5441,7 @@
       [
         "E5130631-A446-4E24-A354-D72F62F0C764",
         "Trees_1",
-        "Show_Trees",
+        "Timeline",
         "Track2"
       ],
       {
@@ -5337,6 +5457,16 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "E5130631-A446-4E24-A354-D72F62F0C764",
+        "Trees_1",
+        "Show_Trees",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -5344,25 +5474,9 @@
     "objectMetadataList" : [
       [
         "E8B81196-561D-49E7-A74D-8BFA791648B3",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "E8B81196-561D-49E7-A74D-8BFA791648B3",
         "Root",
-        "Plane4"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "E8B81196-561D-49E7-A74D-8BFA791648B3",
-        "Root",
-        "Plane2"
+        "Plane3",
+        "Ground_Material"
       ],
       {
         "isExpanded" : true,
@@ -5380,8 +5494,15 @@
       [
         "E8B81196-561D-49E7-A74D-8BFA791648B3",
         "Root",
-        "Plane3",
-        "Ground_Material"
+        "Plane4"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E8B81196-561D-49E7-A74D-8BFA791648B3",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -5399,7 +5520,28 @@
       [
         "E8B81196-561D-49E7-A74D-8BFA791648B3",
         "Root",
+        "Plane2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E8B81196-561D-49E7-A74D-8BFA791648B3",
+        "Root",
         "Plane3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "E96AB388-68C4-4EB8-8008-A9519033EA82" : {
+    "objectMetadataList" : [
+      [
+        "E96AB388-68C4-4EB8-8008-A9519033EA82",
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -5471,7 +5613,27 @@
       [
         "F0E29002-67D0-45F1-83AD-45A0844A070C",
         "Root",
-        "Scans"
+        "Birds"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Birds",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Kangaroo_1",
+        "Track2"
       ],
       {
         "isExpanded" : true,
@@ -5481,6 +5643,69 @@
         "F0E29002-67D0-45F1-83AD-45A0844A070C",
         "Root",
         "Falling_Leaves"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Ground_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Scans"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Animals"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Kangaroo_Loop"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Kangaroo_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F0E29002-67D0-45F1-83AD-45A0844A070C",
+        "Root",
+        "Kangaroo_Loop",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -5499,16 +5724,8 @@
       [
         "F0E29002-67D0-45F1-83AD-45A0844A070C",
         "Root",
-        "Ground_1",
-        "Ground"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "F0E29002-67D0-45F1-83AD-45A0844A070C",
-        "Root"
+        "Kangaroo_1",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -5517,7 +5734,8 @@
       [
         "F0E29002-67D0-45F1-83AD-45A0844A070C",
         "Root",
-        "Ground_1"
+        "Ground_1",
+        "Ground"
       ],
       {
         "isExpanded" : true,
@@ -5545,6 +5763,18 @@
   "F3C02352-3706-4465-B4EB-19E51716F5DB" : {
     "objectMetadataList" : [
 
+    ]
+  },
+  "F7FDDA78-78E1-40D2-BE85-E02A3FF94C22" : {
+    "objectMetadataList" : [
+      [
+        "F7FDDA78-78E1-40D2-BE85-E02A3FF94C22",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
     ]
   },
   "F86A1AE9-43FF-46FD-95E0-9A82852CA51B" : {
@@ -5583,18 +5813,75 @@
       }
     ]
   },
-  "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E" : {
+  "F948380F-5163-439C-BA85-827F120A79B6" : {
     "objectMetadataList" : [
       [
-        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
-        "Eucalyptus_Albens",
-        "Materials",
-        "Leaves_Mat"
+        "F948380F-5163-439C-BA85-827F120A79B6",
+        "Kangargoo",
+        "Geom",
+        "kangaroo_Main_ctrl"
       ],
       {
         "isExpanded" : true,
         "isLocked" : false
       },
+      [
+        "F948380F-5163-439C-BA85-827F120A79B6",
+        "Kangargoo",
+        "Geom",
+        "kangaroo_Main_ctrl",
+        "kangaroo_COM_ctrl"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F948380F-5163-439C-BA85-827F120A79B6",
+        "Kangargoo",
+        "Geom",
+        "kangaroo_Main_ctrl",
+        "kangaroo_COM_ctrl",
+        "Armature",
+        "Kangaroo_Pelvis_bone_123"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F948380F-5163-439C-BA85-827F120A79B6",
+        "Kangargoo",
+        "Geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F948380F-5163-439C-BA85-827F120A79B6",
+        "Kangargoo",
+        "Geom",
+        "kangaroo_Main_ctrl",
+        "kangaroo_COM_ctrl",
+        "Armature"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F948380F-5163-439C-BA85-827F120A79B6",
+        "Kangargoo"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E" : {
+    "objectMetadataList" : [
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
         "Eucalyptus_Albens",
@@ -5607,9 +5894,7 @@
       },
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
-        "Eucalyptus_Albens",
-        "Materials",
-        "Bark_Mat"
+        "Eucalyptus_Albens"
       ],
       {
         "isExpanded" : true,
@@ -5627,6 +5912,16 @@
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
         "Eucalyptus_Albens",
+        "Materials",
+        "Leaves_Mat"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
+        "Eucalyptus_Albens",
         "Materials"
       ],
       {
@@ -5635,7 +5930,9 @@
       },
       [
         "FA2239FA-3AF5-4C43-AEE7-0F6856A5991E",
-        "Eucalyptus_Albens"
+        "Eucalyptus_Albens",
+        "Materials",
+        "Bark_Mat"
       ],
       {
         "isExpanded" : true,
@@ -5645,6 +5942,15 @@
   },
   "FA2509F8-87DA-4108-8ACE-667BE540D850" : {
     "objectMetadataList" : [
+      [
+        "FA2509F8-87DA-4108-8ACE-667BE540D850",
+        "root",
+        "Leaves_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "FA2509F8-87DA-4108-8ACE-667BE540D850",
         "root",
@@ -5666,15 +5972,6 @@
       [
         "FA2509F8-87DA-4108-8ACE-667BE540D850",
         "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FA2509F8-87DA-4108-8ACE-667BE540D850",
-        "root",
-        "Leaves_1"
       ],
       {
         "isExpanded" : true,
@@ -5705,7 +6002,10 @@
       },
       [
         "FB51775D-F681-484D-B0AB-8FA1EB135EE2",
-        "Root"
+        "Root",
+        "Sky_Dome",
+        "Looks",
+        "DomeMATSG"
       ],
       {
         "isExpanded" : true,
@@ -5713,10 +6013,7 @@
       },
       [
         "FB51775D-F681-484D-B0AB-8FA1EB135EE2",
-        "Root",
-        "Sky_Dome",
-        "Looks",
-        "DomeMATSG"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -5769,26 +6066,9 @@
     "objectMetadataList" : [
       [
         "FE04C384-9C98-4052-A50B-968F29D01068",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FE04C384-9C98-4052-A50B-968F29D01068",
         "root",
-        "Redgum_2_LOD0"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FE04C384-9C98-4052-A50B-968F29D01068",
-        "root",
-        "_materials",
-        "Eucalyptus_Bark_3_Mat_001"
+        "Redgum_2_LOD0",
+        "LOD0_001"
       ],
       {
         "isExpanded" : true,
@@ -5806,8 +6086,25 @@
       [
         "FE04C384-9C98-4052-A50B-968F29D01068",
         "root",
-        "Redgum_2_LOD0",
-        "LOD0_001"
+        "_materials",
+        "Eucalyptus_Bark_3_Mat_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE04C384-9C98-4052-A50B-968F29D01068",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE04C384-9C98-4052-A50B-968F29D01068",
+        "root",
+        "Redgum_2_LOD0"
       ],
       {
         "isExpanded" : true,

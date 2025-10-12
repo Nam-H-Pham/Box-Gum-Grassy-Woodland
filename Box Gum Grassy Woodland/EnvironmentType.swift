@@ -12,7 +12,6 @@ struct EnvironmentConfiguration {
     
     var grassPatches: [(path: String, range: ClosedRange<Int>)]
     var closeGrassPatches: [(path: String, range: ClosedRange<Int>)]
-    var nearbyGrass: [String]
     
     var grassScale: Float
     var closeGrassScale: Float
@@ -38,24 +37,18 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                 
                 grassPatches: [
                     ("Desert/Grass/Billboards/GrassLargeGroup1", 15...120),
-                    ("Desert/Grass/Billboards/GrassLargeGroup2", 15...120),
-                    ("Desert/Grass/Billboards/GrassLargeGroup3", 15...120)
+                    ("Desert/Grass/Billboards/GrassLargeGroup3", 15...120),
+                    ("Desert/Grass/Billboards/Grass2", 5...15),
                 ],
                 closeGrassPatches: [
+                    ("Desert/Grass/models/Grass/Dry_grass.usdc", 0...30),
                     ("Desert/Grass/Billboards/Grass1", 5...15),
-                    ("Desert/Grass/Billboards/Grass2", 5...15),
-                    ("Desert/Grass/Billboards/Grass3", 5...15)
-                ],
-                nearbyGrass: [
-                    "Desert/Grass/3.75_0.8_ring",
-//                    "Desert/Grass/7.5_1.6_ring",
-//                    "Desert/Grass/15.0_3.2.usda"
                 ],
                 
                 grassScale: 1.3,
                 closeGrassScale: 1,
-                grassSpawnCount: 700,
-                closeGrassSpawnCount: 200
+                grassSpawnCount: 2000,
+                closeGrassSpawnCount: 1000
             )
             
         case .grassyWoodland:
@@ -70,16 +63,22 @@ enum EnvironmentType: String, CaseIterable, Identifiable {
                     ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupLargeBillboard2.usda", 15...100)
                 ],
                 closeGrassPatches: [
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard1.usda", 1...20),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard2.usda", 1...20),
-                    ("Green Grasslands/New Version Assets/Grass/Billboards/GrassGroupBillboard3.usda", 1...20)
+                    ("Green Grasslands/New Version Assets/Grass/Rytidosperma caespitosum/Rytidosperma_caespitosum_1_LOD1.usdc", 0...20),
+                    ("Green Grasslands/New Version Assets/Grass/Rytidosperma caespitosum/Rytidosperma_caespitosum_2_LOD1.usdc", 0...20),
+                    ("Green Grasslands/New Version Assets/Grass/Rytidosperma caespitosum/Rytidosperma_caespitosum_3_LOD1.usdc", 0...20),
+                    ("Green Grasslands/New Version Assets/Grass/Rytidosperma caespitosum/Rytidosperma_caespitosum_4_LOD1.usdc", 0...20),
+                    
+                    ("Green Grasslands/New Version Assets/Grass/Themeda Triandra/Themeda_triandra_1_LOD1", 0...20),
+                    ("Green Grasslands/New Version Assets/Grass/Themeda Triandra/Themeda_triandra_2_LOD1", 0...20),
+                    ("Green Grasslands/New Version Assets/Grass/Themeda Triandra/Themeda_triandra_3_LOD1", 0...20),
+                    ("Green Grasslands/New Version Assets/Grass/Themeda Triandra/Themeda_triandra_4_LOD1", 0...20),
+
                 ],
-                nearbyGrass: ["Green Grasslands/New Version Assets/Grass/GrassRing_0.5"],
                 
                 grassScale: 1.3,
                 closeGrassScale: 1.1,
-                grassSpawnCount: 2300,
-                closeGrassSpawnCount: 400
+                grassSpawnCount: 1800,
+                closeGrassSpawnCount: 1500
             )
         }
     

@@ -38,7 +38,7 @@ class DistantSpawner {
     init(anchor: AnchorEntity,
          modelFilenames: [(String, ClosedRange<Float>)],
          scale: Float = 1.0,
-         minimumSpacing: Float = 5.0,
+         minimumSpacing: Float = 0.5,
          translation: SIMD3<Float> = SIMD3<Float>(0,0,0),
          center: SIMD3<Float> = .zero,
          spawnCount: Int,

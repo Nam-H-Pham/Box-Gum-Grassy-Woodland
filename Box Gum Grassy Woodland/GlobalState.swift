@@ -20,7 +20,6 @@ class GlobalState: ObservableObject {
 
     @Published var grassPatchSpawner: DistantSpawner!
     @Published var grassClosePatchSpawner: DistantSpawner!
-    @Published var nearbyGrass: BasicSpawner!
     
     @Published var environmentType: EnvironmentType!
 
@@ -51,13 +50,6 @@ class GlobalState: ObservableObject {
             scale: configuration.closeGrassScale,
             spawnCount: configuration.closeGrassSpawnCount,
             batchSize: 400
-        )
-
-
-        nearbyGrass = BasicSpawner(
-            anchor: AnchorEntity(world: [0, 0, 0]),
-            modelFilenames: configuration.nearbyGrass.map { ($0) },
-            delayBetweenSpawn: 1
         )
     }
 

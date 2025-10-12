@@ -92,7 +92,7 @@ def Xform "Root"
             def RealityKitAction "Orbit"
             {
                 string actionKind = "orbit"
-                float3 axis = (0, 0.96296674, 0.26962015)
+                float3 axis = (0, 2, 0.3)
                 int blendLayer = 300
                 double duration = 30
                 uniform token info:id = "89CEFF2F-96E2-4247-8054-553FCF9D951A"
@@ -221,7 +221,7 @@ def Xform "Root"
                 int blendLayer = 500
                 double duration = 4.6842585836779405
                 uniform token info:id = "24AD5B12-BBD1-43A8-A7A7-07CF7535793B"
-                double loopCount = 5
+                double loopCount = 0
                 bool separateAnimatedValue = 1
                 double startTime = 17.39629543211302
                 rel target = </Root/Animals/Kangaroo>
@@ -246,7 +246,7 @@ def Xform "Root"
             {
                 string actionKind = "timeline"
                 int blendLayer = 1000
-                double duration = 41.409328572058435
+                double duration = inf
                 uniform token info:id = "250E2AFF-476F-45FF-84DB-94633F22326E"
                 double loopCount = 1
                 double startTime = 0

@@ -38,7 +38,6 @@ struct ImmersiveView: View {
 
         }
         .onAppear {
-            globalState.nearbyGrass.spawnAll()
             globalState.grassPatchSpawner.spawnAll()
             globalState.grassClosePatchSpawner.spawnAll()
         }
@@ -84,7 +83,6 @@ struct ImmersiveView: View {
         let anchors = [
             globalState.grassPatchSpawner.getAnchor(),
             globalState.grassClosePatchSpawner.getAnchor(),
-            globalState.nearbyGrass.getAnchor(),
         ]
 
         anchors.forEach { anchor in
